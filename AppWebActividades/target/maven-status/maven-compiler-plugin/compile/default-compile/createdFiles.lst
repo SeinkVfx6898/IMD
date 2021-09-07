@@ -1,0 +1,8 @@
+com\arelance\empresa\modelo\LoginAction.class
+com\arelance\empresa\controller\IndexController.class
+com\arelance\empresa\controller\MainController.class
+com\arelance\empresa\appwebactividades\resources\JavaEE8Resource.class
+com\arelance\empresa\appwebactividades\JAXRSConfiguration.class
+com\arelance\empresa\modelo\IndexAction.class
+com\arelance\empresa\modelo\VolverAction.class
+com\arelance\empresa\modelo\Command.class
