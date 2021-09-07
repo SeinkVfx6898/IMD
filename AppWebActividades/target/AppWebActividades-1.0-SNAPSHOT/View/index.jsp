@@ -9,10 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="description" content="Página de inscripción a las actividades deportivas mas emocionantes">
-        <meta name="author" content="Manuel Fernández & Agustín Rodríguez">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <%@include file="./metas.jspf" %>
         <title>Página principal</title>
     </head>
     <body>
