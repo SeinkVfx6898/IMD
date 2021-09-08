@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.arelance.empresa.imd.view;
+package com.arelance.empresa.imd.modelo;
 
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
@@ -13,17 +13,15 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lenovo
  */
-public class LoginAction implements Command {
+public class VolverAction implements Command{
 
     @Override
-    public void execute(HttpServletRequest request, HttpServletResponse response){
+    public void execute(HttpServletRequest request, HttpServletResponse response) {
     try {
-      Navigation.login(request, response);
+        Navigation.index(request, response);
     } catch (IOException ex) {
-        ex.getMessage();
+      ex.getMessage();
     }
     }
-
-   
     
 }

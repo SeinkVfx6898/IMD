@@ -26,19 +26,18 @@
             <form action="MainController?action=DatosLogin">
                 <div class="form-group">
                     <label for="text">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Salvador" name="nick">
+                    <input type="text" class="form-control" id="nombre" placeholder="Salvador" name="nombre" maxlength="30">
                 </div>
                 <div class="form-group">
                     <label for="text">Apellido:</label>
-                    <input type="text" class="form-control" id="apellido" placeholder="González" name="apellido">
+                    <input type="text" class="form-control" id="apellido" placeholder="González" name="apellido" maxlength="30">
                 </div>
                 <div class="form-group">
                     <label for="tlf">Teléfono:</label>
-                    <input type="tlf" class="form-control" id="tlf" placeholder="+34744629902" name="tlf">
+                    <input type="tlf" class="form-control" id="tlf" placeholder="+34744629902"pattern="[0-9]{9}" name="tlf">
                 </div>
                 <button type="submit" class="btn btn-secondary">Siguiente</button>
                 <input type="submit"class="btn btn-secondary"name="action" value="Volver" formaction="../MainController?action=Volver">
-
             </form>
     </body>
 </html>

@@ -1,4 +1,4 @@
-package com.arelance.empresa.imdresources;
+package com.arelance.empresa.imd.resources;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

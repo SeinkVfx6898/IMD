@@ -20,10 +20,10 @@ import java.util.List;
  * @author Manuel
  */
 public class ActividadDAOImpl implements IActividadDao{
-
+    
     @Override
     public List<Actividad> obtener() {
-        ResultSet rs=null;
+        ResultSet rs;
 
         String sql="SELECT id_actividad, nombre, descripción, entrenador, precio, dia_semana, hora_inicio, hora_fin FROM actividad";
 

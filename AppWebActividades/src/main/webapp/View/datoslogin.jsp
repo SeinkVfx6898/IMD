@@ -34,11 +34,11 @@
                 </div>
                 <div class="form-group">
                     <label for="pwd">Contraseña:</label>
-                    <input type="password" class="form-control" id="pwd" placeholder="SalvSolo1234" name="pswd" maxlength="15">
+                    <input type="password" class="form-control" id="pwd" placeholder="SalvSolo1234" name="pswd" maxlength="20">
                 </div>
                 <div class="form-group">
                     <label for="pwd">Confirmar contraseña:</label>
-                    <input type="password" class="form-control" id="pwd" placeholder="SalvSolo1234" name="pswd" maxlength="15">
+                    <input type="password" class="form-control" id="pwd" placeholder="SalvSolo1234" name="pswd" maxlength="20">
                 </div>
                 <button type="submit" class="btn btn-secondary">Siguiente</button>
                 <input type="submit"class="btn btn-secondary"name="action" value="Volver" formaction="../MainController?action=Volver">

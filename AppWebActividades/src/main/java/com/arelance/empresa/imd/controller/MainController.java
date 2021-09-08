@@ -6,10 +6,10 @@
  */
 package com.arelance.empresa.imd.controller;
 
-import com.arelance.empresa.imd.view.Command;
-import com.arelance.empresa.imd.view.VolverAction;
-import com.arelance.empresa.imd.view.LoginAction;
-import com.arelance.empresa.imd.view.RegistroAction;
+import com.arelance.empresa.imd.modelo.Command;
+import com.arelance.empresa.imd.modelo.VolverAction;
+import com.arelance.empresa.imd.modelo.LoginAction;
+import com.arelance.empresa.imd.modelo.RegistroAction;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
