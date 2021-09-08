@@ -20,8 +20,12 @@ body{
 }
 
 #myInput { 
+    text-align:center;
+    margin:0 auto;
     margin-bottom:20px;
-  
+    text-align: center;
+  width: 500px;
+  height: auto;
 }
 #myUL {
     list-style-type: none;
