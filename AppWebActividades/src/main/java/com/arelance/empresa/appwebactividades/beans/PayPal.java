@@ -10,7 +10,6 @@ package com.arelance.empresa.appwebactividades.beans;
  * @author Manuel
  */
 public class PayPal {
-//    id_paypal, email, password, MetodoPago_id_MetodoPago
     private int idPaypal;
     private String email;
     private String password;
