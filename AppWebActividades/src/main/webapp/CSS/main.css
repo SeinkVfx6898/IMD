@@ -1,16 +1,8 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-<<<<<<< HEAD
-    Created on : 07-sep-2021, 18:14:58
-    Author     : lenovo
-*/
+
 
 /*Cambiamos la fuente al cuerpo de la página*/
 body{
+    text-align: center;
     font-family: 'Roboto', sans-serif;
 
 
@@ -19,9 +11,56 @@ body{
 .navbar-brand{
     font-family: 'Aquire',sans-serif;
 }
+/*Negrita para los campos de texto.*/
 
-.form-control{
-    font-weight: bold;
+
+/*Barra de búsqueda.*/
+* {
+    box-sizing: border-box;
 }
 
+#myInput {
+    
+    text-align:center;
+    width: 40%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 10px ridge #ddd;
+    margin-bottom: 12px;
+    margin-left: 10px;
+}
 
+#myUL {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#myUL li a {
+
+    border: 1px solid #ddd;
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block
+
+}
+
+#myUL li a:hover:not(.header) {
+    background-color: #eee;
+}
+footer{
+    text-align: center;
+    margin-bottom:10px;
+}
+.form-control{
+
+    text-align:center;
+}
+input:focus{
+    font-weight: bold;
+    
+}
