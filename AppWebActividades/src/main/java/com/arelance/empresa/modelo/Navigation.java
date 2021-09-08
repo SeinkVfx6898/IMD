@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,24 +12,22 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author usuar
+ * @author lenovo
  */
-public class Navigation {
-
-    public String IndexToLogin(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.sendRedirect("View/login.jsp");
-        return "View/login.jsp";
-        
+public  class Navigation {
+    public static  String  login(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    response.sendRedirect("View/login.jsp");
+    return "View/login.jsp";
     }
-
-    public String IndexToRegistro(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.sendRedirect("View/registro.jsp");
+    public static String registro(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        response.sendRedirect("View/datospersonales.jsp");
         return "View/registro.jsp";
-    }
     
-    public String XXXToIndex(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    }
+    public static String index (HttpServletRequest request, HttpServletResponse response) throws IOException{
     response.sendRedirect("IndexController");
     return "IndexController";
     }
-
+    
+    
 }

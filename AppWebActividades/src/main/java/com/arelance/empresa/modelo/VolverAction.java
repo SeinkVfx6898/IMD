@@ -16,11 +16,11 @@ import javax.servlet.http.HttpServletResponse;
  * @author lenovo
  */
 public class VolverAction implements Command{
-Navigation navigation=new Navigation();
+
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) {
     try {
-        navigation.XXXToIndex(request, response);
+        Navigation.index(request, response);
     } catch (IOException ex) {
       ex.getMessage();
     }

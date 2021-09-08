@@ -4,10 +4,20 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 7 sept. 2021, 12:08:33
-    Author     : usuar
+<<<<<<< HEAD
+    Created on : 07-sep-2021, 18:14:58
+    Author     : lenovo
 */
 
 body{
-    
+    font-family: 'Roboto', sans-serif;
+
+
 }
+.navbar-brand{
+    font-family: 'Aquire',sans-serif;
+
+}
+
+
+
