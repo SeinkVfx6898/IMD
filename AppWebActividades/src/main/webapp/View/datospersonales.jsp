@@ -21,7 +21,7 @@
     </head>
     <body>
         <div class="container">
-            <h3>Cada día númerosos grupos de personas disfrutan de nuestras actividades.<br>
+            <h3>Cada día numerosos grupos de personas disfrutan de nuestras actividades.<br>
                 ¡Forma parte de nosotros para disfrutar también!</h3>
             <form action="MainController?action=DatosLogin">
                 <div class="form-group">

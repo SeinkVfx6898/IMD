@@ -42,7 +42,6 @@
                 </div>
                 <button type="submit" class="btn btn-secondary">Siguiente</button>
                 <input type="submit"class="btn btn-secondary"name="action" value="Volver" formaction="../MainController?action=Volver">
-
             </form>
         </div>
     </body>

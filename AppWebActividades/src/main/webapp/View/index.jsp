@@ -21,6 +21,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="CSS/main.css">
 
     </head>
@@ -39,14 +40,12 @@
         <header>
             <h3>En IMD contamos con las actividades<br> que más se ajustan a tu perfil:</h3>
         </header>
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Busca una actividad..." title="Type in a name">
+        <input  type="text"class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Busca una actividad..." title="Type in a name">
         <ul id="myUL">
             <li><a href="#">Adele</a></li>
             <li><a href="#">Agnes</a></li>
-
             <li><a href="#">Billy</a></li>
             <li><a href="#">Bob</a></li>
-
             <li><a href="#">Calvin</a></li>
             <li><a href="#">Christina</a></li>
             <li><a href="#">Cindy</a></li>
@@ -57,6 +56,23 @@
         <footer>
             &copy;2021-2022 IMD S.A.Todos los derechos reservados.
         </footer>
-
+        <script>
+            function myFunction() {
+                var input, filter, ul, li, a, i, txtValue;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                ul = document.getElementById("myUL");
+                li = ul.getElementsByTagName("li");
+                for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByTagName("a")[0];
+                    txtValue = a.textContent || a.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        li[i].style.display = "";
+                    } else {
+                        li[i].style.display = "none";
+                    }
+                }
+            }
+        </script>
     </body>
 </html>
