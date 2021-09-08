@@ -17,11 +17,11 @@ import java.util.List;
  */
 public class ActividadDAOServ implements IActividadDao{
 
-    private IActividadDao articuloDao = new ActividadDAOImpl();
+    private IActividadDao actividadDao = new ActividadDAOImpl();
 
     @Override
     public List<Actividad> obtener() {
-        return articuloDao.obtener();
+        return actividadDao.obtener();
     }
     
     
