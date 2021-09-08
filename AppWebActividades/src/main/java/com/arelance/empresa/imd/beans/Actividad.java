@@ -15,11 +15,11 @@ public class Actividad {
     private String descripcion;
     private String enternador;
     private double precio;
-    private diasSemana[] diaSemana;
+    private String diaSemana;
     private String horaInicio;
     private String horaFin;
 
-    public Actividad(int idActividad, String nombre, String descripcion, String enternador, double precio, diasSemana[] diaSemana, String horaInicio, String horaFin) {
+    public Actividad(int idActividad, String nombre, String descripcion, String enternador, double precio, String diaSemana, String horaInicio, String horaFin) {
         this.idActividad = idActividad;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -30,7 +30,7 @@ public class Actividad {
         this.horaFin = horaFin;
     }
 
-    public Actividad(String nombre, String descripcion, String enternador, double precio, diasSemana[] diaSemana, String horaInicio, String horaFin) {
+    public Actividad(String nombre, String descripcion, String enternador, double precio, String diaSemana, String horaInicio, String horaFin) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.enternador = enternador;
@@ -38,6 +38,10 @@ public class Actividad {
         this.diaSemana = diaSemana;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
+    }
+
+    public Actividad() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
@@ -82,11 +86,11 @@ public class Actividad {
         this.precio = precio;
     }
 
-    public diasSemana[] getDiaSemana() {
+    public String getDiaSemana() {
         return diaSemana;
     }
 
-    public void setDiaSemana(diasSemana[] diaSemana) {
+    public void setDiaSemana(String diaSemana) {
         this.diaSemana = diaSemana;
     }
 
