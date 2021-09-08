@@ -9,7 +9,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-<<<<<<< HEAD
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="description" content="Página de inscripción a las actividades deportivas mas emocionantes">
         <meta name="author" content="Manuel Fernández & Agustín Rodríguez">
@@ -46,17 +45,6 @@
         <footer>
             &copy;2021-2022 IMD S.A.Todos los derechos reservados.
         </footer>
-=======
-        <title>Principal</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <nav>
-      
-        </nav>
-        <h2>Pruebas de campo</h2>
 
->>>>>>> d4acaa6ae23b5688594cd930d29dfd1f5c356587
     </body>
 </html>
