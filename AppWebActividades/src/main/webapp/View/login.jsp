@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-<<<<<<< HEAD
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
 
@@ -36,24 +36,6 @@
                 </div>
                 <button type="submit" class="btn btn-secondary">Aceptar</button>
                 <input type="submit"class="btn btn-secondary"name="action" value="Volver" formaction="../MainController?action=Volver">
-=======
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-         <link rel="stylesheet" href="CSS/main.css">    
-    </head>
-    <body>
-        <main>
-            <h1>IMD</h1>
-            <h2>¡Accede a tu cuenta para ver todas las actividades!</h2>
-            <form action="MainController" method="POST">
-                <label>Nick:</label>
-                <input type="text"name="email"placeholder="Example@hotmail.com"required>
-                <label>Contraseña</label>
-                <input type="password"name="pass"placeholder="Example1234"required>
-                <input type="submit" class="btn btn-dark"name="action"value="Aceptar">
-                <input type="reset" class="btn btn-dark"name="action"value="Limpiar">
-                <a href="http://localhost:8080/AppWebActividades/MainController?action=Volver">Volver</a>
->>>>>>> d4acaa6ae23b5688594cd930d29dfd1f5c356587
-
             </form>
     </body>
 </html>
