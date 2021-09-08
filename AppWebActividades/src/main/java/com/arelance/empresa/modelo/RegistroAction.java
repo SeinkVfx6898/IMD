@@ -13,19 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author lenovo
+ * @author usuar
  */
-public class LoginAction implements Command {
-Navigation navigation=new Navigation();
+public class RegistroAction implements Command {
+    Navigation navigation=new Navigation();
+    
     @Override
-    public void execute(HttpServletRequest request, HttpServletResponse response){
+    public void execute(HttpServletRequest request, HttpServletResponse response) {
     try {
-        navigation.IndexToLogin(request, response);
+        navigation.IndexToRegistro(request, response);
     } catch (IOException ex) {
-        ex.getMessage();
+        Logger.getLogger(RegistroAction.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
-
-   
     
 }

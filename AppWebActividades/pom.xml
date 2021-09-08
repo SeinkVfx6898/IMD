@@ -5,7 +5,7 @@
     <artifactId>AppWebActividades</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>IMD</name>
+    <name>AppWebActividades-1.0-SNAPSHOT</name>
     
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>

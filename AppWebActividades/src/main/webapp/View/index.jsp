@@ -7,26 +7,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="false"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <%@include file="./metas.jspf" %>
-        <title>Página principal</title>
+        <title>Principal</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <header>
-            <h2>
-                IMD
-            </h2>
-        </header>
         <nav>
-
-            <a href="MainController?action=Registro">Registro</a>
-            <a href="MainController?action=Login">Iniciar sesión</a>
+      
         </nav>
+       
 
-
-        <footer>
-            &copy;2021-2022 IMD S.A.Todos los derechos reservados.
-        </footer>
     </body>
 </html>

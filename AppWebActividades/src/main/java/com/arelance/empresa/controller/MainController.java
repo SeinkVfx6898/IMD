@@ -8,6 +8,7 @@ package com.arelance.empresa.controller;
 import com.arelance.empresa.modelo.Command;
 import com.arelance.empresa.modelo.VolverAction;
 import com.arelance.empresa.modelo.LoginAction;
+import com.arelance.empresa.modelo.RegistroAction;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +39,8 @@ public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         optionMenu.put("Login", new LoginAction());
-        optionMenu.put("Index", new VolverAction());
+        optionMenu.put("Volver", new VolverAction());
+        optionMenu.put("Registro", new RegistroAction());
         String action = request.getParameter("action");
         Command command = optionMenu.get(action);
         command.execute(request, response);

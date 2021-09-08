@@ -1,18 +1,15 @@
 <%-- 
-    Document   : registro
-    Created on : 06-sep-2021, 18:39:18
-    Author     : lenovo
+    Document   : registropart2
+    Created on : 7 sept. 2021, 10:30:12
+    Author     : usuar
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page session="false"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registro</title>
-        <link href="../CSS/main.css" rel="stylesheet" type="text/css">
-        
     </head>
     <body>
         <header>
@@ -21,16 +18,17 @@
                 ¡Unete a nosotros y prueba!.
             </p>
         </header>
-        <form action="MainController" method="GET">
-            <label>Nombre:</label>
-            <input type="text"name="apellido"placeholder="Salvador"required>
+        <form action="MainController">
+            <label>Nick:</label>
+            <input type="text"name="nick"placeholder="SalvSolo"required>
+            <label>Email:</label>
+            <input type="email"name="email"placeholder="sgzurita@gmail.com"required>
             <label>Contraseña:</label>
-            <input type="text"name="apellido"placeholder="González"required>
-            <label>Teléfono:</label>
-            <input type="text"name="tlf"placeholder="+34743629805"required>          
+            <input type="password"name="pass"placeholder="SalvSolo1234"required> 
+            <label>Confirmar contraseña:</label>
+            <input type="password"name="confirmpass"placeholder="SalvSolo1234"required>     
             <input type="submit"name="action"value="Siguiente">
             <input type="submit"name="action"value="Volver">
         </form>
-
     </body>
 </html>

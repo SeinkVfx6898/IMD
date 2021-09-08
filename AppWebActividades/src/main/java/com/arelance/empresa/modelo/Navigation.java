@@ -11,21 +11,24 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author lenovo
+ * @author usuar
  */
-public  class Navigation {
-    public static  String  login(HttpServletRequest request, HttpServletResponse response) throws IOException{
-    response.sendRedirect("View/login.jsp");
-    return "View/login.jsp";
+public class Navigation {
+
+    public String IndexToLogin(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.sendRedirect("View/login.jsp");
+        return "View/login.jsp";
+        
     }
-    public static String registro(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+    public String IndexToRegistro(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.sendRedirect("View/registro.jsp");
         return "View/registro.jsp";
-    
     }
-    public static String index (HttpServletRequest request, HttpServletResponse response) throws IOException{
+    
+    public String XXXToIndex(HttpServletRequest request, HttpServletResponse response) throws IOException{
     response.sendRedirect("IndexController");
     return "IndexController";
     }
-    
+
 }
