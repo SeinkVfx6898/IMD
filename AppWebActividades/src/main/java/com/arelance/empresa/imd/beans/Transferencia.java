@@ -14,21 +14,23 @@ public class Transferencia {
     private int idTransferencia;
     private int iban;
     private String conceptoPago;
-    private int MetodoPago_id_MetodoPago;
+    private int Cliente_id_cliente;
 
-    public Transferencia(int idTransferencia, int iban, String conceptoPago, int MetodoPago_id_MetodoPago) {
+    public Transferencia(int idTransferencia, int iban, String conceptoPago, int Cliente_id_cliente) {
         this.idTransferencia = idTransferencia;
         this.iban = iban;
         this.conceptoPago = conceptoPago;
-        this.MetodoPago_id_MetodoPago = MetodoPago_id_MetodoPago;
+        this.Cliente_id_cliente = Cliente_id_cliente;
     }
 
-    public Transferencia(int iban, String conceptoPago, int MetodoPago_id_MetodoPago) {
+    public Transferencia(int iban, String conceptoPago, int Cliente_id_cliente) {
         this.iban = iban;
         this.conceptoPago = conceptoPago;
-        this.MetodoPago_id_MetodoPago = MetodoPago_id_MetodoPago;
+        this.Cliente_id_cliente = Cliente_id_cliente;
     }
 
+    public Transferencia() {
+    }
     
     public int getIdTransferencia() {
         return idTransferencia;
@@ -54,12 +56,12 @@ public class Transferencia {
         this.conceptoPago = conceptoPago;
     }
 
-    public int getMetodoPago_id_MetodoPago() {
-        return MetodoPago_id_MetodoPago;
+    public int getCliente_id_cliente() {
+        return Cliente_id_cliente;
     }
 
-    public void setMetodoPago_id_MetodoPago(int MetodoPago_id_MetodoPago) {
-        this.MetodoPago_id_MetodoPago = MetodoPago_id_MetodoPago;
+    public void setCliente_id_cliente(int Cliente_id_cliente) {
+        this.Cliente_id_cliente = Cliente_id_cliente;
     }
     
     
