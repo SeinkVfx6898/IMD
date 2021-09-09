@@ -26,7 +26,7 @@ public class ClienteDAOImpl implements IClienteDao{
     public List<Cliente> obtener() {
         ResultSet rs;
 
-        String sql="SELECT id_actividad, nombre, descripción, entrenador, precio, dia_semana, hora_inicio, hora_fin FROM actividad";
+        String sql="SELECT id_cliente, nombre, apellido, Teléfono, email, nick, password FROM cliente";
 
         List<Cliente> listaCliente = new ArrayList<>();
 
