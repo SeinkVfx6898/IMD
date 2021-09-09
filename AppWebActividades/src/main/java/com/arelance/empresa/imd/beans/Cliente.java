@@ -42,6 +42,9 @@ public class Cliente{
         this.password = password;
     }
 
+    public Cliente() {
+    }
+
     public int getIdCliente() {
         return idCliente;
     }

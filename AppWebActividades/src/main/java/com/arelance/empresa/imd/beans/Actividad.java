@@ -40,8 +40,7 @@ public class Actividad {
         this.horaFin = horaFin;
     }
 
-    public Actividad() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Actividad() { 
     }
     
     
