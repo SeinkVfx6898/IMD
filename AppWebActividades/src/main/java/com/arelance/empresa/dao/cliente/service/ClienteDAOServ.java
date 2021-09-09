@@ -9,15 +9,15 @@ package com.arelance.empresa.dao.cliente.service;
 import com.arelance.empresa.dao.cliente.impl.ClienteDAOImpl;
 import com.arelance.empresa.imd.beans.Cliente;
 import java.util.List;
-import com.arelance.empresa.dao.cliente.ClienteDAO;
+import com.arelance.empresa.dao.cliente.IClienteDAO;
 
 /**
  *
  * @author Manuel
  */
-public class ClienteDAOServ implements ClienteDAO{
+public class ClienteDAOServ implements IClienteDAO{
 
-    private ClienteDAO clienteDao = new ClienteDAOImpl();
+    private IClienteDAO clienteDao = new ClienteDAOImpl();
 
     @Override
     public List<Cliente> obtener() {

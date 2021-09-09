@@ -13,14 +13,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import com.arelance.empresa.dao.cliente.ClienteDAO;
+import com.arelance.empresa.dao.cliente.IClienteDAO;
 
 
 /**
  *
  * @author Manuel
  */
-public class ClienteDAOImpl implements ClienteDAO{
+public class ClienteDAOImpl implements IClienteDAO{
     
     @Override
     public List<Cliente> obtener() {

@@ -12,14 +12,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import com.arelance.empresa.dao.actividad.ActividadDAO;
+import com.arelance.empresa.dao.actividad.IActividadDAO;
 
 
 /**
  *
  * @author Manuel
  */
-public class ActividadDAOImpl implements ActividadDAO{
+public class ActividadDAOImpl implements IActividadDAO{
     
     @Override
     public List<Actividad> obtener() {
