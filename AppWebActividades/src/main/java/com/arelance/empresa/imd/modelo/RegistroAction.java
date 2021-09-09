@@ -19,7 +19,7 @@ public class RegistroAction implements Command {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) {
         try {
-            Navigation.registro(request, response);
+            Navigation.registro(request, response);//Nos lleva al registro.
         } catch (IOException ex) {
            ex.getMessage();
         }

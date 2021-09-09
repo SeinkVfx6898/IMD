@@ -18,7 +18,7 @@ public class VolverAction implements Command{
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) {
     try {
-        Navigation.index(request, response);
+        Navigation.index(request, response);//Nos lleva al index.
     } catch (IOException ex) {
       ex.getMessage();
     }
