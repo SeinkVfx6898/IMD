@@ -18,7 +18,7 @@ public class LoginAction implements Command {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) {
         try {
-            Navigation.login(request, response);
+            Navigation.login(request, response);//Nos lleva al login.
         } catch (IOException ex) {
             ex.getMessage();
         }

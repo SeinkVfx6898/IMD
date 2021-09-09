@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author lenovo
  */
 public class Navigation {
-
+    //Declaramos los metodos que nos permitirá navegar por nuestra web.
     public static String login(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.sendRedirect("View/login.jsp");
         return "View/login.jsp";
