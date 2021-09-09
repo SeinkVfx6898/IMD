@@ -15,7 +15,7 @@ import java.util.List;
 public interface IClienteDao {
     
     public List<Cliente> obtener();
-    public void guardar(Cliente cliente);
-    public void actualizar(Cliente cliente);
+    public boolean guardar(Cliente cliente);
+    public boolean actualizar(Cliente cliente);
     
 }

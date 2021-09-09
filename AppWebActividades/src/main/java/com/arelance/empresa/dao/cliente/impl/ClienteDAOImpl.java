@@ -54,29 +54,33 @@ public class ClienteDAOImpl implements IClienteDao{
     }
 
     @Override
-    public void guardar(Cliente cliente) {                                                                                                                                                                                   
+    public boolean guardar(Cliente cliente) {                                                                                                                                                                                   
         String sql="INSERT INTO `cliente` (`nombre`, `apellido`, `Teléfono`, `email`, `nick`, `password`) VALUES (" + cliente.getNombre() + "," + cliente.getApellido() + "," + cliente.getTelefono() + "," + cliente.getEmail() + "," + cliente.getNick() +  "," + cliente.getPassword()+ ")";
-
+        boolean guardado = false;
         try {			
             try (Connection conn = Conexion.conectar()) {
                 conn.createStatement().executeUpdate(sql);
+                guardado = true;
             }
         } catch (SQLException e) {
                 System.out.println("Error: Clase ClienteDaoImple, método guardar");
-        } 
+        }
+        return guardado;
     }
 
     @Override
-    public void actualizar(Cliente cliente) {
+    public boolean actualizar(Cliente cliente) {
         String sql="UPDATE `cliente` SET `nombre` = '" + cliente.getNombre() + "', `apellido` = '" + cliente.getApellido()+ "', `Teléfono` = '" + cliente.getTelefono()+ "', `email` = '" + cliente.getEmail()+ "', `nick` = '" + cliente.getNick()+ "', `password` = '" + cliente.getPassword()+ "' WHERE (`id_cliente` = '" + cliente.getIdCliente()+ "')";
-
+        boolean actualizado = false;
         try {			
             try (Connection conn = Conexion.conectar()) {
                 conn.createStatement().executeUpdate(sql);
+                actualizado = true;
             }
         } catch (SQLException e) {
                 System.out.println("Error: Clase ClienteDaoImple, método actualizar");
         } 
+        return actualizado;
     }
 
 }

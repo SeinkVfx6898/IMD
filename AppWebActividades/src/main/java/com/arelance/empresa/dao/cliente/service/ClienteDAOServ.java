@@ -21,17 +21,17 @@ public class ClienteDAOServ implements IClienteDao{
 
     @Override
     public List<Cliente> obtener() {
-         return clienteDao.obtener();
+        return clienteDao.obtener();
     }
 
     @Override
-    public void guardar(Cliente cliente) {
-        clienteDao.guardar(cliente);
+    public boolean guardar(Cliente cliente) {
+        return clienteDao.guardar(cliente);
     }
 
     @Override
-    public void actualizar(Cliente cliente) {
-        clienteDao.actualizar(cliente);
+    public boolean actualizar(Cliente cliente) {
+        return clienteDao.actualizar(cliente);
     }
 
 }
