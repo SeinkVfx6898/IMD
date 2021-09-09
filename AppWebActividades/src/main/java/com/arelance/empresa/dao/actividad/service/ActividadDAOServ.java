@@ -5,19 +5,19 @@
  */
 package com.arelance.empresa.dao.actividad.service;
 
-import com.arelance.empresa.dao.actividad.IActividadDao;
 import com.arelance.empresa.dao.actividad.impl.ActividadDAOImpl;
 import com.arelance.empresa.imd.beans.Actividad;
 
 import java.util.List;
+import com.arelance.empresa.dao.actividad.ActividadDAO;
 
 /**
  *
  * @author Manuel
  */
-public class ActividadDAOServ implements IActividadDao{
+public class ActividadDAOServ implements ActividadDAO{
 
-    private IActividadDao actividadDao = new ActividadDAOImpl();
+    private ActividadDAO actividadDao = new ActividadDAOImpl();
 
     @Override
     public List<Actividad> obtener() {

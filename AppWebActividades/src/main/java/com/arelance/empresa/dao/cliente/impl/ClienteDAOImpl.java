@@ -6,7 +6,6 @@
 package com.arelance.empresa.dao.cliente.impl;
 
 
-import com.arelance.empresa.dao.cliente.IClienteDao;
 import com.arelance.empresa.imd.beans.Cliente;
 import com.arelance.empresa.imd.conexion.Conexion;
 import java.sql.Connection;
@@ -14,13 +13,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import com.arelance.empresa.dao.cliente.ClienteDAO;
 
 
 /**
  *
  * @author Manuel
  */
-public class ClienteDAOImpl implements IClienteDao{
+public class ClienteDAOImpl implements ClienteDAO{
     
     @Override
     public List<Cliente> obtener() {

@@ -5,7 +5,6 @@
  */
 package com.arelance.empresa.dao.actividad.impl;
 
-import com.arelance.empresa.dao.actividad.IActividadDao;
 import com.arelance.empresa.imd.beans.Actividad;
 import com.arelance.empresa.imd.conexion.Conexion;
 import java.sql.Connection;
@@ -13,13 +12,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import com.arelance.empresa.dao.actividad.ActividadDAO;
 
 
 /**
  *
  * @author Manuel
  */
-public class ActividadDAOImpl implements IActividadDao{
+public class ActividadDAOImpl implements ActividadDAO{
     
     @Override
     public List<Actividad> obtener() {
