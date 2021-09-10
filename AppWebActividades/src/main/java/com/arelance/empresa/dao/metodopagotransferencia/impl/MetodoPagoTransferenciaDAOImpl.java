@@ -35,7 +35,7 @@ public class MetodoPagoTransferenciaDAOImpl implements IMetodoPagoTransferenciaD
                 rs=conn.createStatement().executeQuery(sql);
                 while (rs.next()) {
                     MetodoPagoTransferencia m=new MetodoPagoTransferencia();
-                    m.setIdMetodoPago(rs.getInt(1));
+                    m.setIdmetodopagotransferencia(rs.getInt(1));
                     m.setTransferencia_id_transferencia(rs.getInt(2));
                     metodoPagoTransferencias.add(m);
                 }

@@ -35,7 +35,7 @@ public class MetodoPagoTarjetaDAOImpl implements IMetodoPagoTarjetaDAO{
                 rs=conn.createStatement().executeQuery(sql);
                 while (rs.next()) {
                     MetodoPagoTarjeta m=new MetodoPagoTarjeta();
-                    m.setIdMetodoPago(rs.getInt(1));
+                    m.setIdmetodopagotarjeta(rs.getInt(1));
                     m.setTarjetaCredito_id_tarjeta_credito(rs.getInt(2));
                     listaMetodoPagoTarjetas.add(m);
                 }
