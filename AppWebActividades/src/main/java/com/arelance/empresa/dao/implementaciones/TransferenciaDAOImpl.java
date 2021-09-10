@@ -26,7 +26,7 @@ public class TransferenciaDAOImpl implements ITransferenciaDAO{
     public List<Transferencia> obtener() {
         ResultSet rs;
 
-        String sql="SELECT id_transferencia, iban, concepto_pago, Cliente_id_cliente FROM transferencia";
+        String sql="SELECT id_transferencia, iban, concepto_pago FROM transferencia";
 
         List<Transferencia> listaTransferencias = new ArrayList<>();
 
@@ -52,7 +52,7 @@ public class TransferenciaDAOImpl implements ITransferenciaDAO{
 
     @Override
     public boolean guardar(Transferencia transferencia) {
-        String sql="INSERT INTO `transferencia` (`iban`, `concepto_pago`, `Cliente_id_cliente`) VALUES (" + transferencia.getIban()+ "," + transferencia.getConceptoPago()+ "," + transferencia.getCliente_id_cliente() + ")";
+        String sql="INSERT INTO `transferencia` (`iban`, `concepto_pago`) VALUES (" + transferencia.getIban()+ ",'" + transferencia.getConceptoPago()+ "')";
         boolean guardado = false;
         try {			
             try (Connection conn = Conexion.conectar()) {

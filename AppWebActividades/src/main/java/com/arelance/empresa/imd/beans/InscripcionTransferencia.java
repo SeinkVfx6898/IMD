@@ -9,22 +9,26 @@ package com.arelance.empresa.imd.beans;
  *
  * @author Manuel
  */
-public class Inscripcion {
+public class InscripcionTransferencia {
     private int idInscripcion;
     private int Cliente_id_cliente;
     private int Actividad_id_actividad;
-    private int metodopagotarjeta_idmetodopagotarjeta;
     private int metodopagotransferencia_idmetodopagotransferencia;
 
-    public Inscripcion(int idInscripcion, int Cliente_id_cliente, int Actividad_id_actividad, int metodopagotarjeta_idmetodopagotarjeta, int metodopagotransferencia_idmetodopagotransferencia) {
+    public InscripcionTransferencia(int idInscripcion, int Cliente_id_cliente, int Actividad_id_actividad, int metodopagotransferencia_idmetodopagotransferencia) {
         this.idInscripcion = idInscripcion;
         this.Cliente_id_cliente = Cliente_id_cliente;
         this.Actividad_id_actividad = Actividad_id_actividad;
-        this.metodopagotarjeta_idmetodopagotarjeta = metodopagotarjeta_idmetodopagotarjeta;
         this.metodopagotransferencia_idmetodopagotransferencia = metodopagotransferencia_idmetodopagotransferencia;
     }
 
-    public Inscripcion() {
+    public InscripcionTransferencia(int Cliente_id_cliente, int Actividad_id_actividad, int metodopagotransferencia_idmetodopagotransferencia) {
+        this.Cliente_id_cliente = Cliente_id_cliente;
+        this.Actividad_id_actividad = Actividad_id_actividad;
+        this.metodopagotransferencia_idmetodopagotransferencia = metodopagotransferencia_idmetodopagotransferencia;
+    }
+
+    public InscripcionTransferencia() {
     }
 
     public int getIdInscripcion() {
@@ -49,14 +53,6 @@ public class Inscripcion {
 
     public void setActividad_id_actividad(int Actividad_id_actividad) {
         this.Actividad_id_actividad = Actividad_id_actividad;
-    }
-
-    public int getMetodopagotarjeta_idmetodopagotarjeta() {
-        return metodopagotarjeta_idmetodopagotarjeta;
-    }
-
-    public void setMetodopagotarjeta_idmetodopagotarjeta(int metodopagotarjeta_idmetodopagotarjeta) {
-        this.metodopagotarjeta_idmetodopagotarjeta = metodopagotarjeta_idmetodopagotarjeta;
     }
 
     public int getMetodopagotransferencia_idmetodopagotransferencia() {

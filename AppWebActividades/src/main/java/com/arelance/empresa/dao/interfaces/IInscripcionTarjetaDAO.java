@@ -6,16 +6,16 @@
 package com.arelance.empresa.dao.interfaces;
 
 
-import com.arelance.empresa.imd.beans.Inscripcion;
+import com.arelance.empresa.imd.beans.InscripcionTarjeta;
 import java.util.List;
 
 /**
  *
  * @author Manuel
  */
-public interface IInscripcionDAO {
+public interface IInscripcionTarjetaDAO {
     
-    public List<Inscripcion> obtener();
-    public boolean guardar(Inscripcion inscripcion);
+    public List<InscripcionTarjeta> obtener();
+    public boolean guardar(InscripcionTarjeta inscripcionTarjeta);
     
 }
