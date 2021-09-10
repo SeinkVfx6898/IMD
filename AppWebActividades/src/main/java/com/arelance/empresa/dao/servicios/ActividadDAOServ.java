@@ -23,6 +23,11 @@ public class ActividadDAOServ implements IActividadDAO{
     public List<Actividad> obtener() {
         return actividadDao.obtener();
     }
+
+    @Override
+    public Actividad obtenerPorId(Actividad actividad) {
+        return actividadDao.obtenerPorId(actividad);
+    }
     
     
 

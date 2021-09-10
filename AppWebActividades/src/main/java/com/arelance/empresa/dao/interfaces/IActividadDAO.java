@@ -15,5 +15,6 @@ import java.util.List;
 public interface IActividadDAO {
     
     public List<Actividad> obtener();
+    public Actividad obtenerPorId(Actividad actividad);
     
 }
