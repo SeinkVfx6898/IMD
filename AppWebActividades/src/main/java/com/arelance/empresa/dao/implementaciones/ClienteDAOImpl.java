@@ -55,7 +55,7 @@ public class ClienteDAOImpl implements IClienteDAO{
 
     @Override
     public boolean guardar(Cliente cliente) {                                                                                                                                                                                   
-        String sql="INSERT INTO `cliente` (`nombre`, `apellido`, `Teléfono`, `email`, `nick`, `password`) VALUES (" + cliente.getNombre() + "," + cliente.getApellido() + "," + cliente.getTelefono() + "," + cliente.getEmail() + "," + cliente.getNick() +  "," + cliente.getPassword()+ ")";
+        String sql="INSERT INTO `cliente` (`nombre`, `apellido`, `Teléfono`, `email`, `nick`, `password`) VALUES ('" + cliente.getNombre() + "','" + cliente.getApellido() + "','" + cliente.getTelefono() + "','" + cliente.getEmail() + "','" + cliente.getNick() +  "','" + cliente.getPassword() + "')";
         boolean guardado = false;
         try {			
             try (Connection conn = Conexion.conectar()) {

@@ -26,7 +26,7 @@ public class TarjetaCreditoDAOImpl implements ITarjetaCreditoDAO{
     public List<TarjetaCredito> obtener() {
         ResultSet rs;
 
-        String sql="SELECT id_tarjeta_credito, número, Fecha_caducidad, CVV, Cliente_id_cliente FROM tarjetacredito";
+        String sql="SELECT id_tarjeta_credito, número, Fecha_caducidad, CVV FROM tarjetacredito";
 
         List<TarjetaCredito> listaTarjetaCreditos = new ArrayList<>();
 
@@ -39,7 +39,6 @@ public class TarjetaCreditoDAOImpl implements ITarjetaCreditoDAO{
                     t.setNumero(rs.getInt(2));
                     t.setFechaCaducidad(rs.getString(3));
                     t.setCVV(rs.getInt(4));
-                    t.setCliente_id_cliente(rs.getInt(5));
                     listaTarjetaCreditos.add(t);
                 }
                 rs.close();
@@ -53,7 +52,7 @@ public class TarjetaCreditoDAOImpl implements ITarjetaCreditoDAO{
 
     @Override
     public boolean guardar(TarjetaCredito tarjetaCredito) {
-        String sql="INSERT INTO `tarjetacredito` (`número`, `Fecha_caducidad`, `CVV`, `Cliente_id_cliente`) VALUES (" + tarjetaCredito.getNumero() + "," + tarjetaCredito.getFechaCaducidad() + "," + tarjetaCredito.getCVV() + "," + tarjetaCredito.getCliente_id_cliente() + ")";
+        String sql="INSERT INTO `tarjetacredito` (`número`, `Fecha_caducidad`, `CVV`) VALUES (" + tarjetaCredito.getNumero() + ",'" + tarjetaCredito.getFechaCaducidad() + "'," + tarjetaCredito.getCVV() + ")";
         boolean guardado = false;
         try {			
             try (Connection conn = Conexion.conectar()) {

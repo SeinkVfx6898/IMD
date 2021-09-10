@@ -14,19 +14,16 @@ public class Transferencia {
     private int idTransferencia;
     private int iban;
     private String conceptoPago;
-    private int Cliente_id_cliente;
 
-    public Transferencia(int idTransferencia, int iban, String conceptoPago, int Cliente_id_cliente) {
+    public Transferencia(int idTransferencia, int iban, String conceptoPago) {
         this.idTransferencia = idTransferencia;
         this.iban = iban;
         this.conceptoPago = conceptoPago;
-        this.Cliente_id_cliente = Cliente_id_cliente;
     }
 
-    public Transferencia(int iban, String conceptoPago, int Cliente_id_cliente) {
+    public Transferencia(int iban, String conceptoPago) {
         this.iban = iban;
         this.conceptoPago = conceptoPago;
-        this.Cliente_id_cliente = Cliente_id_cliente;
     }
 
     public Transferencia() {
@@ -56,13 +53,4 @@ public class Transferencia {
         this.conceptoPago = conceptoPago;
     }
 
-    public int getCliente_id_cliente() {
-        return Cliente_id_cliente;
-    }
-
-    public void setCliente_id_cliente(int Cliente_id_cliente) {
-        this.Cliente_id_cliente = Cliente_id_cliente;
-    }
-    
-    
 }

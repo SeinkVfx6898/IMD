@@ -38,7 +38,6 @@ public class TransferenciaDAOImpl implements ITransferenciaDAO{
                     t.setIdTransferencia(rs.getInt(1));
                     t.setIban(rs.getInt(2));
                     t.setConceptoPago(rs.getString(3));
-                    t.setCliente_id_cliente(rs.getInt(4));
                     listaTransferencias.add(t);
                 }
                 rs.close();
