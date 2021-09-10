@@ -37,9 +37,10 @@
             %>
             <%
             for (Actividad actividad : lista) {
-                 out.print("<li>"+"<a href='#'>"+actividad.getNombre()+"</a>"+"</li>");
+                 out.print("<li>"+"<a href='inscripción.jsp&idactividad='"+actividad.getIdActividad()+">"+actividad.getNombre()+"</a>"+"</li>");
                 }
             %>
+            
         </ul>
         <aside>
             <p>Publicidad</p>

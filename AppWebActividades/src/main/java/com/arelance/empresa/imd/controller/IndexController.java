@@ -34,10 +34,12 @@ public class IndexController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            ActividadDAOServ actividaddao=new ActividadDAOServ();
-            List<Actividad>lista=actividaddao.obtener();
-            request.setAttribute("lista",lista);
-            request.getRequestDispatcher("/View/index.jsp").forward(request, response);
+        ActividadDAOServ actividaddao = new ActividadDAOServ();
+        // Actividad actividad=actividaddao.obtenerPorId(1);
+        //request.setAttribute("actividad",actividad);
+        List<Actividad> lista = actividaddao.obtener();
+        request.setAttribute("lista", lista);
+        request.getRequestDispatcher("/View/index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
