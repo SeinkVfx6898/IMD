@@ -25,7 +25,7 @@ public class ActividadDAOImpl implements IActividadDAO{
     public List<Actividad> obtener() {
         ResultSet rs;
 
-        String sql="SELECT id_actividad, nombre, descripción, entrenador, precio, dia_semana, hora_inicio, hora_fin FROM actividad";
+        String sql="SELECT * FROM actividad";
 
         List<Actividad> listaActividad= new ArrayList<>();
 

@@ -4,6 +4,8 @@
     Author     : lenovo
 --%>
 
+<%@page import="com.arelance.empresa.imd.beans.Actividad"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="false"%>
 <!DOCTYPE html>
@@ -30,13 +32,14 @@
         </header>
         <input  type="text"class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Busca una actividad..." title="Type in a name">
         <ul id="myUL">
-            <li><a href="#">Adele</a></li>
-            <li><a href="#">Agnes</a></li>
-            <li><a href="#">Billy</a></li>
-            <li><a href="#">Bob</a></li>
-            <li><a href="#">Calvin</a></li>
-            <li><a href="#">Christina</a></li>
-            <li><a href="#">Cindy</a></li>
+            <%
+            List<Actividad>lista=(List<Actividad>)request.getAttribute("lista");
+            %>
+            <%
+            for (Actividad actividad : lista) {
+                 out.print("<li>"+"<a href='#'>"+actividad.getNombre()+"</a>"+"</li>");
+                }
+            %>
         </ul>
         <aside>
             <p>Publicidad</p>
