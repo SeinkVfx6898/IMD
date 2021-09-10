@@ -6,7 +6,10 @@
  */
 package com.arelance.empresa.imd.controller;
 
+import com.arelance.empresa.dao.servicios.ActividadDAOServ;
+import com.arelance.empresa.imd.beans.Actividad;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +34,10 @@ public class IndexController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            request.getRequestDispatcher("./View/index.jsp").forward(request, response);
+            ActividadDAOServ actividaddao=new ActividadDAOServ();
+            List<Actividad>lista=actividaddao.obtener();
+            request.setAttribute("lista",lista);
+            request.getRequestDispatcher("/View/index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
