@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import com.arelance.empresa.dao.interfaces.IActividadDAO;
+import java.sql.PreparedStatement;
 
 
 /**
@@ -54,17 +55,21 @@ public class ActividadDAOImpl implements IActividadDAO{
     }
 
     @Override
-    public Actividad obtenerPorId(Actividad actividad) {
+    public Actividad obtenerPorId(int id) {
         ResultSet rs;
-
+        
+        PreparedStatement stmt = null;
+                
         String sql="SELECT id_actividad, nombre, descripción, entrenador, precio, dia_semana, hora_inicio, hora_fin "
-                + "FROM actividad WHERE id_actividad = " + actividad.getIdActividad();
+                + "FROM actividad WHERE id_actividad =?";
 
         Actividad actividadSeleccionada = new Actividad();
 
         try {		
             try (Connection conn = Conexion.conectar()) {
-                rs=conn.createStatement().executeQuery(sql);
+                stmt = conn.prepareStatement(sql);
+                stmt.setInt(1, id);
+                rs=stmt.executeQuery();
                 while (rs.next()) {
                     Actividad a = new Actividad();
                     a.setIdActividad(rs.getInt(1));
