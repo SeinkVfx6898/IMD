@@ -1,0 +1,12 @@
+body{
+    text-align:center;
+    font-family: 'Roboto', sans-serif;
+    background-color: #eee;
+}
+.form-control{
+    text-align:center;
+    width: 400px;
+    margin:0 auto;
+
+}
+

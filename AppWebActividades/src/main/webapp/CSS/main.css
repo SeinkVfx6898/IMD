@@ -43,7 +43,7 @@ body{
     text-decoration: none;
     font-size: 18px;
     color: black;
-    display: block;
+    display: flex;
 
 }
 /*Barra de búsqueda.*/
@@ -66,8 +66,4 @@ input:focus{
 
 }
 /*Barra de búsqueda.*/
-.form-control{
-    text-align: center;
-    width: 400px;
-    margin:0 auto;
-}
+

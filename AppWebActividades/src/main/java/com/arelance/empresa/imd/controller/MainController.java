@@ -10,6 +10,8 @@ import com.arelance.empresa.imd.modelo.Command;
 import com.arelance.empresa.imd.modelo.VolverAction;
 import com.arelance.empresa.imd.modelo.LoginAction;
 import com.arelance.empresa.imd.modelo.RegistroAction;
+import com.arelance.empresa.imd.modelo.RegistroClienteAction;
+import com.arelance.empresa.imd.modelo.RegistroParte2Action;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -42,6 +44,8 @@ public class MainController extends HttpServlet {
         optionMenu.put("Login", new LoginAction());
         optionMenu.put("Volver", new VolverAction());
         optionMenu.put("Registro", new RegistroAction());
+        optionMenu.put("Continuar",new RegistroParte2Action());
+        optionMenu.put("Registrarse",new RegistroClienteAction());
         String action = request.getParameter("action");
         Command command = optionMenu.get(action);
         command.execute(request, response);

@@ -16,7 +16,7 @@
     <body>
         <div class="container">
             <h3>¡Estas más cerca del disfrute!</h3>
-            <form action="MainController?action=Login">
+            <form action="../MainController?action=Registrarse">
                 <div class="form-group">
                     <label for="text">Nick:</label>
                     <input type="text" class="form-control" id="nick" placeholder="SalvSolo" name="nick" maxlength="20">
@@ -31,10 +31,10 @@
                 </div>
                 <div class="form-group">
                     <label for="pwd">Confirmar contraseña:</label>
-                    <input type="password" class="form-control" id="pwd" placeholder="SalvSolo1234" name="pswd" maxlength="20">
+                    <input type="password" class="form-control" id="pwd" placeholder="SalvSolo1234" name="confirmpswd" maxlength="20">
                 </div>
-                <button type="submit" class="btn btn-secondary">Siguiente</button>
-                <input type="submit"class="btn btn-secondary"name="action" value="Volver" formaction="../MainController?action=Volver">
+                <input type="submit" class="btn btn-secondary" name="action"value="Registrarse">
+                <input type="reset"class="btn btn-secondary"name="action"value="Limpiar">
             </form>
         </div>
     </body>

@@ -9,10 +9,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <%@include file = "../JSPF/meta.jspf"%>
+        <%@include file = "../JSPF/meta.jspf"%>
         <title>Login</title>
-          <%@include file = "../JSPF/login.jspf"%>
-
+        <%@include file = "../JSPF/login.jspf"%>
     </head>
     <body>
         <h3>Accede a tu cuenta:</h3>
