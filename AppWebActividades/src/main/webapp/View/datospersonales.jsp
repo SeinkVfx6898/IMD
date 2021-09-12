@@ -16,7 +16,7 @@
         <div class="container">
             <h3>Cada día numerosos grupos de personas disfrutan de nuestras actividades.<br>
                 ¡Forma parte de nosotros para disfrutar también!</h3>
-            <form action="../MainController?action=Continuar">
+            <form action="../MainController?action=Continuar" method="GET">
                 <div class="form-group">
                     <label for="text">Nombre:</label>
                     <input type="text" class="form-control" id="nombre" placeholder="Salvador" name="nombre" maxlength="30"required>

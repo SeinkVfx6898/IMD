@@ -37,20 +37,22 @@ public class Navigation {
         response.sendRedirect("IndexController");
         return "IndexController";
     }
-       public static String registroParte2(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+    public static String registroParte2(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
           String nombre=request.getParameter("nombre");
           String apellido=request.getParameter("apellido");
           String tlf=request.getParameter("tlf");
           request.setAttribute("nombre",nombre);
           request.setAttribute("apellido",apellido);
           request.setAttribute("tlf", tlf);
-        request.getRequestDispatcher("../View/datoslogin").forward(request, response);
-        return "../View/datoslogin.jsp";
+       request.getRequestDispatcher("View/datoslogin.jsp").forward(request, response);
+        return "View/datoslogin.jsp";
     }
+
     public static List<Cliente> altaCliente(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String tlf = request.getParameter("tlf");
+        String nombre =(String)request.getAttribute("nombre");
+        String apellido = (String) request.getAttribute("apellido");
+        String tlf = (String) request.getAttribute("tlf");
         String nick = request.getParameter("nick");
         String email = request.getParameter("email");
         String pswd = request.getParameter("pswd");
@@ -79,7 +81,7 @@ public class Navigation {
             request.getRequestDispatcher("View/datoslogin.jsp").forward(request, response);
         } else {
             loginServiceImpl.Registrar(cliente);
-            request.getRequestDispatcher("View/login.jsp").forward(request, response);
+          response.sendRedirect("View/login.jsp");
         }
         return listaClientes;
     }

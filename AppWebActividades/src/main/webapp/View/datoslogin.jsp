@@ -16,7 +16,7 @@
     <body>
         <div class="container">
             <h3>¡Estas más cerca del disfrute!</h3>
-            <form action="../MainController?action=Registrarse">
+            <form action="../MainController?action=Registrarse" method="POST">
                 <div class="form-group">
                     <label for="text">Nick:</label>
                     <input type="text" class="form-control" id="nick" placeholder="SalvSolo" name="nick" maxlength="20">
