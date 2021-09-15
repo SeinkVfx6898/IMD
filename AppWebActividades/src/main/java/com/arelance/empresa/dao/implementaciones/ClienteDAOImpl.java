@@ -7,80 +7,38 @@ package com.arelance.empresa.dao.implementaciones;
 
 
 import com.arelance.empresa.imd.beans.Cliente;
-import com.arelance.empresa.imd.conexion.Conexion;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import com.arelance.empresa.dao.interfaces.IClienteDAO;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 
 /**
  *
  * @author Manuel
  */
+@Stateless
 public class ClienteDAOImpl implements IClienteDAO{
-    
+    @PersistenceContext(unitName = "sgaPU")
+    EntityManager em;
+
+     
     @Override
     public List<Cliente> obtener() {
-        ResultSet rs;
-
-        String sql="SELECT id_cliente, nombre, apellido, Teléfono, email, nick, password FROM cliente";
-
-        List<Cliente> listaCliente = new ArrayList<>();
-
-        try {		
-            try (Connection conn = Conexion.conectar()) {
-                rs=conn.createStatement().executeQuery(sql);
-                while (rs.next()) {
-                    Cliente c=new Cliente();
-                    c.setIdCliente(rs.getInt(1));
-                    c.setNombre(rs.getString(2));
-                    c.setApellido(rs.getString(3));
-                    c.setTelefono(rs.getString(4));
-                    c.setEmail(rs.getString(5));
-                    c.setNick(rs.getString(6));
-                    c.setPassword(rs.getString(7));
-                    listaCliente.add(c);
-                }
-                rs.close();
-            }
-        } catch (SQLException e) {
-                System.out.println("Error: Clase ClienteDaoImple, método obtener");
-        }
-        return listaCliente;
-
+        return  em.createNamedQuery("Cliente.findAll").getResultList();
     }
 
     @Override
     public boolean guardar(Cliente cliente) {                                                                                                                                                                                   
-        String sql="INSERT INTO `cliente` (`nombre`, `apellido`, `Teléfono`, `email`, `nick`, `password`) VALUES ('" + cliente.getNombre() + "','" + cliente.getApellido() + "','" + cliente.getTelefono() + "','" + cliente.getEmail() + "','" + cliente.getNick() +  "','" + cliente.getPassword() + "')";
-        boolean guardado = false;
-        try {			
-            try (Connection conn = Conexion.conectar()) {
-                conn.createStatement().executeUpdate(sql);
-                guardado = true;
-            }
-        } catch (SQLException e) {
-                System.out.println("Error: Clase ClienteDaoImple, método guardar");
-        }
-        return guardado;
+        em.persist(cliente);
+        return true;
     }
 
     @Override
     public boolean actualizar(Cliente cliente) {
-        String sql="UPDATE `cliente` SET `nombre` = '" + cliente.getNombre() + "', `apellido` = '" + cliente.getApellido()+ "', `Teléfono` = '" + cliente.getTelefono()+ "', `email` = '" + cliente.getEmail()+ "', `nick` = '" + cliente.getNick()+ "', `password` = '" + cliente.getPassword()+ "' WHERE (`id_cliente` = '" + cliente.getIdCliente()+ "')";
-        boolean actualizado = false;
-        try {			
-            try (Connection conn = Conexion.conectar()) {
-                conn.createStatement().executeUpdate(sql);
-                actualizado = true;
-            }
-        } catch (SQLException e) {
-                System.out.println("Error: Clase ClienteDaoImple, método actualizar");
-        } 
-        return actualizado;
+        em.merge(cliente);
+        return true;
     }
 
 }

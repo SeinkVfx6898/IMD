@@ -10,6 +10,7 @@ import java.util.List;
 import com.arelance.empresa.dao.interfaces.IInscripcionTarjetaDAO;
 import com.arelance.empresa.dao.implementaciones.InscripcionTarjetaDAOImpl;
 import com.arelance.empresa.imd.beans.InscripcionTarjeta;
+import javax.inject.Inject;
 
 /**
  *
@@ -17,7 +18,8 @@ import com.arelance.empresa.imd.beans.InscripcionTarjeta;
  */
 public class InscripcionTarjetaDAOServ implements IInscripcionTarjetaDAO{
 
-    private IInscripcionTarjetaDAO inscripcionTarjetaDAO = new InscripcionTarjetaDAOImpl();
+    @Inject
+    private InscripcionTarjetaDAOImpl inscripcionTarjetaDAO;
 
     @Override
     public List<InscripcionTarjeta> obtener() {

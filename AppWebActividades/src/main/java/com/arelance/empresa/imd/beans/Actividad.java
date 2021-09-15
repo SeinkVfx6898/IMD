@@ -5,11 +5,28 @@
  */
 package com.arelance.empresa.imd.beans;
 
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 /**
  *
  * @author Manuel
  */
-public class Actividad {
+@Entity
+@Table(name = "actividad")
+public class Actividad implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_actividad")
     private int idActividad;
     private String nombre;
     private String descripcion;
@@ -18,7 +35,13 @@ public class Actividad {
     private String diaSemana;
     private String horaInicio;
     private String horaFin;
-
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_inscripciontarjeta")
+    private  List<InscripcionTarjeta> inscripcionTarjetas;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_inscripciontransferencias")
+    private  List<InscripcionTransferencia> inscripcionTransferencias;
+    
     public Actividad(int idActividad, String nombre, String descripcion, String enternador, double precio, String diaSemana, String horaInicio, String horaFin) {
         this.idActividad = idActividad;
         this.nombre = nombre;

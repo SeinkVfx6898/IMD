@@ -5,12 +5,24 @@
  */
 package com.arelance.empresa.imd.beans;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Manuel
  */
-public class MetodoPagoTransferencia {
-    
+@Entity
+@Table(name = "metodopagotransferencia")
+public class MetodoPagoTransferencia implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_metodopagotransferencia")
     private int idmetodopagotransferencia;
     private int Transferencia_id_transferencia;
 

@@ -10,6 +10,7 @@ import java.util.List;
 import com.arelance.empresa.dao.interfaces.IInscripcionTransferenciaDAO;
 import com.arelance.empresa.dao.implementaciones.InscripcionTransferenciaDAOImpl;
 import com.arelance.empresa.imd.beans.InscripcionTransferencia;
+import javax.inject.Inject;
 
 /**
  *
@@ -17,7 +18,8 @@ import com.arelance.empresa.imd.beans.InscripcionTransferencia;
  */
 public class InscripcionTransferenciaDAOServ implements IInscripcionTransferenciaDAO{
 
-    private IInscripcionTransferenciaDAO inscripcionTransferenciaDAO = new InscripcionTransferenciaDAOImpl();
+    @Inject
+    private InscripcionTransferenciaDAOImpl inscripcionTransferenciaDAO;
 
     @Override
     public List<InscripcionTransferencia> obtener() {

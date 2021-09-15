@@ -10,14 +10,16 @@ import java.util.List;
 import com.arelance.empresa.dao.interfaces.ITarjetaCreditoDAO;
 import com.arelance.empresa.dao.implementaciones.TarjetaCreditoDAOImpl;
 import com.arelance.empresa.imd.beans.TarjetaCredito;
+import javax.inject.Inject;
 
 /**
  *
  * @author Manuel
  */
 public class TarjetaCreditoDAOServ implements ITarjetaCreditoDAO{
-
-    private ITarjetaCreditoDAO tarjetaCreditoDAO = new TarjetaCreditoDAOImpl();
+    
+    @Inject
+    private TarjetaCreditoDAOImpl tarjetaCreditoDAO;
 
     @Override
     public List<TarjetaCredito> obtener() {

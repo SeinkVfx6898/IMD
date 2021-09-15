@@ -6,19 +6,22 @@
 package com.arelance.empresa.dao.servicios;
 
 import com.arelance.empresa.dao.implementaciones.LoginDAOImpl;
+import com.arelance.empresa.dao.interfaces.LoginDAO;
 import com.arelance.empresa.imd.beans.Cliente;
-import java.util.List;
+import javax.inject.Inject;
 
 /**
  *
  * @author lenovo
  */
 
-public class LoginServiceImpl implements LoginService<Cliente>{
-LoginDAOImpl loginDAOImpl=new LoginDAOImpl();
+public class LoginServiceImpl implements LoginDAO<Cliente>{
 
+    @Inject
+    private LoginDAOImpl loginDAOImpl;
+    
     @Override
-    public List<Cliente> verificar(Cliente cliente) {
+    public Cliente Verificar(Cliente cliente) {
         return loginDAOImpl.Verificar(cliente);
     }
 

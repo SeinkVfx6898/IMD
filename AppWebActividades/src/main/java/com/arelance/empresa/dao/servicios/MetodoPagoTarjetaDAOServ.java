@@ -10,6 +10,7 @@ import java.util.List;
 import com.arelance.empresa.dao.interfaces.IMetodoPagoTarjetaDAO;
 import com.arelance.empresa.dao.implementaciones.MetodoPagoTarjetaDAOImpl;
 import com.arelance.empresa.imd.beans.MetodoPagoTarjeta;
+import javax.inject.Inject;
 
 /**
  *
@@ -17,7 +18,8 @@ import com.arelance.empresa.imd.beans.MetodoPagoTarjeta;
  */
 public class MetodoPagoTarjetaDAOServ implements IMetodoPagoTarjetaDAO{
 
-    private IMetodoPagoTarjetaDAO metodoPagoTarjetaDAO = new MetodoPagoTarjetaDAOImpl();
+    @Inject
+    private MetodoPagoTarjetaDAOImpl metodoPagoTarjetaDAO;
 
     @Override
     public List<MetodoPagoTarjeta> obtener() {

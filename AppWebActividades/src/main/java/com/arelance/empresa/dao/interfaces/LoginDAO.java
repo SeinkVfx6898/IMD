@@ -16,7 +16,7 @@ import javax.ejb.Local;
 @Local
 public interface LoginDAO<T> {
 
-    public List<T> Verificar(T t);
+    public T Verificar(T t);
 
     public Boolean Registrar(T t);
 }

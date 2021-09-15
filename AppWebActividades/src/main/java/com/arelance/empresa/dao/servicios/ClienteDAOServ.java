@@ -10,6 +10,7 @@ import com.arelance.empresa.dao.implementaciones.ClienteDAOImpl;
 import com.arelance.empresa.imd.beans.Cliente;
 import java.util.List;
 import com.arelance.empresa.dao.interfaces.IClienteDAO;
+import javax.inject.Inject;
 
 /**
  *
@@ -17,8 +18,9 @@ import com.arelance.empresa.dao.interfaces.IClienteDAO;
  */
 public class ClienteDAOServ implements IClienteDAO{
 
-    private IClienteDAO clienteDao = new ClienteDAOImpl();
-
+    @Inject
+    private ClienteDAOImpl clienteDao;
+        
     @Override
     public List<Cliente> obtener() {
         return clienteDao.obtener();

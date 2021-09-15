@@ -10,6 +10,7 @@ import java.util.List;
 import com.arelance.empresa.dao.interfaces.IMetodoPagoTransferenciaDAO;
 import com.arelance.empresa.dao.implementaciones.MetodoPagoTransferenciaDAOImpl;
 import com.arelance.empresa.imd.beans.MetodoPagoTransferencia;
+import javax.inject.Inject;
 
 /**
  *
@@ -17,7 +18,8 @@ import com.arelance.empresa.imd.beans.MetodoPagoTransferencia;
  */
 public class MetodoPagoTransferenciaDAOServ implements IMetodoPagoTransferenciaDAO{
 
-    private IMetodoPagoTransferenciaDAO metodoPagoTransferenciaDAO = new MetodoPagoTransferenciaDAOImpl();
+    @Inject
+    private MetodoPagoTransferenciaDAOImpl metodoPagoTransferenciaDAO;
 
     @Override
     public List<MetodoPagoTransferencia> obtener() {

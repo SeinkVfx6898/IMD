@@ -5,11 +5,23 @@
  */
 package com.arelance.empresa.imd.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Manuel
  */
+@Entity
+@Table(name = "tarjetacredito")
 public class TarjetaCredito {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_tarjeta_credito")
     private int idTarjetaCredito;
     private int numero;
     private String fechaCaducidad;

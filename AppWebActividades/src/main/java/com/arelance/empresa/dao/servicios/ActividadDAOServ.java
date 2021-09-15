@@ -10,6 +10,7 @@ import com.arelance.empresa.imd.beans.Actividad;
 
 import java.util.List;
 import com.arelance.empresa.dao.interfaces.IActividadDAO;
+import javax.inject.Inject;
 
 /**
  *
@@ -17,7 +18,8 @@ import com.arelance.empresa.dao.interfaces.IActividadDAO;
  */
 public class ActividadDAOServ implements IActividadDAO{
 
-    private IActividadDAO actividadDao = new ActividadDAOImpl();
+    @Inject
+    private ActividadDAOImpl actividadDao;
 
     @Override
     public List<Actividad> obtener() {

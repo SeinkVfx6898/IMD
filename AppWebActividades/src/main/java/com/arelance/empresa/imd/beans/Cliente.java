@@ -5,11 +5,28 @@
  */
 package com.arelance.empresa.imd.beans;
 
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 /**
  *
  * @author Manuel
  */
-public class Cliente{
+@Entity
+@Table(name = "cliente")
+public class Cliente implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_cliente")
     private int idCliente;
     private String nombre;
     private String apellido;
@@ -17,6 +34,12 @@ public class Cliente{
     private String email;
     private String nick;
     private String password;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_inscripciontarjeta")
+    private  List<InscripcionTarjeta> inscripcionTarjetas;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_inscripciontransferencias")
+    private  List<InscripcionTransferencia> inscripcionTransferencias;
 
     public Cliente(int idCliente, String nombre, String apellido, String telefono, String email, String nick, String password) {
         this.idCliente = idCliente;

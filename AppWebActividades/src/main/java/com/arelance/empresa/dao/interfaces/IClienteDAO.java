@@ -7,11 +7,13 @@ package com.arelance.empresa.dao.interfaces;
 
 import com.arelance.empresa.imd.beans.Cliente;
 import java.util.List;
+import javax.ejb.Local;
 
 /**
  *
  * @author Manuel
  */
+@Local
 public interface IClienteDAO {
     
     public List<Cliente> obtener();

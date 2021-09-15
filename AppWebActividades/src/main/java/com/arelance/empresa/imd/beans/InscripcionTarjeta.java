@@ -5,18 +5,31 @@
  */
 package com.arelance.empresa.imd.beans;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Manuel
  */
-public class InscripcionTarjeta {
-    private int idInscripcion;
+@Entity
+@Table(name = "inscripciontarjeta")
+public class InscripcionTarjeta implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_inscripciontarjeta")
+    private int idInscripciontarjeta;
     private int Cliente_id_cliente;
     private int Actividad_id_actividad;
     private int metodopagotarjeta_idmetodopagotarjeta;
 
-    public InscripcionTarjeta(int idInscripcion, int Cliente_id_cliente, int Actividad_id_actividad, int metodopagotarjeta_idmetodopagotarjeta) {
-        this.idInscripcion = idInscripcion;
+    public InscripcionTarjeta(int idInscripciontarjeta, int Cliente_id_cliente, int Actividad_id_actividad, int metodopagotarjeta_idmetodopagotarjeta) {
+        this.idInscripciontarjeta = idInscripciontarjeta;
         this.Cliente_id_cliente = Cliente_id_cliente;
         this.Actividad_id_actividad = Actividad_id_actividad;
         this.metodopagotarjeta_idmetodopagotarjeta = metodopagotarjeta_idmetodopagotarjeta;
@@ -31,12 +44,12 @@ public class InscripcionTarjeta {
     public InscripcionTarjeta() {
     }
 
-    public int getIdInscripcion() {
-        return idInscripcion;
+    public int getIdInscripciontarjeta() {
+        return idInscripciontarjeta;
     }
 
-    public void setIdInscripcion(int idInscripcion) {
-        this.idInscripcion = idInscripcion;
+    public void setIdInscripciontarjeta(int idInscripciontarjeta) {
+        this.idInscripciontarjeta = idInscripciontarjeta;
     }
 
     public int getCliente_id_cliente() {
