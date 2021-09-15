@@ -61,7 +61,7 @@ public class Navigation {
         List<Cliente> listaClientes = new ArrayList<>();
         LoginServiceImpl loginServiceImpl = new LoginServiceImpl();
         listaClientes.add(cliente);
-        listaClientes = loginServiceImpl.verificar(cliente);
+        listaClientes = loginServiceImpl.verificar(cliente);//no es una lista es un cliente unico
         for (Cliente listaCliente : listaClientes) {
             if (listaCliente.getEmail().equalsIgnoreCase(email)) {
                 request.setAttribute("msgErrorEmail", "Este email ya existe.");
