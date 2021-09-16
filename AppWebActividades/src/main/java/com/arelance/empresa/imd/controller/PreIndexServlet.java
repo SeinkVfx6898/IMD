@@ -5,8 +5,12 @@
  */
 package com.arelance.empresa.imd.controller;
 
+import com.arelance.empresa.imd.domain.Actividad;
+import com.arelance.empresa.servicios.impl.ActividadServiceImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,9 +33,13 @@ public class PreIndexServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Inject
+    private ActividadServiceImpl actividadServiceImpl;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String principal = "View/index.jsp";
+        List<Actividad>actividades=actividadServiceImpl.ListarActividades();
+        request.setAttribute("lista",actividades);
         request.getRequestDispatcher(principal).forward(request, response);
     }
 

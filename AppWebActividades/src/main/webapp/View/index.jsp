@@ -4,7 +4,7 @@
     Author     : lenovo
 --%>
 
-<%@page import="com.arelance.empresa.imd.beans.Actividad"%>
+<%@page import="com.arelance.empresa.imd.domain.Actividad"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="false"%>
@@ -17,13 +17,13 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">     
-            <a class="navbar-brand" href="MainController?action=Volver">IMD</a> 
+            <a class="navbar-brand" href="PreIndexServlet">IMD</a> 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="MainController?action=Registro">Registro</a>
+                    <a class="nav-link" href="PreRegistroServlet">Registro</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="MainController?action=Login">Iniciar sesión</a>
+                    <a class="nav-link" href="PreLoginServlet">Iniciar sesión</a>
                 </li>          
             </ul>
         </nav>
@@ -32,15 +32,19 @@
         </header>
         <input  type="text"class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Busca una actividad..." title="Type in a name">
         <ul id="myUL">
-            <%
-            List<Actividad>lista=(List<Actividad>)request.getAttribute("lista");
-            %>
-            <%
-            for (Actividad actividad : lista) {
-                 out.print("<li>"+"<a href='inscripción.jsp&idactividad='"+actividad.getIdActividad()+">"+actividad.getNombre()+"</a>"+"</li>");
-                }
-            %>
-            
+   <%
+   List<Actividad>lista=(List<Actividad>)request.getAttribute("lista");
+   %>  
+   <%
+   for (Actividad actividad : lista) {               
+   %>
+   <li>
+   <a href="PreInscripcionServlet?idActividad=<%= actividad.getIdActividad()%>"><%=actividad.getNombre()%></a>
+   </li>
+   <%
+    }
+   %>
+     
         </ul>
         <aside>
             <p>Publicidad</p>
