@@ -6,7 +6,7 @@
 package com.arelance.empresa.dao.implementaciones;
 
 
-import com.arelance.empresa.dao.interfaces.IMetodoPagoTransferenciaDAO;
+import com.arelance.empresa.imd.dao.IMetodoPagoTransferenciaDAO;
 import java.util.List;
 import com.arelance.empresa.imd.beans.*;
 import javax.ejb.Stateless;

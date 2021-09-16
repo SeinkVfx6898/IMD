@@ -3,36 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.arelance.empresa.dao.implementaciones;
+package com.arelance.empresa.servicios.impl;
 
 
 import java.util.List;
 import com.arelance.empresa.imd.dao.ITarjetaCreditoDAO;
+import com.arelance.empresa.dao.implementaciones.TarjetaCreditoDAOImpl;
 import com.arelance.empresa.imd.beans.TarjetaCredito;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
+import javax.inject.Inject;
 
 /**
  *
  * @author Manuel
  */
-@Stateless
-public class TarjetaCreditoDAOImpl implements ITarjetaCreditoDAO{
-    @PersistenceContext(unitName = "sgaPU")
-    EntityManager em;
+public class TarjetaCreditoDAOServ implements ITarjetaCreditoDAO{
     
+    @Inject
+    private TarjetaCreditoDAOImpl tarjetaCreditoDAO;
+
     @Override
     public List<TarjetaCredito> obtener() {
-       return  em.createNamedQuery("TarjetaCredito.findAll").getResultList();
-
+        return tarjetaCreditoDAO.obtener();
     }
 
     @Override
     public boolean guardar(TarjetaCredito tarjetaCredito) {
-        em.persist(tarjetaCredito);
-        return true;
+        return tarjetaCreditoDAO.guardar(tarjetaCredito);
     }
-
+    
 }

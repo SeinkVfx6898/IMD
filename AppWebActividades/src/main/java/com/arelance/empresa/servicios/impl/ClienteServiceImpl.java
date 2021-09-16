@@ -3,56 +3,56 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.arelance.empresa.dao.implementaciones;
+package com.arelance.empresa.servicios.impl;
 
 import com.arelance.empresa.imd.domain.Cliente;
 import java.util.List;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.inject.Inject;
 import com.arelance.empresa.imd.dao.ClienteDAO;
+import com.arelance.empresa.dao.servicios.ClienteService;
 
 /**
  *
  * @author Manuel
  */
-@Stateless
-public class ClienteDAOImpl implements ClienteDAO {
-
-    @PersistenceContext(unitName = "ImdPU")
-    EntityManager em;
-
+public class ClienteServiceImpl implements ClienteService {
+    
+    @Inject
+    private ClienteDAO clienteDAO;
+    
     @Override
     public List<Cliente> listarClientes() {
-        return em.createNamedQuery("Cliente.findAll").getResultList();
+        return clienteDAO.listarClientes();
     }
-
+    
     @Override
     public Cliente EncontrarClientePorEmail(Cliente cliente) {
-  return (Cliente) em.createNamedQuery("Cliente.findByEmail").getSingleResult();
+        return clienteDAO.EncontrarClientePorEmail(cliente);
     }
-
+    
     @Override
     public Cliente EncontrarClientePorID(Cliente cliente) {
-        return em.find(Cliente.class, cliente.getIdCliente());
+        return clienteDAO.EncontrarClientePorID(cliente);
     }
-
+    
     @Override
     public Cliente EncontrarClientePorNick(Cliente cliente) {
-     return (Cliente) em.createNamedQuery("Cliente.findByNick").getSingleResult();
+        return clienteDAO.EncontrarClientePorNick(cliente);
     }
-
+    
     @Override
     public void AñadirCliente(Cliente cliente) {
-        em.persist(cliente);
+        clienteDAO.AñadirCliente(cliente);
     }
-
+    
     @Override
     public void ModificarCliente(Cliente cliente) {
-        em.merge(cliente);
+        clienteDAO.ModificarCliente(cliente);
     }
+    
     @Override
     public void RemoverCliente(Cliente cliente) {
-        em.remove(em.merge(cliente));
+        clienteDAO.RemoverCliente(cliente);
     }
+    
 }

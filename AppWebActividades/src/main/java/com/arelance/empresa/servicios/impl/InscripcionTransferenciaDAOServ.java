@@ -3,36 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.arelance.empresa.dao.implementaciones;
+package com.arelance.empresa.servicios.impl;
 
 
 import java.util.List;
 import com.arelance.empresa.imd.dao.IInscripcionTransferenciaDAO;
+import com.arelance.empresa.dao.implementaciones.InscripcionTransferenciaDAOImpl;
 import com.arelance.empresa.imd.beans.InscripcionTransferencia;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
+import javax.inject.Inject;
 
 /**
  *
  * @author Manuel
  */
-@Stateless
-public class InscripcionTransferenciaDAOImpl implements IInscripcionTransferenciaDAO{
-    @PersistenceContext(unitName = "sgaPU")
-    EntityManager em;
-    
+public class InscripcionTransferenciaDAOServ implements IInscripcionTransferenciaDAO{
+
+    @Inject
+    private InscripcionTransferenciaDAOImpl inscripcionTransferenciaDAO;
+
     @Override
     public List<InscripcionTransferencia> obtener() {
-        return  em.createNamedQuery("InscripcionTransferencia.findAll").getResultList();
-
+        return inscripcionTransferenciaDAO.obtener();
     }
 
     @Override
     public boolean guardar(InscripcionTransferencia inscripcionTransferencia) {
-        em.persist(inscripcionTransferencia);
-        return true;
+        return inscripcionTransferenciaDAO.guardar(inscripcionTransferencia);
     }
 
 }

@@ -13,7 +13,8 @@
     <ejb-local-ref>
         <ejb-ref-name>loginDAOImpl</ejb-ref-name>
         <ejb-ref-type>Session</ejb-ref-type>
-        <local>com.arelance.empresa.dao.interfaces.LoginDAO</local>
+        <local-home>com.arelance.empresa.imd.dao.LoginDAO</local-home>
+        <local>com.arelance.empresa.imd.dao.LoginDAO</local>
         <ejb-link>#LoginDAOImpl</ejb-link>
     </ejb-local-ref>
 </web-app>

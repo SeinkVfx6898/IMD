@@ -3,35 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.arelance.empresa.dao.implementaciones;
+package com.arelance.empresa.servicios.impl;
 
 
 import java.util.List;
 import com.arelance.empresa.imd.dao.IInscripcionTarjetaDAO;
+import com.arelance.empresa.dao.implementaciones.InscripcionTarjetaDAOImpl;
 import com.arelance.empresa.imd.beans.InscripcionTarjeta;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
+import javax.inject.Inject;
 
 /**
  *
  * @author Manuel
  */
-@Stateless
-public class InscripcionTarjetaDAOImpl implements IInscripcionTarjetaDAO{
-    @PersistenceContext(unitName = "sgaPU")
-    EntityManager em;
-    
+public class InscripcionTarjetaDAOServ implements IInscripcionTarjetaDAO{
+
+    @Inject
+    private InscripcionTarjetaDAOImpl inscripcionTarjetaDAO;
+
     @Override
     public List<InscripcionTarjeta> obtener() {
-        return  em.createNamedQuery("InscripcionTarjeta.findAll").getResultList();
+        return inscripcionTarjetaDAO.obtener();
     }
 
     @Override
     public boolean guardar(InscripcionTarjeta inscripcionTarjeta) {
-        em.persist(inscripcionTarjeta);
-        return true;
+        return inscripcionTarjetaDAO.guardar(inscripcionTarjeta);
     }
 
 }

@@ -5,31 +5,46 @@
  */
 package com.arelance.empresa.dao.implementaciones;
 
-import com.arelance.empresa.imd.beans.Actividad;
+import com.arelance.empresa.imd.dao.ActividadDAO;
+import com.arelance.empresa.imd.domain.Actividad;
 import java.util.List;
-import com.arelance.empresa.dao.interfaces.IActividadDAO;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-
 /**
  *
- * @author Manuel
+ * @author lenovo
  */
 @Stateless
-public class ActividadDAOImpl implements IActividadDAO{
-    @PersistenceContext(unitName = "sgaPU")
+public class ActividadDAOImpl implements ActividadDAO {
+
+    @PersistenceContext(unitName = "ImdPU")
     EntityManager em;
-    
+
     @Override
-    public List<Actividad> obtener() {
-       return  em.createNamedQuery("Actividad.findAll").getResultList();
+    public List<Actividad> ListarActividades() {
+        return em.createNamedQuery("Actividad.findAll").getResultList();
     }
 
     @Override
-    public Actividad obtenerPorId(int id) {
-        return em.find(Actividad.class, id);
+    public Actividad EncontrarActividadPorID(Actividad actividad) {
+        return em.find(Actividad.class, actividad.getIdActividad());
     }
+
+    @Override
+    public void AñadirActividad(Actividad actividad) {
+        em.persist(actividad);
+    }
+
+    @Override
+    public void ModificarActividad(Actividad actividad) {
+        em.merge(actividad);
+    }
+
+    @Override
+    public void RemoverActividad(Actividad actividad) {
+        em.remove(em.merge(actividad));
+    }
+
 }
-
