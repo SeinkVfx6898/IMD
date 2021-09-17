@@ -5,19 +5,19 @@
  */
 package com.arelance.empresa.dao.implementaciones;
 
-import com.arelance.empresa.imd.dao.ActividadDAO;
 import com.arelance.empresa.imd.domain.Actividad;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import com.arelance.empresa.imd.dao.IActividadDAO;
 
 /**
  *
  * @author lenovo
  */
 @Stateless
-public class ActividadDAOImpl implements ActividadDAO {
+public class ActividadDAOImpl implements IActividadDAO {
 
     @PersistenceContext(unitName = "ImdPU")
     EntityManager em;

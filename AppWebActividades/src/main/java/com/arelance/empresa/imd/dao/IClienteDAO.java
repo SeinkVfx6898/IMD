@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.arelance.empresa.servicios;
+package com.arelance.empresa.imd.dao;
 
-import com.arelance.empresa.imd.dao.ClienteDAO;
 import com.arelance.empresa.imd.domain.Cliente;
 import java.util.List;
-import javax.inject.Inject;
+import javax.ejb.Local;
 
 /**
  *
- * @author lenovo
+ * @author Manuel
  */
-public interface ClienteService {
+@Local
+public interface IClienteDAO {
 
     public List<Cliente> listarClientes();//Obtener clientes.
 
@@ -29,4 +29,5 @@ public interface ClienteService {
     public void ModificarCliente(Cliente cliente);//Modificar clientes.
 
     public void RemoverCliente(Cliente cliente);//Remover clientes.
+
 }

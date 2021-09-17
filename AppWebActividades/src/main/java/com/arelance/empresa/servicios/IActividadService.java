@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author lenovo
  */
-public interface ActividadService {
+public interface IActividadService {
 
     public List<Actividad> ListarActividades();//Obtener todas las actividades
 

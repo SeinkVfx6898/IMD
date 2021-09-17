@@ -18,6 +18,6 @@ import javax.ejb.Local;
 public interface ITarjetaCreditoDAO {
     
     public List<Tarjetacredito> obtener();
-    public boolean guardar(Tarjetacredito tarjetaCredito);
+    public void guardar(Tarjetacredito tarjetaCredito);
     
 }
