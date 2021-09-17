@@ -6,6 +6,7 @@
 package com.arelance.empresa.servicios.impl;
 
 
+import com.arelance.empresa.imd.dao.MetodoPagoTarjetaDAO;
 import java.util.List;
 
 import com.arelance.empresa.imd.domain.Metodopagotarjeta;
@@ -19,16 +20,16 @@ import javax.inject.Inject;
 public class MetodoPagoTarjetaServiceImpl implements MetodoPagoTarjetaService {
     
     @Inject
-    private MetodoPagoTarjetaService metodoPagoTarjetaService;
+    private MetodoPagoTarjetaDAO metodoPagoTarjetaDAO;
     
     @Override
     public List<Metodopagotarjeta> obtener() {
-        return metodoPagoTarjetaService.obtener();
+        return metodoPagoTarjetaDAO.obtener();
     }
 
     @Override
     public void guardar(Metodopagotarjeta metodopagotarjeta) {
-       metodoPagoTarjetaService.guardar(metodopagotarjeta);
+       metodoPagoTarjetaDAO.guardar(metodopagotarjeta);
     }
 
 }

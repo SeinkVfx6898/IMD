@@ -5,6 +5,7 @@
  */
 package com.arelance.empresa.servicios.impl;
 
+import com.arelance.empresa.imd.dao.TransferenciaDAO;
 import java.util.List;
 import com.arelance.empresa.imd.domain.Transferencia;
 import com.arelance.empresa.servicios.TransferenciaService;
@@ -17,16 +18,16 @@ import javax.inject.Inject;
 public class TransferenciaServiceImpl implements TransferenciaService {
 
     @Inject
-    private TransferenciaService transferenciaService;
+    private TransferenciaDAO transferenciaDAO;
 
     @Override
     public List<Transferencia> obtener() {
-        return transferenciaService.obtener();
+        return transferenciaDAO.obtener();
     }
 
     @Override
     public void guardar(Transferencia transferencia) {
-        transferenciaService.guardar(transferencia);
+        transferenciaDAO.guardar(transferencia);
     }
 
 }

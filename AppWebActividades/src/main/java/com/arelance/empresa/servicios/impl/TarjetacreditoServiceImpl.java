@@ -5,6 +5,7 @@
  */
 package com.arelance.empresa.servicios.impl;
 
+import com.arelance.empresa.imd.dao.TarjetaCreditoDAO;
 import java.util.List;
 import com.arelance.empresa.imd.domain.Tarjetacredito;
 import com.arelance.empresa.servicios.TarjetaCreditoService;
@@ -17,16 +18,16 @@ import javax.inject.Inject;
 public class TarjetacreditoServiceImpl implements TarjetaCreditoService {
 
     @Inject
-    private TarjetaCreditoService tarjetaCreditoService;
+    private TarjetaCreditoDAO tarjetaCreditoDAO;
 
     @Override
     public List<Tarjetacredito> obtener() {
-        return tarjetaCreditoService.obtener();
+        return tarjetaCreditoDAO.obtener();
     }
 
     @Override
     public void guardar(Tarjetacredito tarjetaCredito) {
-      tarjetaCreditoService.guardar(tarjetaCredito);
+      tarjetaCreditoDAO.guardar(tarjetaCredito);
     }
 
 }
