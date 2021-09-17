@@ -4,11 +4,5 @@
     <jta-data-source>jdbc/IMD</jta-data-source>
     <class>com.arelance.empresa.imd.domain.Actividad</class>
     <class>com.arelance.empresa.imd.domain.Cliente</class>
-    <class>com.arelance.empresa.imd.domain.Inscripciontarjeta</class>
-    <class>com.arelance.empresa.imd.domain.Inscripciontransferencia</class>
-    <class>com.arelance.empresa.imd.domain.Metodopagotarjeta</class>
-    <class>com.arelance.empresa.imd.domain.Metodopagotransferencia</class>
-    <class>com.arelance.empresa.imd.domain.Tarjetacredito</class>
-    <class>com.arelance.empresa.imd.domain.Transferencia</class>
   </persistence-unit>
 </persistence>

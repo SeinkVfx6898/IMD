@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author usuar
+ * @author lenovo
  */
 @Entity
 @Table(name = "actividad")
@@ -45,15 +45,14 @@ public class Actividad implements Serializable {
     private String nombre;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 105)
-    @Column(name = "descripci\u00f3n")
-    private String descripción;
+    @Size(min = 1, max = 45)
+    @Column(name = "descripcion")
+    private String descripcion;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "entrenador")
     private String entrenador;
-
     @Basic(optional = false)
     @NotNull
     @Column(name = "precio")
@@ -81,10 +80,10 @@ public class Actividad implements Serializable {
         this.idActividad = idActividad;
     }
 
-    public Actividad(String nombre, String descripción, String entrenador, BigDecimal precio, String diaSemana, String horaInicio, String horaFin) {
-        
+    public Actividad(Integer idActividad, String nombre, String descripcion, String entrenador, BigDecimal precio, String diaSemana, String horaInicio, String horaFin) {
+        this.idActividad = idActividad;
         this.nombre = nombre;
-        this.descripción = descripción;
+        this.descripcion = descripcion;
         this.entrenador = entrenador;
         this.precio = precio;
         this.diaSemana = diaSemana;
@@ -108,12 +107,12 @@ public class Actividad implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getDescripción() {
-        return descripción;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescripción(String descripción) {
-        this.descripción = descripción;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getEntrenador() {
@@ -165,7 +164,6 @@ public class Actividad implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Actividad)) {
             return false;
         }
@@ -178,7 +176,9 @@ public class Actividad implements Serializable {
 
     @Override
     public String toString() {
-        return "com.arelance.empresa.imd.domain.Actividad[ idActividad=" + idActividad + " ]";
+        return "Actividad{" + "idActividad=" + idActividad + ", nombre=" + nombre + ", descripcion=" + descripcion + ", entrenador=" + entrenador + ", precio=" + precio + ", diaSemana=" + diaSemana + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + '}';
     }
+
+
 
 }

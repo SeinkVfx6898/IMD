@@ -5,8 +5,13 @@
  */
 package com.arelance.empresa.imd.controller;
 
+import com.arelance.empresa.imd.domain.Cliente;
+import com.arelance.empresa.servicios.ClienteService;
+import com.arelance.empresa.servicios.impl.ActividadServiceImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lenovo
  */
-@WebServlet(name = "PreLoginServlet", urlPatterns = {"/PreLoginServlet"})
-public class PreLoginServlet extends HttpServlet {
+@WebServlet(name = "PostRegistroServlet", urlPatterns = {"/PostRegistroServlet"})
+public class PostRegistroServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,9 +34,36 @@ public class PreLoginServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Inject
+    private ClienteService clienteService;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("View/login.jsp");
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String telefono = request.getParameter("tlf");
+        String email = request.getParameter("email");
+        String nick = request.getParameter("nick");
+        String password = request.getParameter("pass");
+        String password2 = request.getParameter("passconfirm");
+        List<Cliente> clientes = clienteService.listarClientes();
+        for (Cliente cliente : clientes) {
+            if (cliente.getNick().equals(nick)) {
+                request.setAttribute("NickMsg", "Este nick ya existe.");
+            } else if (cliente.getTelefono().equals(telefono)) {
+                request.setAttribute("TlfMsg", "Este teléfono ya existe.");
+            } else if (cliente.getEmail().equals(email)) {
+                request.setAttribute("EmailMsg", "Este email ya existe.");
+            } else if (!password.equals(password2)) {
+                request.setAttribute("PassMsg", "Las contraseñas no coinciden.");
+            } else {
+                Cliente cliente1 = new Cliente(nombre, apellido, telefono, email, nick, password);
+                clienteService.AñadirCliente(cliente1);
+                request.getRequestDispatcher("View/login.jsp").forward(request, response);
+            }
+
+        }
+        request.getRequestDispatcher("View/registro.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

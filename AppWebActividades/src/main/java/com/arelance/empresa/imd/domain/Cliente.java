@@ -6,9 +6,7 @@
 package com.arelance.empresa.imd.domain;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,12 +14,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,12 +28,15 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c"),
-    @NamedQuery(name = "Cliente.findByIdCliente", query = "SELECT c FROM Cliente c WHERE c.idCliente = :idCliente"),
-    @NamedQuery(name = "Cliente.findByEmail", query = "SELECT c FROM Cliente c WHERE c.email = :email"),
-    @NamedQuery(name = "Cliente.findByNick", query = "SELECT c FROM Cliente c WHERE c.nick = :nick"),
-})
+    @NamedQuery(name = "Cliente.findByIdCliente", query = "SELECT c FROM Cliente c WHERE c.idCliente = :idCliente"),})
 public class Cliente implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id_cliente")
+    private Integer idCliente;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -51,8 +50,8 @@ public class Cliente implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
-    @Column(name = "Tel\u00e9fono")
-    private String teléfono;
+    @Column(name = "telefono")
+    private String telefono;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
@@ -69,22 +68,6 @@ public class Cliente implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "password")
     private String password;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "clienteidcliente")
-    private Collection<Inscripciontransferencia> inscripciontransferenciaCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "clienteidcliente")
-    private Collection<Inscripciontarjeta> inscripciontarjetaCollection;
-
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id_cliente")
-    private Integer idCliente;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "telefono")
-    private String telefono;
 
     public Cliente() {
     }
@@ -103,47 +86,22 @@ public class Cliente implements Serializable {
         this.password = password;
     }
 
+    public Cliente(String nombre, String apellido, String telefono, String email, String nick, String password) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.email = email;
+        this.nick = nick;
+        this.password = password;
+    }
+    
+
     public Integer getIdCliente() {
         return idCliente;
     }
 
     public void setIdCliente(Integer idCliente) {
         this.idCliente = idCliente;
-    }
-
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (idCliente != null ? idCliente.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        
-        if (!(object instanceof Cliente)) {
-            return false;
-        }
-        Cliente other = (Cliente) object;
-        if ((this.idCliente == null && other.idCliente != null) || (this.idCliente != null && !this.idCliente.equals(other.idCliente))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Cliente{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + ", email=" + email + ", nick=" + nick + ", password=" + password + '}';
     }
 
     public String getNombre() {
@@ -162,12 +120,12 @@ public class Cliente implements Serializable {
         this.apellido = apellido;
     }
 
-    public String getTeléfono() {
-        return teléfono;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setTeléfono(String teléfono) {
-        this.teléfono = teléfono;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public String getEmail() {
@@ -194,24 +152,31 @@ public class Cliente implements Serializable {
         this.password = password;
     }
 
-    @XmlTransient
-    public Collection<Inscripciontransferencia> getInscripciontransferenciaCollection() {
-        return inscripciontransferenciaCollection;
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (idCliente != null ? idCliente.hashCode() : 0);
+        return hash;
     }
 
-    public void setInscripciontransferenciaCollection(Collection<Inscripciontransferencia> inscripciontransferenciaCollection) {
-        this.inscripciontransferenciaCollection = inscripciontransferenciaCollection;
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Cliente)) {
+            return false;
+        }
+        Cliente other = (Cliente) object;
+        if ((this.idCliente == null && other.idCliente != null) || (this.idCliente != null && !this.idCliente.equals(other.idCliente))) {
+            return false;
+        }
+        return true;
     }
 
-    @XmlTransient
-    public Collection<Inscripciontarjeta> getInscripciontarjetaCollection() {
-        return inscripciontarjetaCollection;
+    @Override
+    public String toString() {
+        return "Cliente{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + ", email=" + email + ", nick=" + nick + ", password=" + password + '}';
     }
 
-    public void setInscripciontarjetaCollection(Collection<Inscripciontarjeta> inscripciontarjetaCollection) {
-        this.inscripciontarjetaCollection = inscripciontarjetaCollection;
-    }
 
-    
-    
+
 }
