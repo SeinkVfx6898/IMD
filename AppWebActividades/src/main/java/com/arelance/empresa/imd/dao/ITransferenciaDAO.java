@@ -18,6 +18,6 @@ import javax.ejb.Local;
 public interface ITransferenciaDAO {
     
     public List<Transferencia> obtener();
-    public boolean guardar(Transferencia transferencia);
+    public void guardar(Transferencia transferencia);
     
 }

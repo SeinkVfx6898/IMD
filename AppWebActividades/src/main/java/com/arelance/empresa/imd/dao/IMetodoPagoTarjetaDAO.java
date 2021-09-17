@@ -19,6 +19,6 @@ import javax.ejb.Local;
 public interface IMetodoPagoTarjetaDAO {
     
     public List<Metodopagotarjeta> obtener();
-    public boolean guardar(Metodopagotarjeta  metodopagotarjeta);
+    public void guardar(Metodopagotarjeta  metodopagotarjeta);
     
 }

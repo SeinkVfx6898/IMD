@@ -18,6 +18,6 @@ import javax.ejb.Local;
 public interface IMetodoPagoTransferenciaDAO {
     
     public List<Metodopagotransferencia> obtener();
-    public boolean guardar(Metodopagotransferencia  metodoPagoTransferencia);
+    public void guardar(Metodopagotransferencia  metodoPagoTransferencia);
     
 }

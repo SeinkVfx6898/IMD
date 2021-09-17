@@ -87,5 +87,6 @@ public class Metodopagotransferencia implements Serializable {
     public String toString() {
         return "com.arelance.empresa.imd.domain.Metodopagotransferencia[ idmetodopagotransferencia=" + idmetodopagotransferencia + " ]";
     }
+
     
 }
