@@ -6,7 +6,7 @@
 package com.arelance.empresa.imd.dao;
 
 
-import com.arelance.empresa.imd.beans.TarjetaCredito;
+import com.arelance.empresa.imd.domain.Tarjetacredito;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -17,7 +17,7 @@ import javax.ejb.Local;
 @Local
 public interface ITarjetaCreditoDAO {
     
-    public List<TarjetaCredito> obtener();
-    public boolean guardar(TarjetaCredito tarjetaCredito);
+    public List<Tarjetacredito> obtener();
+    public boolean guardar(Tarjetacredito tarjetaCredito);
     
 }

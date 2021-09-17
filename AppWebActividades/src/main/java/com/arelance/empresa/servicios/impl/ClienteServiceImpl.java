@@ -9,7 +9,7 @@ import com.arelance.empresa.imd.domain.Cliente;
 import java.util.List;
 import javax.inject.Inject;
 import com.arelance.empresa.imd.dao.ClienteDAO;
-import com.arelance.empresa.dao.servicios.ClienteService;
+import com.arelance.empresa.servicios.ClienteService;
 
 /**
  *

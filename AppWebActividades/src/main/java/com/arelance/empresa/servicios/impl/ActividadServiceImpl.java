@@ -5,7 +5,7 @@
  */
 package com.arelance.empresa.servicios.impl;
 
-import com.arelance.empresa.dao.servicios.ActividadService;
+import com.arelance.empresa.servicios.ActividadService;
 import com.arelance.empresa.imd.dao.ActividadDAO;
 import com.arelance.empresa.imd.domain.Actividad;
 import java.util.List;

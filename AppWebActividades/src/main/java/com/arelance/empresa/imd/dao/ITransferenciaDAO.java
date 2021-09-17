@@ -6,7 +6,7 @@
 package com.arelance.empresa.imd.dao;
 
 
-import com.arelance.empresa.imd.beans.Transferencia;
+import com.arelance.empresa.imd.domain.Transferencia;
 import java.util.List;
 import javax.ejb.Local;
 
