@@ -5,12 +5,11 @@
  */
 package com.arelance.empresa.dao.implementaciones;
 
-import com.arelance.empresa.imd.domain.Actividad;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import com.arelance.empresa.imd.dao.IMetodoPagoTarjetaDAO;
+import com.arelance.empresa.imd.dao.MetodoPagoTarjetaDAO;
 import com.arelance.empresa.imd.domain.Metodopagotarjeta;
 
 /**
@@ -18,7 +17,7 @@ import com.arelance.empresa.imd.domain.Metodopagotarjeta;
  * @author lenovo
  */
 @Stateless
-public class MetodoPagoTarjetaDAOImpl implements IMetodoPagoTarjetaDAO {
+public class MetodoPagoTarjetaDAOImpl implements MetodoPagoTarjetaDAO {
 
     @PersistenceContext(unitName = "ImdPU")
     EntityManager em;

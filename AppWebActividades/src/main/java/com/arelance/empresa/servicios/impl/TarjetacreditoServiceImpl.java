@@ -6,27 +6,27 @@
 package com.arelance.empresa.servicios.impl;
 
 import java.util.List;
-import com.arelance.empresa.imd.dao.ITarjetaCreditoDAO;
 import com.arelance.empresa.imd.domain.Tarjetacredito;
+import com.arelance.empresa.servicios.TarjetaCreditoService;
 import javax.inject.Inject;
 
 /**
  *
  * @author lenovo
  */
-public class TarjetacreditoServiceImpl implements ITarjetaCreditoDAO {
+public class TarjetacreditoServiceImpl implements TarjetaCreditoService {
 
     @Inject
-    private ITarjetaCreditoDAO tarjetaCreditoDAO;
+    private TarjetaCreditoService tarjetaCreditoService;
 
     @Override
     public List<Tarjetacredito> obtener() {
-        return tarjetaCreditoDAO.obtener();
+        return tarjetaCreditoService.obtener();
     }
 
     @Override
     public void guardar(Tarjetacredito tarjetaCredito) {
-      tarjetaCreditoDAO.guardar(tarjetaCredito);
+      tarjetaCreditoService.guardar(tarjetaCredito);
     }
 
 }

@@ -22,15 +22,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author lenovo
+ * @author usuar
  */
 @Entity
 @Table(name = "actividad")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Actividad.findAll", query = "SELECT a FROM Actividad a"),
-    @NamedQuery(name = "Actividad.findByIdActividad", query = "SELECT a FROM Actividad a WHERE a.idActividad = :idActividad"),
-})
+    @NamedQuery(name = "Actividad.findByIdActividad", query = "SELECT a FROM Actividad a WHERE a.idActividad = :idActividad"),})
 public class Actividad implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,14 +45,15 @@ public class Actividad implements Serializable {
     private String nombre;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "descripcion")
-    private String descripcion;
+    @Size(min = 1, max = 105)
+    @Column(name = "descripci\u00f3n")
+    private String descripción;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "entrenador")
     private String entrenador;
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "precio")
@@ -80,10 +80,11 @@ public class Actividad implements Serializable {
     public Actividad(Integer idActividad) {
         this.idActividad = idActividad;
     }
-    public Actividad(Integer idActividad, String nombre, String descripcion, String entrenador, BigDecimal precio, String diaSemana, String horaInicio, String horaFin) {
-        this.idActividad = idActividad;
+
+    public Actividad(String nombre, String descripción, String entrenador, BigDecimal precio, String diaSemana, String horaInicio, String horaFin) {
+        
         this.nombre = nombre;
-        this.descripcion = descripcion;
+        this.descripción = descripción;
         this.entrenador = entrenador;
         this.precio = precio;
         this.diaSemana = diaSemana;
@@ -107,12 +108,12 @@ public class Actividad implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescripción() {
+        return descripción;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripción(String descripción) {
+        this.descripción = descripción;
     }
 
     public String getEntrenador() {
@@ -164,7 +165,7 @@ public class Actividad implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-  
+        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Actividad)) {
             return false;
         }
@@ -177,9 +178,7 @@ public class Actividad implements Serializable {
 
     @Override
     public String toString() {
-        return "Actividad{" + "idActividad=" + idActividad + ", nombre=" + nombre + ", descripcion=" + descripcion + ", entrenador=" + entrenador + ", precio=" + precio + ", diaSemana=" + diaSemana + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + '}';
+        return "com.arelance.empresa.imd.domain.Actividad[ idActividad=" + idActividad + " ]";
     }
 
-
-    
 }

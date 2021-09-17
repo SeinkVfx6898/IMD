@@ -10,14 +10,14 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import com.arelance.empresa.imd.dao.IActividadDAO;
+import com.arelance.empresa.imd.dao.ActividadDAO;
 
 /**
  *
  * @author lenovo
  */
 @Stateless
-public class ActividadDAOImpl implements IActividadDAO {
+public class ActividadDAOImpl implements ActividadDAO {
 
     @PersistenceContext(unitName = "ImdPU")
     EntityManager em;

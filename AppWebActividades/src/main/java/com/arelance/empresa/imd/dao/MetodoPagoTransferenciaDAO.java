@@ -6,7 +6,7 @@
 package com.arelance.empresa.imd.dao;
 
 
-import com.arelance.empresa.imd.beans.InscripcionTarjeta;
+import com.arelance.empresa.imd.domain.Metodopagotransferencia;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -15,9 +15,9 @@ import javax.ejb.Local;
  * @author Manuel
  */
 @Local
-public interface IInscripcionTarjetaDAO {
+public interface MetodoPagoTransferenciaDAO {
     
-    public List<InscripcionTarjeta> obtener();
-    public boolean guardar(InscripcionTarjeta inscripcionTarjeta);
+    public List<Metodopagotransferencia> obtener();
+    public void guardar(Metodopagotransferencia  metodoPagoTransferencia);
     
 }

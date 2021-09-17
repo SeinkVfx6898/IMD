@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.arelance.empresa.imd.dao;
+package com.arelance.empresa.servicios;
 
 
-import com.arelance.empresa.imd.domain.Tarjetacredito;
+import com.arelance.empresa.imd.domain.Metodopagotransferencia;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -15,9 +15,9 @@ import javax.ejb.Local;
  * @author Manuel
  */
 @Local
-public interface ITarjetaCreditoDAO {
+public interface MetodoPagoTransferenciaService {
     
-    public List<Tarjetacredito> obtener();
-    public void guardar(Tarjetacredito tarjetaCredito);
+    public List<Metodopagotransferencia> obtener();
+    public void guardar(Metodopagotransferencia  metodoPagoTransferencia);
     
 }

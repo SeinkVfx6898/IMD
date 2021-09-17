@@ -6,27 +6,27 @@
 package com.arelance.empresa.servicios.impl;
 
 import java.util.List;
-import com.arelance.empresa.imd.dao.ITransferenciaDAO;
 import com.arelance.empresa.imd.domain.Transferencia;
+import com.arelance.empresa.servicios.TransferenciaService;
 import javax.inject.Inject;
 
 /**
  *
  * @author lenovo
  */
-public class TransferenciaServiceImpl implements ITransferenciaDAO {
+public class TransferenciaServiceImpl implements TransferenciaService {
 
     @Inject
-    private ITransferenciaDAO transferenciaDAO;
+    private TransferenciaService transferenciaService;
 
     @Override
     public List<Transferencia> obtener() {
-        return transferenciaDAO.obtener();
+        return transferenciaService.obtener();
     }
 
     @Override
     public void guardar(Transferencia transferencia) {
-      transferenciaDAO.guardar(transferencia);
+        transferenciaService.guardar(transferencia);
     }
 
 }

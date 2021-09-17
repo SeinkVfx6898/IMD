@@ -6,7 +6,9 @@
 package com.arelance.empresa.imd.domain;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +18,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,6 +34,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Metodopagotarjeta.findAll", query = "SELECT m FROM Metodopagotarjeta m"),
     @NamedQuery(name = "Metodopagotarjeta.findByIdmetodopagotarjeta", query = "SELECT m FROM Metodopagotarjeta m WHERE m.idmetodopagotarjeta = :idmetodopagotarjeta")})
 public class Metodopagotarjeta implements Serializable {
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "metodopagotarjetaIdmetodopagotarjeta")
+    private Collection<Inscripciontarjeta> inscripciontarjetaCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -87,6 +94,15 @@ public class Metodopagotarjeta implements Serializable {
     @Override
     public String toString() {
         return "com.arelance.empresa.imd.domain.Metodopagotarjeta[ idmetodopagotarjeta=" + idmetodopagotarjeta + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Inscripciontarjeta> getInscripciontarjetaCollection() {
+        return inscripciontarjetaCollection;
+    }
+
+    public void setInscripciontarjetaCollection(Collection<Inscripciontarjeta> inscripciontarjetaCollection) {
+        this.inscripciontarjetaCollection = inscripciontarjetaCollection;
     }
     
 }

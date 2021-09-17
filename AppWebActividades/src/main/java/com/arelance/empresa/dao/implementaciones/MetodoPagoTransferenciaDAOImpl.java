@@ -9,7 +9,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import com.arelance.empresa.imd.dao.IMetodoPagoTransferenciaDAO;
+import com.arelance.empresa.imd.dao.MetodoPagoTransferenciaDAO;
 import com.arelance.empresa.imd.domain.Metodopagotransferencia;
 
 /**
@@ -17,7 +17,7 @@ import com.arelance.empresa.imd.domain.Metodopagotransferencia;
  * @author lenovo
  */
 @Stateless
-public class MetodoPagoTransferenciaDAOImpl implements IMetodoPagoTransferenciaDAO {
+public class MetodoPagoTransferenciaDAOImpl implements MetodoPagoTransferenciaDAO {
 
     @PersistenceContext(unitName = "ImdPU")
     EntityManager em;

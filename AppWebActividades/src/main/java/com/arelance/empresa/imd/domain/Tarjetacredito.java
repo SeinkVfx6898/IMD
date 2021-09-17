@@ -6,9 +6,7 @@
 package com.arelance.empresa.imd.domain;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,16 +14,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Manuel
+ * @author usuar
  */
 @Entity
 @Table(name = "tarjetacredito")
@@ -57,8 +53,6 @@ public class Tarjetacredito implements Serializable {
     @NotNull
     @Column(name = "CVV")
     private int cvv;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tarjetaCreditoidtarjetacredito")
-    private Collection<Metodopagotarjeta> metodopagotarjetaCollection;
 
     public Tarjetacredito() {
     }
@@ -106,15 +100,6 @@ public class Tarjetacredito implements Serializable {
         this.cvv = cvv;
     }
 
-    @XmlTransient
-    public Collection<Metodopagotarjeta> getMetodopagotarjetaCollection() {
-        return metodopagotarjetaCollection;
-    }
-
-    public void setMetodopagotarjetaCollection(Collection<Metodopagotarjeta> metodopagotarjetaCollection) {
-        this.metodopagotarjetaCollection = metodopagotarjetaCollection;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -124,6 +109,7 @@ public class Tarjetacredito implements Serializable {
 
     @Override
     public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Tarjetacredito)) {
             return false;
         }

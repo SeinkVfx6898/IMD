@@ -6,7 +6,8 @@
 package com.arelance.empresa.imd.dao;
 
 
-import com.arelance.empresa.imd.domain.Transferencia;
+
+import com.arelance.empresa.imd.domain.Metodopagotarjeta;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -15,9 +16,9 @@ import javax.ejb.Local;
  * @author Manuel
  */
 @Local
-public interface ITransferenciaDAO {
+public interface MetodoPagoTarjetaDAO {
     
-    public List<Transferencia> obtener();
-    public void guardar(Transferencia transferencia);
+    public List<Metodopagotarjeta> obtener();
+    public void guardar(Metodopagotarjeta  metodopagotarjeta);
     
 }

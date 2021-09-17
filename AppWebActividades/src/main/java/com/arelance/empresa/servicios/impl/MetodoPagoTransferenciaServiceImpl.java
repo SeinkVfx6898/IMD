@@ -7,27 +7,27 @@ package com.arelance.empresa.servicios.impl;
 
 
 import java.util.List;
-import com.arelance.empresa.imd.dao.IMetodoPagoTransferenciaDAO;
 import com.arelance.empresa.imd.domain.Metodopagotransferencia;
+import com.arelance.empresa.servicios.MetodoPagoTransferenciaService;
 import javax.inject.Inject;
 
 /**
  *
  * @author lenovo
  */
-public class MetodoPagoTransferenciaServiceImpl implements IMetodoPagoTransferenciaDAO {
+public class MetodoPagoTransferenciaServiceImpl implements MetodoPagoTransferenciaService {
     
     @Inject
-    private IMetodoPagoTransferenciaDAO metodoPagoTransferenciaDAO;
+    private MetodoPagoTransferenciaService metodoPagoTransferenciaService;
     
     @Override
     public List<Metodopagotransferencia> obtener() {
-        return metodoPagoTransferenciaDAO.obtener();
+        return metodoPagoTransferenciaService.obtener();
     }
 
     @Override
     public void guardar(Metodopagotransferencia metodopagotransferencia) {
-       metodoPagoTransferenciaDAO.guardar(metodopagotransferencia);
+       metodoPagoTransferenciaService.guardar(metodopagotransferencia);
     }
 
 }

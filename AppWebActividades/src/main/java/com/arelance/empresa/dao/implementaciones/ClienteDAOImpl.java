@@ -10,14 +10,14 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import com.arelance.empresa.imd.dao.IClienteDAO;
+import com.arelance.empresa.imd.dao.ClienteDAO;
 
 /**
  *
  * @author Manuel
  */
 @Stateless
-public class ClienteDAOImpl implements IClienteDAO {
+public class ClienteDAOImpl implements ClienteDAO {
 
     @PersistenceContext(unitName = "ImdPU")
     EntityManager em;

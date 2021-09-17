@@ -8,17 +8,17 @@ package com.arelance.empresa.servicios.impl;
 import com.arelance.empresa.imd.domain.Actividad;
 import java.util.List;
 import javax.inject.Inject;
-import com.arelance.empresa.imd.dao.IActividadDAO;
-import com.arelance.empresa.servicios.IActividadService;
+import com.arelance.empresa.servicios.ActividadService;
+import com.arelance.empresa.imd.dao.ActividadDAO;
 
 /**
  *
  * @author lenovo
  */
-public class ActividadServiceImpl implements IActividadService {
+public class ActividadServiceImpl implements ActividadService {
 
     @Inject
-    private IActividadDAO actividadDAO;
+    private ActividadDAO actividadDAO;
 
     @Override
     public List<Actividad> ListarActividades() {

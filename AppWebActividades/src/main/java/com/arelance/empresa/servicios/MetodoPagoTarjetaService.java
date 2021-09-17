@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.arelance.empresa.imd.dao;
+package com.arelance.empresa.servicios;
 
 
 
@@ -16,7 +16,7 @@ import javax.ejb.Local;
  * @author Manuel
  */
 @Local
-public interface IMetodoPagoTarjetaDAO {
+public interface MetodoPagoTarjetaService {
     
     public List<Metodopagotarjeta> obtener();
     public void guardar(Metodopagotarjeta  metodopagotarjeta);

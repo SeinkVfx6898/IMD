@@ -10,7 +10,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import com.arelance.empresa.imd.dao.ITarjetaCreditoDAO;
+import com.arelance.empresa.imd.dao.TarjetaCreditoDAO;
 import com.arelance.empresa.imd.domain.Tarjetacredito;
 
 /**
@@ -18,7 +18,7 @@ import com.arelance.empresa.imd.domain.Tarjetacredito;
  * @author lenovo
  */
 @Stateless
-public class TarjetacreditoDAOImpl implements ITarjetaCreditoDAO {
+public class TarjetacreditoDAOImpl implements TarjetaCreditoDAO {
 
     @PersistenceContext(unitName = "ImdPU")
     EntityManager em;

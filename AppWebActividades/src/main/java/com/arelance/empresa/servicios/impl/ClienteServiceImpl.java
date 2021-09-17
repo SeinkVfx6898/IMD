@@ -8,17 +8,17 @@ package com.arelance.empresa.servicios.impl;
 import com.arelance.empresa.imd.domain.Cliente;
 import java.util.List;
 import javax.inject.Inject;
-import com.arelance.empresa.imd.dao.IClienteDAO;
-import com.arelance.empresa.servicios.IClienteService;
+import com.arelance.empresa.servicios.ClienteService;
+import com.arelance.empresa.imd.dao.ClienteDAO;
 
 /**
  *
  * @author Manuel
  */
-public class ClienteServiceImpl implements IClienteService {
+public class ClienteServiceImpl implements ClienteService {
     
     @Inject
-    private IClienteDAO clienteDAO;
+    private ClienteDAO clienteDAO;
     
     @Override
     public List<Cliente> listarClientes() {

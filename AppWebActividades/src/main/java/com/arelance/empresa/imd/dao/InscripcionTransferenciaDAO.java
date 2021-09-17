@@ -5,18 +5,19 @@
  */
 package com.arelance.empresa.imd.dao;
 
+
+import com.arelance.empresa.imd.domain.Inscripciontransferencia;
 import java.util.List;
 import javax.ejb.Local;
 
 /**
  *
- * @author lenovo
- * @param <T>
+ * @author Manuel
  */
 @Local
-public interface LoginDAO<T> {
-
-    public T Verificar(T t);
-
-    public Boolean Registrar(T t);
+public interface InscripcionTransferenciaDAO {
+    
+    public List<Inscripciontransferencia> obtener();
+    public void guardar(Inscripciontransferencia inscripciontransferencia);
+    
 }
