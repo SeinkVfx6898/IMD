@@ -41,6 +41,9 @@
                 border-bottom: 2px solid red;
                 margin:8px;
             }
+            .btn-secondary{
+                margin-bottom:18px;
+            }
 
 
         </style>
