@@ -22,7 +22,7 @@
                 border:ridge 20px;
                 border-left:20px;
                 border-radius:20px;
-                
+
 
 
             }
@@ -32,8 +32,14 @@
                 border:ridge 20px;
                 border-left:20px;
                 border-radius:20px;
-                
 
+
+            }
+            span{
+                 margin-left:8px;
+                color:red;
+                border-bottom: 2px solid red;
+                margin:8px;
             }
 
 
@@ -42,6 +48,7 @@
     <body>
         <h3>Cada día numerosos grupos de personas disfrutan de nuestras actividades.<br>
             ¡Forma parte de nosotros para disfrutar también!</h3>
+
         <form action="../PostRegistroServlet" method="GET">
             <fieldset>
                 <div id="contenedor">
@@ -84,9 +91,10 @@
                 </div>
             </fieldset>
         </form>
-        <p>${NickMsg}</p>
-        <p>${TlfMsg}</p>
-        <p>${EmailMsg}</p>
-        <p>${PassMsg}</p>
+        <br>
+        <span>${NickMsg}</span>
+        <span>${TlfMsg}</span>
+        <span>${EmailMsg}</span>
+        <span>${PassMsg}</span>
     </body>
 </html>

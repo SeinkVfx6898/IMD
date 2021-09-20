@@ -7,9 +7,7 @@ package com.arelance.empresa.imd.controller;
 
 import com.arelance.empresa.imd.domain.Cliente;
 import com.arelance.empresa.servicios.ClienteService;
-import com.arelance.empresa.servicios.impl.ActividadServiceImpl;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
