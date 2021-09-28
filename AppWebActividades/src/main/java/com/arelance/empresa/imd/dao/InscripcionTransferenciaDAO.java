@@ -5,7 +5,6 @@
  */
 package com.arelance.empresa.imd.dao;
 
-
 import com.arelance.empresa.imd.domain.Inscripciontransferencia;
 import java.util.List;
 import javax.ejb.Local;
@@ -16,10 +15,13 @@ import javax.ejb.Local;
  */
 @Local
 public interface InscripcionTransferenciaDAO {
-    
+
     public List<Inscripciontransferencia> obtener();
+
     public void guardar(Inscripciontransferencia inscripciontransferencia);
+
     public void modificar(Inscripciontransferencia inscripciontransferencia);
+
     public void eliminar(Inscripciontransferencia inscripciontransferencia);
-    
+
 }

@@ -18,11 +18,13 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class InscripcionTarjetaDAOImpl implements InscripcionTarjetaDAO {
+
     @PersistenceContext(unitName = "ImdPU")
     EntityManager em;
+
     @Override
     public List<Inscripciontarjeta> obtener() {
-       return em.createNamedQuery("Inscripciontarjeta.findAll").getResultList();
+        return em.createNamedQuery("Inscripciontarjeta.findAll").getResultList();
     }
 
     @Override
@@ -32,12 +34,12 @@ public class InscripcionTarjetaDAOImpl implements InscripcionTarjetaDAO {
 
     @Override
     public void modificar(Inscripciontarjeta inscripciontarjeta) {
-      em.merge(inscripciontarjeta);
+        em.merge(inscripciontarjeta);
     }
 
     @Override
     public void eliminar(Inscripciontarjeta inscripciontarjeta) {
         em.remove(em.merge(inscripciontarjeta));
     }
-    
+
 }

@@ -16,8 +16,10 @@ import javax.inject.Inject;
  * @author usuar
  */
 public class InscripcionTarjetaServiceImpl implements InscripcionTarjetaService {
-@Inject
-InscripcionTarjetaDAO inscripcionTarjetaDAO;
+
+    @Inject
+    InscripcionTarjetaDAO inscripcionTarjetaDAO;
+
     @Override
     public List<Inscripciontarjeta> obtener() {
         return inscripcionTarjetaDAO.obtener();
@@ -37,5 +39,5 @@ InscripcionTarjetaDAO inscripcionTarjetaDAO;
     public void eliminar(Inscripciontarjeta inscripciontarjeta) {
         inscripcionTarjetaDAO.eliminar(inscripciontarjeta);
     }
-    
+
 }
