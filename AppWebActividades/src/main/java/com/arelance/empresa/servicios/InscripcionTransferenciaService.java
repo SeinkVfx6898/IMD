@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.arelance.empresa.imd.dao;
-
+package com.arelance.empresa.servicios;
 
 import com.arelance.empresa.imd.domain.Inscripciontransferencia;
 import java.util.List;
@@ -12,14 +11,16 @@ import javax.ejb.Local;
 
 /**
  *
- * @author Manuel
+ * @author usuar
  */
 @Local
-public interface InscripcionTransferenciaDAO {
-    
+public interface InscripcionTransferenciaService {
+
     public List<Inscripciontransferencia> obtener();
+
     public void guardar(Inscripciontransferencia inscripciontransferencia);
+
     public void modificar(Inscripciontransferencia inscripciontransferencia);
+
     public void eliminar(Inscripciontransferencia inscripciontransferencia);
-    
 }
