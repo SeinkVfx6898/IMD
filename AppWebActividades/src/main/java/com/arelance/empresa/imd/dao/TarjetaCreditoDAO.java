@@ -16,12 +16,12 @@ import javax.ejb.Local;
 @Local
 public interface TarjetaCreditoDAO {
 
-    public List<Tarjetacredito> obtener();
+    public List<Tarjetacredito> obtener();//Obtener todas las tarjetas
 
-    public void AñadirTarjeta(Tarjetacredito tarjetaCredito);
+    public void AñadirTarjeta(Tarjetacredito tarjetaCredito);//Añadir una tarjeta
 
-    public void ModificarTarjeta(Tarjetacredito tarjetacredito);
+    public void ModificarTarjeta(Tarjetacredito tarjetacredito);//Modificar una tarjeta
 
-    public void RemoverTarjeta(Tarjetacredito tarjetacredito);
+    public void RemoverTarjeta(Tarjetacredito tarjetacredito);//Eliminar una tarjeta
 
 }

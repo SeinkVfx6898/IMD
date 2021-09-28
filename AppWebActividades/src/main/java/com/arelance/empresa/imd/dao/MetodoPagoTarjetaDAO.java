@@ -18,12 +18,12 @@ import javax.ejb.Local;
 @Local
 public interface MetodoPagoTarjetaDAO {
     
-    public List<Metodopagotarjeta> obtener();
+    public List<Metodopagotarjeta> obtener();//Obtener todos los metodos de pago por tarjeta
     
-    public void AñadirPagoTarjeta(Metodopagotarjeta metodopagotarjeta);
+    public void AñadirPagoTarjeta(Metodopagotarjeta metodopagotarjeta);//Añadir un metodo de pago por tarjeta
 
-    public void ModificarPagoTarjeta(Metodopagotarjeta metodopagotarjeta);
+    public void ModificarPagoTarjeta(Metodopagotarjeta metodopagotarjeta);//Modificar un metodo de pago por tarjeta
 
-    public void RemoverPagoTarjeta(Metodopagotarjeta metodopagotarjeta);
+    public void RemoverPagoTarjeta(Metodopagotarjeta metodopagotarjeta);//Eliminar un metodo de pago por tarjeta
     
 }

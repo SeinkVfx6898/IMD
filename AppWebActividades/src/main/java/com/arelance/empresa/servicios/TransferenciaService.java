@@ -17,11 +17,11 @@ import javax.ejb.Local;
 @Local
 public interface TransferenciaService {
     
-   public List<Transferencia> obtener();
+    public List<Transferencia> obtener();//Obtener todas las transferencia
     
-    public void AñadirTransferencia(Transferencia transferencia);// AñadirNumeroCuenta
+    public void AñadirTransferencia(Transferencia transferencia);//Añadir una transferencia
 
-    public void ModificarTransferencia(Transferencia transferencia);
+    public void ModificarTransferencia(Transferencia transferencia);//Modificar una transferencia
 
-    public void RemoverTransferencia(Transferencia transferencia);
+    public void RemoverTransferencia(Transferencia transferencia);//Eliminar una transferencia
 }
