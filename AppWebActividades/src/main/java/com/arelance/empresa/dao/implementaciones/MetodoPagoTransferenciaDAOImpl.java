@@ -28,8 +28,18 @@ public class MetodoPagoTransferenciaDAOImpl implements MetodoPagoTransferenciaDA
     }
 
     @Override
-    public void guardar(Metodopagotransferencia metodopagotransferencia) {
+    public void AñadirPagoTransferencia(Metodopagotransferencia metodopagotransferencia) {
        em.persist(metodopagotransferencia);
+    }
+
+    @Override
+    public void ModificarPagoTransferencia(Metodopagotransferencia metodopagotransferencia) {
+        em.merge(metodopagotransferencia);
+    }
+
+    @Override
+    public void RemoverPagoTransferencia(Metodopagotransferencia metodopagotransferencia) {
+        em.remove(em.merge(metodopagotransferencia));
     }
 
 }

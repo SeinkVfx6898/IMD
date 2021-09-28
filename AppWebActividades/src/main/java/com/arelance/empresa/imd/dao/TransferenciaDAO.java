@@ -18,6 +18,10 @@ import javax.ejb.Local;
 public interface TransferenciaDAO {
     
     public List<Transferencia> obtener();
-    public void guardar(Transferencia transferencia);
     
+    public void AñadirTransferencia(Transferencia transferencia);// AñadirNumeroCuenta
+
+    public void ModificarTransferencia(Transferencia transferencia);
+
+    public void RemoverTransferencia(Transferencia transferencia);
 }

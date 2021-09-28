@@ -28,8 +28,18 @@ public class TransferenciaDAOImpl implements TransferenciaDAO {
     }
 
     @Override
-    public void guardar(Transferencia transferencia) {
+    public void AñadirTransferencia(Transferencia transferencia) {
        em.persist(transferencia);
+    }
+
+    @Override
+    public void ModificarTransferencia(Transferencia transferencia) {
+        em.merge(transferencia);
+    }
+
+    @Override
+    public void RemoverTransferencia(Transferencia transferencia) {
+        em.remove(em.merge(transferencia));
     }
 
 }

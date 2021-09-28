@@ -28,8 +28,18 @@ public class MetodoPagoTarjetaServiceImpl implements MetodoPagoTarjetaService {
     }
 
     @Override
-    public void guardar(Metodopagotarjeta metodopagotarjeta) {
-       metodoPagoTarjetaDAO.guardar(metodopagotarjeta);
+    public void AñadirPagoTarjeta(Metodopagotarjeta metodopagotarjeta) {
+       metodoPagoTarjetaDAO.AñadirPagoTarjeta(metodopagotarjeta);
+    }
+
+    @Override
+    public void ModificarPagoTarjeta(Metodopagotarjeta metodopagotarjeta) {
+        metodoPagoTarjetaDAO.ModificarPagoTarjeta(metodopagotarjeta);
+    }
+
+    @Override
+    public void RemoverPagoTarjeta(Metodopagotarjeta metodopagotarjeta) {
+        metodoPagoTarjetaDAO.RemoverPagoTarjeta(metodopagotarjeta);
     }
 
 }

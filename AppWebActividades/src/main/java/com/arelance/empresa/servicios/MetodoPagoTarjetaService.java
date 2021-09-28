@@ -18,7 +18,12 @@ import javax.ejb.Local;
 @Local
 public interface MetodoPagoTarjetaService {
     
-    public List<Metodopagotarjeta> obtener();
-    public void guardar(Metodopagotarjeta  metodopagotarjeta);
+     public List<Metodopagotarjeta> obtener();
+    
+    public void AñadirPagoTarjeta(Metodopagotarjeta metodopagotarjeta);
+
+    public void ModificarPagoTarjeta(Metodopagotarjeta metodopagotarjeta);
+
+    public void RemoverPagoTarjeta(Metodopagotarjeta metodopagotarjeta);
     
 }

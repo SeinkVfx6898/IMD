@@ -18,6 +18,10 @@ public interface TarjetaCreditoDAO {
 
     public List<Tarjetacredito> obtener();
 
-    public void guardar(Tarjetacredito tarjetaCredito);
+    public void AñadirTarjeta(Tarjetacredito tarjetaCredito);
+
+    public void ModificarTarjeta(Tarjetacredito tarjetacredito);
+
+    public void RemoverTarjeta(Tarjetacredito tarjetacredito);
 
 }

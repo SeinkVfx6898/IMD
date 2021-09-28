@@ -26,8 +26,18 @@ public class TransferenciaServiceImpl implements TransferenciaService {
     }
 
     @Override
-    public void guardar(Transferencia transferencia) {
-        transferenciaDAO.guardar(transferencia);
+    public void AñadirTransferencia(Transferencia transferencia) {
+        transferenciaDAO.AñadirTransferencia(transferencia);
+    }
+
+    @Override
+    public void ModificarTransferencia(Transferencia transferencia) {
+        transferenciaDAO.ModificarTransferencia(transferencia);
+    }
+
+    @Override
+    public void RemoverTransferencia(Transferencia transferencia) {
+        transferenciaDAO.RemoverTransferencia(transferencia);
     }
 
 }

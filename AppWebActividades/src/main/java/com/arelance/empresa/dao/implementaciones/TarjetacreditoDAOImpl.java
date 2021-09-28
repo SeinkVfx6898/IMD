@@ -29,8 +29,18 @@ public class TarjetacreditoDAOImpl implements TarjetaCreditoDAO {
     }
 
     @Override
-    public void guardar(Tarjetacredito tarjetaCredito) {
+    public void AñadirTarjeta(Tarjetacredito tarjetaCredito) {
        em.persist(tarjetaCredito);
+    }
+
+    @Override
+    public void ModificarTarjeta(Tarjetacredito tarjetacredito) {
+        em.merge(tarjetacredito);
+    }
+
+    @Override
+    public void RemoverTarjeta(Tarjetacredito tarjetacredito) {
+        em.remove(em.merge(tarjetacredito));
     }
 
 }

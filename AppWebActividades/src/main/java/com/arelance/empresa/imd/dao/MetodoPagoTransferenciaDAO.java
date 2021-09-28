@@ -18,6 +18,11 @@ import javax.ejb.Local;
 public interface MetodoPagoTransferenciaDAO {
     
     public List<Metodopagotransferencia> obtener();
-    public void guardar(Metodopagotransferencia  metodoPagoTransferencia);
+    
+    public void AñadirPagoTransferencia(Metodopagotransferencia metodopagotransferencia);
+
+    public void ModificarPagoTransferencia(Metodopagotransferencia metodopagotransferencia);
+
+    public void RemoverPagoTransferencia(Metodopagotransferencia metodopagotransferencia);
     
 }

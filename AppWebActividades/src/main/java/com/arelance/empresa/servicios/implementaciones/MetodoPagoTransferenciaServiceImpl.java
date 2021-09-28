@@ -27,8 +27,18 @@ public class MetodoPagoTransferenciaServiceImpl implements MetodoPagoTransferenc
     }
 
     @Override
-    public void guardar(Metodopagotransferencia metodopagotransferencia) {
-       metodoPagoTransferenciaDAO.guardar(metodopagotransferencia);
+    public void AñadirPagoTransferencia(Metodopagotransferencia metodopagotransferencia) {
+       metodoPagoTransferenciaDAO.AñadirPagoTransferencia(metodopagotransferencia);
+    }
+
+    @Override
+    public void ModificarPagoTransferencia(Metodopagotransferencia metodopagotransferencia) {
+       metodoPagoTransferenciaDAO.ModificarPagoTransferencia(metodopagotransferencia);
+    }
+
+    @Override
+    public void RemoverPagoTransferencia(Metodopagotransferencia metodopagotransferencia) {
+        metodoPagoTransferenciaDAO.RemoverPagoTransferencia(metodopagotransferencia);
     }
 
 }

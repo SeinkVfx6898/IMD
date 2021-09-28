@@ -28,8 +28,18 @@ public class MetodoPagoTarjetaDAOImpl implements MetodoPagoTarjetaDAO {
     }
 
     @Override
-    public void guardar(Metodopagotarjeta metodopagotarjeta) {
+    public void AñadirPagoTarjeta(Metodopagotarjeta metodopagotarjeta) {
        em.persist(metodopagotarjeta);
+    }
+
+    @Override
+    public void ModificarPagoTarjeta(Metodopagotarjeta metodopagotarjeta) {
+        em.merge(metodopagotarjeta);
+    }
+
+    @Override
+    public void RemoverPagoTarjeta(Metodopagotarjeta metodopagotarjeta) {
+        em.remove(em.merge(metodopagotarjeta));
     }
 
 }

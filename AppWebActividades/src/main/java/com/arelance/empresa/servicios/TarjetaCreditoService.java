@@ -18,6 +18,11 @@ import javax.ejb.Local;
 public interface TarjetaCreditoService {
     
     public List<Tarjetacredito> obtener();
-    public void guardar(Tarjetacredito tarjetaCredito);
+
+    public void AñadirTarjeta(Tarjetacredito tarjetacredito);
+
+    public void ModificarTarjeta(Tarjetacredito tarjetacredito);
+
+    public void RemoverTarjeta(Tarjetacredito tarjetacredito);
     
 }

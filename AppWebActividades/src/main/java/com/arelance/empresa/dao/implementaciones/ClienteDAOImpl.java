@@ -51,6 +51,7 @@ public class ClienteDAOImpl implements ClienteDAO {
     public void ModificarCliente(Cliente cliente) {
         em.merge(cliente);
     }
+    
     @Override
     public void RemoverCliente(Cliente cliente) {
         em.remove(em.merge(cliente));

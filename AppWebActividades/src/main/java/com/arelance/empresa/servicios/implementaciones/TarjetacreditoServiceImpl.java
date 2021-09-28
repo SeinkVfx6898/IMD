@@ -26,8 +26,18 @@ public class TarjetacreditoServiceImpl implements TarjetaCreditoService {
     }
 
     @Override
-    public void guardar(Tarjetacredito tarjetaCredito) {
-      tarjetaCreditoDAO.guardar(tarjetaCredito);
+    public void AñadirTarjeta(Tarjetacredito tarjetacredito) {
+      tarjetaCreditoDAO.AñadirTarjeta(tarjetacredito);
+    }
+
+    @Override
+    public void ModificarTarjeta(Tarjetacredito tarjetacredito) {
+        tarjetaCreditoDAO.ModificarTarjeta(tarjetacredito);
+    }
+
+    @Override
+    public void RemoverTarjeta(Tarjetacredito tarjetacredito) {
+        tarjetaCreditoDAO.RemoverTarjeta(tarjetacredito);
     }
 
 }
