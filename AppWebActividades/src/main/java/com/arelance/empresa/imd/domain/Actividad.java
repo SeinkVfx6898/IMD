@@ -46,7 +46,7 @@ public class Actividad implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
-    @Column(name = "descripción")
+    @Column(name = "descripcion")
     private String descripcion;
     @Basic(optional = false)
     @NotNull

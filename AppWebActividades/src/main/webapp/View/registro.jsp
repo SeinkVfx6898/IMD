@@ -36,7 +36,7 @@
 
             }
             span{
-                 margin-left:8px;
+                margin-left:8px;
                 color:red;
                 border-bottom: 2px solid red;
                 margin:8px;

@@ -12,6 +12,13 @@
         <%@include file = "../JSPF/meta.jspf"%>
         <title>Login</title>
         <%@include file = "../JSPF/login.jspf"%>
+        <style>
+            span{
+                margin-left:8px;
+                color:red;
+                border-bottom: 2px solid red;
+                margin:8px;
+        </style>
     </head>
     <body>
         <h3>Accede a tu cuenta:</h3>
@@ -27,5 +34,8 @@
             <button type="submit" class="btn btn-secondary">Aceptar</button>
             <input type="submit"class="btn btn-secondary"name="action" value="Volver" formaction="../MainController?action=Volver">
         </form>
+        <br>
+        <span>${NickMsg}</span>
+        <span>${PassMsg}</span>
     </body>
 </html>
