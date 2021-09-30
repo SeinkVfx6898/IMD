@@ -20,6 +20,8 @@ public interface ActividadService {
 
     public Actividad EncontrarActividadPorID(Actividad actividad);//Encontrar actividad por id.
 
+    public Actividad EncontrarActividadPorID(int id);//Encontrar actividad por id.
+
     public void AñadirCliente(Actividad actividad);//Añadir actividades.
 
     public void ModificarCliente(Actividad actividad);//Modificar actividades.

@@ -20,6 +20,8 @@ public interface ActividadDAO {
 
     public Actividad EncontrarActividadPorID(Actividad actividad);//Encontrar actividad por id.
     
+     public Actividad EncontrarActividadPorID(int id);//Encontrar actividad por id.
+    
     public void AñadirActividad(Actividad actividad);//Añadir actividades.
 
     public void ModificarActividad(Actividad actividad);//Modificar actividades.

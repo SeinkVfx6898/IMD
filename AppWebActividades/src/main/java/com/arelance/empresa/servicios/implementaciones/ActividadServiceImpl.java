@@ -45,4 +45,9 @@ public class ActividadServiceImpl implements ActividadService {
        actividadDAO.RemoverActividad(actividad);
     }
 
+    @Override
+    public Actividad EncontrarActividadPorID(int id) {
+       return actividadDAO.EncontrarActividadPorID(id);
+    }
+
 }

@@ -10,11 +10,12 @@
     <head>
        <%@include file = "../JSPF/meta.jspf"%>
         <title>Inscripción</title>
+    
         
     </head>
     <body>
-        <h1>
-            
-        </h1>
+       <h3>${actividad.getNombre()}</h3>
+       <p>${actividad.getDescripcion()}</p>
+       <p>${actividad.getPrecio()}&#8364;</p>
     </body>
 </html>
