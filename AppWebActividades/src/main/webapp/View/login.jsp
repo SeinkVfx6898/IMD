@@ -22,7 +22,7 @@
     </head>
     <body>
         <h3>Accede a tu cuenta:</h3>
-        <form action="MainController?action=postLogin">
+        <form action="http://localhost:8080/AppWebActividades/PostLoginServlet">
             <div class="form-group">
                 <label for="text">Nick:</label>
                 <input type="text" class="form-control" id="nombre" placeholder="SalvSolo" name="nick" maxlength="20">

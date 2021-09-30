@@ -41,19 +41,20 @@ public class PostLoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           String nombre = request.getParameter("nombre");
-           String contraseña = request.getParameter("pwd");
+           String nombre = request.getParameter("nick");
+           String password = request.getParameter("pswd");
            List<Cliente> clientes = clienteService.listarClientes();
             for (Cliente cliente : clientes) {
                 if (cliente.getNick().equals(nombre)) {
                     request.setAttribute("NickMsg", "El nick no es correcto");
-                } else if (cliente.getPassword().equals(contraseña)) {
+                } else if (cliente.getPassword().equals(password)) {
                     request.setAttribute("PassMsg", "Las contraseña no es correcta.");
                 } else {
                     request.getSession().setAttribute("cliente", cliente);
                     request.getRequestDispatcher("View/index.jsp").forward(request, response);
                 }
             }
+             request.getRequestDispatcher("View/login.jsp").forward(request, response);
         }
     }
 
