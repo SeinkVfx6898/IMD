@@ -46,3 +46,4 @@ com\arelance\empresa\dao\implementaciones\InscripcionTransferenciaDAOImpl.class
 com\arelance\empresa\imd\controller\PreLoginServlet.class
 com\arelance\empresa\dao\implementaciones\ActividadDAOImpl.class
 com\arelance\empresa\imd\domain\Cliente.class
+com\arelance\empresa\imd\controller\PostMetodoPagoServlet.class
