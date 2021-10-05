@@ -11,42 +11,6 @@
         <%@include file = "../JSPF/meta.jspf"%>
         <title>Registro</title>
         <%@include file = "../JSPF/datospersonales.jspf"%>
-        <style>
-            .btn-secondary{
-                margin-top:30px;
-
-            }
-            #contenedor{
-                float:left;
-                margin-left:150px;
-                border:ridge 20px;
-                border-left:20px;
-                border-radius:20px;
-
-
-
-            }
-            #contenedor2{
-                float:left;
-                margin-left:150px;
-                border:ridge 20px;
-                border-left:20px;
-                border-radius:20px;
-
-
-            }
-            span{
-                margin-left:8px;
-                color:red;
-                border-bottom: 2px solid red;
-                margin:8px;
-            }
-            .btn-secondary{
-                margin-bottom:18px;
-            }
-
-
-        </style>
     </head>
     <body>
         <h3>Cada día numerosos grupos de personas disfrutan de nuestras actividades.<br>

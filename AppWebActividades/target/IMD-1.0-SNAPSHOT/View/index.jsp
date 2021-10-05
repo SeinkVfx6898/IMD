@@ -26,7 +26,6 @@
                     <a class="nav-link" href="PreLoginServlet">Iniciar sesión</a>
                 </li>          
             </ul>
-            <% request.getSession(). %>
         </nav>
         <header>
             <h3>En IMD contamos con las actividades<br> que más se ajustan a tu perfil:</h3>

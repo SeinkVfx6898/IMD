@@ -12,13 +12,6 @@
         <%@include file = "../JSPF/meta.jspf"%>
         <title>Login</title>
         <%@include file = "../JSPF/login.jspf"%>
-        <style>
-            span{
-                margin-left:8px;
-                color:red;
-                border-bottom: 2px solid red;
-                margin:8px;
-        </style>
     </head>
     <body>
         <h3>Accede a tu cuenta:</h3>

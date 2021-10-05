@@ -9,5 +9,33 @@ body{
     margin:0 auto;
 
 }
+.btn-secondary{
+                margin-top:30px;
+                margin-bottom:18px;
+            }
+            #contenedor{
+                float:left;
+                margin-left:150px;
+                border:ridge 20px;
+                border-left:20px;
+                border-radius:20px;
 
+
+
+            }
+            #contenedor2{
+                float:left;
+                margin-left:150px;
+                border:ridge 20px;
+                border-left:20px;
+                border-radius:20px;
+
+
+            }
+            span{
+                margin-left:8px;
+                color:red;
+                border-bottom: 2px solid red;
+                margin:8px;
+            }
 
