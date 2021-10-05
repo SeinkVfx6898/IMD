@@ -50,6 +50,7 @@ public class PostLoginServlet extends HttpServlet {
                 } else if (!cliente.getPassword().equals(password)) {
                     request.setAttribute("PassMsg", "Las contraseña no es correcta.");
                 } else {
+                    aaaaaaaaaaaaaaaaaaaaaaaaaaa
                     request.getSession().setAttribute("cliente", cliente);
                     request.getRequestDispatcher("PreIndexServlet").forward(request, response);
                 }

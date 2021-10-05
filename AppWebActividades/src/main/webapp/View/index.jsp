@@ -13,7 +13,7 @@
     <head>
         <%@include file = "../JSPF/meta.jspf"%>
         <title>Página principal</title>
-       <%@include file = "../JSPF/index.jspf"%>
+        <%@include file = "../JSPF/index.jspf"%>
     </head>
     <body>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">     
@@ -26,25 +26,26 @@
                     <a class="nav-link" href="PreLoginServlet">Iniciar sesión</a>
                 </li>          
             </ul>
+            <% request.getSession(). %>
         </nav>
         <header>
             <h3>En IMD contamos con las actividades<br> que más se ajustan a tu perfil:</h3>
         </header>
         <input  type="text"class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Busca una actividad..." title="Type in a name">
         <ul id="myUL">
-   <%
-   List<Actividad>lista=(List<Actividad>)request.getAttribute("lista");
-   %>  
-   <%
-   for (Actividad actividad : lista) {               
-   %>
-   <li>
-   <a href="PreInscripcionServlet?idActividad=<%= actividad.getIdActividad()%>"><%=actividad.getNombre()%></a>
-   </li>
-   <%
-    }
-   %>
-     
+            <%
+                List<Actividad> lista = (List<Actividad>) request.getAttribute("lista");
+            %>  
+            <%
+                for (Actividad actividad : lista) {
+            %>
+            <li>
+                <a href="PreInscripcionServlet?idActividad=<%= actividad.getIdActividad()%>"><%=actividad.getNombre()%></a>
+            </li>
+            <%
+                }
+            %>
+
         </ul>
         <aside>
             <p>Publicidad</p>
