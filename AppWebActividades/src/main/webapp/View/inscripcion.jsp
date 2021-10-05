@@ -8,22 +8,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <<<<<<< Updated upstream
-        <%@include file = "../JSPF/meta.jspf"%>
-        =======
         <%@include file = "../JSPF/meta.jspf"%>
         <%@include file = "../JSPF/inscripcion.jspf"%>
-
-        >>>>>>> Stashed changes
         <title>Inscripción</title>
-
     </head>
-    <<<<<<< Updated upstream
-    <body>
-        <h1>
-
-        </h1>
-        =======
     <body> 
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">     
             <a class="navbar-brand" href="PreIndexServlet">IMD</a> 
@@ -67,9 +55,9 @@
         </div>
         <form action="" method="GET">
             <fieldset>
-                    <input type="submit" class="btn btn-secondary"name="action"value="Pago por tarjeta">
-                    <input type="submit"class="btn btn-secondary"name="action"value="Pago por transferencia">
-                    <input type="submit"class="btn btn-secondary"name="action" value="Volver" formaction="PreIndexServlet">
+                <input type="submit" class="btn btn-secondary" name="action" value="Pago por tarjeta">
+                <input type="submit" class="btn btn-secondary" name="action" value="Pago por transferencia">
+                <input type="submit" class="btn btn-secondary" name="action" value="Volver" formaction="PreIndexServlet">
                 </div>
             </fieldset>
         </form>
