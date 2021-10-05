@@ -53,7 +53,7 @@
                 </tbody>
             </table>
         </div>
-        <form action="" method="GET" class="centrado">
+        <form action="http://localhost:8080/AppWebActividades/PostMetodoPagoServlet" method="GET" class="centrado">
             <fieldset>
                 <input type="submit" class="btn btn-secondary" name="action" value="Pago por tarjeta">
                 <input type="submit" class="btn btn-secondary" name="action" value="Pago por transferencia">
