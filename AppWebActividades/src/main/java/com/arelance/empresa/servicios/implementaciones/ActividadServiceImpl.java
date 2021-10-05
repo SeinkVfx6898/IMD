@@ -31,18 +31,23 @@ public class ActividadServiceImpl implements ActividadService {
     }
 
     @Override
-    public void AñadirCliente(Actividad actividad) {
-     actividadDAO.AñadirActividad(actividad);
+    public Actividad EncontrarActividadPorID(int id) {
+        return actividadDAO.EncontrarActividadPorID(id);
     }
 
     @Override
-    public void ModificarCliente(Actividad actividad) {
-     actividadDAO.ModificarActividad(actividad);
+    public void AñadirActividad(Actividad actividad) {
+        actividadDAO.AñadirActividad(actividad);
     }
 
     @Override
-    public void RemoverCliente(Actividad actividad) {
-       actividadDAO.RemoverActividad(actividad);
+    public void ModificarActividad(Actividad actividad) {
+        actividadDAO.ModificarActividad(actividad);
+    }
+
+    @Override
+    public void RemoverActividad(Actividad actividad) {
+        actividadDAO.RemoverActividad(actividad);
     }
 
 }

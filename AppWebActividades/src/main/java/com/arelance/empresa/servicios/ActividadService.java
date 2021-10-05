@@ -19,10 +19,13 @@ public interface ActividadService {
     public List<Actividad> ListarActividades();//Obtener todas las actividades
 
     public Actividad EncontrarActividadPorID(Actividad actividad);//Encontrar actividad por id.
+    
+    public Actividad EncontrarActividadPorID(int id);//Encontrar actividad por id.
+    
+    public void AñadirActividad(Actividad actividad);//Añadir actividades.
 
-    public void AñadirCliente(Actividad actividad);//Añadir actividades.
+    public void ModificarActividad(Actividad actividad);//Modificar actividades.
 
-    public void ModificarCliente(Actividad actividad);//Modificar actividades.
+    public void RemoverActividad(Actividad actividad);//Remover actividades.
 
-    public void RemoverCliente(Actividad actividad);//Remover actividades.
 }

@@ -19,6 +19,12 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
+
+//<% if(request.getSession().getAttribute("cliente") != null){
+//                Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");%>
+//                <p style="color: #eee;"><%=cliente.getNombre()%></p>
+//            <%}%>
+
 /**
  *
  * @author lenovo

@@ -47,4 +47,9 @@ public class ActividadDAOImpl implements ActividadDAO {
         em.remove(em.merge(actividad));
     }
 
+    @Override
+    public Actividad EncontrarActividadPorID(int id) {
+        return em.find(Actividad.class, id);
+    }
+
 }

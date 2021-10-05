@@ -4,6 +4,7 @@
     Author     : lenovo
 --%>
 
+<%@page import="com.arelance.empresa.imd.domain.Cliente"%>
 <%@page import="com.arelance.empresa.imd.domain.Actividad"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -26,6 +27,7 @@
                     <a class="nav-link" href="PreLoginServlet">Iniciar sesión</a>
                 </li>          
             </ul>
+            
         </nav>
         <header>
             <h3>En IMD contamos con las actividades<br> que más se ajustan a tu perfil:</h3>
@@ -34,8 +36,6 @@
         <ul id="myUL">
             <%
                 List<Actividad> lista = (List<Actividad>) request.getAttribute("lista");
-            %>  
-            <%
                 for (Actividad actividad : lista) {
             %>
             <li>
