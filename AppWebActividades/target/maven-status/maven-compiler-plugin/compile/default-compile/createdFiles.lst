@@ -7,6 +7,7 @@ com\arelance\empresa\dao\implementaciones\ClienteDAOImpl.class
 com\arelance\empresa\servicios\implementaciones\MetodoPagoTransferenciaServiceImpl.class
 com\arelance\empresa\servicios\MetodoPagoTarjetaService.class
 com\arelance\empresa\servicios\implementaciones\TarjetacreditoServiceImpl.class
+com\arelance\empresa\imd\controller\PreInscripcionServlet.class
 com\arelance\empresa\servicios\ActividadService.class
 com\arelance\empresa\servicios\MetodoPagoTransferenciaService.class
 com\arelance\empresa\servicios\TarjetaCreditoService.class

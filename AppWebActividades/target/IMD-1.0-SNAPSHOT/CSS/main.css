@@ -5,7 +5,6 @@ body{
     text-align: center;
     font-family: 'Roboto', sans-serif;
     background-color: #eee;
-
 }
 /*Asignamos fuente distinta para usar como logotipo.*/
 .navbar-brand{
@@ -13,6 +12,9 @@ body{
 }
 /*Negrita para los campos de texto.*/
 
+.centrado{
+    text-align:center;
+}
 
 /*Barra de búsqueda.*/
 * {

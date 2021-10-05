@@ -7,7 +7,6 @@ body{
     text-align:center;
     width: 400px;
     margin:0 auto;
-
 }
 .btn-secondary{
     margin-top:30px;
@@ -19,9 +18,6 @@ body{
     border:ridge 20px;
     border-left:20px;
     border-radius:20px;
-
-
-
 }
 #contenedor2{
     float:left;
@@ -29,8 +25,6 @@ body{
     border:ridge 20px;
     border-left:20px;
     border-radius:20px;
-
-
 }
 span{
     margin-left:8px;

@@ -28,6 +28,7 @@ C:\Users\Manuel\Documents\NetBeansProjects\IMD\AppWebActividades\src\main\java\c
 C:\Users\Manuel\Documents\NetBeansProjects\IMD\AppWebActividades\src\main\java\com\arelance\empresa\imd\controller\PostLoginServlet.java
 C:\Users\Manuel\Documents\NetBeansProjects\IMD\AppWebActividades\src\main\java\com\arelance\empresa\servicios\MetodoPagoTarjetaService.java
 C:\Users\Manuel\Documents\NetBeansProjects\IMD\AppWebActividades\src\main\java\com\arelance\empresa\imd\domain\Metodopagotransferencia.java
+C:\Users\Manuel\Documents\NetBeansProjects\IMD\AppWebActividades\src\main\java\com\arelance\empresa\imd\controller\PreInscripcionServlet.java
 C:\Users\Manuel\Documents\NetBeansProjects\IMD\AppWebActividades\src\main\java\com\arelance\empresa\servicios\implementaciones\ClienteServiceImpl.java
 C:\Users\Manuel\Documents\NetBeansProjects\IMD\AppWebActividades\src\main\java\com\arelance\empresa\servicios\TarjetaCreditoService.java
 C:\Users\Manuel\Documents\NetBeansProjects\IMD\AppWebActividades\src\main\java\com\arelance\empresa\imd\dao\InscripcionTarjetaDAO.java
