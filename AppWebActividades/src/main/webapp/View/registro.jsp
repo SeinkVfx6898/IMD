@@ -16,7 +16,7 @@
         <h3>Cada día numerosos grupos de personas disfrutan de nuestras actividades.<br>
             ¡Forma parte de nosotros para disfrutar también!</h3>
 
-        <form action="../PostRegistroServlet" method="GET">
+        <form action="../PostRegistroServlet" method="GET" id="registro">
             <fieldset>
                 <div id="contenedor">
                     <legend>Datos personales:</legend>

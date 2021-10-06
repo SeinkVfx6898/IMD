@@ -53,7 +53,7 @@
                 </tbody>
             </table>
         </div>
-        <form action="../" method="GET">
+        <form action="../" method="GET" id="tarjeta">
             <fieldset>
                 <div id="contenedor">
                     <legend>Pago por tarjeta:</legend>
@@ -74,7 +74,8 @@
                     <input type="submit"class="btn btn-secondary"name="action" value="Volver" formaction="PreIndexServlet">
                 </div>
             </fieldset>
-            
+        </form>
+        <form action="../" method="GET" id="transferencia">
                 <div id="contenedor2">
                     <legend>Pago por transferencia:</legend>
                     <div class="form-group">

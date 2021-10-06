@@ -15,7 +15,7 @@
     </head>
     <body>
         <h3>Accede a tu cuenta:</h3>
-        <form action="http://localhost:8080/AppWebActividades/PostLoginServlet">
+        <form action="http://localhost:8080/AppWebActividades/PostLoginServlet" id="login">
             <div class="form-group">
                 <label for="text">Nick:</label>
                 <input type="text" class="form-control" id="nombre" placeholder="SalvSolo" name="nick" maxlength="20">
