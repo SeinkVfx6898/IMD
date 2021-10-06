@@ -44,7 +44,7 @@ public class PostRegistroServlet extends HttpServlet {
         String nick = request.getParameter("nick");
         String password = request.getParameter("pass");
         String password2 = request.getParameter("passconfirm");
-        List<Cliente> clientes = clienteService.listarClientes();
+        List<Cliente> clientes = clienteService.listarClientes();//cambiar para que no carge toda la lista de clientes
         for (Cliente cliente : clientes) {
             if (cliente.getNick().equals(nick)) {
                 request.setAttribute("NickMsg", "Este nick ya existe.");

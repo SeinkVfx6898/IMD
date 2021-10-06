@@ -52,6 +52,7 @@
         <footer>
             &copy;2021-2022 IMD S.A.Todos los derechos reservados.
         </footer>
+        <!-- sacar de aqui urgente -->
         <script>
             function myFunction(input) {
                 var filter, ul, li, a, i, txtValue;
