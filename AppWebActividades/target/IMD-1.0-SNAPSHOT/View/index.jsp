@@ -32,7 +32,7 @@
         <header>
             <h3>En IMD contamos con las actividades<br> que más se ajustan a tu perfil:</h3>
         </header>
-        <input  type="text"class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Busca una actividad..." title="Type in a name">
+        <input  type="text"class="form-control" id="myInput" onkeyup="myFunction(this)" placeholder="Busca una actividad..." title="Type in a name">
         <ul id="myUL">
             <%
                 List<Actividad> lista = (List<Actividad>) request.getAttribute("lista");
@@ -53,8 +53,8 @@
             &copy;2021-2022 IMD S.A.Todos los derechos reservados.
         </footer>
         <script>
-            function myFunction() {
-                var input, filter, ul, li, a, i, txtValue;
+            function myFunction(input) {
+                var filter, ul, li, a, i, txtValue;
                 input = document.getElementById("myInput");
                 filter = input.value.toUpperCase();
                 ul = document.getElementById("myUL");

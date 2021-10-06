@@ -53,5 +53,43 @@
                 </tbody>
             </table>
         </div>
+        <form action="../" method="GET">
+            <fieldset>
+                <div id="contenedor">
+                    <legend>Pago por tarjeta:</legend>
+                    <div class="form-group">
+                        <label for="text">Número:</label>
+                        <input type="number" class="form-control" id="numeroTarjeta" placeholder="1234567891234567" name="numeroTarjeta" pattern="[0-9]{16}">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Fecha caducidad</label>
+                        <input type="text" class="form-control" id="Fecha_caducidad" placeholder="03/25" name="Fecha_caducidad" maxlength="5">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">CVV</label>
+                        <input type="number" class="form-control" id="CVV" placeholder="583" pattern="[0-9]{3}" name="CVV">
+                    </div>
+                    <input type="submit" class="btn btn-secondary"name="action"value="Continuar">
+                    <input type="reset"class="btn btn-secondary"name="action"value="Limpiar">
+                    <input type="submit"class="btn btn-secondary"name="action" value="Volver" formaction="PreIndexServlet">
+                </div>
+            </fieldset>
+            
+                <div id="contenedor2">
+                    <legend>Pago por transferencia:</legend>
+                    <div class="form-group">
+                        <label for="iban">IBAN:</label>
+                        <input type="text" class="form-control" id="iban" placeholder="1234567891234567" name="iban" pattern="[0-9]{16}>
+                    </div>
+                    <div class="form-group">
+                        <label for="concepto">Copcepto de pago:</label>
+                        <input type="text" class="form-control" id="concepto" placeholder="pago deporte" name="concepto">
+                    </div>
+                    <input type="submit" class="btn btn-secondary"name="action"value="Continuar">
+                    <input type="reset"class="btn btn-secondary"name="action"value="Limpiar">
+                    <input type="submit"class="btn btn-secondary"name="action" value="Volver" formaction="PreIndexServlet">
+                </div>
+            </fieldset>
+        </form>
     </body>
 </html>

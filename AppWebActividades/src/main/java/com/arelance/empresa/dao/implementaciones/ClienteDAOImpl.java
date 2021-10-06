@@ -29,7 +29,7 @@ public class ClienteDAOImpl implements ClienteDAO {
 
     @Override
     public Cliente EncontrarClientePorEmail(Cliente cliente) {
-  return (Cliente) em.createNamedQuery("Cliente.findByEmail").getSingleResult();
+        return (Cliente) em.createNamedQuery("Cliente.findByEmail").getSingleResult();
     }
 
     @Override
@@ -39,7 +39,7 @@ public class ClienteDAOImpl implements ClienteDAO {
 
     @Override
     public Cliente EncontrarClientePorNick(Cliente cliente) {
-     return (Cliente) em.createNamedQuery("Cliente.findByNick").getSingleResult();
+        return (Cliente) em.createNamedQuery("Cliente.findByNick").getSingleResult();
     }
 
     @Override
@@ -51,7 +51,7 @@ public class ClienteDAOImpl implements ClienteDAO {
     public void ModificarCliente(Cliente cliente) {
         em.merge(cliente);
     }
-    
+
     @Override
     public void RemoverCliente(Cliente cliente) {
         em.remove(em.merge(cliente));
