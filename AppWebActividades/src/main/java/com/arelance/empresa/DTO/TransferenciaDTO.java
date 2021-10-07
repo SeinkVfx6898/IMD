@@ -16,10 +16,10 @@ public class TransferenciaDTO {
         return iban;
     }
 
-    public void setIban(int iban) {
-        this.iban = iban;
+    public TransferenciaDTO() {
     }
 
+    
     public TransferenciaDTO(int iban) {
         this.iban = iban;
     }
