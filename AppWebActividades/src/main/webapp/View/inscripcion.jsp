@@ -4,6 +4,7 @@
     Author     : lenovo
 --%>
 
+<%@page import="com.arelance.empresa.imd.domain.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,22 +19,23 @@
                 <a class="navbar-brand" href="PreIndexServlet">IMD</a> 
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="PreRegistroServlet">Registro</a>
                         <% if (request.getSession().getAttribute("cliente") != null) {
                                 Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
                         %>
-                        <a><%=cliente.getNick()%></a>
+                            <a class="nav-link"><%=cliente.getNick()%></a>
+                        <%} else {%>
+                            <a class="nav-link" href="PreRegistroServlet">Registro</a>
                         <%}%>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="PreLoginServlet">Iniciar sesión</a>
                         <% if (request.getSession().getAttribute("cliente") != null) {%>
-                        <a>Cerrar sesion</a>
+                            <a class="nav-link" href="CierreSesion">Cerrar sesion</a>
+                        <%} else {%>
+                            <a class="nav-link" href="PreLoginServlet">Iniciar sesión</a>
                         <%}%>
                     </li>          
                 </ul>
             </nav>
-            <h3>En IMD contamos con las actividades<br> que más se ajustan a tu perfil:</h3>
         </header>
         <br>
         <div class="container">
