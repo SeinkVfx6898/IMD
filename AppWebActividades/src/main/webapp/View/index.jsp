@@ -22,12 +22,19 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="PreRegistroServlet">Registro</a>
+                    <% if(request.getSession().getAttribute("cliente") != null){
+                        Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
+                    %>
+                    <a><%=cliente.getNick()%></a>
+                    <%}%>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="PreLoginServlet">Iniciar sesión</a>
+                    <% if(request.getSession().getAttribute("cliente") != null){%>
+                    <a>Cerrar sesion</a>
+                    <%}%>
                 </li>          
             </ul>
-            
         </nav>
         <header>
             <h3>En IMD contamos con las actividades<br> que más se ajustan a tu perfil:</h3>
