@@ -27,5 +27,7 @@ public interface ActividadDAO {
     public void ModificarActividad(Actividad actividad);//Modificar actividades.
 
     public void RemoverActividad(Actividad actividad);//Remover actividades.
+    
+    public List<Actividad> ListaActividadesCliente(int id_cliente);//Obtener las actividades que esta apuntado un usuario
 
 }

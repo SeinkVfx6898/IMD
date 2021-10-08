@@ -11,6 +11,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import com.arelance.empresa.imd.dao.ActividadDAO;
+import javax.persistence.Query;
 
 /**
  *
@@ -50,6 +51,15 @@ public class ActividadDAOImpl implements ActividadDAO {
     @Override
     public Actividad EncontrarActividadPorID(int id) {
         return em.find(Actividad.class, id);
+    }
+
+    @Override
+    public List<Actividad> ListaActividadesCliente(int id_cliente) {
+        String sql = "select actividad.nombre from actividad inner join inscripciontarjeta "
+                + "on actividad.id_actividad = inscripciontarjeta.Actividad_id_actividad inner join cliente "
+                + "on inscripciontarjeta.Cliente_id_cliente = cliente.id_cliente where cliente.id_cliente = " + id_cliente;
+        Query query = em.createNativeQuery(sql);
+        return query.getResultList();
     }
 
 }

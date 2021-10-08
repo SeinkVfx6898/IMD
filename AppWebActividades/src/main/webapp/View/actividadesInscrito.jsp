@@ -46,7 +46,7 @@
                 for (Actividad actividad : lista) {
             %>
             <li>
-                <a href="PreInscripcionServlet?idActividad=<%= actividad.getIdActividad()%>"><%=actividad.getNombre()%></a>
+                <a><%=actividad.getNombre()%></a>
             </li>
             <%
                 }

@@ -50,4 +50,9 @@ public class ActividadServiceImpl implements ActividadService {
         actividadDAO.RemoverActividad(actividad);
     }
 
+    @Override
+    public List<Actividad> ListaActividadesCliente(int id_cliente) {
+       return actividadDAO.ListaActividadesCliente(id_cliente);
+    }
+
 }

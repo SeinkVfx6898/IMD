@@ -6,6 +6,7 @@
 package com.arelance.empresa.imd.controller;
 
 import com.arelance.empresa.imd.domain.Actividad;
+import com.arelance.empresa.imd.domain.Cliente;
 import com.arelance.empresa.servicios.ActividadService;
 import java.io.IOException;
 import java.util.List;
@@ -36,10 +37,10 @@ public class PreActividadInscritoServlet extends HttpServlet {
     private ActividadService actividadService;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    
-        List<Actividad>actividades=actividadService.ListarActividades();
-        request.setAttribute("lista",actividades);
-        request.getRequestDispatcher("View/index.jsp").forward(request, response);
+        Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
+        List<Actividad> actividades = actividadService.ListaActividadesCliente(cliente.getIdCliente());
+        request.setAttribute("listaTarjeta",actividades);
+        request.getRequestDispatcher("View/actividadesInscrito.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
