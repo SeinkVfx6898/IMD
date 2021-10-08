@@ -20,8 +20,8 @@ public class TransferenciaDTOServiceImpl implements TransferenciaDTOService {
     private TransferenciaDTODAO transferenciaDTODAO;
 
     @Override
-    public TransferenciaDTO ListarTransferenciaDTOs(int id_cliente) {
-        return transferenciaDTODAO.ListarTransferenciaDTOs(id_cliente);
+    public TransferenciaDTO DatosCliente(int id_cliente) {
+        return transferenciaDTODAO.DatosCliente(id_cliente);
     }
 
    

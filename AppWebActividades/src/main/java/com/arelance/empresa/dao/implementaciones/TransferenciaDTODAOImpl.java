@@ -24,11 +24,11 @@ public class TransferenciaDTODAOImpl implements TransferenciaDTODAO{
     EntityManager em;
      
     @Override
-    public TransferenciaDTO ListarTransferenciaDTOs(int id_cliente) {
+    public TransferenciaDTO DatosCliente(int id_cliente) {
         Query query = em.createQuery("select iban from transferencia where id_transferencia="
                 + "(select Transferencia_id_transferencia from metodopagotransferencia where idmetodopagotransferencia = "
                 + "(select metodopagotransferencia_idmetodopagotransferencia from inscripciontransferencia where Cliente_id_cliente = " + id_cliente + " LIMIT 1 ))", TransferenciaDTO.class);
-        return (TransferenciaDTO) query.getResultList();
+        return (TransferenciaDTO) query.getSingleResult();
     }
 
    

@@ -5,7 +5,9 @@
  */
 package com.arelance.empresa.imd.dao;
 
-import com.arelance.empresa.DTO.TransferenciaDTO;
+
+import com.arelance.empresa.DTO.ActividadesInscritoDTO;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -13,9 +15,9 @@ import javax.ejb.Local;
  * @author lenovo
  */
 @Local
-public interface TransferenciaDTODAO {
+public interface ActividadesInscritoDTODAO {
 
-    public TransferenciaDTO DatosCliente(int id_cliente);//Obtener los datos de transferencia de un usuario
+    public List<ActividadesInscritoDTO> ListaActividadesCliente(int id_cliente);//Obtener las actividades que esta apuntado un usuario
 
 
 }
