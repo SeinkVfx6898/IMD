@@ -15,7 +15,7 @@
     </head>
     <body> 
        <header>
-            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">     
+            <nav class="navbar navbar-expand-sm bg-info navbar-info">     
                 <a class="navbar-brand" href="PreIndexServlet">IMD</a> 
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -40,16 +40,15 @@
         <br>
         <div class="container">
             <table class="table">
-                <thead class="thead-dark">
+                <thead class="thead-info">
                     <tr>
                         <th>Nombre</th>
                         <th>Descripción</th>
                         <th>Precio</th>
-                        <th>Entrenador</th>
                         <th>Dia de la semana</th>
                         <th>Hora de inicio</th>
                         <th>Hora de fín</th>
-
+                        <th>Entrenador</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,11 +56,10 @@
                         <td>${actividad.getNombre()}</td>
                         <td>${actividad.getDescripcion()}</td>
                         <td>${actividad.getPrecio()}&#8364;</td>
-                        <td>${actividad.getEntrenador()}</td>
                         <td>${actividad.getDiaSemana()}</td>
                         <td>${actividad.getHoraInicio()}</td>
                         <td>${actividad.getHoraFin()}</td>
-
+                        <td>${actividad.getEntrenador()}</td>
                     </tr>
                 </tbody>
             </table>

@@ -5,16 +5,19 @@ body{
     text-align: center;
     font-family: 'Roboto', sans-serif;
     background-color: #eee;
+
+
+}
+.nav-link{
+    color:white;
 }
 /*Asignamos fuente distinta para usar como logotipo.*/
 .navbar-brand{
     font-family: 'Aquire',sans-serif;
+    color:white;
 }
 /*Negrita para los campos de texto.*/
 
-.centrado{
-    text-align:center;
-}
 
 /*Barra de búsqueda.*/
 * {
@@ -37,6 +40,7 @@ body{
 }
 /*Barra de búsqueda.*/
 #myUL li a {
+
     border: 1px solid #ddd;
     margin-top: -1px; /* Prevent double borders */
     background-color: #f6f6f6;
@@ -45,6 +49,7 @@ body{
     font-size: 18px;
     color: black;
     display: flex;
+
 }
 /*Barra de búsqueda.*/
 #myUL li a:hover:not(.header) {
@@ -57,11 +62,13 @@ footer{
 }
 /*Barra de búsqueda.*/
 .form-control{
+
     text-align:center;
 }
 /*Barra de búsqueda.*/
 input:focus{
     font-weight: bold;
+
 }
 /*Barra de búsqueda.*/
 

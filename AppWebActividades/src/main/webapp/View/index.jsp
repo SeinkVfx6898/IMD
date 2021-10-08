@@ -18,8 +18,8 @@
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">     
-                <a class="navbar-brand" href="PreIndexServlet">IMD</a> 
+            <nav class="navbar navbar-expand-sm bg-info navbar-info">     
+                <a class="navbar-brand">IMD</a> 
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <% if (request.getSession().getAttribute("cliente") != null) {
@@ -61,24 +61,5 @@
         <footer>
             &copy;2021-2022 IMD S.A.Todos los derechos reservados.
         </footer>
-        <!-- sacar de aqui urgente -->
-        <script>
-            function myFunction(input) {
-                var filter, ul, li, a, i, txtValue;
-                input = document.getElementById("myInput");
-                filter = input.value.toUpperCase();
-                ul = document.getElementById("myUL");
-                li = ul.getElementsByTagName("li");
-                for (i = 0; i < li.length; i++) {
-                    a = li[i].getElementsByTagName("a")[0];
-                    txtValue = a.textContent || a.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        li[i].style.display = "";
-                    } else {
-                        li[i].style.display = "none";
-                    }
-                }
-            }
-        </script>
     </body>
 </html>
