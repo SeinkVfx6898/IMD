@@ -54,7 +54,7 @@
 
                     <input type="submit" class="btn btn-secondary"name="action"value="Continuar">
                     <input type="reset"class="btn btn-secondary"name="action"value="Limpiar">
-                    <input type="submit"class="btn btn-secondary"name="action" value="Volver" formaction="PreIndexServlet">
+                    <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
                 </div>
             </fieldset>
         </form>
