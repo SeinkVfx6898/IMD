@@ -55,7 +55,7 @@ public class ActividadDAOImpl implements ActividadDAO {
 
     @Override
     public List<Actividad> ListaActividadesCliente(int id_cliente) {
-        String sql = "select actividad.nombre from actividad inner join inscripciontarjeta "
+        String sql = "select actividad.* from actividad inner join inscripciontarjeta "
                 + "on actividad.id_actividad = inscripciontarjeta.Actividad_id_actividad inner join cliente "
                 + "on inscripciontarjeta.Cliente_id_cliente = cliente.id_cliente where cliente.id_cliente = " + id_cliente;
         Query query = em.createNativeQuery(sql);

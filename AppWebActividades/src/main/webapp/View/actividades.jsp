@@ -21,28 +21,20 @@
                 <a class="navbar-brand" href="PreIndexServlet">IMD</a> 
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <% if (request.getSession().getAttribute("cliente") != null) {
-                                Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
-                        %>
+                        <% Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");%>
                         <a class="nav-link"><%=cliente.getNick()%></a>
-                        <%} else {%>
-                        <a class="nav-link" href="PreRegistroServlet">Registro</a>
-                        <%}%>
                     </li>
                     <li class="nav-item">
-                        <% if (request.getSession().getAttribute("cliente") != null) {%>
                         <a class="nav-link" href="CierreSesion">Cerrar sesion</a>
-                        <%} else {%>
-                        <a class="nav-link" href="PreLoginServlet">Iniciar sesión</a>
-                        <%}%>
                     </li>          
                 </ul>
             </nav>
+                <h3>Bienvenido a tu perfil<br> con las actividades a las que se a apuntado:</h3>
         </header>
         <input  type="text" class="form-control" id="myInput" onkeyup="myFunction(this)" placeholder="Busca una actividad..." title="Type in a name">
         <ul id="myUL">
             <%
-                List<Actividad> lista = (List<Actividad>) request.getAttribute("lista");
+                List<Actividad> lista = (List<Actividad>) request.getAttribute("listaTarjeta");
                 for (Actividad actividad : lista) {
             %>
             <li>

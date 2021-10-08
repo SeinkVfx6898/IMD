@@ -26,14 +26,15 @@
                                 Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
                         %>
                             <a class="nav-link" href="PreActividadInscritoServlet"><%=cliente.getNick()%></a>
-                        <%} else {%>
-                            <a class="nav-link" href="PreRegistroServlet">Registro</a>
-                        <%}%>
                     </li>
                     <li class="nav-item">
-                        <% if (request.getSession().getAttribute("cliente") != null) {%>
                             <a class="nav-link" href="CierreSesion">Cerrar sesion</a>
-                        <%} else {%>
+                    </li>
+                    <%} else {%>
+                    <li class="nav-item">
+                            <a class="nav-link" href="PreRegistroServlet">Registro</a>
+                    </li>        
+                    <li class="nav-item">
                             <a class="nav-link" href="PreLoginServlet">Iniciar sesión</a>
                         <%}%>
                     </li>          

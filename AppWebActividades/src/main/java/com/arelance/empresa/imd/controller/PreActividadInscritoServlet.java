@@ -40,7 +40,7 @@ public class PreActividadInscritoServlet extends HttpServlet {
         Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
         List<Actividad> actividades = actividadService.ListaActividadesCliente(cliente.getIdCliente());
         request.setAttribute("listaTarjeta",actividades);
-        request.getRequestDispatcher("View/actividadesInscrito.jsp").forward(request, response);
+        request.getRequestDispatcher("View/actividades.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
