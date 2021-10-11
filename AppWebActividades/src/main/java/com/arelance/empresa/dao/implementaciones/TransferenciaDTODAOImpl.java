@@ -25,9 +25,9 @@ public class TransferenciaDTODAOImpl implements TransferenciaDTODAO{
      
     @Override
     public TransferenciaDTO DatosCliente(int id_cliente) {
-        Query query = em.createQuery("select iban from transferencia where id_transferencia="
-                + "(select Transferencia_id_transferencia from metodopagotransferencia where idmetodopagotransferencia = "
-                + "(select metodopagotransferencia_idmetodopagotransferencia from inscripciontransferencia where Cliente_id_cliente = " + id_cliente + " LIMIT 1 ))", TransferenciaDTO.class);
+        Query query = em.createQuery("select transferencia.iban from transferencia inner join metodopagotransferencia "
+                + "on transferencia.id_transferencia = metodopagotransferencia.id_transferencia inner join inscripciontransferencia "
+                + "on metodopagotransferencia.id_transferencia = inscripciontransferencia.id_metodopagotransferencia where inscripciontransferencia.id_cliente =" + id_cliente, TransferenciaDTO.class);
         return (TransferenciaDTO) query.getSingleResult();
     }
 

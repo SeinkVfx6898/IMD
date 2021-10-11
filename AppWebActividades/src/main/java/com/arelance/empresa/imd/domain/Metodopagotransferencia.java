@@ -44,7 +44,7 @@ public class Metodopagotransferencia implements Serializable {
     @Basic(optional = false)
     @Column(name = "idmetodopagotransferencia")
     private Integer idmetodopagotransferencia;
-    @JoinColumn(name = "Transferencia_id_transferencia", referencedColumnName = "id_transferencia")
+    @JoinColumn(name = "id_transferencia", referencedColumnName = "id_transferencia")
     @ManyToOne(optional = false)
     private Transferencia transferenciaidtransferencia;
 

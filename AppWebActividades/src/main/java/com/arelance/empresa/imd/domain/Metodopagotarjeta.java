@@ -44,7 +44,7 @@ public class Metodopagotarjeta implements Serializable {
     @Basic(optional = false)
     @Column(name = "idmetodopagotarjeta")
     private Integer idmetodopagotarjeta;
-    @JoinColumn(name = "TarjetaCredito_id_tarjeta_credito", referencedColumnName = "id_tarjeta_credito")
+    @JoinColumn(name = "id_tarjeta_credito", referencedColumnName = "id_tarjeta_credito")
     @ManyToOne(optional = false)
     private Tarjetacredito tarjetaCreditoidtarjetacredito;
 
