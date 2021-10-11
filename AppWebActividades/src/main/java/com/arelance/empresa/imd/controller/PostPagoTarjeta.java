@@ -5,9 +5,11 @@
  */
 package com.arelance.empresa.imd.controller;
 
+import com.arelance.empresa.imd.domain.Actividad;
 import com.arelance.empresa.imd.domain.Cliente;
 import com.arelance.empresa.imd.domain.Inscripciontarjeta;
 import com.arelance.empresa.imd.domain.Tarjetacredito;
+import com.arelance.empresa.servicios.ActividadService;
 import com.arelance.empresa.servicios.InscripcionTarjetaService;
 import com.arelance.empresa.servicios.TarjetaCreditoService;
 import java.io.IOException;
@@ -30,6 +32,8 @@ public class PostPagoTarjeta extends HttpServlet {
     private TarjetaCreditoService tarjetaService;
     @Inject
     private InscripcionTarjetaService inscripcionTarjetaService;
+    @Inject
+    private ActividadService actividadService;
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -51,7 +55,9 @@ public class PostPagoTarjeta extends HttpServlet {
             Tarjetacredito tarjeta = new Tarjetacredito(numeroTarjeta, fecha, cvv);
             tarjetaService.AñadirTarjeta(tarjeta);
             Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
-            Inscripciontarjeta inscripcion = new Inscripciontarjeta(idActividad, cliente.getIdCliente() , tarjeta);
+            Actividad actividad =  actividadService.EncontrarActividadPorID(idActividad);
+            Inscripciontarjeta inscripcion = new Inscripciontarjeta(actividad, cliente , tarjeta);
+            inscripcionTarjetaService.guardar(inscripcion);
         }
     }
 
