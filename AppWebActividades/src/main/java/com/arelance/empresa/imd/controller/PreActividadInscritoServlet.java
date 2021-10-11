@@ -38,8 +38,10 @@ public class PreActividadInscritoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
-        List<Actividad> actividades = actividadService.ListaActividadesCliente(cliente.getIdCliente());
-        request.setAttribute("listaTarjeta",actividades);
+        List<Actividad> actividadesTarjeta = actividadService.ListaActividadesClienteTarjeta(cliente.getIdCliente());
+        List<Actividad> actividadesTransferencia = actividadService.ListaActividadesClienteTransferencia(cliente.getIdCliente());
+        request.setAttribute("listaTarjeta",actividadesTarjeta);
+        request.setAttribute("listaTransferencia",actividadesTransferencia);
         request.getRequestDispatcher("View/actividades.jsp").forward(request, response);
     }
 
