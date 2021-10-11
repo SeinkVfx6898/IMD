@@ -53,6 +53,13 @@ public class Inscripciontransferencia implements Serializable {
         this.idInscripciontransferencia = idInscripciontransferencia;
     }
 
+    public Inscripciontransferencia(Actividad idActividad, Cliente idCliente, Transferencia idTransferencia) {
+        this.idActividad = idActividad;
+        this.idCliente = idCliente;
+        this.idTransferencia = idTransferencia;
+    }
+
+    
     public Integer getIdInscripciontransferencia() {
         return idInscripciontransferencia;
     }
