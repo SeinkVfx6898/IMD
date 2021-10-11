@@ -74,6 +74,7 @@
                 <input type="text" class="form-control" id="Fecha_caducidad" placeholder="03/25" name="Fecha_caducidad" maxlength="5">
                 <label for="text">CVV</label>
                 <input type="number" class="form-control" id="CVV" placeholder="583" pattern="[0-9]{3}" name="CVV">
+                <input type="hidden" class="form-control" id="id_actividad" name="id_actividad" value="${actividad.getIdActividad()}">
                 <input type="submit" class="btn btn-info"name="action"value="Continuar">
                 <input type="reset"class="btn btn-info"name="action"value="Limpiar">
                 <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
@@ -85,6 +86,7 @@
             <input type="text" class="form-control" id="iban" placeholder="1234567891234567" name="iban" pattern="[0-9]{16}">
             <label for="concepto">Copcepto de pago:</label>
             <input type="text" class="form-control" id="concepto" placeholder="pago deporte" name="concepto">
+            <input type="hidden" class="form-control" id="id_actividad" name="id_actividad" value="${actividad.getIdActividad()}">
             <input type="submit" class="btn btn-info"name="action"value="Continuar">
             <input type="reset"class="btn btn-info"name="action"value="Limpiar">
             <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>

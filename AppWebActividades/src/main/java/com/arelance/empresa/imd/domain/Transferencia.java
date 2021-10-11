@@ -33,8 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Transferencia.findAll", query = "SELECT t FROM Transferencia t"),
     @NamedQuery(name = "Transferencia.findByIdTransferencia", query = "SELECT t FROM Transferencia t WHERE t.idTransferencia = :idTransferencia"),
-    @NamedQuery(name = "Transferencia.findByIban", query = "SELECT t FROM Transferencia t WHERE t.iban = :iban"),
-    @NamedQuery(name = "Transferencia.findByConceptoPago", query = "SELECT t FROM Transferencia t WHERE t.conceptoPago = :conceptoPago")})
+    @NamedQuery(name = "Transferencia.findByIban", query = "SELECT t FROM Transferencia t WHERE t.iban = :iban")})
 public class Transferencia implements Serializable {
 
     private static final long serialVersionUID = 1L;

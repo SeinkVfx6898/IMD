@@ -33,9 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Tarjetacredito.findAll", query = "SELECT t FROM Tarjetacredito t"),
     @NamedQuery(name = "Tarjetacredito.findByIdTarjetaCredito", query = "SELECT t FROM Tarjetacredito t WHERE t.idTarjetaCredito = :idTarjetaCredito"),
-    @NamedQuery(name = "Tarjetacredito.findByN\u00famero", query = "SELECT t FROM Tarjetacredito t WHERE t.n\u00famero = :n\u00famero"),
-    @NamedQuery(name = "Tarjetacredito.findByFechacaducidad", query = "SELECT t FROM Tarjetacredito t WHERE t.fechacaducidad = :fechacaducidad"),
-    @NamedQuery(name = "Tarjetacredito.findByCvv", query = "SELECT t FROM Tarjetacredito t WHERE t.cvv = :cvv")})
+    @NamedQuery(name = "Tarjetacredito.findByN\u00famero", query = "SELECT t FROM Tarjetacredito t WHERE t.n\u00famero = :n\u00famero")})
 public class Tarjetacredito implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -67,6 +65,12 @@ public class Tarjetacredito implements Serializable {
         this.idTarjetaCredito = idTarjetaCredito;
     }
 
+    public Tarjetacredito(int número, String fechacaducidad, int cvv) {
+        this.número = número;
+        this.fechacaducidad = fechacaducidad;
+        this.cvv = cvv;
+    }
+    
     public Tarjetacredito(Integer idTarjetaCredito, int número, String fechacaducidad, int cvv) {
         this.idTarjetaCredito = idTarjetaCredito;
         this.número = número;

@@ -27,8 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "inscripciontransferencia")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Inscripciontransferencia.findAll", query = "SELECT i FROM Inscripciontransferencia i"),
-    @NamedQuery(name = "Inscripciontransferencia.findByIdInscripciontransferencia", query = "SELECT i FROM Inscripciontransferencia i WHERE i.idInscripciontransferencia = :idInscripciontransferencia")})
+    @NamedQuery(name = "Inscripciontransferencia.findAll", query = "SELECT i FROM Inscripciontransferencia i")})
 public class Inscripciontransferencia implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -37,6 +36,12 @@ public class Inscripciontransferencia implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_inscripciontransferencia")
     private Integer idInscripciontransferencia;
+    @JoinColumn(name = "id_actividad", referencedColumnName = "id_actividad")
+    @ManyToOne(optional = false)
+    private Actividad idActividad;
+    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
+    @ManyToOne(optional = false)
+    private Cliente idCliente;
     @JoinColumn(name = "id_transferencia", referencedColumnName = "id_transferencia")
     @ManyToOne(optional = false)
     private Transferencia idTransferencia;
@@ -54,6 +59,22 @@ public class Inscripciontransferencia implements Serializable {
 
     public void setIdInscripciontransferencia(Integer idInscripciontransferencia) {
         this.idInscripciontransferencia = idInscripciontransferencia;
+    }
+
+    public Actividad getIdActividad() {
+        return idActividad;
+    }
+
+    public void setIdActividad(Actividad idActividad) {
+        this.idActividad = idActividad;
+    }
+
+    public Cliente getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Cliente idCliente) {
+        this.idCliente = idCliente;
     }
 
     public Transferencia getIdTransferencia() {

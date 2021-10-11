@@ -5,6 +5,10 @@
  */
 package com.arelance.empresa.imd.controller;
 
+import com.arelance.empresa.imd.domain.Cliente;
+import com.arelance.empresa.imd.domain.Inscripciontarjeta;
+import com.arelance.empresa.imd.domain.Tarjetacredito;
+import com.arelance.empresa.servicios.InscripcionTarjetaService;
 import com.arelance.empresa.servicios.TarjetaCreditoService;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,6 +28,8 @@ public class PostPagoTarjeta extends HttpServlet {
 
     @Inject
     private TarjetaCreditoService tarjetaService;
+    @Inject
+    private InscripcionTarjetaService inscripcionTarjetaService;
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,7 +44,14 @@ public class PostPagoTarjeta extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+            int numeroTarjeta = Integer.parseInt(request.getParameter("numeroTarjeta"));
+            String fecha = request.getParameter("Fecha_caducidad");
+            int cvv = Integer.parseInt(request.getParameter("numeroTarjeta"));
+            int idActividad = Integer.parseInt(request.getParameter("id_actividad"));
+            Tarjetacredito tarjeta = new Tarjetacredito(numeroTarjeta, fecha, cvv);
+            tarjetaService.AñadirTarjeta(tarjeta);
+            Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
+            Inscripciontarjeta inscripcion = new Inscripciontarjeta(idActividad, cliente.getIdCliente() , tarjeta);
         }
     }
 
