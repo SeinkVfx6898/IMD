@@ -39,7 +39,6 @@
                 for (Actividad actividad : lista) {
             %>
             <li>
-                
                 <a><%=actividad.getNombre()%></a>
             </li>
             <%
@@ -47,15 +46,14 @@
             %>
             <h4>Inscripcion por transferencia</h4>
             <%
-                /*List<Actividad> listaTransferencia = (List<Actividad>) request.getAttribute("listaTransferencia");
-                for (Actividad actividad : listaTransferencia) {*/
+                List<Actividad> listaTransferencia = (List<Actividad>) request.getAttribute("listaTransferencia");
+                for (Actividad actividad : listaTransferencia) {
             %>
             <li>
-                
- 
+                <a><%=actividad.getNombre()%></a>
             </li>
             <%
-                //}
+                }
             %>
         </ul>
 </html>

@@ -59,7 +59,7 @@ public class ActividadDAOImpl implements ActividadDAO {
                 + "a.dia_semana,a.hora_inicio,a.hora_fin from actividad a inner join inscripciontarjeta "
                 + "on a.id_actividad = inscripciontarjeta.id_actividad inner join cliente "
                 + "on inscripciontarjeta.id_cliente = cliente.id_cliente where cliente.id_cliente = " + id_cliente;
-        return em.createNativeQuery(sql).getResultList();
+        return em.createNativeQuery(sql, Actividad.class).getResultList();
     }
 
     @Override
@@ -68,7 +68,7 @@ public class ActividadDAOImpl implements ActividadDAO {
                 + "a.dia_semana,a.hora_inicio,a.hora_fin from actividad a inner join  inscripciontransferencia "
                 + "on a.id_actividad = inscripciontransferencia.id_actividad inner join cliente "
                 + "on inscripciontransferencia.id_cliente = cliente.id_cliente where cliente.id_cliente = " + id_cliente;
-        return em.createNativeQuery(sql).getResultList();
+        return em.createNativeQuery(sql, Actividad.class).getResultList();
     }
 
 }
