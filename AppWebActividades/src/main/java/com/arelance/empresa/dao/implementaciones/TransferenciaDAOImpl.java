@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import com.arelance.empresa.imd.dao.TransferenciaDAO;
 import com.arelance.empresa.imd.domain.Transferencia;
+import javax.persistence.Query;
 
 /**
  *
@@ -42,4 +43,10 @@ public class TransferenciaDAOImpl implements TransferenciaDAO {
         em.remove(em.merge(transferencia));
     }
 
+    @Override
+    public Transferencia datosCliente(int id_cliente) {
+        Query query = em.createQuery("select transferencia.iban from transferencia inner join inscripciontransferencia "
+                + "on transferencia.id_transferencia = inscripciontransferencia.id_transferencia where inscripciontransferencia.id_cliente = " + id_cliente, Transferencia.class);
+        return (Transferencia) query.getSingleResult();
+    }
 }

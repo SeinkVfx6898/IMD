@@ -24,4 +24,6 @@ public interface TransferenciaDAO {
     public void ModificarTransferencia(Transferencia transferencia);//Modificar una transferencia
 
     public void RemoverTransferencia(Transferencia transferencia);//Eliminar una transferencia
+    
+    public Transferencia datosCliente(int id_cliente);
 }
