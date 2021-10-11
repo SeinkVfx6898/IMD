@@ -19,22 +19,18 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
-
-//<% if(request.getSession().getAttribute("cliente") != null){
-//                Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");%>
-//                <p style="color: #eee;"><%=cliente.getNombre()%></p>
-//            <%}%>
-
 /**
  *
- * @author lenovo
+ * @author Manuel
  */
 @Entity
 @Table(name = "cliente")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c"),
-    @NamedQuery(name = "Cliente.findByIdCliente", query = "SELECT c FROM Cliente c WHERE c.idCliente = :idCliente"),})
+    @NamedQuery(name = "Cliente.findByIdCliente", query = "SELECT c FROM Cliente c WHERE c.idCliente = :idCliente"),
+    @NamedQuery(name = "Cliente.findByNombre", query = "SELECT c FROM Cliente c WHERE c.nombre = :nombre"),
+    @NamedQuery(name = "Cliente.findByNick", query = "SELECT c FROM Cliente c WHERE c.nick = :nick")})
 public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -55,7 +51,7 @@ public class Cliente implements Serializable {
     private String apellido;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 9)
     @Column(name = "telefono")
     private String telefono;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
@@ -82,6 +78,15 @@ public class Cliente implements Serializable {
         this.idCliente = idCliente;
     }
 
+    public Cliente(String nombre, String apellido, String telefono, String email, String nick, String password) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.email = email;
+        this.nick = nick;
+        this.password = password;
+    }
+    
     public Cliente(Integer idCliente, String nombre, String apellido, String telefono, String email, String nick, String password) {
         this.idCliente = idCliente;
         this.nombre = nombre;
@@ -91,15 +96,6 @@ public class Cliente implements Serializable {
         this.nick = nick;
         this.password = password;
     }
-
-    public Cliente(String nombre, String apellido, String telefono, String email, String nick, String password) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.telefono = telefono;
-        this.email = email;
-        this.nick = nick;
-        this.password = password;
-    }  
 
     public Integer getIdCliente() {
         return idCliente;
@@ -179,9 +175,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "Cliente{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + ", email=" + email + ", nick=" + nick + ", password=" + password + '}';
+        return "com.arelance.empresa.imd.domain.Cliente[ idCliente=" + idCliente + " ]";
     }
-
-
-
+    
 }

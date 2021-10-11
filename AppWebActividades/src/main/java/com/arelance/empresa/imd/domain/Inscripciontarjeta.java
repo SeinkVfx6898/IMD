@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author usuar
+ * @author Manuel
  */
 @Entity
 @Table(name = "inscripciontarjeta")
@@ -37,15 +37,9 @@ public class Inscripciontarjeta implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_inscripciontarjeta")
     private Integer idInscripciontarjeta;
-    @JoinColumn(name = "id_actividad", referencedColumnName = "id_actividad")
+    @JoinColumn(name = "id_tarjeta_credito", referencedColumnName = "id_tarjeta_credito")
     @ManyToOne(optional = false)
-    private Actividad actividadidactividad;
-    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
-    @ManyToOne(optional = false)
-    private Cliente clienteidcliente;
-    @JoinColumn(name = "id_metodopagotarjeta", referencedColumnName = "idmetodopagotarjeta")
-    @ManyToOne(optional = false)
-    private Metodopagotarjeta metodopagotarjetaIdmetodopagotarjeta;
+    private Tarjetacredito idTarjetaCredito;
 
     public Inscripciontarjeta() {
     }
@@ -62,28 +56,12 @@ public class Inscripciontarjeta implements Serializable {
         this.idInscripciontarjeta = idInscripciontarjeta;
     }
 
-    public Actividad getActividadidactividad() {
-        return actividadidactividad;
+    public Tarjetacredito getIdTarjetaCredito() {
+        return idTarjetaCredito;
     }
 
-    public void setActividadidactividad(Actividad actividadidactividad) {
-        this.actividadidactividad = actividadidactividad;
-    }
-
-    public Cliente getClienteidcliente() {
-        return clienteidcliente;
-    }
-
-    public void setClienteidcliente(Cliente clienteidcliente) {
-        this.clienteidcliente = clienteidcliente;
-    }
-
-    public Metodopagotarjeta getMetodopagotarjetaIdmetodopagotarjeta() {
-        return metodopagotarjetaIdmetodopagotarjeta;
-    }
-
-    public void setMetodopagotarjetaIdmetodopagotarjeta(Metodopagotarjeta metodopagotarjetaIdmetodopagotarjeta) {
-        this.metodopagotarjetaIdmetodopagotarjeta = metodopagotarjetaIdmetodopagotarjeta;
+    public void setIdTarjetaCredito(Tarjetacredito idTarjetaCredito) {
+        this.idTarjetaCredito = idTarjetaCredito;
     }
 
     @Override

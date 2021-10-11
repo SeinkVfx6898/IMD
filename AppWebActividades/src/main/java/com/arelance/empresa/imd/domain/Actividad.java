@@ -22,14 +22,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author lenovo
+ * @author Manuel
  */
 @Entity
 @Table(name = "actividad")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Actividad.findAll", query = "SELECT a FROM Actividad a"),
-    @NamedQuery(name = "Actividad.findByIdActividad", query = "SELECT a FROM Actividad a WHERE a.idActividad = :idActividad"),})
+    @NamedQuery(name = "Actividad.findByIdActividad", query = "SELECT a FROM Actividad a WHERE a.idActividad = :idActividad"),
+    @NamedQuery(name = "Actividad.findByNombre", query = "SELECT a FROM Actividad a WHERE a.nombre = :nombre")})
 public class Actividad implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -45,7 +46,7 @@ public class Actividad implements Serializable {
     private String nombre;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 500)
     @Column(name = "descripcion")
     private String descripcion;
     @Basic(optional = false)
@@ -53,6 +54,7 @@ public class Actividad implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "entrenador")
     private String entrenador;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Basic(optional = false)
     @NotNull
     @Column(name = "precio")
@@ -164,6 +166,7 @@ public class Actividad implements Serializable {
 
     @Override
     public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Actividad)) {
             return false;
         }
@@ -176,9 +179,7 @@ public class Actividad implements Serializable {
 
     @Override
     public String toString() {
-        return "Actividad{" + "idActividad=" + idActividad + ", nombre=" + nombre + ", descripcion=" + descripcion + ", entrenador=" + entrenador + ", precio=" + precio + ", diaSemana=" + diaSemana + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + '}';
+        return "com.arelance.empresa.imd.domain.Actividad[ idActividad=" + idActividad + " ]";
     }
-
-
-
+    
 }

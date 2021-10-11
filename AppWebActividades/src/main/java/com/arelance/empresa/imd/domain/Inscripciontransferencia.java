@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author usuar
+ * @author Manuel
  */
 @Entity
 @Table(name = "inscripciontransferencia")
@@ -37,15 +37,9 @@ public class Inscripciontransferencia implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_inscripciontransferencia")
     private Integer idInscripciontransferencia;
-    @JoinColumn(name = "id_actividad", referencedColumnName = "id_actividad")
+    @JoinColumn(name = "id_transferencia", referencedColumnName = "id_transferencia")
     @ManyToOne(optional = false)
-    private Actividad actividadidactividad;
-    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
-    @ManyToOne(optional = false)
-    private Cliente clienteidcliente;
-    @JoinColumn(name = "id_metodopagotransferencia", referencedColumnName = "idmetodopagotransferencia")
-    @ManyToOne(optional = false)
-    private Metodopagotransferencia metodopagotransferenciaIdmetodopagotransferencia;
+    private Transferencia idTransferencia;
 
     public Inscripciontransferencia() {
     }
@@ -62,28 +56,12 @@ public class Inscripciontransferencia implements Serializable {
         this.idInscripciontransferencia = idInscripciontransferencia;
     }
 
-    public Actividad getActividadidactividad() {
-        return actividadidactividad;
+    public Transferencia getIdTransferencia() {
+        return idTransferencia;
     }
 
-    public void setActividadidactividad(Actividad actividadidactividad) {
-        this.actividadidactividad = actividadidactividad;
-    }
-
-    public Cliente getClienteidcliente() {
-        return clienteidcliente;
-    }
-
-    public void setClienteidcliente(Cliente clienteidcliente) {
-        this.clienteidcliente = clienteidcliente;
-    }
-
-    public Metodopagotransferencia getMetodopagotransferenciaIdmetodopagotransferencia() {
-        return metodopagotransferenciaIdmetodopagotransferencia;
-    }
-
-    public void setMetodopagotransferenciaIdmetodopagotransferencia(Metodopagotransferencia metodopagotransferenciaIdmetodopagotransferencia) {
-        this.metodopagotransferenciaIdmetodopagotransferencia = metodopagotransferenciaIdmetodopagotransferencia;
+    public void setIdTransferencia(Transferencia idTransferencia) {
+        this.idTransferencia = idTransferencia;
     }
 
     @Override

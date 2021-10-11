@@ -14,7 +14,7 @@
         <title>Inscripción</title>
     </head>
     <body> 
-       <header>
+        <header>
             <nav class="navbar navbar-expand-sm bg-info navbar-info">     
                 <a class="navbar-brand" href="PreIndexServlet">IMD</a> 
                 <ul class="navbar-nav">
@@ -22,16 +22,16 @@
                         <% if (request.getSession().getAttribute("cliente") != null) {
                                 Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
                         %>
-                            <a class="nav-link"><%=cliente.getNick()%></a>
+                        <a class="nav-link"><%=cliente.getNick()%></a>
                         <%} else {%>
-                            <a class="nav-link" href="PreRegistroServlet">Registro</a>
+                        <a class="nav-link" href="PreRegistroServlet">Registro</a>
                         <%}%>
                     </li>
                     <li class="nav-item">
                         <% if (request.getSession().getAttribute("cliente") != null) {%>
-                            <a class="nav-link" href="CierreSesion">Cerrar sesion</a>
+                        <a class="nav-link" href="CierreSesion">Cerrar sesion</a>
                         <%} else {%>
-                            <a class="nav-link" href="PreLoginServlet">Iniciar sesión</a>
+                        <a class="nav-link" href="PreLoginServlet">Iniciar sesión</a>
                         <%}%>
                     </li>          
                 </ul>
@@ -64,44 +64,33 @@
                 </tbody>
             </table>
         </div>
-        <form action="../" method="GET" id="tarjeta">
+        <% if (request.getSession().getAttribute("cliente") != null) { %>
+        <form action="../PostPagoTarjeta" method="GET" id="tarjeta">
             <fieldset>
-                <div id="contenedor">
-                    <legend>Pago por tarjeta:</legend>
-                    <div class="form-group">
-                        <label for="text">Número:</label>
-                        <input type="number" class="form-control" id="numeroTarjeta" placeholder="1234567891234567" name="numeroTarjeta" pattern="[0-9]{16}">
-                    </div>
-                    <div class="form-group">
-                        <label for="text">Fecha caducidad</label>
-                        <input type="text" class="form-control" id="Fecha_caducidad" placeholder="03/25" name="Fecha_caducidad" maxlength="5">
-                    </div>
-                    <div class="form-group">
-                        <label for="text">CVV</label>
-                        <input type="number" class="form-control" id="CVV" placeholder="583" pattern="[0-9]{3}" name="CVV">
-                    </div>
-                    <input type="submit" class="btn btn-info"name="action"value="Continuar">
-                    <input type="reset"class="btn btn-info"name="action"value="Limpiar">
-                    <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
-                </div>
+                <legend>Pago por tarjeta:</legend>
+                <label for="text">Número:</label>
+                <input type="number" class="form-control" id="numeroTarjeta" placeholder="1234567891234567" name="numeroTarjeta" pattern="[0-9]{16}">
+                <label for="text">Fecha caducidad</label>
+                <input type="text" class="form-control" id="Fecha_caducidad" placeholder="03/25" name="Fecha_caducidad" maxlength="5">
+                <label for="text">CVV</label>
+                <input type="number" class="form-control" id="CVV" placeholder="583" pattern="[0-9]{3}" name="CVV">
+                <input type="submit" class="btn btn-info"name="action"value="Continuar">
+                <input type="reset"class="btn btn-info"name="action"value="Limpiar">
+                <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
             </fieldset>
         </form>
         <form action="../" method="GET" id="transferencia">
-                <div id="contenedor2">
-                    <legend>Pago por transferencia:</legend>
-                    <div class="form-group">
-                        <label for="iban">IBAN:</label>
-                        <input type="text" class="form-control" id="iban" placeholder="1234567891234567" name="iban" pattern="[0-9]{16}>
-                    </div>
-                    <div class="form-group">
-                        <label for="concepto">Copcepto de pago:</label>
-                        <input type="text" class="form-control" id="concepto" placeholder="pago deporte" name="concepto">
-                    </div>
-                    <input type="submit" class="btn btn-info"name="action"value="Continuar">
-                    <input type="reset"class="btn btn-info"name="action"value="Limpiar">
-                    <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
-                </div>
-            </fieldset>
-        </form>
-    </body>
+            <legend>Pago por transferencia:</legend>
+            <label for="iban">IBAN:</label>
+            <input type="text" class="form-control" id="iban" placeholder="1234567891234567" name="iban" pattern="[0-9]{16}">
+            <label for="concepto">Copcepto de pago:</label>
+            <input type="text" class="form-control" id="concepto" placeholder="pago deporte" name="concepto">
+            <input type="submit" class="btn btn-info"name="action"value="Continuar">
+            <input type="reset"class="btn btn-info"name="action"value="Limpiar">
+            <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
+        </div>
+    </fieldset>
+</form>
+<% }%>
+</body>
 </html>

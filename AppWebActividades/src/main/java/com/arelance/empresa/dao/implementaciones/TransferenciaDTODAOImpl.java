@@ -5,7 +5,6 @@
  */
 package com.arelance.empresa.dao.implementaciones;
 
-
 import com.arelance.empresa.DTO.TransferenciaDTO;
 import com.arelance.empresa.imd.dao.TransferenciaDTODAO;
 import javax.ejb.Stateless;
@@ -18,18 +17,16 @@ import javax.persistence.Query;
  * @author Manuel
  */
 @Stateless
-public class TransferenciaDTODAOImpl implements TransferenciaDTODAO{
+public class TransferenciaDTODAOImpl implements TransferenciaDTODAO {
 
     @PersistenceContext(unitName = "ImdPU")
     EntityManager em;
-     
+
     @Override
     public TransferenciaDTO DatosCliente(int id_cliente) {
-        Query query = em.createQuery("select transferencia.iban from transferencia inner join metodopagotransferencia "
-                + "on transferencia.id_transferencia = metodopagotransferencia.id_transferencia inner join inscripciontransferencia "
-                + "on metodopagotransferencia.id_transferencia = inscripciontransferencia.id_metodopagotransferencia where inscripciontransferencia.id_cliente =" + id_cliente, TransferenciaDTO.class);
+        Query query = em.createQuery("select transferencia.iban from transferencia inner join inscripciontransferencia "
+                + "on transferencia.id_transferencia = inscripciontransferencia.id_transferencia where inscripciontransferencia.id_cliente = " + id_cliente, TransferenciaDTO.class);
         return (TransferenciaDTO) query.getSingleResult();
     }
 
-   
 }
