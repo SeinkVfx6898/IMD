@@ -80,8 +80,8 @@
                         <label for="text">CVV</label>
                         <input type="number" class="form-control" id="CVV" placeholder="583" pattern="[0-9]{3}" name="CVV">
                     </div>
-                    <input type="submit" class="btn btn-secondary"name="action"value="Continuar">
-                    <input type="reset"class="btn btn-secondary"name="action"value="Limpiar">
+                    <input type="submit" class="btn btn-info"name="action"value="Continuar">
+                    <input type="reset"class="btn btn-info"name="action"value="Limpiar">
                     <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
                 </div>
             </fieldset>
@@ -97,8 +97,8 @@
                         <label for="concepto">Copcepto de pago:</label>
                         <input type="text" class="form-control" id="concepto" placeholder="pago deporte" name="concepto">
                     </div>
-                    <input type="submit" class="btn btn-secondary"name="action"value="Continuar">
-                    <input type="reset"class="btn btn-secondary"name="action"value="Limpiar">
+                    <input type="submit" class="btn btn-info"name="action"value="Continuar">
+                    <input type="reset"class="btn btn-info"name="action"value="Limpiar">
                     <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
                 </div>
             </fieldset>

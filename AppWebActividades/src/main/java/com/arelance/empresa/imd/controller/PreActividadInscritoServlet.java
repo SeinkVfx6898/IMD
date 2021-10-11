@@ -39,9 +39,9 @@ public class PreActividadInscritoServlet extends HttpServlet {
             throws ServletException, IOException {
         Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
         List<Actividad> actividadesTarjeta = actividadService.ListaActividadesClienteTarjeta(cliente.getIdCliente());
-        List<Actividad> actividadesTransferencia = actividadService.ListaActividadesClienteTransferencia(cliente.getIdCliente());
+//        List<Actividad> actividadesTransferencia = actividadService.ListaActividadesClienteTransferencia(cliente.getIdCliente());
         request.setAttribute("listaTarjeta",actividadesTarjeta);
-        request.setAttribute("listaTransferencia",actividadesTransferencia);
+//        request.setAttribute("listaTransferencia",actividadesTransferencia);
         request.getRequestDispatcher("View/actividades.jsp").forward(request, response);
     }
 

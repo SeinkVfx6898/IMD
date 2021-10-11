@@ -35,8 +35,8 @@
         <ul id="myUL">
             <h4>Inscripcion por tarjeta</h4>
             <%
-                List<Actividad> listaTarjeta = (List<Actividad>) request.getAttribute("listaTarjeta");
-                for (Actividad actividad : listaTarjeta) {
+                List<Actividad> lista = (List<Actividad>) request.getAttribute("listaTarjeta");
+                for (Actividad actividad : lista) {
             %>
             <li>
                 
@@ -47,15 +47,15 @@
             %>
             <h4>Inscripcion por transferencia</h4>
             <%
-                List<Actividad> listaTransferencia = (List<Actividad>) request.getAttribute("listaTransferencia");
-                for (Actividad actividad : listaTransferencia) {
+                /*List<Actividad> listaTransferencia = (List<Actividad>) request.getAttribute("listaTransferencia");
+                for (Actividad actividad : listaTransferencia) {*/
             %>
             <li>
                 
-                <a><%=actividad.getNombre()%></a>
+ 
             </li>
             <%
-                }
+                //}
             %>
         </ul>
 </html>

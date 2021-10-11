@@ -24,8 +24,8 @@
                 <label for="pwd">Contraseña:</label>
                 <input type="password" class="form-control" id="pwd" placeholder="SalvSolo1234" name="pswd" maxlength="20">
             </div>
-            <button type="submit" class="btn btn-secondary">Aceptar</button>
-            <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
+            <button type="submit" class="btn btn-info">Aceptar</button>
+            <a href="../PreIndexServlet" class="btn btn-info" role="button">Volver</a>
         </form>
         <br>
         <span>${NickMsg}</span>

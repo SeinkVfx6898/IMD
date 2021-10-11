@@ -52,8 +52,8 @@
                         <input type="password" class="form-control" id="pswc" placeholder="amr12345" name="passconfirm"required>
                     </div>
 
-                    <input type="submit" class="btn btn-secondary"name="action"value="Continuar">
-                    <input type="reset"class="btn btn-secondary"name="action"value="Limpiar">
+                    <input type="submit" class="btn btn-info"name="action"value="Continuar">
+                    <input type="reset"class="btn btn-info"name="action"value="Limpiar">
                     <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
                 </div>
             </fieldset>

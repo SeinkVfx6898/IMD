@@ -55,20 +55,20 @@ public class ActividadDAOImpl implements ActividadDAO {
 
     @Override
     public List<Actividad> ListaActividadesClienteTarjeta(int id_cliente) {
-        String sql = "select actividad.* from actividad inner join inscripciontarjeta "
-                + "on actividad.id_actividad = inscripciontarjeta.id_actividad inner join cliente "
+        String sql = "select a.id_actividad,a.nombre,a.descripcion,a.entrenador,a.precio,"
+                + "a.dia_semana,a.hora_inicio,a.hora_fin from actividad a inner join inscripciontarjeta "
+                + "on a.id_actividad = inscripciontarjeta.id_actividad inner join cliente "
                 + "on inscripciontarjeta.id_cliente = cliente.id_cliente where cliente.id_cliente = " + id_cliente;
-        Query query = em.createNativeQuery(sql);
-        return query.getResultList();
+        return em.createNativeQuery(sql).getResultList();
     }
 
     @Override
     public List<Actividad> ListaActividadesClienteTransferencia(int id_cliente) {
-        String sql = "select actividad.* from actividad inner join inscripciontransferencia"
-                + " on actividad.id_actividad = inscripciontransferencia.id_actividad inner join cliente"
-                + " on inscripciontransferencia.id_cliente = cliente.id_cliente where cliente.id_cliente = " + id_cliente;
-        Query query = em.createNativeQuery(sql);
-        return query.getResultList();
+        String sql = "select a.id_actividad,a.nombre,a.descripcion,a.entrenador,a.precio,"
+                + "a.dia_semana,a.hora_inicio,a.hora_fin from actividad a inner join  inscripciontransferencia "
+                + "on a.id_actividad = inscripciontransferencia.id_actividad inner join cliente "
+                + "on inscripciontransferencia.id_cliente = cliente.id_cliente where cliente.id_cliente = " + id_cliente;
+        return em.createNativeQuery(sql).getResultList();
     }
 
 }
