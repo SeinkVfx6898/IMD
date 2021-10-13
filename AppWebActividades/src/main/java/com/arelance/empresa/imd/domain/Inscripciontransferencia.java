@@ -27,7 +27,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "inscripciontransferencia")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Inscripciontransferencia.findAll", query = "SELECT i FROM Inscripciontransferencia i")})
+    @NamedQuery(name = "Inscripciontransferencia.findAll", query = "SELECT i FROM Inscripciontransferencia i"),
+    @NamedQuery(name = "Inscripciontransferencia.findByIdInscripciontransferencia", query = "SELECT i FROM Inscripciontransferencia i WHERE i.idInscripciontransferencia = :idInscripciontransferencia")})
 public class Inscripciontransferencia implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -36,15 +37,9 @@ public class Inscripciontransferencia implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_inscripciontransferencia")
     private Integer idInscripciontransferencia;
-    @JoinColumn(name = "id_actividad", referencedColumnName = "id_actividad")
+    @JoinColumn(name = "id_metodopagotransferencia", referencedColumnName = "idmetodopagotransferencia")
     @ManyToOne(optional = false)
-    private Actividad idActividad;
-    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
-    @ManyToOne(optional = false)
-    private Cliente idCliente;
-    @JoinColumn(name = "id_transferencia", referencedColumnName = "id_transferencia")
-    @ManyToOne(optional = false)
-    private Transferencia idTransferencia;
+    private Metodopagotransferencia idMetodopagotransferencia;
 
     public Inscripciontransferencia() {
     }
@@ -53,13 +48,6 @@ public class Inscripciontransferencia implements Serializable {
         this.idInscripciontransferencia = idInscripciontransferencia;
     }
 
-    public Inscripciontransferencia(Actividad idActividad, Cliente idCliente, Transferencia idTransferencia) {
-        this.idActividad = idActividad;
-        this.idCliente = idCliente;
-        this.idTransferencia = idTransferencia;
-    }
-
-    
     public Integer getIdInscripciontransferencia() {
         return idInscripciontransferencia;
     }
@@ -68,28 +56,12 @@ public class Inscripciontransferencia implements Serializable {
         this.idInscripciontransferencia = idInscripciontransferencia;
     }
 
-    public Actividad getIdActividad() {
-        return idActividad;
+    public Metodopagotransferencia getIdMetodopagotransferencia() {
+        return idMetodopagotransferencia;
     }
 
-    public void setIdActividad(Actividad idActividad) {
-        this.idActividad = idActividad;
-    }
-
-    public Cliente getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(Cliente idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public Transferencia getIdTransferencia() {
-        return idTransferencia;
-    }
-
-    public void setIdTransferencia(Transferencia idTransferencia) {
-        this.idTransferencia = idTransferencia;
+    public void setIdMetodopagotransferencia(Metodopagotransferencia idMetodopagotransferencia) {
+        this.idMetodopagotransferencia = idMetodopagotransferencia;
     }
 
     @Override

@@ -27,7 +27,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "inscripciontarjeta")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Inscripciontarjeta.findAll", query = "SELECT i FROM Inscripciontarjeta i")})
+    @NamedQuery(name = "Inscripciontarjeta.findAll", query = "SELECT i FROM Inscripciontarjeta i"),
+    @NamedQuery(name = "Inscripciontarjeta.findByIdInscripciontarjeta", query = "SELECT i FROM Inscripciontarjeta i WHERE i.idInscripciontarjeta = :idInscripciontarjeta")})
 public class Inscripciontarjeta implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -36,15 +37,9 @@ public class Inscripciontarjeta implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_inscripciontarjeta")
     private Integer idInscripciontarjeta;
-    @JoinColumn(name = "id_actividad", referencedColumnName = "id_actividad")
+    @JoinColumn(name = "id_metodopagotarjeta", referencedColumnName = "idmetodopagotarjeta")
     @ManyToOne(optional = false)
-    private Actividad idActividad;
-    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
-    @ManyToOne(optional = false)
-    private Cliente idCliente;
-    @JoinColumn(name = "id_tarjeta_credito", referencedColumnName = "id_tarjeta_credito")
-    @ManyToOne(optional = false)
-    private Tarjetacredito idTarjetaCredito;
+    private Metodopagotarjeta idMetodopagotarjeta;
 
     public Inscripciontarjeta() {
     }
@@ -53,13 +48,6 @@ public class Inscripciontarjeta implements Serializable {
         this.idInscripciontarjeta = idInscripciontarjeta;
     }
 
-    public Inscripciontarjeta(Actividad idActividad, Cliente idCliente, Tarjetacredito idTarjetaCredito) {
-        this.idActividad = idActividad;
-        this.idCliente = idCliente;
-        this.idTarjetaCredito = idTarjetaCredito;
-    }
-    
-    
     public Integer getIdInscripciontarjeta() {
         return idInscripciontarjeta;
     }
@@ -68,28 +56,12 @@ public class Inscripciontarjeta implements Serializable {
         this.idInscripciontarjeta = idInscripciontarjeta;
     }
 
-    public Actividad getIdActividad() {
-        return idActividad;
+    public Metodopagotarjeta getIdMetodopagotarjeta() {
+        return idMetodopagotarjeta;
     }
 
-    public void setIdActividad(Actividad idActividad) {
-        this.idActividad = idActividad;
-    }
-
-    public Cliente getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(Cliente idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public Tarjetacredito getIdTarjetaCredito() {
-        return idTarjetaCredito;
-    }
-
-    public void setIdTarjetaCredito(Tarjetacredito idTarjetaCredito) {
-        this.idTarjetaCredito = idTarjetaCredito;
+    public void setIdMetodopagotarjeta(Metodopagotarjeta idMetodopagotarjeta) {
+        this.idMetodopagotarjeta = idMetodopagotarjeta;
     }
 
     @Override

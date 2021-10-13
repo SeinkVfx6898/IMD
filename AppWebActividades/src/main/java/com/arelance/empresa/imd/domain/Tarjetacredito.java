@@ -33,7 +33,9 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Tarjetacredito.findAll", query = "SELECT t FROM Tarjetacredito t"),
     @NamedQuery(name = "Tarjetacredito.findByIdTarjetaCredito", query = "SELECT t FROM Tarjetacredito t WHERE t.idTarjetaCredito = :idTarjetaCredito"),
-    @NamedQuery(name = "Tarjetacredito.findByN\u00famero", query = "SELECT t FROM Tarjetacredito t WHERE t.n\u00famero = :n\u00famero")})
+    @NamedQuery(name = "Tarjetacredito.findByN\u00famero", query = "SELECT t FROM Tarjetacredito t WHERE t.n\u00famero = :n\u00famero"),
+    @NamedQuery(name = "Tarjetacredito.findByFechacaducidad", query = "SELECT t FROM Tarjetacredito t WHERE t.fechacaducidad = :fechacaducidad"),
+    @NamedQuery(name = "Tarjetacredito.findByCvv", query = "SELECT t FROM Tarjetacredito t WHERE t.cvv = :cvv")})
 public class Tarjetacredito implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -56,7 +58,7 @@ public class Tarjetacredito implements Serializable {
     @Column(name = "CVV")
     private int cvv;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTarjetaCredito")
-    private Collection<Inscripciontarjeta> inscripciontarjetaCollection;
+    private Collection<Metodopagotarjeta> metodopagotarjetaCollection;
 
     public Tarjetacredito() {
     }
@@ -65,12 +67,6 @@ public class Tarjetacredito implements Serializable {
         this.idTarjetaCredito = idTarjetaCredito;
     }
 
-    public Tarjetacredito(int número, String fechacaducidad, int cvv) {
-        this.número = número;
-        this.fechacaducidad = fechacaducidad;
-        this.cvv = cvv;
-    }
-    
     public Tarjetacredito(Integer idTarjetaCredito, int número, String fechacaducidad, int cvv) {
         this.idTarjetaCredito = idTarjetaCredito;
         this.número = número;
@@ -111,12 +107,12 @@ public class Tarjetacredito implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Inscripciontarjeta> getInscripciontarjetaCollection() {
-        return inscripciontarjetaCollection;
+    public Collection<Metodopagotarjeta> getMetodopagotarjetaCollection() {
+        return metodopagotarjetaCollection;
     }
 
-    public void setInscripciontarjetaCollection(Collection<Inscripciontarjeta> inscripciontarjetaCollection) {
-        this.inscripciontarjetaCollection = inscripciontarjetaCollection;
+    public void setMetodopagotarjetaCollection(Collection<Metodopagotarjeta> metodopagotarjetaCollection) {
+        this.metodopagotarjetaCollection = metodopagotarjetaCollection;
     }
 
     @Override

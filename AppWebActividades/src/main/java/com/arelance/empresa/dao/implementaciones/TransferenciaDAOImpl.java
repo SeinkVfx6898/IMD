@@ -30,7 +30,7 @@ public class TransferenciaDAOImpl implements TransferenciaDAO {
 
     @Override
     public void AñadirTransferencia(Transferencia transferencia) {
-       em.persist(transferencia);
+        em.persist(transferencia);
     }
 
     @Override
@@ -45,8 +45,10 @@ public class TransferenciaDAOImpl implements TransferenciaDAO {
 
     @Override
     public Transferencia datosCliente(int id_cliente) {
-        Query query = em.createQuery("select transferencia.iban from transferencia inner join inscripciontransferencia "
-                + "on transferencia.id_transferencia = inscripciontransferencia.id_transferencia where inscripciontransferencia.id_cliente = " + id_cliente, Transferencia.class);
+        Query query = em.createQuery("select transferencia.iban from transferencia inner join metodopagotransferencia "
+                + "on transferencia.id_transferencia = metodopagotransferencia.id_transferencia inner join inscripciontransferencia "
+                + "on metodopagotransferencia.id_transferencia = inscripciontransferencia.id_metodopagotransferencia"
+                + "where inscripciontransferencia.id_cliente = " + id_cliente, Transferencia.class);
         return (Transferencia) query.getSingleResult();
     }
 }

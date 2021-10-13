@@ -33,7 +33,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Transferencia.findAll", query = "SELECT t FROM Transferencia t"),
     @NamedQuery(name = "Transferencia.findByIdTransferencia", query = "SELECT t FROM Transferencia t WHERE t.idTransferencia = :idTransferencia"),
-    @NamedQuery(name = "Transferencia.findByIban", query = "SELECT t FROM Transferencia t WHERE t.iban = :iban")})
+    @NamedQuery(name = "Transferencia.findByIban", query = "SELECT t FROM Transferencia t WHERE t.iban = :iban"),
+    @NamedQuery(name = "Transferencia.findByConceptoPago", query = "SELECT t FROM Transferencia t WHERE t.conceptoPago = :conceptoPago")})
 public class Transferencia implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -52,7 +53,7 @@ public class Transferencia implements Serializable {
     @Column(name = "concepto_pago")
     private String conceptoPago;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTransferencia")
-    private Collection<Inscripciontransferencia> inscripciontransferenciaCollection;
+    private Collection<Metodopagotransferencia> metodopagotransferenciaCollection;
 
     public Transferencia() {
     }
@@ -61,15 +62,6 @@ public class Transferencia implements Serializable {
         this.idTransferencia = idTransferencia;
     }
 
-    public Transferencia(int iban) {
-        this.iban = iban;
-    }
-
-    public Transferencia(int iban, String conceptoPago) {
-        this.iban = iban;
-        this.conceptoPago = conceptoPago;
-    }
-    
     public Transferencia(Integer idTransferencia, int iban, String conceptoPago) {
         this.idTransferencia = idTransferencia;
         this.iban = iban;
@@ -101,12 +93,12 @@ public class Transferencia implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Inscripciontransferencia> getInscripciontransferenciaCollection() {
-        return inscripciontransferenciaCollection;
+    public Collection<Metodopagotransferencia> getMetodopagotransferenciaCollection() {
+        return metodopagotransferenciaCollection;
     }
 
-    public void setInscripciontransferenciaCollection(Collection<Inscripciontransferencia> inscripciontransferenciaCollection) {
-        this.inscripciontransferenciaCollection = inscripciontransferenciaCollection;
+    public void setMetodopagotransferenciaCollection(Collection<Metodopagotransferencia> metodopagotransferenciaCollection) {
+        this.metodopagotransferenciaCollection = metodopagotransferenciaCollection;
     }
 
     @Override

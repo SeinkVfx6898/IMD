@@ -56,6 +56,7 @@ public class PostPagoTransferencia extends HttpServlet {
             Actividad actividad =  actividadService.EncontrarActividadPorID(idActividad);
             Inscripciontransferencia inscripcion = new Inscripciontransferencia(actividad, cliente , transferencia);
             inscripcionTransferenciaService.guardar(inscripcion);
+            request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
         }
     }
 
