@@ -56,8 +56,6 @@ public class PostPagoTarjeta extends HttpServlet {
             tarjetaService.AñadirTarjeta(tarjeta);
             Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
             Actividad actividad =  actividadService.EncontrarActividadPorID(idActividad);
-            Inscripciontarjeta inscripcion = new Inscripciontarjeta(actividad, cliente , tarjeta);
-            inscripcionTarjetaService.guardar(inscripcion);
             request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
         }
     }

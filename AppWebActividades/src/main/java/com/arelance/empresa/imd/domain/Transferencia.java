@@ -62,6 +62,11 @@ public class Transferencia implements Serializable {
         this.idTransferencia = idTransferencia;
     }
 
+    public Transferencia(int iban, String conceptoPago) {
+        this.iban = iban;
+        this.conceptoPago = conceptoPago;
+    }
+    
     public Transferencia(Integer idTransferencia, int iban, String conceptoPago) {
         this.idTransferencia = idTransferencia;
         this.iban = iban;

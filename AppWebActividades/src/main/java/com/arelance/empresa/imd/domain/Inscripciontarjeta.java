@@ -48,6 +48,8 @@ public class Inscripciontarjeta implements Serializable {
         this.idInscripciontarjeta = idInscripciontarjeta;
     }
 
+    
+
     public Integer getIdInscripciontarjeta() {
         return idInscripciontarjeta;
     }

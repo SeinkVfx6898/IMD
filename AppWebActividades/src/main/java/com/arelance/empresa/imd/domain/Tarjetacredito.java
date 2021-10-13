@@ -67,12 +67,21 @@ public class Tarjetacredito implements Serializable {
         this.idTarjetaCredito = idTarjetaCredito;
     }
 
+    public Tarjetacredito(int número, String fechacaducidad, int cvv) {
+        this.número = número;
+        this.fechacaducidad = fechacaducidad;
+        this.cvv = cvv;
+    }
+    
+
     public Tarjetacredito(Integer idTarjetaCredito, int número, String fechacaducidad, int cvv) {
         this.idTarjetaCredito = idTarjetaCredito;
         this.número = número;
         this.fechacaducidad = fechacaducidad;
         this.cvv = cvv;
     }
+
+
 
     public Integer getIdTarjetaCredito() {
         return idTarjetaCredito;
