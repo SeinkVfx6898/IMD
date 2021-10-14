@@ -56,4 +56,14 @@ public class ClienteDAOImpl implements ClienteDAO {
     public void RemoverCliente(Cliente cliente) {
         em.remove(em.merge(cliente));
     }
+
+    @Override
+    public Cliente EncontrarClientePorPassword(Cliente cliente) {
+        return (Cliente) em.createNamedQuery("Cliente.findByPassword").getSingleResult();
+    }
+
+    @Override
+    public Cliente ValidarCliente(Cliente cliente) {
+        return (Cliente) em.createNamedQuery("Cliente.ValidarCliente").getSingleResult();
+    }
 }

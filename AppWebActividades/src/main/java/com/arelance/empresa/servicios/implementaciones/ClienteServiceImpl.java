@@ -54,5 +54,15 @@ public class ClienteServiceImpl implements ClienteService {
     public void RemoverCliente(Cliente cliente) {
         clienteDAO.RemoverCliente(cliente);
     }
+
+    @Override
+    public Cliente EncontrarClientePorPassword(Cliente cliente) {
+        return clienteDAO.EncontrarClientePorPassword(cliente);
+    }
+
+    @Override
+    public Cliente ValidarCliente(Cliente cliente) {
+        return clienteDAO.ValidarCliente(cliente);
+    }
     
 }

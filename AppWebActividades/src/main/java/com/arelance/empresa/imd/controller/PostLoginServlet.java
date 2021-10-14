@@ -24,10 +24,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "PostLoginServlet", urlPatterns = {"/PostLoginServlet"})
 public class PostLoginServlet extends HttpServlet {
 
-    
     @Inject
     private ClienteService clienteService;
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -41,18 +40,18 @@ public class PostLoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           String nombre = request.getParameter("nick");
-           String password = request.getParameter("pswd");
-           List<Cliente> clientes = clienteService.listarClientes();
-            for (Cliente cliente : clientes) {
-                if (!cliente.getNick().equals(nombre)) {
+            String nombre = request.getParameter("nick");
+            String password = request.getParameter("pswd");
+            Cliente cliente = new Cliente(nombre, password);
+            if (clienteService.ValidarCliente(cliente) == null) {
+                if (clienteService.EncontrarClientePorNick(cliente) == null) {
                     request.setAttribute("NickMsg", "El nick no es correcto");
-                } else if (!cliente.getPassword().equals(password)) {
+                } else if (clienteService.EncontrarClientePorPassword(cliente) == null) {
                     request.setAttribute("PassMsg", "Las contraseña no es correcta.");
-                } else {
-                    request.getSession().setAttribute("cliente", cliente);
-                    request.getRequestDispatcher("PreIndexServlet").forward(request, response);
                 }
+            } else {
+                request.getSession().setAttribute("cliente", cliente);
+                request.getRequestDispatcher("PreIndexServlet").forward(request, response);
             }
             request.getRequestDispatcher("View/login.jsp").forward(request, response);
         }

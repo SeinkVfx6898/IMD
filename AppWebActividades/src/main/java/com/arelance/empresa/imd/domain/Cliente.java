@@ -28,7 +28,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c"),
-    @NamedQuery(name = "Cliente.findByIdCliente", query = "SELECT c FROM Cliente c WHERE c.idCliente = :idCliente"),})
+    @NamedQuery(name = "Cliente.findByIdCliente", query = "SELECT c FROM Cliente c WHERE c.idCliente = :idCliente"),
+    @NamedQuery(name = "Cliente.findByNick", query = "SELECT c FROM Cliente c WHERE c.nick = :nick"),
+    @NamedQuery(name = "Cliente.findByPassword", query = "SELECT c FROM Cliente c WHERE c.password = :password"),
+    @NamedQuery(name = "Cliente.ValidarCliente", query = "SELECT c FROM Cliente c WHERE c.nick = :nick AND c.password = :password")})
 public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -94,8 +97,13 @@ public class Cliente implements Serializable {
         this.nick = nick;
         this.password = password;
     }
-    
 
+    public Cliente(String nick, String password) {
+        this.nick = nick;
+        this.password = password;
+    }
+
+    
     public Integer getIdCliente() {
         return idCliente;
     }
@@ -176,7 +184,5 @@ public class Cliente implements Serializable {
     public String toString() {
         return "Cliente{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + ", email=" + email + ", nick=" + nick + ", password=" + password + '}';
     }
-
-
 
 }
