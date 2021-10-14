@@ -28,10 +28,6 @@ public class ClienteDAOImpl implements ClienteDAO {
         return em.createNamedQuery("Cliente.findAll").getResultList();
     }
 
-    @Override
-    public Cliente EncontrarClientePorEmail(Cliente cliente) {
-        return (Cliente) em.createNamedQuery("Cliente.findByEmail").getSingleResult();
-    }
 
     @Override
     public Cliente EncontrarClientePorID(Cliente cliente) {
@@ -40,7 +36,7 @@ public class ClienteDAOImpl implements ClienteDAO {
 
     @Override
     public Cliente EncontrarClientePorNick(Cliente cliente) {
-        return (Cliente) em.createNamedQuery("Cliente.findByNick").getSingleResult();
+        return (Cliente) em.createNamedQuery("Cliente.findByNick").setParameter("nick", cliente.getNick()).getSingleResult();
     }
 
     @Override
@@ -60,13 +56,15 @@ public class ClienteDAOImpl implements ClienteDAO {
 
     @Override
     public Cliente EncontrarClientePorPassword(Cliente cliente) {
-        return (Cliente) em.createNamedQuery("Cliente.findByPassword").getSingleResult();
+        return (Cliente) em.createNamedQuery("Cliente.findByPassword").setParameter("password", cliente.getPassword()).getSingleResult();
     }
 
     @Override
     public Cliente ValidarCliente(Cliente cliente) {
-        Query query = em.createQuery("SELECT * FROM Cliente WHERE nick = "+ cliente.getNick()+" AND password = " + cliente.getPassword(), Cliente.class);
-        return (Cliente) query.getSingleResult();
-//        return (Cliente) em.createNamedQuery("Cliente.ValidarCliente").getSingleResult();
+//        Query query = em.createQuery("select id_cliente, nombre, apellido, telefono, email, nick, password from Cliente "
+//                + "where nick = \""+ cliente.getNick()+"\" and password = " + cliente.getPassword(), Cliente.class);
+//        return (Cliente) query.getSingleResult();
+        return (Cliente) em.createNamedQuery("Cliente.ValidarCliente").setParameter("nick", cliente.getNick()).
+                setParameter("password", cliente.getPassword()).getSingleResult();
     }
 }

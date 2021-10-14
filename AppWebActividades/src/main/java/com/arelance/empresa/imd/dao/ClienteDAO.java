@@ -18,8 +18,6 @@ public interface ClienteDAO {
 
     public List<Cliente> listarClientes();//Obtener clientes.
 
-    public Cliente EncontrarClientePorEmail(Cliente cliente);//Encontrar por email.
-
     public Cliente EncontrarClientePorID(Cliente cliente);//Encontrar por id.
 
     public Cliente EncontrarClientePorNick(Cliente cliente);//Encontrar por nick.

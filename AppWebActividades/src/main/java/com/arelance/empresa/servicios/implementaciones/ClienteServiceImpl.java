@@ -25,11 +25,7 @@ public class ClienteServiceImpl implements ClienteService {
         return clienteDAO.listarClientes();
     }
     
-    @Override
-    public Cliente EncontrarClientePorEmail(Cliente cliente) {
-        return clienteDAO.EncontrarClientePorEmail(cliente);
-    }
-    
+
     @Override
     public Cliente EncontrarClientePorID(Cliente cliente) {
         return clienteDAO.EncontrarClientePorID(cliente);
