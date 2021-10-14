@@ -11,6 +11,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import com.arelance.empresa.imd.dao.ClienteDAO;
+import javax.persistence.Query;
 
 /**
  *
@@ -64,6 +65,8 @@ public class ClienteDAOImpl implements ClienteDAO {
 
     @Override
     public Cliente ValidarCliente(Cliente cliente) {
-        return (Cliente) em.createNamedQuery("Cliente.ValidarCliente").getSingleResult();
+        Query query = em.createQuery("SELECT * FROM Cliente WHERE nick = "+ cliente.getNick()+" AND password = " + cliente.getPassword(), Cliente.class);
+        return (Cliente) query.getSingleResult();
+//        return (Cliente) em.createNamedQuery("Cliente.ValidarCliente").getSingleResult();
     }
 }

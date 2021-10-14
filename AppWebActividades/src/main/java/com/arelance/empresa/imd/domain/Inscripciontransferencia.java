@@ -31,6 +31,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Inscripciontransferencia.findByIdInscripciontransferencia", query = "SELECT i FROM Inscripciontransferencia i WHERE i.idInscripciontransferencia = :idInscripciontransferencia")})
 public class Inscripciontransferencia implements Serializable {
 
+    @JoinColumn(name = "id_metodopagotransferencia", referencedColumnName = "idmetodopagotransferencia")
+    @ManyToOne(optional = false)
+    private Metodopagotransferencia idMetodopagotransferencia;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -116,6 +120,14 @@ public class Inscripciontransferencia implements Serializable {
     @Override
     public String toString() {
         return "com.arelance.empresa.imd.domain.Inscripciontransferencia[ idInscripciontransferencia=" + idInscripciontransferencia + " ]";
+    }
+
+    public Metodopagotransferencia getIdMetodopagotransferencia() {
+        return idMetodopagotransferencia;
+    }
+
+    public void setIdMetodopagotransferencia(Metodopagotransferencia idMetodopagotransferencia) {
+        this.idMetodopagotransferencia = idMetodopagotransferencia;
     }
     
 }

@@ -38,12 +38,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Tarjetacredito.findByCvv", query = "SELECT t FROM Tarjetacredito t WHERE t.cvv = :cvv")})
 public class Tarjetacredito implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id_tarjeta_credito")
-    private Integer idTarjetaCredito;
     @Basic(optional = false)
     @NotNull
     @Column(name = "n\u00famero")
@@ -57,6 +51,13 @@ public class Tarjetacredito implements Serializable {
     @NotNull
     @Column(name = "CVV")
     private int cvv;
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id_tarjeta_credito")
+    private Integer idTarjetaCredito;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTarjetaCredito")
     private Collection<Metodopagotarjeta> metodopagotarjetaCollection;
 
@@ -91,13 +92,6 @@ public class Tarjetacredito implements Serializable {
         this.idTarjetaCredito = idTarjetaCredito;
     }
 
-    public int getNúmero() {
-        return número;
-    }
-
-    public void setNúmero(int número) {
-        this.número = número;
-    }
 
     public String getFechacaducidad() {
         return fechacaducidad;
@@ -107,13 +101,6 @@ public class Tarjetacredito implements Serializable {
         this.fechacaducidad = fechacaducidad;
     }
 
-    public int getCvv() {
-        return cvv;
-    }
-
-    public void setCvv(int cvv) {
-        this.cvv = cvv;
-    }
 
     @XmlTransient
     public Collection<Metodopagotarjeta> getMetodopagotarjetaCollection() {
@@ -147,6 +134,23 @@ public class Tarjetacredito implements Serializable {
     @Override
     public String toString() {
         return "com.arelance.empresa.imd.domain.Tarjetacredito[ idTarjetaCredito=" + idTarjetaCredito + " ]";
+    }
+
+    public int getNúmero() {
+        return número;
+    }
+
+    public void setNúmero(int número) {
+        this.número = número;
+    }
+
+
+    public int getCvv() {
+        return cvv;
+    }
+
+    public void setCvv(int cvv) {
+        this.cvv = cvv;
     }
     
 }

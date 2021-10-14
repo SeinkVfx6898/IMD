@@ -37,12 +37,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Transferencia.findByConceptoPago", query = "SELECT t FROM Transferencia t WHERE t.conceptoPago = :conceptoPago")})
 public class Transferencia implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id_transferencia")
-    private Integer idTransferencia;
     @Basic(optional = false)
     @NotNull
     @Column(name = "iban")
@@ -52,6 +46,13 @@ public class Transferencia implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "concepto_pago")
     private String conceptoPago;
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id_transferencia")
+    private Integer idTransferencia;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTransferencia")
     private Collection<Metodopagotransferencia> metodopagotransferenciaCollection;
 
@@ -81,13 +82,6 @@ public class Transferencia implements Serializable {
         this.idTransferencia = idTransferencia;
     }
 
-    public int getIban() {
-        return iban;
-    }
-
-    public void setIban(int iban) {
-        this.iban = iban;
-    }
 
     public String getConceptoPago() {
         return conceptoPago;
@@ -130,5 +124,13 @@ public class Transferencia implements Serializable {
     public String toString() {
         return "com.arelance.empresa.imd.domain.Transferencia[ idTransferencia=" + idTransferencia + " ]";
     }
-    
+
+    public int getIban() {
+        return iban;
+    }
+
+    public void setIban(int iban) {
+        this.iban = iban;
+    }
+
 }

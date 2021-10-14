@@ -55,7 +55,7 @@ public class PostPagoTarjeta extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             int numeroTarjeta = Integer.parseInt(request.getParameter("numeroTarjeta"));
             String fecha = request.getParameter("Fecha_caducidad");
-            int cvv = Integer.parseInt(request.getParameter("numeroTarjeta"));
+            int cvv = Integer.parseInt(request.getParameter("CVV"));
             int idActividad = Integer.parseInt(request.getParameter("id_actividad"));
             Tarjetacredito tarjeta = new Tarjetacredito(numeroTarjeta, fecha, cvv);
             Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");

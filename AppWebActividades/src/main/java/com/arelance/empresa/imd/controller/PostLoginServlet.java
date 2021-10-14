@@ -40,9 +40,9 @@ public class PostLoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String nombre = request.getParameter("nick");
+            String nick = request.getParameter("nick");
             String password = request.getParameter("pswd");
-            Cliente cliente = new Cliente(nombre, password);
+            Cliente cliente = new Cliente(nick, password);
             if (clienteService.ValidarCliente(cliente) == null) {
                 if (clienteService.EncontrarClientePorNick(cliente) == null) {
                     request.setAttribute("NickMsg", "El nick no es correcto");

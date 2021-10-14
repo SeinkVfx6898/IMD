@@ -65,7 +65,7 @@
             </table>
         </div>
         <% if (request.getSession().getAttribute("cliente") != null) { %>
-        <form action="../PostPagoTarjeta" method="GET" id="tarjeta">
+        <form action="PostPagoTarjeta" method="GET" id="tarjeta">
             <fieldset>
                 <legend>Pago por tarjeta:</legend>
                 <label for="text">Número:</label>
@@ -80,7 +80,7 @@
                 <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
             </fieldset>
         </form>
-        <form action="../PostPagoTransferencia" method="GET" id="transferencia">
+        <form action="PostPagoTransferencia" method="GET" id="transferencia">
             <legend>Pago por transferencia:</legend>
             <label for="iban">IBAN:</label>
             <input type="text" class="form-control" id="iban" placeholder="1234567891234567" name="iban" pattern="[0-9]{16}">
