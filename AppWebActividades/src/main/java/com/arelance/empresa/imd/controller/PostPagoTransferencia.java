@@ -8,9 +8,11 @@ package com.arelance.empresa.imd.controller;
 import com.arelance.empresa.imd.domain.Actividad;
 import com.arelance.empresa.imd.domain.Cliente;
 import com.arelance.empresa.imd.domain.Inscripciontransferencia;
+import com.arelance.empresa.imd.domain.Metodopagotransferencia;
 import com.arelance.empresa.imd.domain.Transferencia;
 import com.arelance.empresa.servicios.ActividadService;
 import com.arelance.empresa.servicios.InscripcionTransferenciaService;
+import com.arelance.empresa.servicios.MetodoPagoTransferenciaService;
 import com.arelance.empresa.servicios.TransferenciaService;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -31,6 +33,8 @@ public class PostPagoTransferencia extends HttpServlet {
     @Inject
     private TransferenciaService transferenciaService;
     @Inject
+    private MetodoPagoTransferenciaService metodoPagoTransferenciaService;
+    @Inject
     private InscripcionTransferenciaService inscripcionTransferenciaService;
     @Inject
     private ActividadService actividadService;
@@ -50,10 +54,14 @@ public class PostPagoTransferencia extends HttpServlet {
             int iban = Integer.parseInt(request.getParameter("iban"));
             String concepto = request.getParameter("concepto");
             int idActividad = Integer.parseInt(request.getParameter("id_actividad"));
-            Transferencia transferencia = new Transferencia(iban,concepto);
-            transferenciaService.AñadirTransferencia(transferencia);
+            Transferencia transferencia = new Transferencia(iban, concepto);
             Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
             Actividad actividad =  actividadService.EncontrarActividadPorID(idActividad);
+            Metodopagotransferencia metodoTrasnferencia = new Metodopagotransferencia(transferencia);
+            Inscripciontransferencia inscripciontarjeta = new Inscripciontransferencia(actividad, cliente, metodoTrasnferencia);
+            transferenciaService.AñadirTransferencia(transferencia);
+            metodoPagoTransferenciaService.AñadirPagoTransferencia(metodoTrasnferencia);
+            inscripcionTransferenciaService.guardar(inscripciontarjeta);
             request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
         }
     }

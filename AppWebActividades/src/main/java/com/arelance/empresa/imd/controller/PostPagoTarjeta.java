@@ -8,12 +8,15 @@ package com.arelance.empresa.imd.controller;
 import com.arelance.empresa.imd.domain.Actividad;
 import com.arelance.empresa.imd.domain.Cliente;
 import com.arelance.empresa.imd.domain.Inscripciontarjeta;
+import com.arelance.empresa.imd.domain.Metodopagotarjeta;
 import com.arelance.empresa.imd.domain.Tarjetacredito;
 import com.arelance.empresa.servicios.ActividadService;
 import com.arelance.empresa.servicios.InscripcionTarjetaService;
+import com.arelance.empresa.servicios.MetodoPagoTarjetaService;
 import com.arelance.empresa.servicios.TarjetaCreditoService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,6 +33,8 @@ public class PostPagoTarjeta extends HttpServlet {
 
     @Inject
     private TarjetaCreditoService tarjetaService;
+    @Inject
+    private MetodoPagoTarjetaService metodoPagoTarjetaService;
     @Inject
     private InscripcionTarjetaService inscripcionTarjetaService;
     @Inject
@@ -53,9 +58,13 @@ public class PostPagoTarjeta extends HttpServlet {
             int cvv = Integer.parseInt(request.getParameter("numeroTarjeta"));
             int idActividad = Integer.parseInt(request.getParameter("id_actividad"));
             Tarjetacredito tarjeta = new Tarjetacredito(numeroTarjeta, fecha, cvv);
-            tarjetaService.AñadirTarjeta(tarjeta);
             Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
             Actividad actividad =  actividadService.EncontrarActividadPorID(idActividad);
+            Metodopagotarjeta metodoTarjeta = new Metodopagotarjeta(tarjeta);
+            Inscripciontarjeta inscripciontarjeta = new Inscripciontarjeta(actividad, cliente, metodoTarjeta);
+            tarjetaService.AñadirTarjeta(tarjeta);
+            metodoPagoTarjetaService.AñadirPagoTarjeta(metodoTarjeta);
+            inscripcionTarjetaService.guardar(inscripciontarjeta);
             request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
         }
     }

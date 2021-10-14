@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Manuel
+ * @author usuar
  */
 @Entity
 @Table(name = "inscripciontransferencia")
@@ -37,9 +37,15 @@ public class Inscripciontransferencia implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_inscripciontransferencia")
     private Integer idInscripciontransferencia;
-    @JoinColumn(name = "id_metodopagotransferencia", referencedColumnName = "idmetodopagotransferencia")
+    @JoinColumn(name = "Actividad_id_actividad", referencedColumnName = "id_actividad")
     @ManyToOne(optional = false)
-    private Metodopagotransferencia idMetodopagotransferencia;
+    private Actividad actividadidactividad;
+    @JoinColumn(name = "Cliente_id_cliente", referencedColumnName = "id_cliente")
+    @ManyToOne(optional = false)
+    private Cliente clienteidcliente;
+    @JoinColumn(name = "metodopagotransferencia_idmetodopagotransferencia", referencedColumnName = "idmetodopagotransferencia")
+    @ManyToOne(optional = false)
+    private Metodopagotransferencia metodopagotransferenciaIdmetodopagotransferencia;
 
     public Inscripciontransferencia() {
     }
@@ -48,6 +54,13 @@ public class Inscripciontransferencia implements Serializable {
         this.idInscripciontransferencia = idInscripciontransferencia;
     }
 
+    public Inscripciontransferencia(Actividad actividadidactividad, Cliente clienteidcliente, Metodopagotransferencia metodopagotransferenciaIdmetodopagotransferencia) {
+        this.actividadidactividad = actividadidactividad;
+        this.clienteidcliente = clienteidcliente;
+        this.metodopagotransferenciaIdmetodopagotransferencia = metodopagotransferenciaIdmetodopagotransferencia;
+    }
+
+    
     public Integer getIdInscripciontransferencia() {
         return idInscripciontransferencia;
     }
@@ -56,12 +69,28 @@ public class Inscripciontransferencia implements Serializable {
         this.idInscripciontransferencia = idInscripciontransferencia;
     }
 
-    public Metodopagotransferencia getIdMetodopagotransferencia() {
-        return idMetodopagotransferencia;
+    public Actividad getActividadidactividad() {
+        return actividadidactividad;
     }
 
-    public void setIdMetodopagotransferencia(Metodopagotransferencia idMetodopagotransferencia) {
-        this.idMetodopagotransferencia = idMetodopagotransferencia;
+    public void setActividadidactividad(Actividad actividadidactividad) {
+        this.actividadidactividad = actividadidactividad;
+    }
+
+    public Cliente getClienteidcliente() {
+        return clienteidcliente;
+    }
+
+    public void setClienteidcliente(Cliente clienteidcliente) {
+        this.clienteidcliente = clienteidcliente;
+    }
+
+    public Metodopagotransferencia getMetodopagotransferenciaIdmetodopagotransferencia() {
+        return metodopagotransferenciaIdmetodopagotransferencia;
+    }
+
+    public void setMetodopagotransferenciaIdmetodopagotransferencia(Metodopagotransferencia metodopagotransferenciaIdmetodopagotransferencia) {
+        this.metodopagotransferenciaIdmetodopagotransferencia = metodopagotransferenciaIdmetodopagotransferencia;
     }
 
     @Override

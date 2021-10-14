@@ -54,6 +54,11 @@ public class Metodopagotransferencia implements Serializable {
         this.idmetodopagotransferencia = idmetodopagotransferencia;
     }
 
+    public Metodopagotransferencia(Transferencia idTransferencia) {
+        this.idTransferencia = idTransferencia;
+    }
+
+    
     public Integer getIdmetodopagotransferencia() {
         return idmetodopagotransferencia;
     }

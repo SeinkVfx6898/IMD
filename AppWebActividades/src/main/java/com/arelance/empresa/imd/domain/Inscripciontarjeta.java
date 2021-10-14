@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Manuel
+ * @author usuar
  */
 @Entity
 @Table(name = "inscripciontarjeta")
@@ -37,9 +37,15 @@ public class Inscripciontarjeta implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_inscripciontarjeta")
     private Integer idInscripciontarjeta;
-    @JoinColumn(name = "id_metodopagotarjeta", referencedColumnName = "idmetodopagotarjeta")
+    @JoinColumn(name = "Actividad_id_actividad", referencedColumnName = "id_actividad")
     @ManyToOne(optional = false)
-    private Metodopagotarjeta idMetodopagotarjeta;
+    private Actividad actividadidactividad;
+    @JoinColumn(name = "Cliente_id_cliente", referencedColumnName = "id_cliente")
+    @ManyToOne(optional = false)
+    private Cliente clienteidcliente;
+    @JoinColumn(name = "metodopagotarjeta_idmetodopagotarjeta", referencedColumnName = "idmetodopagotarjeta")
+    @ManyToOne(optional = false)
+    private Metodopagotarjeta metodopagotarjetaIdmetodopagotarjeta;
 
     public Inscripciontarjeta() {
     }
@@ -48,8 +54,13 @@ public class Inscripciontarjeta implements Serializable {
         this.idInscripciontarjeta = idInscripciontarjeta;
     }
 
-    
+    public Inscripciontarjeta(Actividad actividadidactividad, Cliente clienteidcliente, Metodopagotarjeta metodopagotarjetaIdmetodopagotarjeta) {
+        this.actividadidactividad = actividadidactividad;
+        this.clienteidcliente = clienteidcliente;
+        this.metodopagotarjetaIdmetodopagotarjeta = metodopagotarjetaIdmetodopagotarjeta;
+    }
 
+    
     public Integer getIdInscripciontarjeta() {
         return idInscripciontarjeta;
     }
@@ -58,12 +69,28 @@ public class Inscripciontarjeta implements Serializable {
         this.idInscripciontarjeta = idInscripciontarjeta;
     }
 
-    public Metodopagotarjeta getIdMetodopagotarjeta() {
-        return idMetodopagotarjeta;
+    public Actividad getActividadidactividad() {
+        return actividadidactividad;
     }
 
-    public void setIdMetodopagotarjeta(Metodopagotarjeta idMetodopagotarjeta) {
-        this.idMetodopagotarjeta = idMetodopagotarjeta;
+    public void setActividadidactividad(Actividad actividadidactividad) {
+        this.actividadidactividad = actividadidactividad;
+    }
+
+    public Cliente getClienteidcliente() {
+        return clienteidcliente;
+    }
+
+    public void setClienteidcliente(Cliente clienteidcliente) {
+        this.clienteidcliente = clienteidcliente;
+    }
+
+    public Metodopagotarjeta getMetodopagotarjetaIdmetodopagotarjeta() {
+        return metodopagotarjetaIdmetodopagotarjeta;
+    }
+
+    public void setMetodopagotarjetaIdmetodopagotarjeta(Metodopagotarjeta metodopagotarjetaIdmetodopagotarjeta) {
+        this.metodopagotarjetaIdmetodopagotarjeta = metodopagotarjetaIdmetodopagotarjeta;
     }
 
     @Override
