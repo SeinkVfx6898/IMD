@@ -56,7 +56,7 @@ public class ClienteDAOImpl implements ClienteDAO {
 
     @Override
     public Cliente EncontrarClientePorPassword(Cliente cliente) {
-        return (Cliente) em.createNamedQuery("Cliente.findByPassword").setParameter("password", cliente.getPassword()).getSingleResult();
+        return (Cliente) em.createNamedQuery("Cliente.findByPassword").setParameter("password", cliente.getPassword()).getResultList();
     }
 
     @Override
