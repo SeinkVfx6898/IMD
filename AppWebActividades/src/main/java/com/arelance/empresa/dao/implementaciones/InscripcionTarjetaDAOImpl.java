@@ -7,6 +7,7 @@ package com.arelance.empresa.dao.implementaciones;
 
 import com.arelance.empresa.imd.dao.InscripcionTarjetaDAO;
 import com.arelance.empresa.imd.domain.Inscripciontarjeta;
+import com.arelance.empresa.imd.domain.Metodopagotarjeta;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -40,6 +41,12 @@ public class InscripcionTarjetaDAOImpl implements InscripcionTarjetaDAO {
     @Override
     public void eliminar(Inscripciontarjeta inscripciontarjeta) {
         em.remove(em.merge(inscripciontarjeta));
+    }
+
+    @Override
+    public Metodopagotarjeta ObtenerIdTarjeta() {
+         String sql = "SELECT id_metodopagotarjeta FROM institutomd_bd.inscripciontarjeta order by id_metodopagotarjeta desc limit 1";
+        return (Metodopagotarjeta) em.createNativeQuery(sql, Metodopagotarjeta.class).getSingleResult();
     }
 
 }

@@ -7,6 +7,7 @@ package com.arelance.empresa.servicios.implementaciones;
 
 import com.arelance.empresa.imd.dao.InscripcionTarjetaDAO;
 import com.arelance.empresa.imd.domain.Inscripciontarjeta;
+import com.arelance.empresa.imd.domain.Metodopagotarjeta;
 import com.arelance.empresa.servicios.InscripcionTarjetaService;
 import java.util.List;
 import javax.inject.Inject;
@@ -38,6 +39,11 @@ public class InscripcionTarjetaServiceImpl implements InscripcionTarjetaService 
     @Override
     public void eliminar(Inscripciontarjeta inscripciontarjeta) {
         inscripcionTarjetaDAO.eliminar(inscripciontarjeta);
+    }
+
+    @Override
+    public Metodopagotarjeta ObtenerIdTarjeta() {
+        return inscripcionTarjetaDAO.ObtenerIdTarjeta();
     }
 
 }

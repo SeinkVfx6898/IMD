@@ -24,6 +24,7 @@ public interface ClienteService {
     
     public Cliente EncontrarClientePorPassword(Cliente cliente);//Encontrar por password.
     
+    
     public Cliente ValidarCliente(Cliente cliente);//Encontrar por password.
 
     public void AñadirCliente(Cliente cliente);//Añadir clientes.
