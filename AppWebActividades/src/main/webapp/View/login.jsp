@@ -17,9 +17,9 @@
         <h3>Accede a tu cuenta:</h3>
         <form action="../PostLoginServlet" id="formlogin">
             <label for="text">Nick:</label>
-            <input type="text" class="form-control" id="nombre" placeholder="SalvSolo" name="nick" maxlength="20">
+            <input type="text" class="form-control" id="nombre" placeholder="SalvSolo" name="nick" maxlength="20"><span>${NickMsg}</span>
             <label for="pwd">Contraseña:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="SalvSolo1234" name="pswd" maxlength="20">
+            <input type="password" class="form-control" id="pwd" placeholder="SalvSolo1234" name="pswd" maxlength="20"><span>${PassMsg}</span>
             <input type="submit" class="btn btn-info"value="Aceptar"name="action">
             <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
         </form>

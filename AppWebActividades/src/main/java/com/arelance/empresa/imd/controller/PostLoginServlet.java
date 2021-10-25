@@ -43,16 +43,23 @@ public class PostLoginServlet extends HttpServlet {
             String nick = request.getParameter("nick");
             String password = request.getParameter("pswd");
             Cliente cliente = new Cliente(nick, password);
+            try {
                 if (clienteService.EncontrarClientePorNick(cliente) == null) {
                     request.setAttribute("NickMsg", "El nick no es correcto");
                 } else if (clienteService.EncontrarClientePorPassword(cliente) == null) {
                     request.setAttribute("PassMsg", "Las contraseña no es correcta.");
                 }
+            } catch (Exception e) {
+                request.setAttribute("NickMsg", "El nick no es correcto");
+                request.setAttribute("PassMsg", "Las contraseña no es correcta.");
+                request.getRequestDispatcher("View/login.jsp").forward(request, response);
+            }
+           
 
-                request.getSession().setAttribute("cliente", cliente);
-                request.getRequestDispatcher("PreIndexServlet").forward(request, response);
-            
-            request.getRequestDispatcher("View/login.jsp").forward(request, response);
+            request.getSession().setAttribute("cliente", cliente);
+            request.getRequestDispatcher("PreIndexServlet").forward(request, response);
+
+           
         }
     }
 
