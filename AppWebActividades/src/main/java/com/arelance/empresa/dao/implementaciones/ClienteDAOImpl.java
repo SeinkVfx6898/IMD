@@ -36,7 +36,12 @@ public class ClienteDAOImpl implements ClienteDAO {
 
     @Override
     public Cliente EncontrarClientePorNick(Cliente cliente) {
-        return (Cliente) em.createNamedQuery("Cliente.findByNick").setParameter("nick", cliente.getNick()).getSingleResult();
+        try {
+            Query q = em.createNamedQuery("Cliente.findByNick").setParameter("nick", cliente.getNick());
+            return (Cliente) q.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
     @Override
@@ -56,14 +61,16 @@ public class ClienteDAOImpl implements ClienteDAO {
 
     @Override
     public Cliente EncontrarClientePorPassword(Cliente cliente) {
-        return (Cliente) em.createNamedQuery("Cliente.findByPassword").setParameter("password", cliente.getPassword()).getResultList();
+        try {
+            Query q = em.createNamedQuery("Cliente.findByPassword").setParameter("password", cliente.getPassword());
+            return (Cliente) q.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
     @Override
     public Cliente ValidarCliente(Cliente cliente) {
-//        Query query = em.createQuery("select id_cliente, nombre, apellido, telefono, email, nick, password from Cliente "
-//                + "where nick = \""+ cliente.getNick()+"\" and password = " + cliente.getPassword(), Cliente.class);
-//        return (Cliente) query.getSingleResult();
         try {
             Query q = em.createNamedQuery("Cliente.ValidarCliente").setParameter("nick", cliente.getNick()).
                 setParameter("password", cliente.getPassword());
@@ -71,6 +78,5 @@ public class ClienteDAOImpl implements ClienteDAO {
         } catch (NoResultException e) {
             return null;
         }
-       
     }
 }
