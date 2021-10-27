@@ -11,6 +11,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import com.arelance.empresa.imd.dao.ClienteDAO;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 /**
@@ -27,7 +28,6 @@ public class ClienteDAOImpl implements ClienteDAO {
     public List<Cliente> listarClientes() {
         return em.createNamedQuery("Cliente.findAll").getResultList();
     }
-
 
     @Override
     public Cliente EncontrarClientePorID(Cliente cliente) {
@@ -64,7 +64,13 @@ public class ClienteDAOImpl implements ClienteDAO {
 //        Query query = em.createQuery("select id_cliente, nombre, apellido, telefono, email, nick, password from Cliente "
 //                + "where nick = \""+ cliente.getNick()+"\" and password = " + cliente.getPassword(), Cliente.class);
 //        return (Cliente) query.getSingleResult();
-        return (Cliente) em.createNamedQuery("Cliente.ValidarCliente").setParameter("nick", cliente.getNick()).
-                setParameter("password", cliente.getPassword()).getSingleResult();
+        try {
+            Query q = em.createNamedQuery("Cliente.ValidarCliente").setParameter("nick", cliente.getNick()).
+                setParameter("password", cliente.getPassword());
+            return (Cliente) q.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+       
     }
 }

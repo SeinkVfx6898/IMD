@@ -49,18 +49,14 @@ public class PostLoginServlet extends HttpServlet {
 //                } else if (clienteService.EncontrarClientePorPassword(cliente) != null) {
 //                    request.setAttribute("PassMsg", "Las contraseña no es correcta.");
 //                }
-
-                if(clienteService.ValidarCliente(cliente) == null){
+            if (clienteService.ValidarCliente(cliente) != null) {
+                request.getSession().setAttribute("cliente", cliente);
+                request.getRequestDispatcher("PreIndexServlet").forward(request, response);
+            } else {
                 request.setAttribute("NickMsg", "El nick no es correcto");
                 request.setAttribute("PassMsg", "Las contraseña no es correcta.");
                 request.getRequestDispatcher("View/login.jsp").forward(request, response);
-                }
-           
-
-            request.getSession().setAttribute("cliente", cliente);
-            request.getRequestDispatcher("PreIndexServlet").forward(request, response);
-
-           
+            }
         }
     }
 
