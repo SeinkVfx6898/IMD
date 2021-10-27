@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Tarjetacredito.findAll", query = "SELECT t FROM Tarjetacredito t"),
     @NamedQuery(name = "Tarjetacredito.findByIdTarjetaCredito", query = "SELECT t FROM Tarjetacredito t WHERE t.idTarjetaCredito = :idTarjetaCredito"),
-    @NamedQuery(name = "Tarjetacredito.findByN\u00famero", query = "SELECT t FROM Tarjetacredito t WHERE t.n\u00famero = :n\u00famero"),
+    @NamedQuery(name = "Tarjetacredito.findByNumero", query = "SELECT t FROM Tarjetacredito t WHERE t.numero = :numero"),
     @NamedQuery(name = "Tarjetacredito.findByFechacaducidad", query = "SELECT t FROM Tarjetacredito t WHERE t.fechacaducidad = :fechacaducidad"),
     @NamedQuery(name = "Tarjetacredito.findByCvv", query = "SELECT t FROM Tarjetacredito t WHERE t.cvv = :cvv")})
 public class Tarjetacredito implements Serializable {
@@ -41,7 +41,7 @@ public class Tarjetacredito implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "n\u00famero")
-    private int número;
+    private double numero;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -68,16 +68,16 @@ public class Tarjetacredito implements Serializable {
         this.idTarjetaCredito = idTarjetaCredito;
     }
 
-    public Tarjetacredito(int número, String fechacaducidad, int cvv) {
-        this.número = número;
+    public Tarjetacredito(double número, String fechacaducidad, int cvv) {
+        this.numero = número;
         this.fechacaducidad = fechacaducidad;
         this.cvv = cvv;
     }
     
 
-    public Tarjetacredito(Integer idTarjetaCredito, int número, String fechacaducidad, int cvv) {
+    public Tarjetacredito(Integer idTarjetaCredito, double número, String fechacaducidad, int cvv) {
         this.idTarjetaCredito = idTarjetaCredito;
-        this.número = número;
+        this.numero = número;
         this.fechacaducidad = fechacaducidad;
         this.cvv = cvv;
     }
@@ -136,12 +136,12 @@ public class Tarjetacredito implements Serializable {
         return "com.arelance.empresa.imd.domain.Tarjetacredito[ idTarjetaCredito=" + idTarjetaCredito + " ]";
     }
 
-    public int getNúmero() {
-        return número;
+    public double getNumero() {
+        return numero;
     }
 
-    public void setNúmero(int número) {
-        this.número = número;
+    public void setNumero(double numero) {
+        this.numero = numero;
     }
 
 
