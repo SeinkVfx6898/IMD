@@ -73,10 +73,16 @@ public class ClienteDAOImpl implements ClienteDAO {
     public Cliente ValidarCliente(Cliente cliente) {
         try {
             Query q = em.createNamedQuery("Cliente.ValidarCliente").setParameter("nick", cliente.getNick()).
-                setParameter("password", cliente.getPassword());
+                    setParameter("password", cliente.getPassword());
             return (Cliente) q.getSingleResult();
         } catch (NoResultException e) {
             return null;
         }
+    }
+
+    @Override
+    public Cliente SacarID(Cliente cliente) {
+        String sql = "SELECT c.id_cliente FROM cliente c WHERE nick = '" + cliente.getNick() + "'";
+        return (Cliente) em.createNativeQuery(sql, Cliente.class).getSingleResult();
     }
 }

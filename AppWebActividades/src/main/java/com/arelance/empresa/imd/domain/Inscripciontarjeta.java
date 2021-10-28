@@ -43,7 +43,7 @@ public class Inscripciontarjeta implements Serializable {
     private Integer idInscripciontarjeta;
     @JoinColumn(name = "Actividad_id_actividad", referencedColumnName = "id_actividad")
     @ManyToOne(optional = false)
-    private Actividad actividadidactividad;
+    private Actividad Actividad_id_actividad;
     @JoinColumn(name = "Cliente_id_cliente", referencedColumnName = "id_cliente")
     @ManyToOne(optional = false)
     private Cliente clienteidcliente;
@@ -59,7 +59,7 @@ public class Inscripciontarjeta implements Serializable {
     }
 
     public Inscripciontarjeta(Actividad actividadidactividad, Cliente clienteidcliente, Metodopagotarjeta metodopagotarjetaIdmetodopagotarjeta) {
-        this.actividadidactividad = actividadidactividad;
+        this.Actividad_id_actividad = actividadidactividad;
         this.clienteidcliente = clienteidcliente;
         this.metodopagotarjetaIdmetodopagotarjeta = metodopagotarjetaIdmetodopagotarjeta;
     }
@@ -73,12 +73,12 @@ public class Inscripciontarjeta implements Serializable {
         this.idInscripciontarjeta = idInscripciontarjeta;
     }
 
-    public Actividad getActividadidactividad() {
-        return actividadidactividad;
+    public Actividad getActividad_id_actividad() {
+        return Actividad_id_actividad;
     }
 
-    public void setActividadidactividad(Actividad actividadidactividad) {
-        this.actividadidactividad = actividadidactividad;
+    public void setActividad_id_actividad(Actividad Actividad_id_actividad) {
+        this.Actividad_id_actividad = Actividad_id_actividad;
     }
 
     public Cliente getClienteidcliente() {

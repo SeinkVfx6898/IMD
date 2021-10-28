@@ -31,5 +31,7 @@ public interface ClienteDAO {
     public void ModificarCliente(Cliente cliente);//Modificar clientes.
 
     public void RemoverCliente(Cliente cliente);//Remover clientes.
+    
+    public Cliente SacarID(Cliente cliente);//Saca el ida de cliente
 
 }

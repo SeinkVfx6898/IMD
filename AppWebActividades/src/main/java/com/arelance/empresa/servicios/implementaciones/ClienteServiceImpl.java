@@ -60,5 +60,10 @@ public class ClienteServiceImpl implements ClienteService {
     public Cliente ValidarCliente(Cliente cliente) {
         return clienteDAO.ValidarCliente(cliente);
     }
+
+    @Override
+    public Cliente SacarID(Cliente cliente) {
+       return clienteDAO.SacarID(cliente);
+    }
     
 }
