@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
  * @author usuar
+ * @author manuel
  */
 @Entity
 @Table(name = "inscripciontransferencia")
@@ -129,5 +130,6 @@ public class Inscripciontransferencia implements Serializable {
     public void setIdMetodopagotransferencia(Metodopagotransferencia idMetodopagotransferencia) {
         this.idMetodopagotransferencia = idMetodopagotransferencia;
     }
+
     
 }

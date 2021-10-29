@@ -7,8 +7,8 @@
     <class>com.arelance.empresa.imd.domain.Actividad</class>
     <class>com.arelance.empresa.imd.domain.Metodopagotransferencia</class>
     <class>com.arelance.empresa.imd.domain.Cliente</class>
-    <class>com.arelance.empresa.imd.domain.Inscripciontarjeta</class>
     <class>com.arelance.empresa.imd.domain.Metodopagotarjeta</class>
     <class>com.arelance.empresa.imd.domain.Transferencia</class>
+    <class>com.arelance.empresa.imd.domain.Inscripciontarjeta</class>
   </persistence-unit>
 </persistence>

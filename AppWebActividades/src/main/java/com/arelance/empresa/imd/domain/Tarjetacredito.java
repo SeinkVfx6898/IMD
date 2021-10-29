@@ -26,6 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
 /**
  *
  * @author Manuel
+ * @author manuel
  */
 @Entity
 @Table(name = "tarjetacredito")
@@ -152,5 +153,6 @@ public class Tarjetacredito implements Serializable {
     public void setCvv(int cvv) {
         this.cvv = cvv;
     }
+
     
 }

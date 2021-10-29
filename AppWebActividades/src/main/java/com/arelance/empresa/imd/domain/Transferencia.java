@@ -26,6 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
 /**
  *
  * @author Manuel
+ * @author manuel
  */
 @Entity
 @Table(name = "transferencia")

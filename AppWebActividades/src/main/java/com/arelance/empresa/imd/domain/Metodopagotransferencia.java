@@ -26,6 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
 /**
  *
  * @author Manuel
+ * @author manuel
  */
 @Entity
 @Table(name = "metodopagotransferencia")
@@ -108,5 +109,5 @@ public class Metodopagotransferencia implements Serializable {
     public String toString() {
         return "com.arelance.empresa.imd.domain.Metodopagotransferencia[ idmetodopagotransferencia=" + idmetodopagotransferencia + " ]";
     }
-    
+
 }

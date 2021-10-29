@@ -21,8 +21,8 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
  * @author lenovo
+ * @author manuel
  */
 @Entity
 @Table(name = "actividad")
@@ -178,7 +178,4 @@ public class Actividad implements Serializable {
     public String toString() {
         return "Actividad{" + "idActividad=" + idActividad + ", nombre=" + nombre + ", descripcion=" + descripcion + ", entrenador=" + entrenador + ", precio=" + precio + ", diaSemana=" + diaSemana + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + '}';
     }
-
-
-
 }

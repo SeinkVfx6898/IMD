@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
  * @author usuar
+ * @author manuel
  */
 @Entity
 @Table(name = "inscripciontarjeta")
@@ -43,7 +44,7 @@ public class Inscripciontarjeta implements Serializable {
     private Integer idInscripciontarjeta;
     @JoinColumn(name = "Actividad_id_actividad", referencedColumnName = "id_actividad")
     @ManyToOne(optional = false)
-    private Actividad Actividad_id_actividad;
+    private Actividad Actividadidactividad;
     @JoinColumn(name = "Cliente_id_cliente", referencedColumnName = "id_cliente")
     @ManyToOne(optional = false)
     private Cliente clienteidcliente;
@@ -59,12 +60,18 @@ public class Inscripciontarjeta implements Serializable {
     }
 
     public Inscripciontarjeta(Actividad actividadidactividad, Cliente clienteidcliente, Metodopagotarjeta metodopagotarjetaIdmetodopagotarjeta) {
-        this.Actividad_id_actividad = actividadidactividad;
+        this.Actividadidactividad = actividadidactividad;
         this.clienteidcliente = clienteidcliente;
         this.metodopagotarjetaIdmetodopagotarjeta = metodopagotarjetaIdmetodopagotarjeta;
     }
 
-    
+    public Inscripciontarjeta(Actividad actividad, Cliente cliente2, Metodopagotarjeta pagotarjeta, Metodopagotarjeta pagotarjeta0) {
+        this.Actividadidactividad = actividad;
+        this.clienteidcliente = cliente2;
+        this.metodopagotarjetaIdmetodopagotarjeta = pagotarjeta;
+        this.metodopagotarjetaIdmetodopagotarjeta = pagotarjeta0;
+    }
+
     public Integer getIdInscripciontarjeta() {
         return idInscripciontarjeta;
     }
@@ -73,12 +80,12 @@ public class Inscripciontarjeta implements Serializable {
         this.idInscripciontarjeta = idInscripciontarjeta;
     }
 
-    public Actividad getActividad_id_actividad() {
-        return Actividad_id_actividad;
+    public Actividad getActividadidactividad() {
+        return Actividadidactividad;
     }
 
-    public void setActividad_id_actividad(Actividad Actividad_id_actividad) {
-        this.Actividad_id_actividad = Actividad_id_actividad;
+    public void setActividadidactividad(Actividad Actividadidactividad) {
+        this.Actividadidactividad = Actividadidactividad;
     }
 
     public Cliente getClienteidcliente() {
@@ -129,5 +136,5 @@ public class Inscripciontarjeta implements Serializable {
     public void setIdMetodopagotarjeta(Metodopagotarjeta idMetodopagotarjeta) {
         this.idMetodopagotarjeta = idMetodopagotarjeta;
     }
-    
+
 }
