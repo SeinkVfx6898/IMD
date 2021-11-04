@@ -44,7 +44,7 @@ public class Inscripciontransferencia implements Serializable {
     @JoinColumn(name = "Cliente_id_cliente", referencedColumnName = "id_cliente")
     @ManyToOne(optional = false)
     private Cliente clienteidcliente;
-    @JoinColumn(name = "metodopagotransferencia_idmetodopagotransferencia", referencedColumnName = "id_metodopagotransferencia")
+    @JoinColumn(name = "metodopagotransferencia_idmetodopagotransferencia", referencedColumnName = "idmetodopagotransferencia")
     @ManyToOne(optional = false)
     private Metodopagotransferencia metodopagotransferenciaIdmetodopagotransferencia;
 

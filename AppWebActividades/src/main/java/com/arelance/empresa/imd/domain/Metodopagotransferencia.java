@@ -42,7 +42,7 @@ public class Metodopagotransferencia implements Serializable {
     @Basic(optional = false)
     @Column(name = "idmetodopagotransferencia")
     private Integer idmetodopagotransferencia;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMetodopagotransferencia")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "metodopagotransferenciaIdmetodopagotransferencia")
     private Collection<Inscripciontransferencia> inscripciontransferenciaCollection;
     @JoinColumn(name = "id_transferencia", referencedColumnName = "id_transferencia")
     @ManyToOne(optional = false)

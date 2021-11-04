@@ -44,7 +44,7 @@ public class Inscripciontarjeta implements Serializable {
     @JoinColumn(name = "Cliente_id_cliente", referencedColumnName = "id_cliente")
     @ManyToOne(optional = false)
     private Cliente clienteidcliente;
-    @JoinColumn(name = "metodopagotarjeta_idmetodopagotarjeta", referencedColumnName = "id_metodopagotarjeta")
+    @JoinColumn(name = "metodopagotarjeta_idmetodopagotarjeta", referencedColumnName = "idmetodopagotarjeta")
     @ManyToOne(optional = false)
     private Metodopagotarjeta metodopagotarjetaIdmetodopagotarjeta;
 
