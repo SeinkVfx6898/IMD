@@ -11,6 +11,7 @@
     <head>
         <%@include file = "../JSPF/meta.jspf"%>
         <%@include file = "../JSPF/inscripcion.jspf"%>
+        <%@include file = "../JSPF/login.jspf"%>
         <title>Inscripción</title>
     </head>
     <body> 

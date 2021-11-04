@@ -8,6 +8,7 @@ package com.arelance.empresa.imd.controller;
 import com.arelance.empresa.imd.domain.Actividad;
 import com.arelance.empresa.imd.domain.Cliente;
 import com.arelance.empresa.servicios.ActividadService;
+import com.arelance.empresa.servicios.ClienteService;
 import java.io.IOException;
 import java.util.List;
 import javax.inject.Inject;
@@ -35,13 +36,17 @@ public class PreActividadInscritoServlet extends HttpServlet {
      */
     @Inject
     private ActividadService actividadService;
+    @Inject
+    private ClienteService clienteService;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
+//        Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
+        Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
         List<Actividad> actividadesTarjeta = actividadService.ListaActividadesClienteTarjeta(cliente.getIdCliente());
         List<Actividad> actividadesTransferencia = actividadService.ListaActividadesClienteTransferencia(cliente.getIdCliente());
-        request.setAttribute("listaTarjeta",actividadesTarjeta);
-        request.setAttribute("listaTransferencia",actividadesTransferencia);
+        request.setAttribute("listaTarjeta", actividadesTarjeta);
+        request.setAttribute("listaTransferencia", actividadesTransferencia);
         request.getRequestDispatcher("View/actividades.jsp").forward(request, response);
     }
 
