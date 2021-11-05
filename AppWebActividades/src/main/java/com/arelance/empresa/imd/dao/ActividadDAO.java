@@ -20,12 +20,16 @@ public interface ActividadDAO {
 
     public Actividad EncontrarActividadPorID(Actividad actividad);//Encontrar actividad por id.
     
-     public Actividad EncontrarActividadPorID(int id);//Encontrar actividad por id.
+    public Actividad EncontrarActividadPorID(int id);//Encontrar actividad por id.
     
     public void AñadirActividad(Actividad actividad);//Añadir actividades.
 
     public void ModificarActividad(Actividad actividad);//Modificar actividades.
 
     public void RemoverActividad(Actividad actividad);//Remover actividades.
+    
+    public List<Actividad> ListaActividadesClienteTarjeta(int id_cliente);//Obtener las actividades que esta apuntado un usuario
+    
+    public List<Actividad> ListaActividadesClienteTransferencia(int id_cliente);//Obtener las actividades que esta apuntado un usuario
 
 }

@@ -7,6 +7,7 @@ package com.arelance.empresa.imd.dao;
 
 
 import com.arelance.empresa.imd.domain.Inscripciontarjeta;
+import com.arelance.empresa.imd.domain.Metodopagotarjeta;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -16,11 +17,15 @@ import javax.ejb.Local;
  */
 @Local
 public interface InscripcionTarjetaDAO {
-    
+
     public List<Inscripciontarjeta> obtener();
+
     public void guardar(Inscripciontarjeta inscripciontarjeta);
+
     public void modificar(Inscripciontarjeta inscripciontarjeta);
+
     public void eliminar(Inscripciontarjeta inscripciontarjeta);
     
-    
+    public Metodopagotarjeta ObtenerIdTarjeta();
+
 }
