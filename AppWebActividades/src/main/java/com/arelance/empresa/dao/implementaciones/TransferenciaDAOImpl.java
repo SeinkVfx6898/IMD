@@ -42,4 +42,9 @@ public class TransferenciaDAOImpl implements TransferenciaDAO {
         em.remove(em.merge(transferencia));
     }
 
+    @Override
+    public Transferencia datosCliente(int id_cliente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

@@ -18,8 +18,10 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class InscripcionTransferenciaDAOImpl implements InscripcionTransferenciaDAO {
- @PersistenceContext(unitName = "ImdPU")
+
+    @PersistenceContext(unitName = "ImdPU")
     EntityManager em;
+
     @Override
     public List<Inscripciontransferencia> obtener() {
         return em.createNamedQuery("Inscripciontransferencia.findAll").getResultList();
@@ -39,5 +41,5 @@ public class InscripcionTransferenciaDAOImpl implements InscripcionTransferencia
     public void eliminar(Inscripciontransferencia inscripciontransferencia) {
         em.remove(em.merge(inscripciontransferencia));
     }
-    
+
 }

@@ -15,7 +15,6 @@ import javax.ejb.Local;
  */
 @Local
 public interface ClienteDAO {
-
     public List<Cliente> listarClientes();//Obtener clientes.
 
     public Cliente EncontrarClientePorID(Cliente cliente);//Encontrar por id.
@@ -31,7 +30,5 @@ public interface ClienteDAO {
     public void ModificarCliente(Cliente cliente);//Modificar clientes.
 
     public void RemoverCliente(Cliente cliente);//Remover clientes.
-    
-    public Cliente SacarID(Cliente cliente);//Saca el ida de cliente
 
 }

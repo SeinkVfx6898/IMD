@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import com.arelance.empresa.imd.dao.MetodoPagoTarjetaDAO;
 import com.arelance.empresa.imd.domain.Metodopagotarjeta;
+import com.arelance.empresa.imd.domain.Tarjetacredito;
 
 /**
  *
@@ -40,6 +41,12 @@ public class MetodoPagoTarjetaDAOImpl implements MetodoPagoTarjetaDAO {
     @Override
     public void RemoverPagoTarjeta(Metodopagotarjeta metodopagotarjeta) {
         em.remove(em.merge(metodopagotarjeta));
+    }
+
+    @Override
+    public Tarjetacredito ObtenerIdTarjeta() {
+         String sql = "SELECT id_tarjeta_credito FROM institutomd_bd.tarjetacredito order by id_tarjeta_credito desc limit 1";
+        return (Tarjetacredito) em.createNativeQuery(sql, Tarjetacredito.class).getSingleResult();
     }
 
 }
