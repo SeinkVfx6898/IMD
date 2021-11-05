@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import com.arelance.empresa.imd.dao.TransferenciaDAO;
 import com.arelance.empresa.imd.domain.Transferencia;
+import javax.persistence.Query;
 
 /**
  *
@@ -29,7 +30,7 @@ public class TransferenciaDAOImpl implements TransferenciaDAO {
 
     @Override
     public void AñadirTransferencia(Transferencia transferencia) {
-       em.persist(transferencia);
+        em.persist(transferencia);
     }
 
     @Override
@@ -44,7 +45,10 @@ public class TransferenciaDAOImpl implements TransferenciaDAO {
 
     @Override
     public Transferencia datosCliente(int id_cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Query query = em.createQuery("select transferencia.iban from transferencia inner join metodopagotransferencia "
+                + "on transferencia.id_transferencia = metodopagotransferencia.id_transferencia inner join inscripciontransferencia "
+                + "on metodopagotransferencia.id_transferencia = inscripciontransferencia.id_metodopagotransferencia"
+                + "where inscripciontransferencia.id_cliente = " + id_cliente, Transferencia.class);
+        return (Transferencia) query.getSingleResult();
     }
-
 }
