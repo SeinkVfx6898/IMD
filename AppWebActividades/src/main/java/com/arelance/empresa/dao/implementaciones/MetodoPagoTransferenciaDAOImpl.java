@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import com.arelance.empresa.imd.dao.MetodoPagoTransferenciaDAO;
 import com.arelance.empresa.imd.domain.Metodopagotransferencia;
+import com.arelance.empresa.imd.domain.Transferencia;
 
 /**
  *
@@ -40,6 +41,11 @@ public class MetodoPagoTransferenciaDAOImpl implements MetodoPagoTransferenciaDA
     @Override
     public void RemoverPagoTransferencia(Metodopagotransferencia metodopagotransferencia) {
         em.remove(em.merge(metodopagotransferencia));
+    }
+
+    @Override
+    public Transferencia ObtenerIdTransferencia() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
