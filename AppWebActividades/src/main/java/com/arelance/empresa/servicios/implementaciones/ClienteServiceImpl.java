@@ -25,11 +25,7 @@ public class ClienteServiceImpl implements ClienteService {
         return clienteDAO.listarClientes();
     }
     
-    @Override
-    public Cliente EncontrarClientePorEmail(Cliente cliente) {
-        return clienteDAO.EncontrarClientePorEmail(cliente);
-    }
-    
+
     @Override
     public Cliente EncontrarClientePorID(Cliente cliente) {
         return clienteDAO.EncontrarClientePorID(cliente);
@@ -54,5 +50,16 @@ public class ClienteServiceImpl implements ClienteService {
     public void RemoverCliente(Cliente cliente) {
         clienteDAO.RemoverCliente(cliente);
     }
+
+    @Override
+    public Cliente EncontrarClientePorPassword(Cliente cliente) {
+        return clienteDAO.EncontrarClientePorPassword(cliente);
+    }
+
+    @Override
+    public Cliente ValidarCliente(Cliente cliente) {
+        return clienteDAO.ValidarCliente(cliente);
+    }
+
     
 }

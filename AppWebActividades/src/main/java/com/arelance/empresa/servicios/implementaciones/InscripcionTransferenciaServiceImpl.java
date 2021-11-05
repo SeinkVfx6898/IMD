@@ -18,8 +18,10 @@ import javax.inject.Inject;
  */
 @Local
 public class InscripcionTransferenciaServiceImpl implements InscripcionTransferenciaService {
-@Inject
-InscripcionTransferenciaDAO inscripcionTransferenciaDAO;
+
+    @Inject
+    InscripcionTransferenciaDAO inscripcionTransferenciaDAO;
+
     @Override
     public List<Inscripciontransferencia> obtener() {
         return inscripcionTransferenciaDAO.obtener();
@@ -27,7 +29,7 @@ InscripcionTransferenciaDAO inscripcionTransferenciaDAO;
 
     @Override
     public void guardar(Inscripciontransferencia inscripciontransferencia) {
-       inscripcionTransferenciaDAO.guardar(inscripciontransferencia);
+        inscripcionTransferenciaDAO.guardar(inscripciontransferencia);
     }
 
     @Override
@@ -37,7 +39,7 @@ InscripcionTransferenciaDAO inscripcionTransferenciaDAO;
 
     @Override
     public void eliminar(Inscripciontransferencia inscripciontransferencia) {
-       inscripcionTransferenciaDAO.eliminar(inscripciontransferencia);
+        inscripcionTransferenciaDAO.eliminar(inscripciontransferencia);
     }
-    
+
 }

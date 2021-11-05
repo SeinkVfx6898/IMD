@@ -32,5 +32,5 @@ public interface ClienteService {
 
     public void RemoverCliente(Cliente cliente);//Remover clientes.
 
-    public Cliente SacarID(Cliente cliente);//Saca el ida de cliente
+
 }

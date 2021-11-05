@@ -39,5 +39,10 @@ public class TransferenciaServiceImpl implements TransferenciaService {
     public void RemoverTransferencia(Transferencia transferencia) {
         transferenciaDAO.RemoverTransferencia(transferencia);
     }
+    
+    @Override
+    public Transferencia datosCliente(int id_cliente) {
+        return transferenciaDAO.datosCliente(id_cliente);
+    }
 
 }
