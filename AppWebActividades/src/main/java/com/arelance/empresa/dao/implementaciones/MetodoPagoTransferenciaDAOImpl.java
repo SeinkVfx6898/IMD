@@ -43,9 +43,5 @@ public class MetodoPagoTransferenciaDAOImpl implements MetodoPagoTransferenciaDA
         em.remove(em.merge(metodopagotransferencia));
     }
 
-    @Override
-    public Transferencia ObtenerIdTransferencia() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

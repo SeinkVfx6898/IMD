@@ -5,7 +5,6 @@
  */
 package com.arelance.empresa.dao.implementaciones;
 
-import com.arelance.empresa.imd.domain.Actividad;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

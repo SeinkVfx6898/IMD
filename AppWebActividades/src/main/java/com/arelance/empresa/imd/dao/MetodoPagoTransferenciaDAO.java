@@ -24,6 +24,5 @@ public interface MetodoPagoTransferenciaDAO {
     public void ModificarPagoTransferencia(Metodopagotransferencia metodopagotransferencia);//Modificar un metodo de pago por transferencia
 
     public void RemoverPagoTransferencia(Metodopagotransferencia metodopagotransferencia);//Eliminar un metodo de pago por transferencia
-
-    public Transferencia ObtenerIdTransferencia();//Obtener la id de la tarjeta
 }
+
