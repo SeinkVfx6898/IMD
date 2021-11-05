@@ -61,12 +61,6 @@ public class Inscripciontransferencia implements Serializable {
         this.metodopagotransferenciaIdmetodopagotransferencia = metodopagotransferenciaIdmetodopagotransferencia;
     }
 
-    public Inscripciontransferencia(Actividad actividad, Cliente cliente2, Metodopagotransferencia pagotransferencia, Metodopagotransferencia pagotransferencia0) {
-        this.actividadidactividad=actividad;
-        this.clienteidcliente = cliente2;
-        this.metodopagotransferenciaIdmetodopagotransferencia=pagotransferencia;
-        this.metodopagotransferenciaIdmetodopagotransferencia=pagotransferencia0;
-    }
     
     public Integer getIdInscripciontransferencia() {
         return idInscripciontransferencia;
@@ -126,3 +120,4 @@ public class Inscripciontransferencia implements Serializable {
     }
     
 }
+

@@ -4,5 +4,6 @@
     <jta-data-source>jdbc/IMD</jta-data-source>
     <class>com.arelance.empresa.imd.domain.Actividad</class>
     <class>com.arelance.empresa.imd.domain.Cliente</class>
+    <property name="eclipselink.jpa.uppercase-column-names" value="true"/>
   </persistence-unit>
 </persistence>

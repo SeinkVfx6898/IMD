@@ -53,7 +53,20 @@ public class PostPagoTransferencia extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
+        String iban = request.getParameter("iban");
+        String concepto = request.getParameter("concepto");
+        int idActividad = Integer.parseInt(request.getParameter("id_actividad"));
+        Transferencia transferencia = new Transferencia(iban, concepto);
+        Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
+        Cliente c = new Cliente(cliente.getIdCliente());
+        Actividad actividad = new Actividad(idActividad);
+        transferenciaService.AñadirTransferencia(transferencia);
+        Metodopagotransferencia metodopagotransferencia=new Metodopagotransferencia(metodoPagoTransferenciaService.obteneridTransferencia());
+        metodoPagoTransferenciaService.AñadirPagoTransferencia(metodopagotransferencia);
+        Metodopagotransferencia m=inscripcionTransferenciaService.ObtenerIdTransferencia();
+        Inscripciontransferencia inscripciontransferencia=new Inscripciontransferencia(actividad,c,m);
+        inscripcionTransferenciaService.guardar(inscripciontransferencia);
+        request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
