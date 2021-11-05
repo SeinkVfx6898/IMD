@@ -72,5 +72,10 @@ public class ClienteDAOImpl implements ClienteDAO {
             return null;
         }
     }
+       @Override
+    public Cliente SacarID(Cliente cliente) {
+        String sql = "SELECT c.id_cliente FROM cliente c WHERE nick = '" + cliente.getNick() + "'";
+        return (Cliente) em.createNativeQuery(sql, Cliente.class).getSingleResult();
+    }
 
 }

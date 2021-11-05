@@ -61,5 +61,10 @@ public class ClienteServiceImpl implements ClienteService {
         return clienteDAO.ValidarCliente(cliente);
     }
 
+    @Override
+    public Cliente SacarID(Cliente cliente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }
