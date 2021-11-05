@@ -11,6 +11,7 @@ import com.arelance.empresa.imd.domain.Inscripciontransferencia;
 import com.arelance.empresa.imd.domain.Metodopagotransferencia;
 import com.arelance.empresa.imd.domain.Transferencia;
 import com.arelance.empresa.servicios.ActividadService;
+import com.arelance.empresa.servicios.ClienteService;
 import com.arelance.empresa.servicios.InscripcionTransferenciaService;
 import com.arelance.empresa.servicios.MetodoPagoTransferenciaService;
 import com.arelance.empresa.servicios.TransferenciaService;
@@ -25,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author manul
+ * @author lenovo
  */
 @WebServlet(name = "PostPagoTransferencia", urlPatterns = {"/PostPagoTransferencia"})
 public class PostPagoTransferencia extends HttpServlet {
@@ -38,6 +39,9 @@ public class PostPagoTransferencia extends HttpServlet {
     private InscripcionTransferenciaService inscripcionTransferenciaService;
     @Inject
     private ActividadService actividadService;
+    @Inject
+    private ClienteService clienteService;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -49,20 +53,8 @@ public class PostPagoTransferencia extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            int iban = Integer.parseInt(request.getParameter("iban"));
-            String concepto = request.getParameter("concepto");
-            int idActividad = Integer.parseInt(request.getParameter("id_actividad"));
-            Transferencia transferencia = new Transferencia(iban, concepto);
-            Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
-            Actividad actividad =  actividadService.EncontrarActividadPorID(idActividad);
-            Metodopagotransferencia metodoTrasnferencia = new Metodopagotransferencia(transferencia);
-            Inscripciontransferencia inscripciontarjeta = new Inscripciontransferencia(actividad, cliente, metodoTrasnferencia);
-            transferenciaService.AñadirTransferencia(transferencia);
-            metodoPagoTransferenciaService.AñadirPagoTransferencia(metodoTrasnferencia);
-            inscripcionTransferenciaService.guardar(inscripciontarjeta);
-            request.getRequestDispatcher("../PreActividadInscritoServlet").forward(request, response);
-        }
-    
+      
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

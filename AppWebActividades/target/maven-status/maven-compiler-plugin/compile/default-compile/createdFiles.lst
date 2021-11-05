@@ -19,6 +19,7 @@ com\arelance\empresa\servicios\InscripcionTarjetaService.class
 com\arelance\empresa\imd\dao\ClienteDAO.class
 ClienteDAOImpl.class
 com\arelance\empresa\dao\implementaciones\InscripcionTarjetaDAOImpl.class
+com\arelance\empresa\imd\controller\PostPagoTarjeta.class
 com\arelance\empresa\imd\domain\Inscripciontransferencia.class
 com\arelance\empresa\servicios\implementaciones\InscripcionTransferenciaServiceImpl.class
 com\arelance\empresa\imd\controller\PreRegistroServlet.class

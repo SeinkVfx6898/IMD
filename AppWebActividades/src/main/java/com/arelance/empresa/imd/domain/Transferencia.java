@@ -41,7 +41,7 @@ public class Transferencia implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "iban")
-    private int iban;
+    private String iban;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -64,12 +64,12 @@ public class Transferencia implements Serializable {
         this.idTransferencia = idTransferencia;
     }
 
-    public Transferencia(int iban, String conceptoPago) {
-        this.iban = iban;
+    public Transferencia(String iban, String conceptoPago) {
+        this.iban=iban;
         this.conceptoPago = conceptoPago;
     }
     
-    public Transferencia(Integer idTransferencia, int iban, String conceptoPago) {
+    public Transferencia(Integer idTransferencia,String iban, String conceptoPago) {
         this.idTransferencia = idTransferencia;
         this.iban = iban;
         this.conceptoPago = conceptoPago;
@@ -126,11 +126,11 @@ public class Transferencia implements Serializable {
         return "com.arelance.empresa.imd.domain.Transferencia[ idTransferencia=" + idTransferencia + " ]";
     }
 
-    public int getIban() {
+    public String getIban() {
         return iban;
     }
 
-    public void setIban(int iban) {
+    public void setIban(String iban) {
         this.iban = iban;
     }
 

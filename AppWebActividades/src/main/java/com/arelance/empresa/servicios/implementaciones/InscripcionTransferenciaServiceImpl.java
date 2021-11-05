@@ -7,6 +7,7 @@ package com.arelance.empresa.servicios.implementaciones;
 
 import com.arelance.empresa.imd.dao.InscripcionTransferenciaDAO;
 import com.arelance.empresa.imd.domain.Inscripciontransferencia;
+import com.arelance.empresa.imd.domain.Metodopagotransferencia;
 import com.arelance.empresa.servicios.InscripcionTransferenciaService;
 import java.util.List;
 import javax.ejb.Local;
@@ -40,6 +41,11 @@ public class InscripcionTransferenciaServiceImpl implements InscripcionTransfere
     @Override
     public void eliminar(Inscripciontransferencia inscripciontransferencia) {
         inscripcionTransferenciaDAO.eliminar(inscripciontransferencia);
+    }
+
+    @Override
+    public Metodopagotransferencia ObtenerIdTransferencia() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

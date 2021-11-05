@@ -6,6 +6,7 @@
 package com.arelance.empresa.imd.dao;
 
 import com.arelance.empresa.imd.domain.Inscripciontransferencia;
+import com.arelance.empresa.imd.domain.Metodopagotransferencia;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -23,5 +24,7 @@ public interface InscripcionTransferenciaDAO {
     public void modificar(Inscripciontransferencia inscripciontransferencia);
 
     public void eliminar(Inscripciontransferencia inscripciontransferencia);
+
+    public Metodopagotransferencia ObtenerIdTransferencia();
 
 }

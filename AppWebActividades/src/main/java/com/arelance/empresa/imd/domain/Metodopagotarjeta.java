@@ -58,9 +58,7 @@ public class Metodopagotarjeta implements Serializable {
     public Metodopagotarjeta(Tarjetacredito idTarjetaCredito) {
         this.idTarjetaCredito = idTarjetaCredito;
     }
-
-    
-    
+   
     public Integer getIdmetodopagotarjeta() {
         return idmetodopagotarjeta;
     }

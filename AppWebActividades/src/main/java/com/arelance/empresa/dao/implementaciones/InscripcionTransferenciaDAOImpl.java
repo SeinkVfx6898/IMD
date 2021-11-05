@@ -7,6 +7,8 @@ package com.arelance.empresa.dao.implementaciones;
 
 import com.arelance.empresa.imd.dao.InscripcionTransferenciaDAO;
 import com.arelance.empresa.imd.domain.Inscripciontransferencia;
+import com.arelance.empresa.imd.domain.Metodopagotransferencia;
+import com.arelance.empresa.imd.domain.Transferencia;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -41,5 +43,12 @@ public class InscripcionTransferenciaDAOImpl implements InscripcionTransferencia
     public void eliminar(Inscripciontransferencia inscripciontransferencia) {
         em.remove(em.merge(inscripciontransferencia));
     }
+
+    @Override
+    public Metodopagotransferencia ObtenerIdTransferencia() {
+             String sql = "SELECT idmetodopagotransferencia FROM institutomd_bd.metodopagotransferencia order by idmetodopagotransferencia desc limit 1";
+        return (Metodopagotransferencia) em.createNativeQuery(sql, Transferencia.class).getSingleResult();
+    }
+    
 
 }

@@ -9,6 +9,8 @@ package com.arelance.empresa.servicios.implementaciones;
 import com.arelance.empresa.imd.dao.MetodoPagoTransferenciaDAO;
 import java.util.List;
 import com.arelance.empresa.imd.domain.Metodopagotransferencia;
+import com.arelance.empresa.imd.domain.Tarjetacredito;
+import com.arelance.empresa.imd.domain.Transferencia;
 import com.arelance.empresa.servicios.MetodoPagoTransferenciaService;
 import javax.inject.Inject;
 
@@ -39,6 +41,11 @@ public class MetodoPagoTransferenciaServiceImpl implements MetodoPagoTransferenc
     @Override
     public void RemoverPagoTransferencia(Metodopagotransferencia metodopagotransferencia) {
         metodoPagoTransferenciaDAO.RemoverPagoTransferencia(metodopagotransferencia);
+    }
+    
+    @Override
+    public Transferencia obteneridTransferencia() {
+        return metodoPagoTransferenciaDAO.ObtenerIdTarjeta();
     }
 
 }
