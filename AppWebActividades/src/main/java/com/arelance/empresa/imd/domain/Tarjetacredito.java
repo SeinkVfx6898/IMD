@@ -6,7 +6,9 @@
 package com.arelance.empresa.imd.domain;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,14 +16,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author usuar
+ * @author Manuel
+ * @author manuel
  */
 @Entity
 @Table(name = "tarjetacredito")
@@ -29,21 +34,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Tarjetacredito.findAll", query = "SELECT t FROM Tarjetacredito t"),
     @NamedQuery(name = "Tarjetacredito.findByIdTarjetaCredito", query = "SELECT t FROM Tarjetacredito t WHERE t.idTarjetaCredito = :idTarjetaCredito"),
-    @NamedQuery(name = "Tarjetacredito.findByN\u00famero", query = "SELECT t FROM Tarjetacredito t WHERE t.n\u00famero = :n\u00famero"),
+    @NamedQuery(name = "Tarjetacredito.findByNumero", query = "SELECT t FROM Tarjetacredito t WHERE t.numero = :numero"),
     @NamedQuery(name = "Tarjetacredito.findByFechacaducidad", query = "SELECT t FROM Tarjetacredito t WHERE t.fechacaducidad = :fechacaducidad"),
     @NamedQuery(name = "Tarjetacredito.findByCvv", query = "SELECT t FROM Tarjetacredito t WHERE t.cvv = :cvv")})
 public class Tarjetacredito implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id_tarjeta_credito")
-    private Integer idTarjetaCredito;
     @Basic(optional = false)
     @NotNull
     @Column(name = "n\u00famero")
-    private int número;
+    private double numero;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -54,6 +53,15 @@ public class Tarjetacredito implements Serializable {
     @Column(name = "CVV")
     private int cvv;
 
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id_tarjeta_credito")
+    private Integer idTarjetaCredito;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTarjetaCredito")
+    private Collection<Metodopagotarjeta> metodopagotarjetaCollection;
+
     public Tarjetacredito() {
     }
 
@@ -61,12 +69,21 @@ public class Tarjetacredito implements Serializable {
         this.idTarjetaCredito = idTarjetaCredito;
     }
 
-    public Tarjetacredito(Integer idTarjetaCredito, int número, String fechacaducidad, int cvv) {
-        this.idTarjetaCredito = idTarjetaCredito;
-        this.número = número;
+    public Tarjetacredito(double número, String fechacaducidad, int cvv) {
+        this.numero = número;
         this.fechacaducidad = fechacaducidad;
         this.cvv = cvv;
     }
+    
+
+    public Tarjetacredito(Integer idTarjetaCredito, double número, String fechacaducidad, int cvv) {
+        this.idTarjetaCredito = idTarjetaCredito;
+        this.numero = número;
+        this.fechacaducidad = fechacaducidad;
+        this.cvv = cvv;
+    }
+
+
 
     public Integer getIdTarjetaCredito() {
         return idTarjetaCredito;
@@ -76,13 +93,6 @@ public class Tarjetacredito implements Serializable {
         this.idTarjetaCredito = idTarjetaCredito;
     }
 
-    public int getNúmero() {
-        return número;
-    }
-
-    public void setNúmero(int número) {
-        this.número = número;
-    }
 
     public String getFechacaducidad() {
         return fechacaducidad;
@@ -92,12 +102,14 @@ public class Tarjetacredito implements Serializable {
         this.fechacaducidad = fechacaducidad;
     }
 
-    public int getCvv() {
-        return cvv;
+
+    @XmlTransient
+    public Collection<Metodopagotarjeta> getMetodopagotarjetaCollection() {
+        return metodopagotarjetaCollection;
     }
 
-    public void setCvv(int cvv) {
-        this.cvv = cvv;
+    public void setMetodopagotarjetaCollection(Collection<Metodopagotarjeta> metodopagotarjetaCollection) {
+        this.metodopagotarjetaCollection = metodopagotarjetaCollection;
     }
 
     @Override
@@ -124,5 +136,23 @@ public class Tarjetacredito implements Serializable {
     public String toString() {
         return "com.arelance.empresa.imd.domain.Tarjetacredito[ idTarjetaCredito=" + idTarjetaCredito + " ]";
     }
+
+    public double getNumero() {
+        return numero;
+    }
+
+    public void setNumero(double numero) {
+        this.numero = numero;
+    }
+
+
+    public int getCvv() {
+        return cvv;
+    }
+
+    public void setCvv(int cvv) {
+        this.cvv = cvv;
+    }
+
     
 }

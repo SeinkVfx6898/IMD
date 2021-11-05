@@ -26,6 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
 /**
  *
  * @author Manuel
+ * @author manuel
  */
 @Entity
 @Table(name = "metodopagotransferencia")
@@ -35,18 +36,17 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Metodopagotransferencia.findByIdmetodopagotransferencia", query = "SELECT m FROM Metodopagotransferencia m WHERE m.idmetodopagotransferencia = :idmetodopagotransferencia")})
 public class Metodopagotransferencia implements Serializable {
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "metodopagotransferenciaIdmetodopagotransferencia")
-    private Collection<Inscripciontransferencia> inscripciontransferenciaCollection;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idmetodopagotransferencia")
     private Integer idmetodopagotransferencia;
-    @JoinColumn(name = "Transferencia_id_transferencia", referencedColumnName = "id_transferencia")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "metodopagotransferenciaIdmetodopagotransferencia")
+    private Collection<Inscripciontransferencia> inscripciontransferenciaCollection;
+    @JoinColumn(name = "id_transferencia", referencedColumnName = "id_transferencia")
     @ManyToOne(optional = false)
-    private Transferencia transferenciaidtransferencia;
+    private Transferencia idTransferencia;
 
     public Metodopagotransferencia() {
     }
@@ -55,6 +55,11 @@ public class Metodopagotransferencia implements Serializable {
         this.idmetodopagotransferencia = idmetodopagotransferencia;
     }
 
+    public Metodopagotransferencia(Transferencia idTransferencia) {
+        this.idTransferencia = idTransferencia;
+    }
+
+    
     public Integer getIdmetodopagotransferencia() {
         return idmetodopagotransferencia;
     }
@@ -63,12 +68,21 @@ public class Metodopagotransferencia implements Serializable {
         this.idmetodopagotransferencia = idmetodopagotransferencia;
     }
 
-    public Transferencia getTransferenciaidtransferencia() {
-        return transferenciaidtransferencia;
+    @XmlTransient
+    public Collection<Inscripciontransferencia> getInscripciontransferenciaCollection() {
+        return inscripciontransferenciaCollection;
     }
 
-    public void setTransferenciaidtransferencia(Transferencia transferenciaidtransferencia) {
-        this.transferenciaidtransferencia = transferenciaidtransferencia;
+    public void setInscripciontransferenciaCollection(Collection<Inscripciontransferencia> inscripciontransferenciaCollection) {
+        this.inscripciontransferenciaCollection = inscripciontransferenciaCollection;
+    }
+
+    public Transferencia getIdTransferencia() {
+        return idTransferencia;
+    }
+
+    public void setIdTransferencia(Transferencia idTransferencia) {
+        this.idTransferencia = idTransferencia;
     }
 
     @Override
@@ -80,6 +94,7 @@ public class Metodopagotransferencia implements Serializable {
 
     @Override
     public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Metodopagotransferencia)) {
             return false;
         }
@@ -95,14 +110,4 @@ public class Metodopagotransferencia implements Serializable {
         return "com.arelance.empresa.imd.domain.Metodopagotransferencia[ idmetodopagotransferencia=" + idmetodopagotransferencia + " ]";
     }
 
-    @XmlTransient
-    public Collection<Inscripciontransferencia> getInscripciontransferenciaCollection() {
-        return inscripciontransferenciaCollection;
-    }
-
-    public void setInscripciontransferenciaCollection(Collection<Inscripciontransferencia> inscripciontransferenciaCollection) {
-        this.inscripciontransferenciaCollection = inscripciontransferenciaCollection;
-    }
-
-    
 }

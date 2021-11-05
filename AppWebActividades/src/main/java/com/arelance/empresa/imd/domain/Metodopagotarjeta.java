@@ -26,6 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
 /**
  *
  * @author Manuel
+ * @author manuel
  */
 @Entity
 @Table(name = "metodopagotarjeta")
@@ -35,18 +36,17 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Metodopagotarjeta.findByIdmetodopagotarjeta", query = "SELECT m FROM Metodopagotarjeta m WHERE m.idmetodopagotarjeta = :idmetodopagotarjeta")})
 public class Metodopagotarjeta implements Serializable {
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "metodopagotarjetaIdmetodopagotarjeta")
-    private Collection<Inscripciontarjeta> inscripciontarjetaCollection;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idmetodopagotarjeta")
     private Integer idmetodopagotarjeta;
-    @JoinColumn(name = "TarjetaCredito_id_tarjeta_credito", referencedColumnName = "id_tarjeta_credito")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "metodopagotarjetaIdmetodopagotarjeta")
+    private Collection<Inscripciontarjeta> inscripciontarjetaCollection;
+    @JoinColumn(name = "id_tarjeta_credito", referencedColumnName = "id_tarjeta_credito")
     @ManyToOne(optional = false)
-    private Tarjetacredito tarjetaCreditoidtarjetacredito;
+    private Tarjetacredito idTarjetaCredito;
 
     public Metodopagotarjeta() {
     }
@@ -55,6 +55,12 @@ public class Metodopagotarjeta implements Serializable {
         this.idmetodopagotarjeta = idmetodopagotarjeta;
     }
 
+    public Metodopagotarjeta(Tarjetacredito idTarjetaCredito) {
+        this.idTarjetaCredito = idTarjetaCredito;
+    }
+
+    
+    
     public Integer getIdmetodopagotarjeta() {
         return idmetodopagotarjeta;
     }
@@ -63,12 +69,21 @@ public class Metodopagotarjeta implements Serializable {
         this.idmetodopagotarjeta = idmetodopagotarjeta;
     }
 
-    public Tarjetacredito getTarjetaCreditoidtarjetacredito() {
-        return tarjetaCreditoidtarjetacredito;
+    @XmlTransient
+    public Collection<Inscripciontarjeta> getInscripciontarjetaCollection() {
+        return inscripciontarjetaCollection;
     }
 
-    public void setTarjetaCreditoidtarjetacredito(Tarjetacredito tarjetaCreditoidtarjetacredito) {
-        this.tarjetaCreditoidtarjetacredito = tarjetaCreditoidtarjetacredito;
+    public void setInscripciontarjetaCollection(Collection<Inscripciontarjeta> inscripciontarjetaCollection) {
+        this.inscripciontarjetaCollection = inscripciontarjetaCollection;
+    }
+
+    public Tarjetacredito getIdTarjetaCredito() {
+        return idTarjetaCredito;
+    }
+
+    public void setIdTarjetaCredito(Tarjetacredito idTarjetaCredito) {
+        this.idTarjetaCredito = idTarjetaCredito;
     }
 
     @Override
@@ -80,29 +95,19 @@ public class Metodopagotarjeta implements Serializable {
 
     @Override
     public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Metodopagotarjeta)) {
             return false;
         }
         Metodopagotarjeta other = (Metodopagotarjeta) object;
         if ((this.idmetodopagotarjeta == null && other.idmetodopagotarjeta != null) || (this.idmetodopagotarjeta != null && !this.idmetodopagotarjeta.equals(other.idmetodopagotarjeta))) {
             return false;
-        }else{
-            return true;
         }
+        return true;
     }
 
     @Override
     public String toString() {
         return "com.arelance.empresa.imd.domain.Metodopagotarjeta[ idmetodopagotarjeta=" + idmetodopagotarjeta + " ]";
     }
-
-    @XmlTransient
-    public Collection<Inscripciontarjeta> getInscripciontarjetaCollection() {
-        return inscripciontarjetaCollection;
-    }
-
-    public void setInscripciontarjetaCollection(Collection<Inscripciontarjeta> inscripciontarjetaCollection) {
-        this.inscripciontarjetaCollection = inscripciontarjetaCollection;
-    }
-    
 }

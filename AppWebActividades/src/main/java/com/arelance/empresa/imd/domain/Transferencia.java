@@ -6,7 +6,9 @@
 package com.arelance.empresa.imd.domain;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,14 +16,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author usuar
+ * @author Manuel
+ * @author manuel
  */
 @Entity
 @Table(name = "transferencia")
@@ -33,12 +38,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Transferencia.findByConceptoPago", query = "SELECT t FROM Transferencia t WHERE t.conceptoPago = :conceptoPago")})
 public class Transferencia implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id_transferencia")
-    private Integer idTransferencia;
     @Basic(optional = false)
     @NotNull
     @Column(name = "iban")
@@ -49,6 +48,15 @@ public class Transferencia implements Serializable {
     @Column(name = "concepto_pago")
     private String conceptoPago;
 
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id_transferencia")
+    private Integer idTransferencia;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTransferencia")
+    private Collection<Metodopagotransferencia> metodopagotransferenciaCollection;
+
     public Transferencia() {
     }
 
@@ -56,6 +64,11 @@ public class Transferencia implements Serializable {
         this.idTransferencia = idTransferencia;
     }
 
+    public Transferencia(int iban, String conceptoPago) {
+        this.iban = iban;
+        this.conceptoPago = conceptoPago;
+    }
+    
     public Transferencia(Integer idTransferencia, int iban, String conceptoPago) {
         this.idTransferencia = idTransferencia;
         this.iban = iban;
@@ -70,13 +83,6 @@ public class Transferencia implements Serializable {
         this.idTransferencia = idTransferencia;
     }
 
-    public int getIban() {
-        return iban;
-    }
-
-    public void setIban(int iban) {
-        this.iban = iban;
-    }
 
     public String getConceptoPago() {
         return conceptoPago;
@@ -84,6 +90,15 @@ public class Transferencia implements Serializable {
 
     public void setConceptoPago(String conceptoPago) {
         this.conceptoPago = conceptoPago;
+    }
+
+    @XmlTransient
+    public Collection<Metodopagotransferencia> getMetodopagotransferenciaCollection() {
+        return metodopagotransferenciaCollection;
+    }
+
+    public void setMetodopagotransferenciaCollection(Collection<Metodopagotransferencia> metodopagotransferenciaCollection) {
+        this.metodopagotransferenciaCollection = metodopagotransferenciaCollection;
     }
 
     @Override
@@ -110,5 +125,13 @@ public class Transferencia implements Serializable {
     public String toString() {
         return "com.arelance.empresa.imd.domain.Transferencia[ idTransferencia=" + idTransferencia + " ]";
     }
-    
+
+    public int getIban() {
+        return iban;
+    }
+
+    public void setIban(int iban) {
+        this.iban = iban;
+    }
+
 }

@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
  * @author usuar
+ * @author manuel
  */
 @Entity
 @Table(name = "inscripciontransferencia")
@@ -37,13 +38,13 @@ public class Inscripciontransferencia implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_inscripciontransferencia")
     private Integer idInscripciontransferencia;
-    @JoinColumn(name = "Actividad_id_actividad", referencedColumnName = "id_actividad")
+    @JoinColumn(name = "id_actividad", referencedColumnName = "id_actividad")
     @ManyToOne(optional = false)
     private Actividad actividadidactividad;
-    @JoinColumn(name = "Cliente_id_cliente", referencedColumnName = "id_cliente")
+    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
     @ManyToOne(optional = false)
     private Cliente clienteidcliente;
-    @JoinColumn(name = "metodopagotransferencia_idmetodopagotransferencia", referencedColumnName = "idmetodopagotransferencia")
+    @JoinColumn(name = "id_metodopagotransferencia", referencedColumnName = "idmetodopagotransferencia")
     @ManyToOne(optional = false)
     private Metodopagotransferencia metodopagotransferenciaIdmetodopagotransferencia;
 
@@ -54,6 +55,13 @@ public class Inscripciontransferencia implements Serializable {
         this.idInscripciontransferencia = idInscripciontransferencia;
     }
 
+    public Inscripciontransferencia(Actividad actividadidactividad, Cliente clienteidcliente, Metodopagotransferencia metodopagotransferenciaIdmetodopagotransferencia) {
+        this.actividadidactividad = actividadidactividad;
+        this.clienteidcliente = clienteidcliente;
+        this.metodopagotransferenciaIdmetodopagotransferencia = metodopagotransferenciaIdmetodopagotransferencia;
+    }
+
+    
     public Integer getIdInscripciontransferencia() {
         return idInscripciontransferencia;
     }
