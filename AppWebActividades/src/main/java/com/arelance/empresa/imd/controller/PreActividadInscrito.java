@@ -6,9 +6,11 @@
 package com.arelance.empresa.imd.controller;
 
 import com.arelance.empresa.imd.domain.Actividad;
+import com.arelance.empresa.imd.domain.Cliente;
 import com.arelance.empresa.servicios.ActividadService;
+import com.arelance.empresa.servicios.ClienteService;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,10 +20,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Manuel
+ * @author lenovo
  */
-@WebServlet(name = "PreInscripcionServlet", urlPatterns = {"/PreInscripcionServlet"})
-public class PreInscripcionServlet extends HttpServlet {
+@WebServlet(name = "PreActividadInscritoServlet", urlPatterns = {"/PreActividadInscritoServlet"})
+public class PreActividadInscritoServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,14 +36,18 @@ public class PreInscripcionServlet extends HttpServlet {
      */
     @Inject
     private ActividadService actividadService;
+    @Inject
+    private ClienteService clienteService;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int idActividad = Integer.parseInt(request.getParameter("idActividad"));
-        Actividad actividad = actividadService.EncontrarActividadPorID(idActividad);
-        request.setAttribute("actividad", actividad);
-        request.getRequestDispatcher("View/inscripcion.jsp").forward(request, response);
 
+        Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
+        List<Actividad> actividadesTarjeta = actividadService.ListaActividadesClienteTarjeta(cliente.getIdCliente());
+        List<Actividad> actividadesTransferencia = actividadService.ListaActividadesClienteTransferencia(cliente.getIdCliente());
+        request.setAttribute("listaTarjeta", actividadesTarjeta);
+        request.setAttribute("listaTransferencia", actividadesTransferencia);
+        request.getRequestDispatcher("View/actividades.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

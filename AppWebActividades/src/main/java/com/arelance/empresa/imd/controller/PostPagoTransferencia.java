@@ -6,7 +6,14 @@
 package com.arelance.empresa.imd.controller;
 
 import com.arelance.empresa.imd.domain.Actividad;
+import com.arelance.empresa.imd.domain.Cliente;
+import com.arelance.empresa.imd.domain.Inscripciontransferencia;
+import com.arelance.empresa.imd.domain.Metodopagotransferencia;
+import com.arelance.empresa.imd.domain.Transferencia;
 import com.arelance.empresa.servicios.ActividadService;
+import com.arelance.empresa.servicios.InscripcionTransferenciaService;
+import com.arelance.empresa.servicios.MetodoPagoTransferenciaService;
+import com.arelance.empresa.servicios.TransferenciaService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.inject.Inject;
@@ -18,11 +25,19 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Manuel
+ * @author manul
  */
-@WebServlet(name = "PreInscripcionServlet", urlPatterns = {"/PreInscripcionServlet"})
-public class PreInscripcionServlet extends HttpServlet {
+@WebServlet(name = "PostPagoTransferencia", urlPatterns = {"/PostPagoTransferencia"})
+public class PostPagoTransferencia extends HttpServlet {
 
+    @Inject
+    private TransferenciaService transferenciaService;
+    @Inject
+    private MetodoPagoTransferenciaService metodoPagoTransferenciaService;
+    @Inject
+    private InscripcionTransferenciaService inscripcionTransferenciaService;
+    @Inject
+    private ActividadService actividadService;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -32,17 +47,22 @@ public class PreInscripcionServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Inject
-    private ActividadService actividadService;
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int idActividad = Integer.parseInt(request.getParameter("idActividad"));
-        Actividad actividad = actividadService.EncontrarActividadPorID(idActividad);
-        request.setAttribute("actividad", actividad);
-        request.getRequestDispatcher("View/inscripcion.jsp").forward(request, response);
-
-    }
+            int iban = Integer.parseInt(request.getParameter("iban"));
+            String concepto = request.getParameter("concepto");
+            int idActividad = Integer.parseInt(request.getParameter("id_actividad"));
+            Transferencia transferencia = new Transferencia(iban, concepto);
+            Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
+            Actividad actividad =  actividadService.EncontrarActividadPorID(idActividad);
+            Metodopagotransferencia metodoTrasnferencia = new Metodopagotransferencia(transferencia);
+            Inscripciontransferencia inscripciontarjeta = new Inscripciontransferencia(actividad, cliente, metodoTrasnferencia);
+            transferenciaService.AñadirTransferencia(transferencia);
+            metodoPagoTransferenciaService.AñadirPagoTransferencia(metodoTrasnferencia);
+            inscripcionTransferenciaService.guardar(inscripciontarjeta);
+            request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
+        }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

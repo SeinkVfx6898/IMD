@@ -1,15 +1,12 @@
-/*
+/*/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package com.arelance.empresa.imd.controller;
 
-import com.arelance.empresa.imd.domain.Actividad;
-import com.arelance.empresa.servicios.ActividadService;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,10 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Manuel
+ * @author Agustin
  */
-@WebServlet(name = "PreInscripcionServlet", urlPatterns = {"/PreInscripcionServlet"})
-public class PreInscripcionServlet extends HttpServlet {
+@WebServlet(name = "CierreSesion", urlPatterns = {"/CierreSesion"})
+public class CierreSesion extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,16 +29,13 @@ public class PreInscripcionServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Inject
-    private ActividadService actividadService;
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int idActividad = Integer.parseInt(request.getParameter("idActividad"));
-        Actividad actividad = actividadService.EncontrarActividadPorID(idActividad);
-        request.setAttribute("actividad", actividad);
-        request.getRequestDispatcher("View/inscripcion.jsp").forward(request, response);
-
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            request.getSession().invalidate();
+            response.sendRedirect("PreIndexServlet");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
