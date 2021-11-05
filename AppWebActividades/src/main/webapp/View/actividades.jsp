@@ -12,7 +12,7 @@
 <html>
     <head>
         <%@include file = "../JSPF/meta.jspf"%>
-        <%@include file = "../JSPF/actividadesInscrito.jspf"%>
+          <%@include file = "../JSPF/actividades.jspf"%>
         <title>Actividades_Inscrito</title>
     </head>
     <body> 

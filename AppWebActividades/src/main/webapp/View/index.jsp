@@ -56,10 +56,6 @@
             %>
 
         </ul>
-        <aside>
-            <p>Publicidad</p>
-        </aside>
-        <footer>
             &copy;2021-2022 IMD S.A.Todos los derechos reservados.
         </footer>
     </body>

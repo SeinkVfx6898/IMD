@@ -60,7 +60,7 @@ public class PostPagoTransferencia extends HttpServlet {
             transferenciaService.AñadirTransferencia(transferencia);
             metodoPagoTransferenciaService.AñadirPagoTransferencia(metodoTrasnferencia);
             inscripcionTransferenciaService.guardar(inscripciontarjeta);
-            request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
+            request.getRequestDispatcher("../PreActividadInscritoServlet").forward(request, response);
         }
     
 
