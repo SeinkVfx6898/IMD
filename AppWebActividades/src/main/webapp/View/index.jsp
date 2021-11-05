@@ -1,9 +1,10 @@
-<%-- 
+-- 
     Document   : index
     Created on : 06-sep-2021, 18:06:20
     Author     : lenovo
 --%>
 
+<%@page import="com.arelance.empresa.imd.domain.Cliente"%>
 <%@page import="com.arelance.empresa.imd.domain.Actividad"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,38 +14,47 @@
     <head>
         <%@include file = "../JSPF/meta.jspf"%>
         <title>Página principal</title>
-       <%@include file = "../JSPF/index.jspf"%>
+        <%@include file = "../JSPF/index.jspf"%>
     </head>
     <body>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">     
-            <a class="navbar-brand" href="PreIndexServlet">IMD</a> 
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="PreRegistroServlet">Registro</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="PreLoginServlet">Iniciar sesión</a>
-                </li>          
-            </ul>
-        </nav>
         <header>
+            <nav class="navbar navbar-expand-sm bg-info navbar-info">     
+                <a class="navbar-brand">IMD</a> 
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <% if (request.getSession().getAttribute("cliente") != null) {
+                                Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
+                        %>
+                            <a class="nav-link" href="PreActividadInscritoServlet"><%=cliente.getNick()%></a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="CierreSesion">Cerrar sesion</a>
+                    </li>
+                    <%} else {%>
+                    <li class="nav-item">
+                            <a class="nav-link" href="PreRegistroServlet">Registro</a>
+                    </li>        
+                    <li class="nav-item">
+                            <a class="nav-link" href="PreLoginServlet">Iniciar sesión</a>
+                        <%}%>
+                    </li>          
+                </ul>
+            </nav>
             <h3>En IMD contamos con las actividades<br> que más se ajustan a tu perfil:</h3>
         </header>
-        <input  type="text"class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Busca una actividad..." title="Type in a name">
+        <input  type="text" class="form-control" id="myInput" onkeyup="myFunction(this)" placeholder="Busca una actividad..." title="Type in a name">
         <ul id="myUL">
-   <%
-   List<Actividad>lista=(List<Actividad>)request.getAttribute("lista");
-   %>  
-   <%
-   for (Actividad actividad : lista) {               
-   %>
-   <li>
-   <a href="PreInscripcionServlet?idActividad=<%= actividad.getIdActividad()%>"><%=actividad.getNombre()%></a>
-   </li>
-   <%
-    }
-   %>
-     
+            <%
+                List<Actividad> lista = (List<Actividad>) request.getAttribute("lista");
+                for (Actividad actividad : lista) {
+            %>
+            <li>
+                <a href="PreInscripcionServlet?idActividad=<%= actividad.getIdActividad()%>"><%=actividad.getNombre()%></a>
+            </li>
+            <%
+                }
+            %>
+
         </ul>
         <aside>
             <p>Publicidad</p>
@@ -52,23 +62,5 @@
         <footer>
             &copy;2021-2022 IMD S.A.Todos los derechos reservados.
         </footer>
-        <script>
-            function myFunction() {
-                var input, filter, ul, li, a, i, txtValue;
-                input = document.getElementById("myInput");
-                filter = input.value.toUpperCase();
-                ul = document.getElementById("myUL");
-                li = ul.getElementsByTagName("li");
-                for (i = 0; i < li.length; i++) {
-                    a = li[i].getElementsByTagName("a")[0];
-                    txtValue = a.textContent || a.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        li[i].style.display = "";
-                    } else {
-                        li[i].style.display = "none";
-                    }
-                }
-            }
-        </script>
     </body>
 </html>

@@ -15,17 +15,13 @@
     </head>
     <body>
         <h3>Accede a tu cuenta:</h3>
-        <form action="MainController?action=postLogin">
-            <div class="form-group">
-                <label for="text">Nick:</label>
-                <input type="text" class="form-control" id="nombre" placeholder="SalvSolo" name="nick" maxlength="20">
-            </div>
-            <div class="form-group">
-                <label for="pwd">Contraseña:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="SalvSolo1234" name="pswd" maxlength="20">
-            </div>
-            <button type="submit" class="btn btn-secondary">Aceptar</button>
-            <input type="submit"class="btn btn-secondary"name="action" value="Volver" formaction="../MainController?action=Volver">
+        <form action="http://localhost:8080/AppWebActividades/PostLoginServlet" id="formlogin">
+            <label for="text">Nick:</label>
+            <input type="text" class="form-control" id="nombre" placeholder="SalvSolo" name="nick" maxlength="20"><span>${NickMsg}</span>
+            <label for="pwd">Contraseña:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="SalvSolo1234" name="pswd" maxlength="20"><span>${PassMsg}</span>
+            <input type="submit" class="btn btn-info"value="Aceptar"name="action">
+            <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
         </form>
     </body>
 </html>
