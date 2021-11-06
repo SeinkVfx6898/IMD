@@ -19,7 +19,11 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
+<<<<<<< HEAD
  * @author Manuel
+=======
+ * @author  Agustin
+>>>>>>> c1192c1a628b1b6b00d5ac9ec7fcb9446935a382
  */
 @WebServlet(name = "PostLoginServlet", urlPatterns = {"/PostLoginServlet"})
 public class PostLoginServlet extends HttpServlet {
@@ -38,6 +42,7 @@ public class PostLoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String nick = request.getParameter("nick");
@@ -57,7 +62,9 @@ public class PostLoginServlet extends HttpServlet {
                 }
                 request.getRequestDispatcher("View/login.jsp").forward(request, response);
             }
+
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

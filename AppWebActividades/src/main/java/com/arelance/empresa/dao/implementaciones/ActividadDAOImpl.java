@@ -69,5 +69,4 @@ public class ActividadDAOImpl implements ActividadDAO {
                 + "on inscripciontransferencia.id_cliente = cliente.id_cliente where cliente.id_cliente = " + id_cliente;
         return em.createNativeQuery(sql, Actividad.class).getResultList();
     }
-
 }

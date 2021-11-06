@@ -12,7 +12,11 @@
 <html>
     <head>
         <%@include file = "../JSPF/meta.jspf"%>
+<<<<<<< HEAD
         <%@include file = "../JSPF/actividadesInscrito.jspf"%>
+=======
+          <%@include file = "../JSPF/actividades.jspf"%>
+>>>>>>> c1192c1a628b1b6b00d5ac9ec7fcb9446935a382
         <title>Actividades_Inscrito</title>
     </head>
     <body> 

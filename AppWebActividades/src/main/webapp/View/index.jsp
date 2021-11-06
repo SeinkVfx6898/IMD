@@ -1,4 +1,4 @@
-<%-- 
+-- 
     Document   : index
     Created on : 06-sep-2021, 18:06:20
     Author     : lenovo
@@ -56,10 +56,6 @@
             %>
 
         </ul>
-        <aside>
-            <p>Publicidad</p>
-        </aside>
-        <footer>
             &copy;2021-2022 IMD S.A.Todos los derechos reservados.
         </footer>
     </body>

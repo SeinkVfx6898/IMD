@@ -41,7 +41,7 @@ public class PreActividadInscritoServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
+
         Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
         List<Actividad> actividadesTarjeta = actividadService.ListaActividadesClienteTarjeta(cliente.getIdCliente());
         List<Actividad> actividadesTransferencia = actividadService.ListaActividadesClienteTransferencia(cliente.getIdCliente());

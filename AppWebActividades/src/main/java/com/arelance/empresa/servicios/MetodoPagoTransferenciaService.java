@@ -5,8 +5,8 @@
  */
 package com.arelance.empresa.servicios;
 
-
 import com.arelance.empresa.imd.domain.Metodopagotransferencia;
+import com.arelance.empresa.imd.domain.Transferencia;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -16,13 +16,14 @@ import javax.ejb.Local;
  */
 @Local
 public interface MetodoPagoTransferenciaService {
-    
+
     public List<Metodopagotransferencia> obtener();//Obtener todos los metodos de pago por transferencia
-    
+
     public void AñadirPagoTransferencia(Metodopagotransferencia metodopagotransferencia);//Añadir un metodo de pago por transferencia
 
     public void ModificarPagoTransferencia(Metodopagotransferencia metodopagotransferencia);//Modificar un metodo de pago por transferencia
 
     public void RemoverPagoTransferencia(Metodopagotransferencia metodopagotransferencia);//Eliminar un metodo de pago por transferencia
-    
+
+    public Transferencia obteneridTransferencia();
 }
