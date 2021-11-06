@@ -12,8 +12,13 @@ body{
     color:white;
 }
 /*Asignamos fuente distinta para usar como logotipo.*/
+@font-face{
+    font-family: 'miFuente';
+    src: url(../Fonts/AquireBold-8Ma60.otf);
+    color:white;
+}
 .navbar-brand{
-    font-family: 'Aquire',sans-serif;
+    font-family: 'miFuente';
     color:white;
 }
 /*Negrita para los campos de texto.*/

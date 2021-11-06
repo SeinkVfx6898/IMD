@@ -1,8 +1,4 @@
--- 
-    Document   : index
-    Created on : 06-sep-2021, 18:06:20
-    Author     : lenovo
---%>
+
 
 <%@page import="com.arelance.empresa.imd.domain.Cliente"%>
 <%@page import="com.arelance.empresa.imd.domain.Actividad"%>
@@ -54,7 +50,7 @@
             <%
                 }
             %>
-
+            <p id="parrafo">No existe ningún elemento asociado a la búsqueda</p>
         </ul>
             &copy;2021-2022 IMD S.A.Todos los derechos reservados.
         </footer>
