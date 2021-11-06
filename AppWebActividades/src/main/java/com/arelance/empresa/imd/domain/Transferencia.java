@@ -64,21 +64,12 @@ public class Transferencia implements Serializable {
         this.idTransferencia = idTransferencia;
     }
 
-<<<<<<< HEAD
-    public Transferencia(int iban, String conceptoPago) {
-        this.iban = iban;
-        this.conceptoPago = conceptoPago;
-    }
-    
-    public Transferencia(Integer idTransferencia, int iban, String conceptoPago) {
-=======
     public Transferencia(String iban, String conceptoPago) {
        this.iban=iban;
         this.conceptoPago = conceptoPago;
     }
     
     public Transferencia(Integer idTransferencia,String iban, String conceptoPago) {
->>>>>>> c1192c1a628b1b6b00d5ac9ec7fcb9446935a382
         this.idTransferencia = idTransferencia;
         this.iban = iban;
         this.conceptoPago = conceptoPago;
@@ -135,19 +126,11 @@ public class Transferencia implements Serializable {
         return "com.arelance.empresa.imd.domain.Transferencia[ idTransferencia=" + idTransferencia + " ]";
     }
 
-<<<<<<< HEAD
-    public int getIban() {
-        return iban;
-    }
-
-    public void setIban(int iban) {
-=======
     public String getIban() {
         return iban;
     }
 
     public void setIban(String iban) {
->>>>>>> c1192c1a628b1b6b00d5ac9ec7fcb9446935a382
         this.iban = iban;
     }
 
