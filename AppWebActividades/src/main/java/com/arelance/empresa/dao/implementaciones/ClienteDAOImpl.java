@@ -1,3 +1,4 @@
+
 import com.arelance.empresa.imd.dao.ClienteDAO;
 import com.arelance.empresa.imd.domain.Cliente;
 import java.util.List;
@@ -72,10 +73,42 @@ public class ClienteDAOImpl implements ClienteDAO {
             return null;
         }
     }
-       @Override
+
+    @Override
     public Cliente SacarID(Cliente cliente) {
         String sql = "SELECT c.id_cliente FROM cliente c WHERE nick = '" + cliente.getNick() + "'";
         return (Cliente) em.createNativeQuery(sql, Cliente.class).getSingleResult();
+    }
+
+    @Override
+    public Cliente EncontrarClientePorTelefono(Cliente cliente) {
+        try {
+            Query q = em.createNamedQuery("Cliente.findByTelefono").setParameter("telefono", cliente.getTelefono());
+            return (Cliente) q.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public Cliente EncontrarClientePorEmail(Cliente cliente) {
+        try {
+            Query q = em.createNamedQuery("Cliente.findByEmail").setParameter("email", cliente.getEmail());
+            return (Cliente) q.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public Cliente ComprobarRegistro(Cliente cliente) {
+        try {
+            Query q = em.createNamedQuery("Cliente.ComprobarRegistro").setParameter("nick", cliente.getNick()).
+                    setParameter("telefono", cliente.getTelefono()).setParameter("email", cliente.getEmail());
+            return (Cliente) q.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
 }
