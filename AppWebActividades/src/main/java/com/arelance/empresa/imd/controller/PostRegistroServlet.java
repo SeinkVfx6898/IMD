@@ -8,7 +8,6 @@ package com.arelance.empresa.imd.controller;
 import com.arelance.empresa.imd.domain.Cliente;
 import com.arelance.empresa.servicios.ClienteService;
 import java.io.IOException;
-import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,32 +36,75 @@ public class PostRegistroServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String telefono = request.getParameter("tlf");
-        String email = request.getParameter("email");
-        String nick = request.getParameter("nick");
-        String password = request.getParameter("pass");
-        String password2 = request.getParameter("passconfirm");
-        Cliente cliente = new Cliente(nombre, apellido, telefono, email, nick, password);
+        String nombre = null;
+        String apellido = null;
+        String telefono = null;
+        String email = null;
+        String nick = null;
+        String password = null;
+        String password2 = null;
 
-        if (clienteService.ComprobarRegistro(cliente) != null) {
-            clienteService.AñadirCliente(cliente);
-            request.getRequestDispatcher("View/login.jsp").forward(request, response);
-        } else {
-            if (clienteService.EncontrarClientePorNick(cliente) == null) {
-                request.setAttribute("NickMsg", "Este nick ya existe.");
+        if (request.getParameter("nombre").trim().length() == 0 || request.getParameter("apellido").trim().length() == 0
+                || request.getParameter("tlf").trim().length() == 0 || request.getParameter("email").trim().length() == 0
+                || request.getParameter("nick").trim().length() == 0 || request.getParameter("pass").trim().length() == 0
+                || request.getParameter("passconfirm").trim().length() == 0) {
+            if (request.getParameter("nombre").trim().length() != 0) {
+                nombre = request.getParameter("nombre");
+            } else {
+                request.setAttribute("NickMsg", "El nick no esta relleno.");
             }
-            if (clienteService.EncontrarClientePorTelefono(cliente) == null) {
-                request.setAttribute("TlfMsg", "Este teléfono ya existe.");
+            if (request.getParameter("apellido").trim().length() != 0) {
+                apellido = request.getParameter("apellido");
+            } else {
+                request.setAttribute("ApeMsg", "El apellido no esta relleno.");
             }
-            if (clienteService.EncontrarClientePorEmail(cliente) == null) {
-                request.setAttribute("EmailMsg", "Este email ya existe.");
+            if (request.getParameter("tlf").trim().length() != 0) {
+                telefono = request.getParameter("tlf");
+            } else {
+                request.setAttribute("TlfMsg", "El telefono no esta relleno.");
             }
-            if (!password.equals(password2)) {
-                request.setAttribute("PassMsg", "Las contraseñas no coinciden.");
+            if (request.getParameter("email").trim().length() != 0) {
+                email = request.getParameter("email");
+            } else {
+                request.setAttribute("EmailMsg", "El email no esta relleno.");
+            }
+            if (request.getParameter("nick").trim().length() != 0) {
+                nick = request.getParameter("nick");
+            } else {
+                request.setAttribute("NickMsg", "El nick no esta relleno.");
+            }
+            if (request.getParameter("pass").trim().length() != 0) {
+                password = request.getParameter("pass");
+            } else {
+                request.setAttribute("PassMsg", "La contraseña no esta relleno.");
+            }
+            if (request.getParameter("passconfirm").trim().length() != 0) {
+                password2 = request.getParameter("passconfirm");
+            } else {
+                request.setAttribute("PassMsg", "La comprobacion de contraseña no esta relleno.");
             }
             request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+        } else if (!password.equals(password2)) {
+            request.setAttribute("PassMsg", "Las contraseñas no coinciden.");
+            request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+        } else {
+            Cliente cliente = new Cliente(nombre, apellido, telefono, email, nick, password);
+            if (clienteService.ComprobarRegistro(cliente) != null) {
+                clienteService.AñadirCliente(cliente);
+                request.getRequestDispatcher("View/login.jsp").forward(request, response);
+            } else {
+                if (clienteService.EncontrarClientePorNick(cliente) == null) {
+                    request.setAttribute("NickMsg", "Este nick ya existe.");
+                }
+                if (clienteService.EncontrarClientePorTelefono(cliente) == null) {
+                    request.setAttribute("TlfMsg", "Este teléfono ya existe.");
+                }
+                if (clienteService.EncontrarClientePorEmail(cliente) == null) {
+                    request.setAttribute("EmailMsg", "Este email ya existe.");
+                }
+
+                request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+            }
         }
     }
 
