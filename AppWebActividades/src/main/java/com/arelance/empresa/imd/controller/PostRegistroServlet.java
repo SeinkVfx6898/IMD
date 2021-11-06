@@ -44,24 +44,26 @@ public class PostRegistroServlet extends HttpServlet {
         String nick = request.getParameter("nick");
         String password = request.getParameter("pass");
         String password2 = request.getParameter("passconfirm");
-        List<Cliente> clientes = clienteService.listarClientes();//cambiar para que no carge toda la lista de clientes
-        for (Cliente cliente : clientes) {
-            if (cliente.getNick().equals(nick)) {
-                request.setAttribute("NickMsg", "Este nick ya existe.");
-            } else if (cliente.getTelefono().equals(telefono)) {
-                request.setAttribute("TlfMsg", "Este teléfono ya existe.");
-            } else if (cliente.getEmail().equals(email)) {
-                request.setAttribute("EmailMsg", "Este email ya existe.");
-            } else if (!password.equals(password2)) {
-                request.setAttribute("PassMsg", "Las contraseñas no coinciden.");
-            } else {
-                Cliente cliente1 = new Cliente(nombre, apellido, telefono, email, nick, password);
-                clienteService.AñadirCliente(cliente1);
-                request.getRequestDispatcher("View/login.jsp").forward(request, response);
-            }
+        Cliente cliente = new Cliente(nombre, apellido, telefono, email, nick, password);
 
+        if (clienteService.ComprobarRegistro(cliente) != null) {
+            clienteService.AñadirCliente(cliente);
+            request.getRequestDispatcher("View/login.jsp").forward(request, response);
+        } else {
+            if (clienteService.EncontrarClientePorNick(cliente) == null) {
+                request.setAttribute("NickMsg", "Este nick ya existe.");
+            }
+            if (clienteService.EncontrarClientePorTelefono(cliente) == null) {
+                request.setAttribute("TlfMsg", "Este teléfono ya existe.");
+            }
+            if (clienteService.EncontrarClientePorEmail(cliente) == null) {
+                request.setAttribute("EmailMsg", "Este email ya existe.");
+            }
+            if (!password.equals(password2)) {
+                request.setAttribute("PassMsg", "Las contraseñas no coinciden.");
+            }
+            request.getRequestDispatcher("View/registro.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("View/registro.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

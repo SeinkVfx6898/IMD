@@ -32,7 +32,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Cliente.findByIdCliente", query = "SELECT c FROM Cliente c WHERE c.idCliente = :idCliente"),
     @NamedQuery(name = "Cliente.findByNick", query = "SELECT c FROM Cliente c WHERE c.nick = :nick"),
     @NamedQuery(name = "Cliente.findByPassword", query = "SELECT c FROM Cliente c WHERE c.password = :password"),
-    @NamedQuery(name = "Cliente.ValidarCliente", query = "SELECT c FROM Cliente c WHERE c.nick = :nick AND c.password = :password")})
+    @NamedQuery(name = "Cliente.ValidarCliente", query = "SELECT c FROM Cliente c WHERE c.nick = :nick AND c.password = :password"),
+    @NamedQuery(name = "Cliente.ComprobarRegistro", query = "SELECT c FROM Cliente c WHERE c.nick = :nick AND c.telefono = :telefono AND c.email = :email"),
+    @NamedQuery(name = "Cliente.findByTelefono", query = "SELECT c FROM Cliente c WHERE c.telefono = :telefono"),
+    @NamedQuery(name = "Cliente.findByEmail", query = "SELECT c FROM Cliente c WHERE c.email = :email")})
 public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -104,7 +107,6 @@ public class Cliente implements Serializable {
         this.password = password;
     }
 
-    
     public Integer getIdCliente() {
         return idCliente;
     }

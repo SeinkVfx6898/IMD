@@ -24,7 +24,7 @@ public interface ClienteDAO {
 
     public Cliente EncontrarClientePorPassword(Cliente cliente);//Encontrar por password.
 
-    public Cliente ValidarCliente(Cliente cliente);//Encontrar por password.
+    public Cliente ValidarCliente(Cliente cliente);//Encontrar por nick y password.
 
     public void AñadirCliente(Cliente cliente);//Añadir clientes.
 
@@ -32,6 +32,12 @@ public interface ClienteDAO {
 
     public void RemoverCliente(Cliente cliente);//Remover clientes.
 
-    public Cliente SacarID(Cliente cliente);//Saca el ida de cliente
+    public Cliente SacarID(Cliente cliente);//Saca el id de cliente
+    
+    public Cliente EncontrarClientePorTelefono(Cliente cliente);//Encontrar por telefono.
+    
+    public Cliente EncontrarClientePorEmail(Cliente cliente);//Encontrar por email.
+    
+    public Cliente ComprobarRegistro(Cliente cliente);//Cumplieva si existe un cliente con el nick, email o telefono.
 
 }
