@@ -46,7 +46,7 @@ public class MetodoPagoTransferenciaDAOImpl implements MetodoPagoTransferenciaDA
     @Override
     public Transferencia ObtenerIdTarjeta() {
      String sql = "SELECT id_transferencia FROM institutomd_bd.transferencia order by id_transferencia desc limit 1";
-        return (Transferencia) em.createNativeQuery(sql, Transferencia.class).getSingleResult();
+        return (Transferencia) em.createNativeQuery(sql,Transferencia.class).getSingleResult();
     }
 
 

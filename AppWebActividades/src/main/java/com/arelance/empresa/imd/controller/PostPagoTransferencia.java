@@ -61,10 +61,10 @@ public class PostPagoTransferencia extends HttpServlet {
         Cliente c = new Cliente(cliente.getIdCliente());
         Actividad actividad = new Actividad(idActividad);
         transferenciaService.AñadirTransferencia(transferencia);
-        Metodopagotransferencia metodopagotransferencia=new Metodopagotransferencia(metodoPagoTransferenciaService.obteneridTransferencia());
+        Metodopagotransferencia metodopagotransferencia = new Metodopagotransferencia(metodoPagoTransferenciaService.obteneridTransferencia());
         metodoPagoTransferenciaService.AñadirPagoTransferencia(metodopagotransferencia);
-        Metodopagotransferencia m=inscripcionTransferenciaService.ObtenerIdTransferencia();
-        Inscripciontransferencia inscripciontransferencia=new Inscripciontransferencia(actividad,c,m);
+        Metodopagotransferencia metodo = inscripcionTransferenciaService.ObtenerIdTransferencia();
+        Inscripciontransferencia inscripciontransferencia = new Inscripciontransferencia(actividad,c,metodo);
         inscripcionTransferenciaService.guardar(inscripciontransferencia);
         request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
     }

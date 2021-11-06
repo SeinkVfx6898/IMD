@@ -1,7 +1,7 @@
   function myFunction(myInput) {
       var parrafo=document.getElementById("parrafo");
-                var input, filter, ul, li, a, i, txtValue;
-                var inputvalue=document.getElementById("myInput").value;
+                let input, filter, ul, li, a, i, txtValue;
+                let inputvalue=document.getElementById("myInput").value;
                 input = document.getElementById("myInput");
                 filter = input.value.toUpperCase();
                 ul = document.getElementById("myUL");

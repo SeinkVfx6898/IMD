@@ -47,7 +47,7 @@ public class InscripcionTransferenciaDAOImpl implements InscripcionTransferencia
     @Override
     public Metodopagotransferencia ObtenerIdTransferencia() {
              String sql = "SELECT idmetodopagotransferencia FROM institutomd_bd.metodopagotransferencia order by idmetodopagotransferencia desc limit 1";
-        return (Metodopagotransferencia) em.createNativeQuery(sql, Transferencia.class).getSingleResult();
+        return (Metodopagotransferencia) em.createNativeQuery(sql,Metodopagotransferencia.class).getSingleResult();
     }
     
 
