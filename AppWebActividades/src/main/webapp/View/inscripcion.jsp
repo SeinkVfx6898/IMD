@@ -89,14 +89,12 @@
         <form action="PostPagoTransferencia" method="GET" id="transferencia" style="display: none">
             <legend>Pago por transferencia:</legend>
             <label for="iban">IBAN:</label>
-            <input type="text" class="form-control" id="iban" placeholder="1234567891234567" name="iban">
+            <input type="text" class="form-control" id="iban" placeholder="1234567891234567" name="iban" maxlength="16">
             <label for="concepto">Copcepto de pago:</label>
-            <input type="text" class="form-control" id="concepto" placeholder="pago deporte" name="concepto">
+            <input type="text" class="form-control" id="concepto" placeholder="pago deporte" name="concepto"maxlength="16">
             <input type="hidden" class="form-control" id="id_actividad" name="id_actividad" value="${actividad.getIdActividad()}">
             <input type="submit" class="btn btn-info"name="action"value="Continuar">
             <input type="reset"class="btn btn-info"name="action"value="Limpiar">
-
-
         </fieldset>
     </form>
 </div>
