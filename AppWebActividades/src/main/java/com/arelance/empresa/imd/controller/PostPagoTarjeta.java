@@ -42,7 +42,7 @@ public class PostPagoTarjeta extends HttpServlet {
     private ActividadService actividadService;
     @Inject
     private ClienteService clienteService;
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -60,17 +60,34 @@ public class PostPagoTarjeta extends HttpServlet {
             String fecha = request.getParameter("Fecha_caducidad");
             int cvv = Integer.parseInt(request.getParameter("CVV"));
             int idActividad = Integer.parseInt(request.getParameter("id_actividad"));
-            Tarjetacredito tarjeta = new Tarjetacredito(numeroTarjeta, fecha, cvv);
-            Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
-            Cliente cliente2 = new Cliente(cliente.getIdCliente());
-            Actividad actividad =  new Actividad(idActividad);
-            tarjetaService.AñadirTarjeta(tarjeta);
-            Metodopagotarjeta metodoTarjeta = new Metodopagotarjeta(metodoPagoTarjetaService.ObtenerIdTarjeta());
-            metodoPagoTarjetaService.AñadirPagoTarjeta(metodoTarjeta);
-            Metodopagotarjeta pagotarjeta = inscripcionTarjetaService.ObtenerIdTarjeta();
-            Inscripciontarjeta inscripciontarjeta = new Inscripciontarjeta(actividad, cliente2, pagotarjeta);
-            inscripcionTarjetaService.guardar(inscripciontarjeta);
-            request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
+
+            if (numeroTarjeta > 1 || fecha.trim().length() == 0 || cvv > 1 || idActividad > 1) {
+                if (numeroTarjeta > 1) {
+                    request.setAttribute("TarMsg", "El numero de la tarjeta tiene que se mayor a 0.");
+                }
+                if (fecha.trim().length() == 0) {
+                    request.setAttribute("FecMsg", "La fecha no esta rellena.");
+                }
+                if (cvv > 1) {
+                    request.setAttribute("CvvMsg", "El numero del CVV tiene que se mayor a 0.");
+                }
+                if (idActividad > 1) {
+                    request.setAttribute("ActMsg", "Esta actividad no existe.");
+                }
+                request.getRequestDispatcher("View/inscripcion.jsp").forward(request, response);
+            } else {
+                Tarjetacredito tarjeta = new Tarjetacredito(numeroTarjeta, fecha, cvv);
+                Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
+                Cliente cliente2 = new Cliente(cliente.getIdCliente());
+                Actividad actividad = new Actividad(idActividad);
+                tarjetaService.AñadirTarjeta(tarjeta);
+                Metodopagotarjeta metodoTarjeta = new Metodopagotarjeta(metodoPagoTarjetaService.ObtenerIdTarjeta());
+                metodoPagoTarjetaService.AñadirPagoTarjeta(metodoTarjeta);
+                Metodopagotarjeta pagotarjeta = inscripcionTarjetaService.ObtenerIdTarjeta();
+                Inscripciontarjeta inscripciontarjeta = new Inscripciontarjeta(actividad, cliente2, pagotarjeta);
+                inscripcionTarjetaService.guardar(inscripciontarjeta);
+                request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
+            }
         }
     }
 

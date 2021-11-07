@@ -36,56 +36,41 @@ public class PostRegistroServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nombre = null;
-        String apellido = null;
-        String telefono = null;
-        String email = null;
-        String nick = null;
-        String password = null;
-        String password2 = null;
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String telefono = request.getParameter("tlf");
+        String email = request.getParameter("email");
+        String nick = request.getParameter("nick");
+        String password = request.getParameter("pass");
+        String password2 = request.getParameter("passconfirm");
 
-        if (request.getParameter("nombre").trim().length() == 0 || request.getParameter("apellido").trim().length() == 0
-                || request.getParameter("tlf").trim().length() == 0 || request.getParameter("email").trim().length() == 0
-                || request.getParameter("nick").trim().length() == 0 || request.getParameter("pass").trim().length() == 0
-                || request.getParameter("passconfirm").trim().length() == 0) {
-            if (request.getParameter("nombre").trim().length() != 0) {
-                nombre = request.getParameter("nombre");
-            } else {
-                request.setAttribute("NickMsg", "El nick no esta relleno.");
+        if (nombre.trim().length() == 0 || apellido.trim().length() == 0|| telefono.trim().length() == 0 
+                || email.trim().length() == 0 || nick.trim().length() == 0 || password.trim().length() == 0
+                || password2.trim().length() == 0) {
+            if (nombre.trim().length() == 0) {
+                request.setAttribute("NomMsg", "El nick no esta relleno.");
             }
-            if (request.getParameter("apellido").trim().length() != 0) {
-                apellido = request.getParameter("apellido");
-            } else {
+            if (apellido.trim().length() == 0) {
                 request.setAttribute("ApeMsg", "El apellido no esta relleno.");
             }
-            if (request.getParameter("tlf").trim().length() != 0) {
-                telefono = request.getParameter("tlf");
-            } else {
+            if (telefono.trim().length() == 0) {
                 request.setAttribute("TlfMsg", "El telefono no esta relleno.");
             }
-            if (request.getParameter("email").trim().length() != 0) {
-                email = request.getParameter("email");
-            } else {
+            if (email.trim().length() == 0) {
                 request.setAttribute("EmailMsg", "El email no esta relleno.");
             }
-            if (request.getParameter("nick").trim().length() != 0) {
-                nick = request.getParameter("nick");
-            } else {
-                request.setAttribute("NickMsg", "El nick no esta relleno.");
+            if (nick.trim().length() == 0) {
+               request.setAttribute("NickMsg", "El nick no esta relleno.");
             }
-            if (request.getParameter("pass").trim().length() != 0) {
-                password = request.getParameter("pass");
-            } else {
+            if (password.trim().length() == 0) {
                 request.setAttribute("PassMsg", "La contraseña no esta relleno.");
             }
-            if (request.getParameter("passconfirm").trim().length() != 0) {
-                password2 = request.getParameter("passconfirm");
-            } else {
-                request.setAttribute("PassMsg", "La comprobacion de contraseña no esta relleno.");
+            if (password2.trim().length() == 0) {
+                request.setAttribute("Pass2Msg", "La comprobacion de contraseña no esta relleno.");
             }
-            request.getRequestDispatcher("View/registro.jsp").forward(request, response);
-        } else if (!password.equals(password2)) {
+            if (!password.equals(password2)) {
             request.setAttribute("PassMsg", "Las contraseñas no coinciden.");
+            }
             request.getRequestDispatcher("View/registro.jsp").forward(request, response);
         } else {
             Cliente cliente = new Cliente(nombre, apellido, telefono, email, nick, password);

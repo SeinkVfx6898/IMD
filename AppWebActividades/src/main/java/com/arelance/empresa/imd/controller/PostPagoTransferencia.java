@@ -26,11 +26,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * <<<<<<< HEAD
- * @a
  *
- * uthor manul =======
- * @author lenovo >>>>>>> c1192c1a628b1b6b00d5ac9ec7fcb9446935a382
+ * @author lenovo
  */
 @WebServlet(name = "PostPagoTransferencia", urlPatterns = {"/PostPagoTransferencia"})
 public class PostPagoTransferencia extends HttpServlet {
@@ -62,17 +59,31 @@ public class PostPagoTransferencia extends HttpServlet {
             String iban = request.getParameter("iban");
             String concepto = request.getParameter("concepto");
             int idActividad = Integer.parseInt(request.getParameter("id_actividad"));
-            Transferencia transferencia = new Transferencia(iban, concepto);
-            Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
-            Cliente c = new Cliente(cliente.getIdCliente());
-            Actividad actividad = new Actividad(idActividad);
-            transferenciaService.AñadirTransferencia(transferencia);
-            Metodopagotransferencia metodopagotransferencia = new Metodopagotransferencia(metodoPagoTransferenciaService.obteneridTransferencia());
-            metodoPagoTransferenciaService.AñadirPagoTransferencia(metodopagotransferencia);
-            Metodopagotransferencia m = inscripcionTransferenciaService.ObtenerIdTransferencia();
-            Inscripciontransferencia inscripciontransferencia = new Inscripciontransferencia(actividad, c, m);
-            inscripcionTransferenciaService.guardar(inscripciontransferencia);
-            request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
+
+            if (iban.trim().length() == 0 || concepto.trim().length() == 0 || idActividad > 1) {
+                if (iban.trim().length() == 0) {
+                    request.setAttribute("IbanMsg", "El iban no esta relleno.");
+                }
+                if (concepto.trim().length() == 0) {
+                    request.setAttribute("ConMsg", "El concepto no esta relleno.");
+                }
+                if (idActividad > 1) {
+                    request.setAttribute("ActMsg", "Esta actividad no existe.");
+                }
+                request.getRequestDispatcher("View/inscripcion.jsp").forward(request, response);
+            } else {
+                Transferencia transferencia = new Transferencia(iban, concepto);
+                Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
+                Cliente c = new Cliente(cliente.getIdCliente());
+                Actividad actividad = new Actividad(idActividad);
+                transferenciaService.AñadirTransferencia(transferencia);
+                Metodopagotransferencia metodopagotransferencia = new Metodopagotransferencia(metodoPagoTransferenciaService.obteneridTransferencia());
+                metodoPagoTransferenciaService.AñadirPagoTransferencia(metodopagotransferencia);
+                Metodopagotransferencia m = inscripcionTransferenciaService.ObtenerIdTransferencia();
+                Inscripciontransferencia inscripciontransferencia = new Inscripciontransferencia(actividad, c, m);
+                inscripcionTransferenciaService.guardar(inscripciontransferencia);
+                request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
+            }
         }
     }
 
