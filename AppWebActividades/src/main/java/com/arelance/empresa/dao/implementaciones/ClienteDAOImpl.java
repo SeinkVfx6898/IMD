@@ -17,6 +17,7 @@ public class ClienteDAOImpl implements ClienteDAO {
 
     @PersistenceContext(unitName = "ImdPU")
     EntityManager em;
+         int r = 0;
 
     @Override
     public List<Cliente> listarClientes() {
@@ -100,15 +101,6 @@ public class ClienteDAOImpl implements ClienteDAO {
         }
     }
 
-    @Override
-    public Cliente ComprobarRegistro(Cliente cliente) {
-        try {
-            Query q = em.createNamedQuery("Cliente.ComprobarRegistro").setParameter("nick", cliente.getNick()).
-                    setParameter("telefono", cliente.getTelefono()).setParameter("email", cliente.getEmail());
-            return (Cliente) q.getSingleResult();
-        } catch (NoResultException e) {
-            return null;
-        }
-    }
+
 
 }

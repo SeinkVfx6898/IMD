@@ -38,6 +38,6 @@ public interface ClienteDAO {
     
     public Cliente EncontrarClientePorEmail(Cliente cliente);//Encontrar por email.
     
-    public Cliente ComprobarRegistro(Cliente cliente);//Cumplieva si existe un cliente con el nick, email o telefono.
+
 
 }

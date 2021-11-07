@@ -16,7 +16,7 @@ import javax.ejb.Local;
 @Local
 public interface ClienteService {
 
-public List<Cliente> listarClientes();//Obtener clientes.
+    public List<Cliente> listarClientes();//Obtener clientes.
 
     public Cliente EncontrarClientePorID(Cliente cliente);//Encontrar por id.
 
@@ -33,11 +33,11 @@ public List<Cliente> listarClientes();//Obtener clientes.
     public void RemoverCliente(Cliente cliente);//Remover clientes.
 
     public Cliente SacarID(Cliente cliente);//Saca el id de cliente
-    
+
     public Cliente EncontrarClientePorTelefono(Cliente cliente);//Encontrar por telefono.
-    
+
     public Cliente EncontrarClientePorEmail(Cliente cliente);//Encontrar por email.
-    
-    public Cliente ComprobarRegistro(Cliente cliente);//Cumplieva si existe un cliente con el nick, email o telefono.
+
+    public int ValidarRegistro(Cliente cliente);
 
 }

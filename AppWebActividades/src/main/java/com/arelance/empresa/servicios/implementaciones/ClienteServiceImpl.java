@@ -76,11 +76,10 @@ public class ClienteServiceImpl implements ClienteService {
         return clienteDAO.EncontrarClientePorEmail(cliente);
     }
 
-    @Override
-    public Cliente ComprobarRegistro(Cliente cliente) {
-        return clienteDAO.ComprobarRegistro(cliente);
-    }
-    
 
+    @Override
+    public int ValidarRegistro(Cliente cliente) {
+        return clienteDAO.ValidarRegistro(cliente);
+    }
     
 }

@@ -34,36 +34,31 @@ public class PostRegistroServlet extends HttpServlet {
      */
     @Inject
     private ClienteService clienteService;
+    int r;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String telefono = request.getParameter("tlf");
-        String email = request.getParameter("email");
-        String nick = request.getParameter("nick");
-        String password = request.getParameter("pass");
-        String password2 = request.getParameter("passconfirm");
-        Cliente cliente = new Cliente(nombre, apellido, telefono, email, nick, password);
+        String action = request.getParameter("action");
 
-        if (clienteService.ComprobarRegistro(cliente) != null) {
-            clienteService.AñadirCliente(cliente);
-            request.getRequestDispatcher("View/login.jsp").forward(request, response);
-        } else {
-            if (clienteService.EncontrarClientePorNick(cliente) == null) {
-                request.setAttribute("NickMsg", "Este nick ya existe.");
+        if (action.equals("Registrarse")) {
+            String nombre = request.getParameter("nombre");
+            String apellido = request.getParameter("apellido");
+            String telefono = request.getParameter("telefono");
+            String correo = request.getParameter("correo");
+            String nick = request.getParameter("usuario");
+            String password = request.getParameter("password");
+            String password2 = request.getParameter("password2");
+            Cliente cliente = new Cliente(nombre, apellido, telefono, correo, nick, password);
+            r = clienteService.ValidarRegistro(cliente);
+            if (r == 1) {
+                request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+
+            } else {
+                clienteService.AñadirCliente(cliente);
+                request.getRequestDispatcher("View/login.jsp").forward(request, response);
             }
-            if (clienteService.EncontrarClientePorTelefono(cliente) == null) {
-                request.setAttribute("TlfMsg", "Este teléfono ya existe.");
-            }
-            if (clienteService.EncontrarClientePorEmail(cliente) == null) {
-                request.setAttribute("EmailMsg", "Este email ya existe.");
-            }
-            if (!password.equals(password2)) {
-                request.setAttribute("PassMsg", "Las contraseñas no coinciden.");
-            }
-            request.getRequestDispatcher("View/registro.jsp").forward(request, response);
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
