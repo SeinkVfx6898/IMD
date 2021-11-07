@@ -38,8 +38,8 @@ public class PostLoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            String nick = request.getParameter("nick");
-            String password = request.getParameter("pswd");
+            String nick = request.getParameter("usuario");
+            String password = request.getParameter("password");
             Cliente cliente = new Cliente(nick, password);
 
 
