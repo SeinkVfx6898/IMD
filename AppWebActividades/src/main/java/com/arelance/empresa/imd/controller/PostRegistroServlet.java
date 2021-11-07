@@ -44,7 +44,7 @@ public class PostRegistroServlet extends HttpServlet {
         String password = request.getParameter("pass");
         String password2 = request.getParameter("passconfirm");
 
-        if (nombre.trim().length() == 0 || apellido.trim().length() == 0|| telefono.trim().length() == 0 
+        if (nombre.trim().length() == 0 || apellido.trim().length() == 0 || telefono.trim().length() == 0
                 || email.trim().length() == 0 || nick.trim().length() == 0 || password.trim().length() == 0
                 || password2.trim().length() == 0) {
             if (nombre.trim().length() == 0) {
@@ -60,7 +60,7 @@ public class PostRegistroServlet extends HttpServlet {
                 request.setAttribute("EmailMsg", "El email no esta relleno.");
             }
             if (nick.trim().length() == 0) {
-               request.setAttribute("NickMsg", "El nick no esta relleno.");
+                request.setAttribute("NickMsg", "El nick no esta relleno.");
             }
             if (password.trim().length() == 0) {
                 request.setAttribute("PassMsg", "La contraseña no esta relleno.");
@@ -68,9 +68,9 @@ public class PostRegistroServlet extends HttpServlet {
             if (password2.trim().length() == 0) {
                 request.setAttribute("Pass2Msg", "La comprobacion de contraseña no esta relleno.");
             }
-            if (!password.equals(password2)) {
+            request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+        } else if (!password.equals(password2)) {
             request.setAttribute("PassMsg", "Las contraseñas no coinciden.");
-            }
             request.getRequestDispatcher("View/registro.jsp").forward(request, response);
         } else {
             Cliente cliente = new Cliente(nombre, apellido, telefono, email, nick, password);
