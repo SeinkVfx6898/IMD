@@ -11,7 +11,6 @@
         <%@include file = "../JSPF/meta.jspf"%>
         <title>Registro</title>
         <%@include file = "../JSPF/datospersonales.jspf"%>
-        <script src="JS/habilitarboton.js"></script>
         <link rel="stylesheet" href="../CSS/estilos.css">
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     </head>
@@ -42,12 +41,12 @@
                         <input type="text" class="formulario__input" name="apellido" id="apellido" placeholder="Morillo">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                    <p class="formulario__input-error">El apellido tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+                    <p class="formulario__input-error">El apellido tiene que ser de 4 a 16 dígitos y solo puede contener letras.</p>
                 </div>
                 <div class="formulario__grupo" id="grupo__password">
                     <label for="password" class="formulario__label">Contraseña</label>
                     <div class="formulario__grupo-input">
-                        <input type="password" class="formulario__input" name="password" id="password">
+                        <input type="password" class="formulario__input" name="password" id="password" placeholder="1234">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>

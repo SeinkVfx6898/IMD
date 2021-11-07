@@ -76,10 +76,5 @@ public class ClienteServiceImpl implements ClienteService {
         return clienteDAO.EncontrarClientePorEmail(cliente);
     }
 
-
-    @Override
-    public int ValidarRegistro(Cliente cliente) {
-        return clienteDAO.ValidarRegistro(cliente);
-    }
     
 }

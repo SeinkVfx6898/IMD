@@ -38,40 +38,34 @@ public class PostRegistroServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getParameter("action");
 
-        if (action.equals("Registrarse")) {
-            String nombre = request.getParameter("nombre");
-            String apellido = request.getParameter("apellido");
-            String telefono = request.getParameter("telefono");
-            String correo = request.getParameter("correo");
-            String nick = request.getParameter("usuario");
-            String password = request.getParameter("password");
-            String password2 = request.getParameter("password2");
-            Cliente cliente = new Cliente(nombre, apellido, telefono, correo, nick, password);
-            r = clienteService.ValidarRegistro(cliente);
-            if (r == 1) {
-                request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String telefono = request.getParameter("telefono");
+        String correo = request.getParameter("correo");
+        String nick = request.getParameter("usuario");
+        String password = request.getParameter("password");
+        String password2 = request.getParameter("password2");
+        Cliente cliente = new Cliente(nombre, apellido, telefono, correo, nick, password);
+        request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+        clienteService.AñadirCliente(cliente);
+        request.getRequestDispatcher("View/login.jsp").forward(request, response);
 
-            } else {
-                clienteService.AñadirCliente(cliente);
-                request.getRequestDispatcher("View/login.jsp").forward(request, response);
-            }
-        }
+    
+}
 
-    }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+/**
+ * Handles the HTTP <code>GET</code> method.
+ *
+ * @param request servlet request
+ * @param response servlet response
+ * @throws ServletException if a servlet-specific error occurs
+ * @throws IOException if an I/O error occurs
+ */
+@Override
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -85,7 +79,7 @@ public class PostRegistroServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -96,7 +90,7 @@ public class PostRegistroServlet extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+        public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 

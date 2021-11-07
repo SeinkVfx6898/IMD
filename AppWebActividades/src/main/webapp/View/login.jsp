@@ -12,16 +12,39 @@
         <%@include file = "../JSPF/meta.jspf"%>
         <title>Login</title>
         <%@include file = "../JSPF/login.jspf"%>
+        <link rel="stylesheet" href="../CSS/estilos.css">
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     </head>
     <body>
-        <h3>Accede a tu cuenta:</h3>
-        <form action="http://localhost:8080/AppWebActividades/PostLoginServlet" id="formlogin">
-            <label for="text">Nick:</label>
-            <input type="text" class="form-control" id="nombre" placeholder="SalvSolo" name="nick" maxlength="20"><span>${NickMsg}</span>
-            <label for="pwd">Contraseña:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="SalvSolo1234" name="pswd" maxlength="20"><span>${PassMsg}</span>
-            <input type="submit" class="btn btn-info"value="Aceptar"name="action">
-            <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
-        </form>
+        <main>
+            <h3>Cada día numerosos grupos de personas disfrutan de nuestras actividades.<br>
+                ¡Forma parte de nosotros para disfrutar también!</h3>
+            <form action="http://localhost:8080/AppWebActividades/PostLoginServlet" class="formulario" id="formulario" method="GET">           
+                <div class="formulario__grupo" id="grupo__usuario">
+                    <label for="usuario" class="formulario__label">Nick:</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="AguRM98">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">El nick tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+                </div>
+                <div class="formulario__grupo" id="grupo__password">
+                    <label for="password" class="formulario__label">Contraseña</label>
+                    <div class="formulario__grupo-input">
+                        <input type="password" class="formulario__input" name="password" id="password" placeholder="1234">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
+                </div>
+                <div class="formulario__grupo formulario__grupo-btn-enviar">
+                    <input type="submit" class="btn btn-info" value="Aceptar" name="action">
+                    <input type="reset" value="Limpiar" class="btn btn-info">
+                    <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
+                </div>
+            </form>
+        </main>
+        <br>
+        <script src="../JS/formulario.js"></script>
+        <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     </body>
 </html>
