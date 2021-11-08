@@ -69,8 +69,8 @@
         <a href="PreIndexServlet" class="btn btn-info"role="button">Volver</a>
         <% if (request.getSession().getAttribute("cliente") != null) { %>
         <p>Selecciona un método de pago:</p>
-        <button id="btnTarjeta" class="btn btn-warning" onclick="habilitarTarjeta(this);">Tarjeta</button>
-        <button id="btnTransferencia" class="btn btn-warning" onclick="habilitarTransferencia(this);">Transferencia</button>
+        <button id="btnTarjeta" class="btn btn-warning" onclick="habilitar(tarjeta,transferencia);">Tarjeta</button>
+        <button id="btnTransferencia" class="btn btn-warning" onclick="habilitar(transferencia,tarjeta);">Transferencia</button>
         <form action="PostPagoTarjeta" method="GET" id="tarjeta" style="display: none">
             <fieldset>
                 <legend>Pago por tarjeta:</legend>

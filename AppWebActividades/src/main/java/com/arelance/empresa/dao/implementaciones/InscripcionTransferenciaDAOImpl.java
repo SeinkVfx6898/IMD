@@ -8,7 +8,6 @@ package com.arelance.empresa.dao.implementaciones;
 import com.arelance.empresa.imd.dao.InscripcionTransferenciaDAO;
 import com.arelance.empresa.imd.domain.Inscripciontransferencia;
 import com.arelance.empresa.imd.domain.Metodopagotransferencia;
-import com.arelance.empresa.imd.domain.Transferencia;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
