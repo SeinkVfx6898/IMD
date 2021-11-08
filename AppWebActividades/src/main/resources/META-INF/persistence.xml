@@ -4,15 +4,11 @@
     <jta-data-source>jdbc/IMD</jta-data-source>
     <class>com.arelance.empresa.imd.domain.Actividad</class>
     <class>com.arelance.empresa.imd.domain.Cliente</class>
-<<<<<<< HEAD
     <class>com.arelance.empresa.imd.domain.Inscripciontarjeta</class>
     <class>com.arelance.empresa.imd.domain.Inscripciontransferencia</class>
     <class>com.arelance.empresa.imd.domain.Metodopagotarjeta</class>
     <class>com.arelance.empresa.imd.domain.Metodopagotransferencia</class>
     <class>com.arelance.empresa.imd.domain.Tarjetacredito</class>
     <class>com.arelance.empresa.imd.domain.Transferencia</class>
-=======
-    <property name="eclipselink.jpa.uppercase-column-names" value="true"/>
->>>>>>> c1192c1a628b1b6b00d5ac9ec7fcb9446935a382
   </persistence-unit>
 </persistence>

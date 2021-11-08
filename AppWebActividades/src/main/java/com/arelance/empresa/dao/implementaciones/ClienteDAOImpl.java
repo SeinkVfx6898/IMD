@@ -1,3 +1,9 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.arelance.empresa.dao.implementaciones;
 
 import com.arelance.empresa.imd.domain.Cliente;
 import java.util.List;
@@ -79,7 +85,7 @@ public class ClienteDAOImpl implements ClienteDAO {
         String sql = "SELECT c.id_cliente FROM cliente c WHERE nick = '" + cliente.getNick() + "'";
         return (Cliente) em.createNativeQuery(sql, Cliente.class).getSingleResult();
     }
-
+    
     @Override
     public Cliente EncontrarClientePorTelefono(Cliente cliente) {
         try {
@@ -110,6 +116,4 @@ public class ClienteDAOImpl implements ClienteDAO {
             return null;
         }
     }
-
-
 }

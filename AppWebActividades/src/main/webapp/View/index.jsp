@@ -1,8 +1,3 @@
--- 
-    Document   : index
-    Created on : 06-sep-2021, 18:06:20
-    Author     : lenovo
---%>
 
 <%@page import="com.arelance.empresa.imd.domain.Cliente"%>
 <%@page import="com.arelance.empresa.imd.domain.Actividad"%>

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 /*
-=======
-/*/*
->>>>>>> c1192c1a628b1b6b00d5ac9ec7fcb9446935a382
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -18,12 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
-<<<<<<< HEAD
- * @author Manuel
-=======
+ * 
  * @author Agustin
->>>>>>> c1192c1a628b1b6b00d5ac9ec7fcb9446935a382
  */
 @WebServlet(name = "CierreSesion", urlPatterns = {"/CierreSesion"})
 public class CierreSesion extends HttpServlet {

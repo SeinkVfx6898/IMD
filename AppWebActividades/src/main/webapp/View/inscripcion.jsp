@@ -78,38 +78,24 @@
                 <input type="hidden" class="form-control" id="id_actividad" name="id_actividad" value="${actividad.getIdActividad()}">
                 <input type="submit" class="btn btn-info"name="action"value="Continuar">
                 <input type="reset"class="btn btn-info"name="action"value="Limpiar">
-<<<<<<< HEAD
-                <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
-=======
                 <a href="PreIndexServlet" class="btn btn-info"role="button">Volver</a>
->>>>>>> c1192c1a628b1b6b00d5ac9ec7fcb9446935a382
+
             </fieldset>
         </form>
         <form action="PostPagoTransferencia" method="GET" id="transferencia">
             <legend>Pago por transferencia:</legend>
             <label for="iban">IBAN:</label>
-<<<<<<< HEAD
-            <input type="text" class="form-control" id="iban" placeholder="1234567891234567" name="iban" pattern="[0-9]{16}">
-=======
             <input type="text" class="form-control" id="iban" placeholder="1234567891234567" name="iban">
->>>>>>> c1192c1a628b1b6b00d5ac9ec7fcb9446935a382
             <label for="concepto">Copcepto de pago:</label>
             <input type="text" class="form-control" id="concepto" placeholder="pago deporte" name="concepto">
             <input type="hidden" class="form-control" id="id_actividad" name="id_actividad" value="${actividad.getIdActividad()}">
             <input type="submit" class="btn btn-info"name="action"value="Continuar">
             <input type="reset"class="btn btn-info"name="action"value="Limpiar">
-<<<<<<< HEAD
-            <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
-=======
             <a href="PreIndexServlet" class="btn btn-info"role="button">Volver</a>
->>>>>>> c1192c1a628b1b6b00d5ac9ec7fcb9446935a382
         </div>
     </fieldset>
 </form>
 <% }%>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> c1192c1a628b1b6b00d5ac9ec7fcb9446935a382
+

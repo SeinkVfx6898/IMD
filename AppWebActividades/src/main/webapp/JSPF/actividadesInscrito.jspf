@@ -11,8 +11,4 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<<<<<<< HEAD:AppWebActividades/src/main/webapp/JSPF/actividadesInscrito.jspf
 <script src="JS/buscador.js"></script>
-=======
-<script src="JS/buscador.js"></script>
->>>>>>> c1192c1a628b1b6b00d5ac9ec7fcb9446935a382:AppWebActividades/src/main/webapp/JSPF/actividades.jspf
