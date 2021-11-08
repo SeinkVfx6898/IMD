@@ -12,6 +12,7 @@
         <%@include file = "../JSPF/meta.jspf"%>
         <%@include file = "../JSPF/inscripcion.jspf"%>
         <%@include file = "../JSPF/login.jspf"%>
+
         <title>Inscripción</title>
     </head>
     <body> 
@@ -65,8 +66,12 @@
                 </tbody>
             </table>
         </div>
+        <a href="PreIndexServlet" class="btn btn-info"role="button">Volver</a>
         <% if (request.getSession().getAttribute("cliente") != null) { %>
-        <form action="PostPagoTarjeta" method="GET" id="tarjeta">
+        <p>Selecciona un método de pago:</p>
+        <button id="btnTarjeta" class="btn btn-warning" onclick="habilitarTransferencia(transferencia,tarjeta);">Tarjeta</button>
+        <button id="btnTransferencia" class="btn btn-warning" onclick="habilitarTransferencia(tarjeta,transferencia);">Transferencia</button>
+        <form action="PostPagoTarjeta" method="GET" id="tarjeta" style="display: none">
             <fieldset>
                 <legend>Pago por tarjeta:</legend>
                 <label for="text">Número:</label>
@@ -78,24 +83,21 @@
                 <input type="hidden" class="form-control" id="id_actividad" name="id_actividad" value="${actividad.getIdActividad()}">
                 <input type="submit" class="btn btn-info"name="action"value="Continuar">
                 <input type="reset"class="btn btn-info"name="action"value="Limpiar">
-                <a href="PreIndexServlet" class="btn btn-info"role="button">Volver</a>
-
+            
             </fieldset>
         </form>
-        <form action="PostPagoTransferencia" method="GET" id="transferencia">
+        <form action="PostPagoTransferencia" method="GET" id="transferencia" style="display: none">
             <legend>Pago por transferencia:</legend>
             <label for="iban">IBAN:</label>
-            <input type="text" class="form-control" id="iban" placeholder="1234567891234567" name="iban">
+            <input type="text" class="form-control" id="iban" placeholder="1234567891234567" name="iban" maxlength="16">
             <label for="concepto">Copcepto de pago:</label>
-            <input type="text" class="form-control" id="concepto" placeholder="pago deporte" name="concepto">
+            <input type="text" class="form-control" id="concepto" placeholder="pago deporte" name="concepto"maxlength="16">
             <input type="hidden" class="form-control" id="id_actividad" name="id_actividad" value="${actividad.getIdActividad()}">
             <input type="submit" class="btn btn-info"name="action"value="Continuar">
             <input type="reset"class="btn btn-info"name="action"value="Limpiar">
-            <a href="PreIndexServlet" class="btn btn-info"role="button">Volver</a>
-        </div>
-    </fieldset>
-</form>
+        </fieldset>
+    </form>
+</div>
 <% }%>
 </body>
 </html>
-

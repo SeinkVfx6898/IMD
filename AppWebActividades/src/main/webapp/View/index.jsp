@@ -1,4 +1,5 @@
 
+
 <%@page import="com.arelance.empresa.imd.domain.Cliente"%>
 <%@page import="com.arelance.empresa.imd.domain.Actividad"%>
 <%@page import="java.util.List"%>
@@ -49,7 +50,7 @@
             <%
                 }
             %>
-
+            <p id="parrafo">No existe ningún elemento asociado a la búsqueda</p>
         </ul>
             &copy;2021-2022 IMD S.A.Todos los derechos reservados.
         </footer>
