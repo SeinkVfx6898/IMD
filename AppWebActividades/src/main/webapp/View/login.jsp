@@ -25,6 +25,7 @@
                     <div class="formulario__grupo-input">
                         <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="AguRM98">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        <P class="formulario__input-error">${NickMsg}</P>
                     </div>
                     <p class="formulario__input-error">El nick tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
                 </div>
@@ -33,6 +34,7 @@
                     <div class="formulario__grupo-input">
                         <input type="password" class="formulario__input" name="password" id="password" placeholder="1234">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        <p class="formulario__input-error">${PassMsg}</p>
                     </div>
                     <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
                 </div>

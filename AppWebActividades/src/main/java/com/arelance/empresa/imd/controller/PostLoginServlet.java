@@ -49,7 +49,7 @@ public class PostLoginServlet extends HttpServlet {
             if (clienteService.EncontrarClientePorPassword(cliente) == null) {
                 request.setAttribute("PassMsg", "Las contraseña no es correcta.");
             }
-            request.getRequestDispatcher("../View/login.jsp").forward(request, response);
+            request.getRequestDispatcher("View/login.jsp").forward(request, response);
         }
 
     }
