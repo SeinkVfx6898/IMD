@@ -3,6 +3,7 @@ com\arelance\empresa\imd\domain\Metodopagotransferencia.class
 com\arelance\empresa\imd\resources\JavaEE8Resource.class
 com\arelance\empresa\imd\dao\ActividadDAO.class
 com\arelance\empresa\dao\implementaciones\TarjetacreditoDAOImpl.class
+com\arelance\empresa\dao\implementaciones\ClienteDAOImpl.class
 com\arelance\empresa\servicios\implementaciones\MetodoPagoTransferenciaServiceImpl.class
 com\arelance\empresa\servicios\MetodoPagoTarjetaService.class
 com\arelance\empresa\servicios\implementaciones\TarjetacreditoServiceImpl.class
@@ -17,7 +18,6 @@ com\arelance\empresa\imd\domain\Tarjetacredito.class
 com\arelance\empresa\dao\implementaciones\MetodoPagoTarjetaDAOImpl.class
 com\arelance\empresa\servicios\InscripcionTarjetaService.class
 com\arelance\empresa\imd\dao\ClienteDAO.class
-ClienteDAOImpl.class
 com\arelance\empresa\dao\implementaciones\InscripcionTarjetaDAOImpl.class
 com\arelance\empresa\imd\controller\PostPagoTarjeta.class
 com\arelance\empresa\imd\domain\Inscripciontransferencia.class

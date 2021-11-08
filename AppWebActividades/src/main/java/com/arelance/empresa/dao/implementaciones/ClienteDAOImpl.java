@@ -1,11 +1,17 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.arelance.empresa.dao.implementaciones;
 
-import com.arelance.empresa.imd.dao.ClienteDAO;
 import com.arelance.empresa.imd.domain.Cliente;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import com.arelance.empresa.imd.dao.ClienteDAO;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 /**
@@ -17,7 +23,6 @@ public class ClienteDAOImpl implements ClienteDAO {
 
     @PersistenceContext(unitName = "ImdPU")
     EntityManager em;
-         int r = 0;
 
     @Override
     public List<Cliente> listarClientes() {
@@ -80,7 +85,7 @@ public class ClienteDAOImpl implements ClienteDAO {
         String sql = "SELECT c.id_cliente FROM cliente c WHERE nick = '" + cliente.getNick() + "'";
         return (Cliente) em.createNativeQuery(sql, Cliente.class).getSingleResult();
     }
-
+    
     @Override
     public Cliente EncontrarClientePorTelefono(Cliente cliente) {
         try {
@@ -100,7 +105,5 @@ public class ClienteDAOImpl implements ClienteDAO {
             return null;
         }
     }
-
-
 
 }
