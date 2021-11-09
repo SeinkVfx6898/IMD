@@ -30,6 +30,7 @@ D:\ProyectosJava\IMD\AppWebActividades\src\main\java\com\arelance\empresa\imd\do
 D:\ProyectosJava\IMD\AppWebActividades\src\main\java\com\arelance\empresa\servicios\ActividadService.java
 D:\ProyectosJava\IMD\AppWebActividades\src\main\java\com\arelance\empresa\servicios\InscripcionTarjetaService.java
 D:\ProyectosJava\IMD\AppWebActividades\src\main\java\com\arelance\empresa\imd\controller\PreLoginServlet.java
+D:\ProyectosJava\IMD\AppWebActividades\src\main\java\com\arelance\empresa\imd\domain\InscripciontarjetaPK.java
 D:\ProyectosJava\IMD\AppWebActividades\src\main\java\com\arelance\empresa\imd\controller\PostPagoTarjeta.java
 D:\ProyectosJava\IMD\AppWebActividades\src\main\java\com\arelance\empresa\dao\implementaciones\MetodoPagoTransferenciaDAOImpl.java
 D:\ProyectosJava\IMD\AppWebActividades\src\main\java\com\arelance\empresa\imd\controller\PostLoginServlet.java
@@ -42,6 +43,7 @@ D:\ProyectosJava\IMD\AppWebActividades\src\main\java\com\arelance\empresa\imd\do
 D:\ProyectosJava\IMD\AppWebActividades\src\main\java\com\arelance\empresa\servicios\MetodoPagoTarjetaService.java
 D:\ProyectosJava\IMD\AppWebActividades\src\main\java\com\arelance\empresa\imd\controller\PreActividadInscritoServlet.java
 D:\ProyectosJava\IMD\AppWebActividades\src\main\java\com\arelance\empresa\servicios\MetodoPagoTransferenciaService.java
+D:\ProyectosJava\IMD\AppWebActividades\src\main\java\com\arelance\empresa\imd\domain\InscripciontransferenciaPK.java
 D:\ProyectosJava\IMD\AppWebActividades\src\main\java\com\arelance\empresa\servicios\implementaciones\InscripcionTransferenciaServiceImpl.java
 D:\ProyectosJava\IMD\AppWebActividades\src\main\java\com\arelance\empresa\dao\implementaciones\MetodoPagoTarjetaDAOImpl.java
 D:\ProyectosJava\IMD\AppWebActividades\src\main\java\com\arelance\empresa\servicios\implementaciones\ClienteServiceImpl.java

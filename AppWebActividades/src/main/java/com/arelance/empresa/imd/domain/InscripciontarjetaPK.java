@@ -35,6 +35,7 @@ public class InscripciontarjetaPK implements Serializable {
         this.idActividad = idActividad;
     }
 
+    
     public int getIdCliente() {
         return idCliente;
     }

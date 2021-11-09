@@ -8,7 +8,9 @@ com\arelance\empresa\servicios\implementaciones\MetodoPagoTransferenciaServiceIm
 com\arelance\empresa\servicios\MetodoPagoTarjetaService.class
 com\arelance\empresa\servicios\implementaciones\TarjetacreditoServiceImpl.class
 com\arelance\empresa\imd\controller\PreInscripcionServlet.class
+com\arelance\empresa\imd\domain\InscripciontarjetaPK.class
 com\arelance\empresa\servicios\ActividadService.class
+com\arelance\empresa\imd\domain\InscripciontransferenciaPK.class
 com\arelance\empresa\servicios\MetodoPagoTransferenciaService.class
 com\arelance\empresa\imd\controller\PreActividadInscritoServlet.class
 com\arelance\empresa\servicios\TarjetaCreditoService.class
