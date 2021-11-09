@@ -85,6 +85,7 @@
                 <div class="formulario__grupo formulario__grupo-btn-enviar">
                     <input type="submit" class="btn btn-info" value="Registrarse" name="action">
                     <input type="reset" value="Limpiar" class="btn btn-info">
+                    <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
                     <a href="http://localhost:8080/AppWebActividades/PreIndexServlet" class="btn btn-info"role="button">Volver</a>
                 </div>
             </form>

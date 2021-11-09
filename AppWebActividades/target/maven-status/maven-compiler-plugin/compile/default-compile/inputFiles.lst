@@ -5,6 +5,7 @@ C:\Users\manuel\Documents\NetBeansProjects\IMD 2\AppWebActividades\src\main\java
 C:\Users\manuel\Documents\NetBeansProjects\IMD 2\AppWebActividades\src\main\java\com\arelance\empresa\imd\domain\Metodopagotarjeta.java
 C:\Users\manuel\Documents\NetBeansProjects\IMD 2\AppWebActividades\src\main\java\com\arelance\empresa\imd\dao\MetodoPagoTarjetaDAO.java
 C:\Users\manuel\Documents\NetBeansProjects\IMD 2\AppWebActividades\src\main\java\com\arelance\empresa\imd\controller\PreLoginServlet.java
+C:\Users\manuel\Documents\NetBeansProjects\IMD 2\AppWebActividades\src\main\java\com\arelance\empresa\imd\domain\InscripciontarjetaPK.java
 C:\Users\manuel\Documents\NetBeansProjects\IMD 2\AppWebActividades\src\main\java\com\arelance\empresa\servicios\implementaciones\TarjetacreditoServiceImpl.java
 C:\Users\manuel\Documents\NetBeansProjects\IMD 2\AppWebActividades\src\main\java\com\arelance\empresa\dao\implementaciones\InscripcionTransferenciaDAOImpl.java
 C:\Users\manuel\Documents\NetBeansProjects\IMD 2\AppWebActividades\src\main\java\com\arelance\empresa\imd\dao\InscripcionTarjetaDAO.java
@@ -47,6 +48,7 @@ C:\Users\manuel\Documents\NetBeansProjects\IMD 2\AppWebActividades\src\main\java
 C:\Users\manuel\Documents\NetBeansProjects\IMD 2\AppWebActividades\src\main\java\com\arelance\empresa\imd\domain\Inscripciontransferencia.java
 C:\Users\manuel\Documents\NetBeansProjects\IMD 2\AppWebActividades\src\main\java\com\arelance\empresa\DTO\TarjetaDTO.java
 C:\Users\manuel\Documents\NetBeansProjects\IMD 2\AppWebActividades\src\main\java\com\arelance\empresa\imd\jaxrs\JAXRSConfiguration.java
+C:\Users\manuel\Documents\NetBeansProjects\IMD 2\AppWebActividades\src\main\java\com\arelance\empresa\imd\domain\InscripciontransferenciaPK.java
 C:\Users\manuel\Documents\NetBeansProjects\IMD 2\AppWebActividades\src\main\java\com\arelance\empresa\imd\domain\Cliente.java
 C:\Users\manuel\Documents\NetBeansProjects\IMD 2\AppWebActividades\src\main\java\com\arelance\empresa\imd\resources\JavaEE8Resource.java
 C:\Users\manuel\Documents\NetBeansProjects\IMD 2\AppWebActividades\src\main\java\com\arelance\empresa\servicios\TarjetaCreditoService.java
