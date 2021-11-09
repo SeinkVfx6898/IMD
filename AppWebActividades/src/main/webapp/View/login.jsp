@@ -18,7 +18,7 @@
     <main>
         <h3>Cada día numerosos grupos de personas disfrutan de nuestras actividades.<br>
             ¡Forma parte de nosotros para disfrutar también!</h3>
-        <form action="http://localhost:8080/AppWebActividades/PostRegistroServlet" class="formulario" id="formulario" method="GET">           
+        <form action="http://localhost:8080/AppWebActividades/PostLoginServlet" class="formulario" id="formulario" method="GET">           
             <div class="formulario__grupo" id="grupo__usuario">
                 <label for="usuario" class="formulario__label">Nick:</label>
                 <div class="formulario__grupo-input">
@@ -36,7 +36,7 @@
                 <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
             </div>
             <div class="formulario__grupo formulario__grupo-btn-enviar">
-                <input type="submit" class="btn btn-info" value="Registrarse" name="action">
+                <input type="submit" class="btn btn-info" value="Acceder" name="action">
                 <input type="reset" value="Limpiar" class="btn btn-info">
                 <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
             </div>

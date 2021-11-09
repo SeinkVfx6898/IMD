@@ -40,7 +40,7 @@ public class PreIndexServlet extends HttpServlet {
     if(filtro==null)filtro="";
         List<Actividad>actividades=actividadService.ListarActividades(filtro);
         if(actividades.isEmpty()){
-        request.setAttribute("Msg","No existe ningún elemento asociado a su búsqueda.");
+        request.setAttribute("Msg","No existe ningún elemento asociado a su búsqueda, presione buscar de nuevo.");
         filtro="";
         }
         request.setAttribute("lista",actividades);
