@@ -39,8 +39,7 @@
             <h3>En IMD contamos con las actividades<br> que más se ajustan a tu perfil:</h3>
         </header>
         <form action="PreIndexServlet" method="GET">
-            <input  type="search" class="form-control" id="myInput" value="${filtro}"  placeholder="Busca una actividad..." title=" Busca una actividad..." maxlength="20" name="filtro"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
+            <input  type="search" class="form-control" id="myInput" value="${filtro}"  placeholder="Busca una actividad..." title=" Busca una actividad..." maxlength="20" name="filtro">
             <input type="submit"value="Buscar"class="btn btn-warning">
         </form>
         <br>
