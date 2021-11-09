@@ -6,12 +6,8 @@
 package com.arelance.empresa.imd.domain;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -22,88 +18,77 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
  * @author usuar
- * @author manuel
  */
 @Entity
 @Table(name = "inscripciontarjeta")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Inscripciontarjeta.findAll", query = "SELECT i FROM Inscripciontarjeta i"),
-    @NamedQuery(name = "Inscripciontarjeta.findByIdInscripciontarjeta", query = "SELECT i FROM Inscripciontarjeta i WHERE i.idInscripciontarjeta = :idInscripciontarjeta")})
+    @NamedQuery(name = "Inscripciontarjeta.findByIdCliente", query = "SELECT i FROM Inscripciontarjeta i WHERE i.inscripciontarjetaPK.idCliente = :idCliente"),
+    @NamedQuery(name = "Inscripciontarjeta.findByIdActividad", query = "SELECT i FROM Inscripciontarjeta i WHERE i.inscripciontarjetaPK.idActividad = :idActividad")})
 public class Inscripciontarjeta implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id_inscripciontarjeta")
-    private Integer idInscripciontarjeta;
-    @JoinColumn(name = "id_actividad", referencedColumnName = "id_actividad")
+    @EmbeddedId
+    protected InscripciontarjetaPK inscripciontarjetaPK;
+    @JoinColumn(name = "id_actividad", referencedColumnName = "id_actividad", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    private Actividad Actividadidactividad;
-    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
+    private Actividad actividad;
+    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    private Cliente clienteidcliente;
+    private Cliente cliente;
     @JoinColumn(name = "id_metodopagotarjeta", referencedColumnName = "idmetodopagotarjeta")
     @ManyToOne(optional = false)
-    private Metodopagotarjeta metodopagotarjetaIdmetodopagotarjeta;
+    private Metodopagotarjeta idMetodopagotarjeta;
 
     public Inscripciontarjeta() {
     }
 
-    public Inscripciontarjeta(Integer idInscripciontarjeta) {
-        this.idInscripciontarjeta = idInscripciontarjeta;
+    public Inscripciontarjeta(InscripciontarjetaPK inscripciontarjetaPK) {
+        this.inscripciontarjetaPK = inscripciontarjetaPK;
     }
 
-    public Inscripciontarjeta(Actividad actividadidactividad, Cliente clienteidcliente, Metodopagotarjeta metodopagotarjetaIdmetodopagotarjeta) {
-        this.Actividadidactividad = actividadidactividad;
-        this.clienteidcliente = clienteidcliente;
-        this.metodopagotarjetaIdmetodopagotarjeta = metodopagotarjetaIdmetodopagotarjeta;
+    public Inscripciontarjeta(int idCliente, int idActividad) {
+        this.inscripciontarjetaPK = new InscripciontarjetaPK(idCliente, idActividad);
+    }
+            
+    
+    public InscripciontarjetaPK getInscripciontarjetaPK() {
+        return inscripciontarjetaPK;
     }
 
-    public Inscripciontarjeta(Actividad actividad, Cliente cliente2, Metodopagotarjeta pagotarjeta, Metodopagotarjeta pagotarjeta0) {
-        this.Actividadidactividad = actividad;
-        this.clienteidcliente = cliente2;
-        this.metodopagotarjetaIdmetodopagotarjeta = pagotarjeta;
-        this.metodopagotarjetaIdmetodopagotarjeta = pagotarjeta0;
+    public void setInscripciontarjetaPK(InscripciontarjetaPK inscripciontarjetaPK) {
+        this.inscripciontarjetaPK = inscripciontarjetaPK;
     }
 
-    public Integer getIdInscripciontarjeta() {
-        return idInscripciontarjeta;
+    public Actividad getActividad() {
+        return actividad;
     }
 
-    public void setIdInscripciontarjeta(Integer idInscripciontarjeta) {
-        this.idInscripciontarjeta = idInscripciontarjeta;
+    public void setActividad(Actividad actividad) {
+        this.actividad = actividad;
     }
 
-    public Actividad getActividadidactividad() {
-        return Actividadidactividad;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setActividadidactividad(Actividad Actividadidactividad) {
-        this.Actividadidactividad = Actividadidactividad;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public Cliente getClienteidcliente() {
-        return clienteidcliente;
+    public Metodopagotarjeta getIdMetodopagotarjeta() {
+        return idMetodopagotarjeta;
     }
 
-    public void setClienteidcliente(Cliente clienteidcliente) {
-        this.clienteidcliente = clienteidcliente;
-    }
-
-    public Metodopagotarjeta getMetodopagotarjetaIdmetodopagotarjeta() {
-        return metodopagotarjetaIdmetodopagotarjeta;
-    }
-
-    public void setMetodopagotarjetaIdmetodopagotarjeta(Metodopagotarjeta metodopagotarjetaIdmetodopagotarjeta) {
-        this.metodopagotarjetaIdmetodopagotarjeta = metodopagotarjetaIdmetodopagotarjeta;
+    public void setIdMetodopagotarjeta(Metodopagotarjeta idMetodopagotarjeta) {
+        this.idMetodopagotarjeta = idMetodopagotarjeta;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idInscripciontarjeta != null ? idInscripciontarjeta.hashCode() : 0);
+        hash += (inscripciontarjetaPK != null ? inscripciontarjetaPK.hashCode() : 0);
         return hash;
     }
 
@@ -114,7 +99,7 @@ public class Inscripciontarjeta implements Serializable {
             return false;
         }
         Inscripciontarjeta other = (Inscripciontarjeta) object;
-        if ((this.idInscripciontarjeta == null && other.idInscripciontarjeta != null) || (this.idInscripciontarjeta != null && !this.idInscripciontarjeta.equals(other.idInscripciontarjeta))) {
+        if ((this.inscripciontarjetaPK == null && other.inscripciontarjetaPK != null) || (this.inscripciontarjetaPK != null && !this.inscripciontarjetaPK.equals(other.inscripciontarjetaPK))) {
             return false;
         }
         return true;
@@ -122,7 +107,7 @@ public class Inscripciontarjeta implements Serializable {
 
     @Override
     public String toString() {
-        return "com.arelance.empresa.imd.domain.Inscripciontarjeta[ idInscripciontarjeta=" + idInscripciontarjeta + " ]";
+        return "com.arelance.empresa.imd.domain.Inscripciontarjeta[ inscripciontarjetaPK=" + inscripciontarjetaPK + " ]";
     }
-
+    
 }

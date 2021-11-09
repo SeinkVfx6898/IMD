@@ -5,5 +5,7 @@
     <class>com.arelance.empresa.imd.domain.Actividad</class>
     <class>com.arelance.empresa.imd.domain.Cliente</class>
     <property name="eclipselink.jpa.uppercase-column-names" value="true"/>
+    <class>com.arelance.empresa.imd.domain.Inscripciontarjeta</class>
+    <class>com.arelance.empresa.imd.domain.Inscripciontransferencia</class>
   </persistence-unit>
 </persistence>

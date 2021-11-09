@@ -145,7 +145,6 @@ public class Tarjetacredito implements Serializable {
         this.numero = numero;
     }
 
-
     public int getCvv() {
         return cvv;
     }

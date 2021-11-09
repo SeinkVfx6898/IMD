@@ -6,12 +6,8 @@
 package com.arelance.empresa.imd.domain;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -22,82 +18,76 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
  * @author usuar
- * @author manuel
  */
 @Entity
 @Table(name = "inscripciontransferencia")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Inscripciontransferencia.findAll", query = "SELECT i FROM Inscripciontransferencia i"),
-    @NamedQuery(name = "Inscripciontransferencia.findByIdInscripciontransferencia", query = "SELECT i FROM Inscripciontransferencia i WHERE i.idInscripciontransferencia = :idInscripciontransferencia")})
+    @NamedQuery(name = "Inscripciontransferencia.findByIdCliente", query = "SELECT i FROM Inscripciontransferencia i WHERE i.inscripciontransferenciaPK.idCliente = :idCliente"),
+    @NamedQuery(name = "Inscripciontransferencia.findByIdActividad", query = "SELECT i FROM Inscripciontransferencia i WHERE i.inscripciontransferenciaPK.idActividad = :idActividad")})
 public class Inscripciontransferencia implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id_inscripciontransferencia")
-    private Integer idInscripciontransferencia;
-    @JoinColumn(name = "id_actividad", referencedColumnName = "id_actividad")
+    @EmbeddedId
+    protected InscripciontransferenciaPK inscripciontransferenciaPK;
+    @JoinColumn(name = "id_actividad", referencedColumnName = "id_actividad", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    private Actividad actividadidactividad;
-    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
+    private Actividad actividad;
+    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    private Cliente clienteidcliente;
+    private Cliente cliente;
     @JoinColumn(name = "id_metodopagotransferencia", referencedColumnName = "idmetodopagotransferencia")
     @ManyToOne(optional = false)
-    private Metodopagotransferencia metodopagotransferenciaIdmetodopagotransferencia;
+    private Metodopagotransferencia idMetodopagotransferencia;
 
     public Inscripciontransferencia() {
     }
 
-    public Inscripciontransferencia(Integer idInscripciontransferencia) {
-        this.idInscripciontransferencia = idInscripciontransferencia;
+    public Inscripciontransferencia(InscripciontransferenciaPK inscripciontransferenciaPK) {
+        this.inscripciontransferenciaPK = inscripciontransferenciaPK;
     }
 
-    public Inscripciontransferencia(Actividad actividadidactividad, Cliente clienteidcliente, Metodopagotransferencia metodopagotransferenciaIdmetodopagotransferencia) {
-        this.actividadidactividad = actividadidactividad;
-        this.clienteidcliente = clienteidcliente;
-        this.metodopagotransferenciaIdmetodopagotransferencia = metodopagotransferenciaIdmetodopagotransferencia;
+    public Inscripciontransferencia(int idCliente, int idActividad) {
+        this.inscripciontransferenciaPK = new InscripciontransferenciaPK(idCliente, idActividad);
     }
 
-    
-    public Integer getIdInscripciontransferencia() {
-        return idInscripciontransferencia;
+    public InscripciontransferenciaPK getInscripciontransferenciaPK() {
+        return inscripciontransferenciaPK;
     }
 
-    public void setIdInscripciontransferencia(Integer idInscripciontransferencia) {
-        this.idInscripciontransferencia = idInscripciontransferencia;
+    public void setInscripciontransferenciaPK(InscripciontransferenciaPK inscripciontransferenciaPK) {
+        this.inscripciontransferenciaPK = inscripciontransferenciaPK;
     }
 
-    public Actividad getActividadidactividad() {
-        return actividadidactividad;
+    public Actividad getActividad() {
+        return actividad;
     }
 
-    public void setActividadidactividad(Actividad actividadidactividad) {
-        this.actividadidactividad = actividadidactividad;
+    public void setActividad(Actividad actividad) {
+        this.actividad = actividad;
     }
 
-    public Cliente getClienteidcliente() {
-        return clienteidcliente;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setClienteidcliente(Cliente clienteidcliente) {
-        this.clienteidcliente = clienteidcliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public Metodopagotransferencia getMetodopagotransferenciaIdmetodopagotransferencia() {
-        return metodopagotransferenciaIdmetodopagotransferencia;
+    public Metodopagotransferencia getIdMetodopagotransferencia() {
+        return idMetodopagotransferencia;
     }
 
-    public void setMetodopagotransferenciaIdmetodopagotransferencia(Metodopagotransferencia metodopagotransferenciaIdmetodopagotransferencia) {
-        this.metodopagotransferenciaIdmetodopagotransferencia = metodopagotransferenciaIdmetodopagotransferencia;
+    public void setIdMetodopagotransferencia(Metodopagotransferencia idMetodopagotransferencia) {
+        this.idMetodopagotransferencia = idMetodopagotransferencia;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idInscripciontransferencia != null ? idInscripciontransferencia.hashCode() : 0);
+        hash += (inscripciontransferenciaPK != null ? inscripciontransferenciaPK.hashCode() : 0);
         return hash;
     }
 
@@ -108,7 +98,7 @@ public class Inscripciontransferencia implements Serializable {
             return false;
         }
         Inscripciontransferencia other = (Inscripciontransferencia) object;
-        if ((this.idInscripciontransferencia == null && other.idInscripciontransferencia != null) || (this.idInscripciontransferencia != null && !this.idInscripciontransferencia.equals(other.idInscripciontransferencia))) {
+        if ((this.inscripciontransferenciaPK == null && other.inscripciontransferenciaPK != null) || (this.inscripciontransferenciaPK != null && !this.inscripciontransferenciaPK.equals(other.inscripciontransferenciaPK))) {
             return false;
         }
         return true;
@@ -116,8 +106,7 @@ public class Inscripciontransferencia implements Serializable {
 
     @Override
     public String toString() {
-        return "com.arelance.empresa.imd.domain.Inscripciontransferencia[ idInscripciontransferencia=" + idInscripciontransferencia + " ]";
+        return "com.arelance.empresa.imd.domain.Inscripciontransferencia[ inscripciontransferenciaPK=" + inscripciontransferenciaPK + " ]";
     }
     
 }
-

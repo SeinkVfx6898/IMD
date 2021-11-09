@@ -7,7 +7,9 @@ package com.arelance.empresa.imd.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,10 +17,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,20 +36,14 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Actividad.findByIdActividad", query = "SELECT a FROM Actividad a WHERE a.idActividad = :idActividad"),})
 public class Actividad implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id_actividad")
-    private Integer idActividad;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "nombre")
     private String nombre;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
+    @NotNull()
+    @Size(min = 1, max = 500)
     @Column(name = "descripcion")
     private String descripcion;
     @Basic(optional = false)
@@ -53,6 +51,7 @@ public class Actividad implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "entrenador")
     private String entrenador;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Basic(optional = false)
     @NotNull
     @Column(name = "precio")
@@ -72,6 +71,16 @@ public class Actividad implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "hora_fin")
     private String horaFin;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "actividad")
+    private Collection<Inscripciontransferencia> inscripciontransferenciaCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "actividad")
+    private Collection<Inscripciontarjeta> inscripciontarjetaCollection;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id_actividad")
+    private Integer idActividad;
 
     public Actividad() {
     }
@@ -99,37 +108,6 @@ public class Actividad implements Serializable {
         this.idActividad = idActividad;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String getEntrenador() {
-        return entrenador;
-    }
-
-    public void setEntrenador(String entrenador) {
-        this.entrenador = entrenador;
-    }
-
-    public BigDecimal getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(BigDecimal precio) {
-        this.precio = precio;
-    }
 
     public String getDiaSemana() {
         return diaSemana;
@@ -177,6 +155,58 @@ public class Actividad implements Serializable {
     @Override
     public String toString() {
         return "Actividad{" + "idActividad=" + idActividad + ", nombre=" + nombre + ", descripcion=" + descripcion + ", entrenador=" + entrenador + ", precio=" + precio + ", diaSemana=" + diaSemana + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + '}';
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getEntrenador() {
+        return entrenador;
+    }
+
+    public void setEntrenador(String entrenador) {
+        this.entrenador = entrenador;
+    }
+
+    public BigDecimal getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(BigDecimal precio) {
+        this.precio = precio;
+    }
+
+
+
+    @XmlTransient
+    public Collection<Inscripciontransferencia> getInscripciontransferenciaCollection() {
+        return inscripciontransferenciaCollection;
+    }
+
+    public void setInscripciontransferenciaCollection(Collection<Inscripciontransferencia> inscripciontransferenciaCollection) {
+        this.inscripciontransferenciaCollection = inscripciontransferenciaCollection;
+    }
+
+    @XmlTransient
+    public Collection<Inscripciontarjeta> getInscripciontarjetaCollection() {
+        return inscripciontarjetaCollection;
+    }
+
+    public void setInscripciontarjetaCollection(Collection<Inscripciontarjeta> inscripciontarjetaCollection) {
+        this.inscripciontarjetaCollection = inscripciontarjetaCollection;
     }
 
 
