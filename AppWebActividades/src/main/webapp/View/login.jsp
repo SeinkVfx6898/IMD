@@ -27,6 +27,7 @@
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">El nick tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+                    <span class="formulario__input-error">${NickMsg}</span>
                 </div>
                 <div class="formulario__grupo" id="grupo__password">
                     <label for="password" class="formulario__label">Contraseña</label>
@@ -35,11 +36,12 @@
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
+                    <span class="formulario__input-error">${PassMsg}</span>
                 </div>
                 <div class="formulario__grupo formulario__grupo-btn-enviar">
                     <input type="submit" class="btn btn-info" value="Aceptar" name="action">
                     <input type="reset" value="Limpiar" class="btn btn-info">
-                    <a href="../PreIndexServlet" class="btn btn-info"role="button">Volver</a>
+                    <a href="http://localhost:8080/AppWebActividades/PreIndexServlet" class="btn btn-info"role="button">Volver</a>
                 </div>
             </form>
         </main>
