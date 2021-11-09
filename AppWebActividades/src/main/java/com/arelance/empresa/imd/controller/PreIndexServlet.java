@@ -38,9 +38,13 @@ public class PreIndexServlet extends HttpServlet {
             throws ServletException, IOException {
     String filtro=request.getParameter("filtro");
     if(filtro==null)filtro="";
+    if(actividadService.ListarActividades(filtro)==null){
+    request.setAttribute("Msg","No existe ningún elemento asociado a su búsqueda.");
+    }
    
         List<Actividad>actividades=actividadService.ListarActividades(filtro);
         request.setAttribute("lista",actividades);
+        request.setAttribute("filtro",filtro);
         request.getRequestDispatcher("View/index.jsp").forward(request, response);
     }
 
