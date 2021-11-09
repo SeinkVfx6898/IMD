@@ -17,6 +17,7 @@ import javax.ejb.Local;
 public interface ActividadService {
 
     public List<Actividad> ListarActividades();//Obtener todas las actividades
+    public List<Actividad>ListarActividades(String filtro);
 
     public Actividad EncontrarActividadPorID(Actividad actividad);//Encontrar actividad por id.
     

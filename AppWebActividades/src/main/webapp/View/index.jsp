@@ -21,24 +21,28 @@
                         <% if (request.getSession().getAttribute("cliente") != null) {
                                 Cliente cliente = (Cliente) request.getSession().getAttribute("cliente");
                         %>
-                            <a class="nav-link" href="PreActividadInscritoServlet"><%=cliente.getNick()%></a>
+                        <a class="nav-link" href="PreActividadInscritoServlet"><%=cliente.getNick()%></a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link" href="CierreSesion">Cerrar sesion</a>
+                        <a class="nav-link" href="CierreSesion">Cerrar sesion</a>
                     </li>
                     <%} else {%>
                     <li class="nav-item">
-                            <a class="nav-link" href="PreRegistroServlet">Registro</a>
+                        <a class="nav-link" href="PreRegistroServlet">Registro</a>
                     </li>        
                     <li class="nav-item">
-                            <a class="nav-link" href="PreLoginServlet">Iniciar sesión</a>
+                        <a class="nav-link" href="PreLoginServlet">Iniciar sesión</a>
                         <%}%>
                     </li>          
                 </ul>
             </nav>
             <h3>En IMD contamos con las actividades<br> que más se ajustan a tu perfil:</h3>
         </header>
-        <input  type="text" class="form-control" id="myInput" onkeyup="myFunction(this)" placeholder="Busca una actividad..." title="Type in a name">
+        <form action="PreIndexServlet" method="GET">
+            <input  type="text" class="form-control" id="myInput"  placeholder="Busca una actividad..." title=" Busca una actividad..." maxlength="20" name="filtro">
+            <input type="submit"value="Buscar"class="btn btn-warning">
+        </form>
+        <br>
         <ul id="myUL">
             <%
                 List<Actividad> lista = (List<Actividad>) request.getAttribute("lista");
@@ -50,9 +54,8 @@
             <%
                 }
             %>
-            <p id="parrafo">No existe ningún elemento asociado a la búsqueda</p>
         </ul>
-            &copy;2021-2022 IMD S.A.Todos los derechos reservados.
-        </footer>
-    </body>
+        &copy;2021-2022 IMD S.A.Todos los derechos reservados.
+    </footer>
+</body>
 </html>
