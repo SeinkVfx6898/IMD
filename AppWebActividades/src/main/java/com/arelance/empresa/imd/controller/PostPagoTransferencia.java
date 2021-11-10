@@ -8,6 +8,7 @@ package com.arelance.empresa.imd.controller;
 import com.arelance.empresa.imd.domain.Actividad;
 import com.arelance.empresa.imd.domain.Cliente;
 import com.arelance.empresa.imd.domain.Inscripciontransferencia;
+import com.arelance.empresa.imd.domain.InscripciontransferenciaPK;
 import com.arelance.empresa.imd.domain.Metodopagotransferencia;
 import com.arelance.empresa.imd.domain.Transferencia;
 import com.arelance.empresa.servicios.ActividadService;
@@ -80,7 +81,8 @@ public class PostPagoTransferencia extends HttpServlet {
                 Metodopagotransferencia metodopagotransferencia = new Metodopagotransferencia(metodoPagoTransferenciaService.obteneridTransferencia());
                 metodoPagoTransferenciaService.AñadirPagoTransferencia(metodopagotransferencia);
                 Metodopagotransferencia m = inscripcionTransferenciaService.ObtenerIdTransferencia();
-                Inscripciontransferencia inscripciontransferencia = new Inscripciontransferencia(idActividad, c, m);
+                InscripciontransferenciaPK pK = new InscripciontransferenciaPK(c, idActividad);
+                Inscripciontransferencia inscripciontransferencia = new Inscripciontransferencia(pK ,actividad, cliente, m);
                 inscripcionTransferenciaService.guardar(inscripciontransferencia);
                 request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
             }
