@@ -38,7 +38,7 @@ public class PreInscripcionServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int idActividad = Integer.parseInt(request.getParameter("idActividad"));
-        Actividad actividad = actividadService.EncontrarActividadPorID(idActividad);     
+        Actividad actividad = actividadService.EncontrarActividadPorID(idActividad);
         request.setAttribute("actividad", actividad);
         request.getRequestDispatcher("View/inscripcion.jsp").forward(request, response);
 
