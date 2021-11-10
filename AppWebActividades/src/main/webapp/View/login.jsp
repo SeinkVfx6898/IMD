@@ -22,7 +22,7 @@
             <div class="formulario__grupo" id="grupo__usuario">
                 <label for="usuario" class="formulario__label">Nick:</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="AguRM98">
+                    <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="AguRM98" maxlength="16">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
@@ -30,7 +30,7 @@
             <div class="formulario__grupo" id="grupo__password">
                 <label for="password" class="formulario__label">Contraseña</label>
                 <div class="formulario__grupo-input">
-                    <input type="password" class="formulario__input" name="password" id="password" placeholder="1234">
+                    <input type="password" class="formulario__input" name="password" id="password" placeholder="1234" maxlength="12">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
