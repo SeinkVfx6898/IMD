@@ -76,6 +76,19 @@ public class Actividad implements Serializable {
     public Actividad() {
     }
 
+    public Actividad(Integer idActividad, String nombre, String descripcion, String entrenador, BigDecimal precio, String diaSemana, String horaInicio, String horaFin) {
+        this.idActividad = idActividad;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.entrenador = entrenador;
+        this.precio = precio;
+        this.diaSemana = diaSemana;
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
+    }
+    
+    
+
     public Actividad(Integer idActividad) {
         this.idActividad = idActividad;
     }
