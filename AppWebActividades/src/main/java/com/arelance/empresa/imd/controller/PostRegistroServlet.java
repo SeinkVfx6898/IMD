@@ -34,7 +34,6 @@ public class PostRegistroServlet extends HttpServlet {
      */
     @Inject
     private ClienteService clienteService;
-  
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -46,34 +45,34 @@ public class PostRegistroServlet extends HttpServlet {
         String nick = request.getParameter("usuario");
         String password = request.getParameter("password");
         Cliente cliente = new Cliente(nombre, apellido, telefono, correo, nick, password);
-          if (clienteService.ValidarRegistro(cliente) != null) {
-            
-            request.getRequestDispatcher("View/registro.jsp").forward(request, response);
-        } else {
-            if (clienteService.EncontrarClientePorNick(cliente) == null) {
-                request.setAttribute("NickMsg", "El nick no es correcto.");
-            }
-            if (clienteService.EncontrarClientePorPassword(cliente) == null) {
-                request.setAttribute("PassMsg", "Las contraseña no es correcta.");
-            }
+        if (clienteService.ValidarRegistro(cliente) == null) {
+            clienteService.AñadirCliente(cliente);
             request.getRequestDispatcher("View/login.jsp").forward(request, response);
+        } else if(clienteService.EncontrarClientePorNick(cliente) == null) {
+                request.setAttribute("NickMsg", "Este nick ya existe.");
+            }
+            if (clienteService.EncontrarClientePorTelefono(cliente) == null) {
+                request.setAttribute("TlfMsg", "Este teléfono ya existe.");
+            }
+            if (clienteService.EncontrarClientePorEmail(cliente) == null) {
+                request.setAttribute("EmailMsg", "Este email ya existe.");
+            }
+            request.getRequestDispatcher("View/registro.jsp").forward(request, response);
         }
 
     
-}
-
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-/**
- * Handles the HTTP <code>GET</code> method.
- *
- * @param request servlet request
- * @param response servlet response
- * @throws ServletException if a servlet-specific error occurs
- * @throws IOException if an I/O error occurs
- */
-@Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -87,7 +86,7 @@ public class PostRegistroServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -98,7 +97,7 @@ public class PostRegistroServlet extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-        public String getServletInfo() {
+    public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 
