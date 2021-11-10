@@ -57,6 +57,19 @@ public class Inscripciontarjeta implements Serializable {
         this.idMetodopagotarjeta = idMetodopagotarjeta;
     }
 
+    public Inscripciontarjeta(Actividad actividad, Cliente cliente, Metodopagotarjeta idMetodopagotarjeta) {
+        this.actividad = actividad;
+        this.cliente = cliente;
+        this.idMetodopagotarjeta = idMetodopagotarjeta;
+    }
+
+    public Inscripciontarjeta(InscripciontarjetaPK inscripciontarjetaPK, Metodopagotarjeta idMetodopagotarjeta) {
+        this.inscripciontarjetaPK = inscripciontarjetaPK;
+        this.idMetodopagotarjeta = idMetodopagotarjeta;
+    }
+
+    
+    
     public InscripciontarjetaPK getInscripciontarjetaPK() {
         return inscripciontarjetaPK;
     }

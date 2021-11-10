@@ -40,8 +40,8 @@ public class PostLoginServlet extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String nick = request.getParameter("nick");
-            String password = request.getParameter("pswd");
+            String nick = request.getParameter("usuario");
+            String password = request.getParameter("password");
 
             if (nick.trim().length() == 0 || password.trim().length() == 0) {
                 if (nick.trim().length() == 0) {
