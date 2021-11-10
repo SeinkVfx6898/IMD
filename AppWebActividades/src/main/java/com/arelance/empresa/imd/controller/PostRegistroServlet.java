@@ -34,7 +34,7 @@ public class PostRegistroServlet extends HttpServlet {
      */
     @Inject
     private ClienteService clienteService;
-    int r;
+  
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -45,11 +45,19 @@ public class PostRegistroServlet extends HttpServlet {
         String correo = request.getParameter("correo");
         String nick = request.getParameter("usuario");
         String password = request.getParameter("password");
-        String password2 = request.getParameter("password2");
         Cliente cliente = new Cliente(nombre, apellido, telefono, correo, nick, password);
-        request.getRequestDispatcher("View/registro.jsp").forward(request, response);
-        clienteService.AñadirCliente(cliente);
-        request.getRequestDispatcher("View/login.jsp").forward(request, response);
+          if (clienteService.ValidarRegistro(cliente) != null) {
+            
+            request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+        } else {
+            if (clienteService.EncontrarClientePorNick(cliente) == null) {
+                request.setAttribute("NickMsg", "El nick no es correcto.");
+            }
+            if (clienteService.EncontrarClientePorPassword(cliente) == null) {
+                request.setAttribute("PassMsg", "Las contraseña no es correcta.");
+            }
+            request.getRequestDispatcher("View/login.jsp").forward(request, response);
+        }
 
     
 }

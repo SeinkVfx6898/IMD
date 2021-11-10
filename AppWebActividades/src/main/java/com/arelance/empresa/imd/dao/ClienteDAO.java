@@ -33,11 +33,11 @@ public interface ClienteDAO {
     public void RemoverCliente(Cliente cliente);//Remover clientes.
 
     public Cliente SacarID(Cliente cliente);//Saca el id de cliente
-    
-    public Cliente EncontrarClientePorTelefono(Cliente cliente);//Encontrar por telefono.
-    
-    public Cliente EncontrarClientePorEmail(Cliente cliente);//Encontrar por email.
-    
 
+    public Cliente EncontrarClientePorTelefono(Cliente cliente);//Encontrar por telefono.
+
+    public Cliente EncontrarClientePorEmail(Cliente cliente);//Encontrar por email.
+
+    public Cliente ValidarRegistro(Cliente cliente);
 
 }

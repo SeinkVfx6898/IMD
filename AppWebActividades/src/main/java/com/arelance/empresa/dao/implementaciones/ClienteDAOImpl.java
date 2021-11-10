@@ -105,5 +105,15 @@ public class ClienteDAOImpl implements ClienteDAO {
             return null;
         }
     }
+        @Override
+    public Cliente ValidarRegistro(Cliente cliente) {
+        try {
+            Query q = em.createNamedQuery("Cliente.ComprobarRegistro").setParameter("nick", cliente.getNick()).
+                    setParameter("telefono",cliente.getTelefono()).setParameter("email",cliente.getEmail());
+            return (Cliente) q.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 
 }

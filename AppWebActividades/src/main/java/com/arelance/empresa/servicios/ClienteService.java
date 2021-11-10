@@ -38,5 +38,6 @@ public interface ClienteService {
 
     public Cliente EncontrarClientePorEmail(Cliente cliente);//Encontrar por email.
 
+    public Cliente ValidarRegistro(Cliente cliente);
 
 }
