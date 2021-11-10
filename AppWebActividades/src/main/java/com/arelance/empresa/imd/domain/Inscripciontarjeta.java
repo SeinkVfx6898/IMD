@@ -6,6 +6,7 @@
 package com.arelance.empresa.imd.domain;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -13,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -65,6 +67,13 @@ public class Inscripciontarjeta implements Serializable {
 
     public Inscripciontarjeta(InscripciontarjetaPK inscripciontarjetaPK, Metodopagotarjeta idMetodopagotarjeta) {
         this.inscripciontarjetaPK = inscripciontarjetaPK;
+        this.idMetodopagotarjeta = idMetodopagotarjeta;
+    }
+
+    public Inscripciontarjeta(InscripciontarjetaPK inscripciontarjetaPK, Actividad actividad, Cliente cliente, Metodopagotarjeta idMetodopagotarjeta) {
+        this.inscripciontarjetaPK = inscripciontarjetaPK;
+        this.actividad = actividad;
+        this.cliente = cliente;
         this.idMetodopagotarjeta = idMetodopagotarjeta;
     }
 

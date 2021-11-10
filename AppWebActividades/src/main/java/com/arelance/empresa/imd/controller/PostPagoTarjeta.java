@@ -72,7 +72,7 @@ public class PostPagoTarjeta extends HttpServlet {
                 metodoPagoTarjetaService.AñadirPagoTarjeta(metodoTarjeta);
                 Metodopagotarjeta pagotarjeta = inscripcionTarjetaService.ObtenerIdTarjeta();
                 InscripciontarjetaPK pK = new InscripciontarjetaPK(cliente2, idActividad);
-                Inscripciontarjeta inscripciontarjeta = new Inscripciontarjeta(pK , pagotarjeta);
+                Inscripciontarjeta inscripciontarjeta = new Inscripciontarjeta(pK ,actividad, cliente, pagotarjeta);
                 inscripcionTarjetaService.guardar(inscripciontarjeta);
                 request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
 
