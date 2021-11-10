@@ -8,6 +8,7 @@ package com.arelance.empresa.imd.controller;
 import com.arelance.empresa.imd.domain.Actividad;
 import com.arelance.empresa.imd.domain.Cliente;
 import com.arelance.empresa.imd.domain.Inscripciontarjeta;
+import com.arelance.empresa.imd.domain.InscripciontarjetaPK;
 import com.arelance.empresa.imd.domain.Metodopagotarjeta;
 import com.arelance.empresa.imd.domain.Tarjetacredito;
 import com.arelance.empresa.servicios.ActividadService;
@@ -42,7 +43,7 @@ public class PostPagoTarjeta extends HttpServlet {
     private ActividadService actividadService;
     @Inject
     private ClienteService clienteService;
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -54,23 +55,24 @@ public class PostPagoTarjeta extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-            double numeroTarjeta = Double.parseDouble(request.getParameter("numeroTarjeta"));
-            String fecha = request.getParameter("Fecha_caducidad");
-            int cvv = Integer.parseInt(request.getParameter("CVV"));
-            int idActividad = Integer.parseInt(request.getParameter("id_actividad"));
-            Tarjetacredito tarjeta = new Tarjetacredito(numeroTarjeta, fecha, cvv);
-            Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
-            Cliente cliente2 = new Cliente(cliente.getIdCliente());
-            Actividad actividad =  new Actividad(idActividad);
-            tarjetaService.AñadirTarjeta(tarjeta);
-            Metodopagotarjeta metodoTarjeta = new Metodopagotarjeta(metodoPagoTarjetaService.ObtenerIdTarjeta());
-            metodoPagoTarjetaService.AñadirPagoTarjeta(metodoTarjeta);
-            Metodopagotarjeta pagotarjeta = inscripcionTarjetaService.ObtenerIdTarjeta();
-            Inscripciontarjeta inscripciontarjeta = new Inscripciontarjeta(actividad, cliente2, pagotarjeta);
-            inscripcionTarjetaService.guardar(inscripciontarjeta);
-            request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
-        
+
+        double numeroTarjeta = Double.parseDouble(request.getParameter("numeroTarjeta"));
+        String fecha = request.getParameter("Fecha_caducidad");
+        int cvv = Integer.parseInt(request.getParameter("CVV"));
+        int idActividad = Integer.parseInt(request.getParameter("id_actividad"));
+        Tarjetacredito tarjeta = new Tarjetacredito(numeroTarjeta, fecha, cvv);
+        Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
+        int cliente2 = cliente.getIdCliente();
+        Actividad actividad = new Actividad(idActividad);
+        tarjetaService.AñadirTarjeta(tarjeta);
+        Metodopagotarjeta metodoTarjeta = new Metodopagotarjeta(metodoPagoTarjetaService.ObtenerIdTarjeta());
+        metodoPagoTarjetaService.AñadirPagoTarjeta(metodoTarjeta);
+        Metodopagotarjeta pagotarjeta = inscripcionTarjetaService.ObtenerIdTarjeta();
+        InscripciontarjetaPK pK = new InscripciontarjetaPK(cliente2, idActividad);
+        Inscripciontarjeta inscripciontarjeta = new Inscripciontarjeta(pK, actividad, cliente, pagotarjeta);
+        inscripcionTarjetaService.guardar(inscripciontarjeta);
+        request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

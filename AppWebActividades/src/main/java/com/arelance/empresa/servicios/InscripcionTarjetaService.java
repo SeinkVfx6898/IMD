@@ -26,4 +26,6 @@ public interface InscripcionTarjetaService {
     public void eliminar(Inscripciontarjeta inscripciontarjeta);
 
     public Metodopagotarjeta ObtenerIdTarjeta();
+
+
 }

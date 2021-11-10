@@ -46,4 +46,6 @@ public class InscripcionTarjetaServiceImpl implements InscripcionTarjetaService 
         return inscripcionTarjetaDAO.ObtenerIdTarjeta();
     }
 
+
+
 }

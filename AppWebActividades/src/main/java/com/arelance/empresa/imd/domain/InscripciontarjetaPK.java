@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author usuar
+ * @author lenovo
  */
 @Embeddable
 public class InscripciontarjetaPK implements Serializable {
@@ -35,7 +35,6 @@ public class InscripciontarjetaPK implements Serializable {
         this.idActividad = idActividad;
     }
 
-    
     public int getIdCliente() {
         return idCliente;
     }

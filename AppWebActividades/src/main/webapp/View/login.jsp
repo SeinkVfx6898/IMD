@@ -12,7 +12,7 @@
         <%@include file = "../JSPF/meta.jspf"%>
         <title>Login</title>
         <%@include file = "../JSPF/login.jspf"%>
-        <link rel="stylesheet" href="../CSS/estilos.css">
+        <link rel="stylesheet" href="http://localhost:8080/AppWebActividades/CSS/estilos.css">
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     </head>
     <main>
@@ -25,6 +25,7 @@
                     <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="AguRM98" maxlength="16">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
+                <p style="color: red">${NickMsg}</p>
                 <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
             </div>
             <div class="formulario__grupo" id="grupo__password">
@@ -33,6 +34,7 @@
                     <input type="password" class="formulario__input" name="password" id="password" placeholder="1234" maxlength="12">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
+                <p style="color: red">${PassMsg}</p>
                 <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
             </div>
             <div class="formulario__grupo formulario__grupo-btn-enviar">
@@ -43,7 +45,7 @@
         </form>
     </main>
     <br>
-    <script src="../JS/formulario.js"></script>
+    <script src="http://localhost:8080/AppWebActividades/JS/formulario.js"></script>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </body>
 </html>

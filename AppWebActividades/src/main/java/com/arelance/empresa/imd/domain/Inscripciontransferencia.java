@@ -112,5 +112,5 @@ public class Inscripciontransferencia implements Serializable {
     public String toString() {
         return "com.arelance.empresa.imd.domain.Inscripciontransferencia[ inscripciontransferenciaPK=" + inscripciontransferenciaPK + " ]";
     }
-    
+
 }

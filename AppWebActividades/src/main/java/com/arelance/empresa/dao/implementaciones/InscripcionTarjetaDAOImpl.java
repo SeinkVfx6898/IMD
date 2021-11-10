@@ -12,6 +12,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -45,8 +46,9 @@ public class InscripcionTarjetaDAOImpl implements InscripcionTarjetaDAO {
 
     @Override
     public Metodopagotarjeta ObtenerIdTarjeta() {
-         String sql = "SELECT idmetodopagotarjeta FROM institutomd_bd.metodopagotarjeta order by idmetodopagotarjeta desc limit 1";
+        String sql = "SELECT idmetodopagotarjeta FROM institutomd_bd.metodopagotarjeta order by idmetodopagotarjeta desc limit 1";
         return (Metodopagotarjeta) em.createNativeQuery(sql, Metodopagotarjeta.class).getSingleResult();
     }
+
 
 }

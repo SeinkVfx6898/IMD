@@ -5,8 +5,11 @@
  */
 package com.arelance.empresa.imd.controller;
 
+import com.arelance.empresa.imd.domain.Actividad;
 import com.arelance.empresa.imd.domain.Cliente;
+import com.arelance.empresa.imd.domain.Inscripciontarjeta;
 import com.arelance.empresa.servicios.ClienteService;
+import com.arelance.empresa.servicios.InscripcionTarjetaService;
 import java.io.IOException;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -17,13 +20,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Agustin
+ * @author lenovo
  */
-@WebServlet(name = "PostLoginServlet", urlPatterns = {"/PostLoginServlet"})
-public class PostLoginServlet extends HttpServlet {
-
-    @Inject
-    private ClienteService clienteService;
+@WebServlet(name = "PreDeleteActividadServlet", urlPatterns = {"/PreDeleteActividadServlet"})
+public class PreDeleteActividadServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,23 +34,14 @@ public class PostLoginServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Inject
+    private InscripcionTarjetaService tarjetaService;
+    @Inject
+    private ClienteService clienteService;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nick = request.getParameter("usuario");
-        String password = request.getParameter("password");
-        Cliente cliente = new Cliente(nick, password);
-        if (clienteService.ValidarCliente(cliente) != null) {
-            request.getSession().setAttribute("cliente", cliente);
-            request.getRequestDispatcher("PreIndexServlet").forward(request, response);
-        } else {
-            if (clienteService.EncontrarClientePorNick(cliente) == null) {
-                request.setAttribute("NickMsg", "El nick no es correcto.");
-            }
-            if (clienteService.EncontrarClientePorPassword(cliente) == null) {
-                request.setAttribute("PassMsg", "Las contraseña no es correcta.");
-            }
-            request.getRequestDispatcher("View/login.jsp").forward(request, response);
-        }
+        
 
     }
 

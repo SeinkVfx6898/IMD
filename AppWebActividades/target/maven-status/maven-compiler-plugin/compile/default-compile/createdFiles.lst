@@ -45,6 +45,7 @@ com\arelance\empresa\imd\controller\CierreSesion.class
 com\arelance\empresa\imd\controller\PostRegistroServlet.class
 com\arelance\empresa\dao\implementaciones\MetodoPagoTransferenciaDAOImpl.class
 com\arelance\empresa\imd\dao\InscripcionTarjetaDAO.class
+com\arelance\empresa\imd\controller\PreDeleteActividadServlet.class
 com\arelance\empresa\imd\controller\PostPagoTransferencia.class
 com\arelance\empresa\imd\domain\Metodopagotarjeta.class
 com\arelance\empresa\imd\controller\PostLoginServlet.class

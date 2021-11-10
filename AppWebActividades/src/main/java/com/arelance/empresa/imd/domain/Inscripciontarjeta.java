@@ -13,11 +13,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author usuar
+ * @author lenovo
  */
 @Entity
 @Table(name = "inscripciontarjeta")
@@ -52,12 +53,30 @@ public class Inscripciontarjeta implements Serializable {
         this.inscripciontarjetaPK = new InscripciontarjetaPK(idCliente, idActividad);
     }
 
-    public Inscripciontarjeta(Actividad actividad, Cliente cliente, Metodopagotarjeta idMetodopagotarjeta) {
-       this.actividad=actividad;
-       this.cliente=cliente;
-       this.idMetodopagotarjeta=idMetodopagotarjeta;
+    public Inscripciontarjeta(int idCliente, int idActividad, Metodopagotarjeta idMetodopagotarjeta) {
+        this.inscripciontarjetaPK = new InscripciontarjetaPK(idCliente, idActividad);
+        this.idMetodopagotarjeta = idMetodopagotarjeta;
     }
-            
+
+    public Inscripciontarjeta(Actividad actividad, Cliente cliente, Metodopagotarjeta idMetodopagotarjeta) {
+        this.actividad = actividad;
+        this.cliente = cliente;
+        this.idMetodopagotarjeta = idMetodopagotarjeta;
+    }
+
+    public Inscripciontarjeta(InscripciontarjetaPK inscripciontarjetaPK, Metodopagotarjeta idMetodopagotarjeta) {
+        this.inscripciontarjetaPK = inscripciontarjetaPK;
+        this.idMetodopagotarjeta = idMetodopagotarjeta;
+    }
+
+    public Inscripciontarjeta(InscripciontarjetaPK inscripciontarjetaPK, Actividad actividad, Cliente cliente, Metodopagotarjeta idMetodopagotarjeta) {
+        this.inscripciontarjetaPK = inscripciontarjetaPK;
+        this.actividad = actividad;
+        this.cliente = cliente;
+        this.idMetodopagotarjeta = idMetodopagotarjeta;
+    }
+
+    
     
     public InscripciontarjetaPK getInscripciontarjetaPK() {
         return inscripciontarjetaPK;
@@ -115,5 +134,5 @@ public class Inscripciontarjeta implements Serializable {
     public String toString() {
         return "com.arelance.empresa.imd.domain.Inscripciontarjeta[ inscripciontarjetaPK=" + inscripciontarjetaPK + " ]";
     }
-    
+
 }

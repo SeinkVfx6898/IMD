@@ -52,6 +52,7 @@ public class ActividadDAOImpl implements ActividadDAO {
     @Override
     public void RemoverActividad(Actividad actividad) {
         em.remove(em.merge(actividad));
+        
     }
 
     @Override
