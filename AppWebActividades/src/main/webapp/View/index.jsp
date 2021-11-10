@@ -39,7 +39,7 @@
             <h3>En IMD contamos con las actividades<br> que más se ajustan a tu perfil:</h3>
         </header>
         <form action="PreIndexServlet" method="GET">
-            <input  type="search" class="form-control" id="myInput" value="${filtro}"  placeholder="Busca una actividad..." title=" Busca una actividad..." maxlength="20" name="filtro">
+            <input  type="search" class="form-control" id="myInput" value="${filtro}"  placeholder="Busca una actividad..."  maxlength="20" name="filtro"  pattern="[^0-9]*" title="¡Introduce solo letras!">
             <input type="submit"value="Buscar"class="btn btn-warning">
         </form>
         <br>
