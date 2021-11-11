@@ -18,7 +18,7 @@ public interface ClienteService {
 
     public List<Cliente> listarClientes();//Obtener clientes.
 
-    public Cliente EncontrarClientePorID(Cliente cliente);//Encontrar por id.
+    public Cliente EncontrarClientePorID(int id);//Encontrar por id.
 
     public Cliente EncontrarClientePorNick(Cliente cliente);//Encontrar por nick.
 

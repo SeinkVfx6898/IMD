@@ -27,8 +27,8 @@ public class ClienteServiceImpl implements ClienteService {
     
 
     @Override
-    public Cliente EncontrarClientePorID(Cliente cliente) {
-        return clienteDAO.EncontrarClientePorID(cliente);
+    public Cliente EncontrarClientePorID(int id) {
+        return clienteDAO.EncontrarClientePorID(id);
     }
     
     @Override

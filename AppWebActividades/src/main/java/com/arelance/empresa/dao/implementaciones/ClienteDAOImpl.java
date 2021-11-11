@@ -30,8 +30,8 @@ public class ClienteDAOImpl implements ClienteDAO {
     }
 
     @Override
-    public Cliente EncontrarClientePorID(Cliente cliente) {
-        return em.find(Cliente.class, cliente.getIdCliente());
+    public Cliente EncontrarClientePorID(int id) {
+        return em.find(Cliente.class, id);
     }
 
     @Override
