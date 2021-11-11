@@ -7,6 +7,9 @@ package com.arelance.empresa.imd.controller;
 
 import com.arelance.empresa.imd.domain.Actividad;
 import com.arelance.empresa.imd.domain.Cliente;
+import com.arelance.empresa.imd.domain.Inscripciontarjeta;
+import com.arelance.empresa.imd.domain.InscripciontarjetaPK;
+import com.arelance.empresa.imd.domain.Metodopagotarjeta;
 import com.arelance.empresa.servicios.ActividadService;
 import com.arelance.empresa.servicios.ClienteService;
 import java.io.IOException;

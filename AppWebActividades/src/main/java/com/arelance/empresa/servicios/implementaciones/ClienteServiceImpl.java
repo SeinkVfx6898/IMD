@@ -81,5 +81,10 @@ public class ClienteServiceImpl implements ClienteService {
        return clienteDAO.ValidarRegistro(cliente);
     }
 
+    @Override
+    public Cliente EncontradIdNick(String nick) {
+        return clienteDAO.EncontradIdNick(nick);
+    }
+
     
 }

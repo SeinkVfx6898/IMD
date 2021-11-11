@@ -40,4 +40,6 @@ public interface ClienteDAO {
 
     public Cliente ValidarRegistro(Cliente cliente);
 
+    public Cliente EncontradIdNick(String nick);
+
 }

@@ -5,7 +5,6 @@
  */
 package com.arelance.empresa.imd.controller;
 
-import com.arelance.empresa.imd.domain.Actividad;
 import com.arelance.empresa.imd.domain.Cliente;
 import com.arelance.empresa.imd.domain.Inscripciontarjeta;
 import com.arelance.empresa.servicios.ClienteService;
@@ -36,11 +35,17 @@ public class PreDeleteActividadServlet extends HttpServlet {
      */
     @Inject
     private InscripcionTarjetaService tarjetaService;
-    @Inject
-    private ClienteService clienteService;
-
+  
+  @Inject
+  private ClienteService clienteService;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+          Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
+        int cliente2 = cliente.getIdCliente();
+       int idActividad = Integer.parseInt(request.getParameter("idActividad"));
+        Inscripciontarjeta inscripciontarjeta=tarjetaService.ObtenerInscripcion(idActividad,cliente2);
+        request.setAttribute("tarjetaborrar",inscripciontarjeta);
+        request.getRequestDispatcher("View/confirmacion.jsp").forward(request, response);
         
 
     }

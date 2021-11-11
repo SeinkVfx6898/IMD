@@ -85,7 +85,7 @@ public class ClienteDAOImpl implements ClienteDAO {
         String sql = "SELECT c.id_cliente FROM cliente c WHERE nick = '" + cliente.getNick() + "'";
         return (Cliente) em.createNativeQuery(sql, Cliente.class).getSingleResult();
     }
-    
+
     @Override
     public Cliente EncontrarClientePorTelefono(Cliente cliente) {
         try {
@@ -105,15 +105,22 @@ public class ClienteDAOImpl implements ClienteDAO {
             return null;
         }
     }
-        @Override
+
+    @Override
     public Cliente ValidarRegistro(Cliente cliente) {
         try {
             Query q = em.createNamedQuery("Cliente.ComprobarRegistro").setParameter("nick", cliente.getNick()).
-                    setParameter("telefono",cliente.getTelefono()).setParameter("email",cliente.getEmail());
+                    setParameter("telefono", cliente.getTelefono()).setParameter("email", cliente.getEmail());
             return (Cliente) q.getSingleResult();
         } catch (NoResultException e) {
             return null;
         }
+    }
+
+    @Override
+    public Cliente EncontradIdNick(String nick) {
+        String sql = "SELECT cliente.id_cliente FROM cliente WHERE cliente.nick=" + nick + "";
+        return (Cliente) em.createNamedQuery(sql, Cliente.class).getSingleResult();
     }
 
 }

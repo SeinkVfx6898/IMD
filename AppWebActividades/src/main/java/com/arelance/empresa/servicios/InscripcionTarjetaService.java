@@ -27,5 +27,6 @@ public interface InscripcionTarjetaService {
 
     public Metodopagotarjeta ObtenerIdTarjeta();
 
+    public Inscripciontarjeta ObtenerInscripcion(int cliente, int actividad);
 
 }

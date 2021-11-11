@@ -51,13 +51,9 @@
                     <tr>
                         <td><%= actividad.getNombre()%></td>
                          <td style="text-align:center;">
-                       <a href="PreDeleteActividadServlet?idActividad=<%= actividad.getIdActividad()%>">Eliminar</a>
+                             <a href="PreDeleteActividadServlet?idActividad=<%= actividad.getIdActividad()%>" class="btn btn-danger" role="button">Eliminar</a>
                        </td>
-
-                    </tr>
-
-
-
+                    </tr>                   
                     <%
                         }
                     %>

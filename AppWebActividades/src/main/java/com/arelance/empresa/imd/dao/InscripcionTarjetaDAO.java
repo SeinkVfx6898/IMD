@@ -26,7 +26,8 @@ public interface InscripcionTarjetaDAO {
     public void eliminar(Inscripciontarjeta inscripciontarjeta);
 
     public Metodopagotarjeta ObtenerIdTarjeta();
-
+    
+ public Inscripciontarjeta ObtenerInscripcion(int cliente,int actividad);
 
 
 }

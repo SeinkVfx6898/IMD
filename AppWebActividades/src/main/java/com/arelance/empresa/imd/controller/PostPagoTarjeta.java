@@ -71,6 +71,7 @@ public class PostPagoTarjeta extends HttpServlet {
         InscripciontarjetaPK pK = new InscripciontarjetaPK(cliente2, idActividad);
         Inscripciontarjeta inscripciontarjeta = new Inscripciontarjeta(pK, actividad, cliente, pagotarjeta);
         inscripcionTarjetaService.guardar(inscripciontarjeta);
+        
         request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
 
     }

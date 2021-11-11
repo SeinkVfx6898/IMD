@@ -40,4 +40,5 @@ public interface ClienteService {
 
     public Cliente ValidarRegistro(Cliente cliente);
 
+    public Cliente EncontradIdNick(String nick);
 }
