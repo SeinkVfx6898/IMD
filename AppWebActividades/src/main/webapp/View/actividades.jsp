@@ -12,7 +12,7 @@
 <html>
     <head>
         <%@include file = "../JSPF/meta.jspf"%>
-          <%@include file = "../JSPF/actividades.jspf"%>
+        <%@include file = "../JSPF/actividades.jspf"%>
         <title>Actividades_Inscrito</title>
     </head>
     <body> 
@@ -29,21 +29,40 @@
                     </li>          
                 </ul>
             </nav>
-                <h3>Bienvenido a tu perfil<br> con las actividades a las que se a apuntado:</h3>
+            <h3>Bienvenido a tu perfil<br> con las actividades a las que se a apuntado:</h3>
         </header>
-        <input  type="text" class="form-control" id="myInput" onkeyup="myFunction(this)" placeholder="Busca una actividad..." title="Type in a name">
         <ul id="myUL">
             <h4>Inscripcion por tarjeta</h4>
-            <%
-                List<Actividad> lista = (List<Actividad>) request.getAttribute("listaTarjeta");
-                for (Actividad actividad : lista) {
-            %>
-            <li>
-                <a><%=actividad.getNombre()%></a>
-            </li>
-            <%
-                }
-            %>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th style="text-align:center;">Acción</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        List<Actividad> lista = (List<Actividad>) request.getAttribute("listaTarjeta");
+                        for (Actividad actividad : lista) {
+                    %>
+
+
+                    <tr>
+                        <td><%= actividad.getNombre()%></td>
+                         <td style="text-align:center;">
+                       <a href="PreDeleteActividadServlet?idActividad=<%= actividad.getIdActividad()%>">Eliminar</a>
+                       </td>
+
+                    </tr>
+
+
+
+                    <%
+                        }
+                    %>
+                </tbody>
+            </table>
             <h4>Inscripcion por transferencia</h4>
             <%
                 List<Actividad> listaTransferencia = (List<Actividad>) request.getAttribute("listaTransferencia");

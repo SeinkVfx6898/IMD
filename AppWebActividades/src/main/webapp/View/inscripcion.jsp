@@ -12,6 +12,7 @@
         <%@include file = "../JSPF/meta.jspf"%>
         <%@include file = "../JSPF/inscripcion.jspf"%>
         <%@include file = "../JSPF/login.jspf"%>
+
         <title>Inscripción</title>
     </head>
     <body> 
@@ -68,40 +69,35 @@
         <a href="PreIndexServlet" class="btn btn-info"role="button">Volver</a>
         <% if (request.getSession().getAttribute("cliente") != null) { %>
         <p>Selecciona un método de pago:</p>
-        <button id="btnTarjeta" class="btn btn-warning" onclick="habilitarTransferencia(transferencia, tarjeta);">Tarjeta</button>
-        <button id="btnTransferencia" class="btn btn-warning" onclick="habilitarTransferencia(tarjeta, transferencia);">Transferencia</button>
+        <button id="btnTarjeta" class="btn btn-warning" onclick="habilitar(tarjeta,transferencia);">Tarjeta</button>
+        <button id="btnTransferencia" class="btn btn-warning" onclick="habilitar(transferencia,tarjeta);">Transferencia</button>
         <form action="PostPagoTarjeta" method="GET" id="tarjeta" style="display: none">
             <fieldset>
                 <legend>Pago por tarjeta:</legend>
                 <label for="text">Número:</label>
                 <input type="number" class="form-control" id="numeroTarjeta" placeholder="1234567891234567" name="numeroTarjeta" pattern="[0-9]{16}">
-                <span>${TarMsg}</span>
                 <label for="text">Fecha caducidad</label>
                 <input type="text" class="form-control" id="Fecha_caducidad" placeholder="03/25" name="Fecha_caducidad" maxlength="5">
-                <span>${FecMsg}</span>
                 <label for="text">CVV</label>
                 <input type="number" class="form-control" id="CVV" placeholder="583" pattern="[0-9]{3}" name="CVV">
-                <span>${CvvMsg}</span>
                 <input type="hidden" class="form-control" id="id_actividad" name="id_actividad" value="${actividad.getIdActividad()}">
                 <input type="submit" class="btn btn-info"name="action"value="Continuar">
                 <input type="reset"class="btn btn-info"name="action"value="Limpiar">
-
+            
             </fieldset>
         </form>
         <form action="PostPagoTransferencia" method="GET" id="transferencia" style="display: none">
             <legend>Pago por transferencia:</legend>
             <label for="iban">IBAN:</label>
             <input type="text" class="form-control" id="iban" placeholder="1234567891234567" name="iban" maxlength="16">
-            <span>${IbanMsg}</span>
             <label for="concepto">Copcepto de pago:</label>
             <input type="text" class="form-control" id="concepto" placeholder="pago deporte" name="concepto"maxlength="16">
-            <span>${ConMsg}</span>
             <input type="hidden" class="form-control" id="id_actividad" name="id_actividad" value="${actividad.getIdActividad()}">
             <input type="submit" class="btn btn-info"name="action"value="Continuar">
             <input type="reset"class="btn btn-info"name="action"value="Limpiar">
-            </fieldset>
-        </form>
-    </div>
-    <% }%>
+        </fieldset>
+    </form>
+</div>
+<% }%>
 </body>
 </html>

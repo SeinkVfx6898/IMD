@@ -38,11 +38,11 @@ public class PostRegistroServlet extends HttpServlet {
             throws ServletException, IOException {
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
-        String telefono = request.getParameter("tlf");
-        String email = request.getParameter("email");
-        String nick = request.getParameter("nick");
-        String password = request.getParameter("pass");
-        String password2 = request.getParameter("passconfirm");
+        String telefono = request.getParameter("telefono");
+        String email = request.getParameter("correo");
+        String nick = request.getParameter("usuario");
+        String password = request.getParameter("password");
+        String password2 = request.getParameter("password2");
 
         if (nombre.trim().length() == 0 || apellido.trim().length() == 0 || telefono.trim().length() == 0
                 || email.trim().length() == 0 || nick.trim().length() == 0 || password.trim().length() == 0
