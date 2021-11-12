@@ -4,14 +4,27 @@
     Author     : lenovo
 --%>
 
+<%@page import="com.arelance.empresa.imd.domain.Inscripciontarjeta"%>
+<%@page import="com.arelance.empresa.imd.domain.Actividad"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <%@include file = "../JSPF/meta.jspf"%>
+        <title>Confirmación</title>
+        <%@include file = "../JSPF/login.jspf"%>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%
+            Actividad actividad = (Actividad) request.getAttribute("actividad");
+        %>
+        <form action="PostDeleteActividadServlet" method="GET">
+            <p>¿Estas seguro que quieres dejar de asistir a <%= actividad.getNombre()%>?</p>
+            <input class="btn btn-warning" type="submit"name="action"value="Si">
+            <input class="btn btn-danger" type="submit"name="action"value="No">
+            <input type="hidden"name="idActividad" value="<%= actividad.getIdActividad()%>">
+            <input type="hidden"name="idCliente"value="${idCliente}">
+        </form>
+
     </body>
 </html>
