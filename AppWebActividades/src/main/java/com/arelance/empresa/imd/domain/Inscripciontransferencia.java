@@ -52,9 +52,13 @@ public class Inscripciontransferencia implements Serializable {
         this.inscripciontransferenciaPK = new InscripciontransferenciaPK(idCliente, idActividad);
     }
 
-    public Inscripciontransferencia(Actividad actividad, Cliente c, Metodopagotransferencia metodo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Inscripciontransferencia(InscripciontransferenciaPK inscripciontransferenciaPK, Actividad actividad, Cliente cliente, Metodopagotransferencia idMetodopagotransferencia) {
+        this.inscripciontransferenciaPK = inscripciontransferenciaPK;
+        this.actividad = actividad;
+        this.cliente = cliente;
+        this.idMetodopagotransferencia = idMetodopagotransferencia;
     }
+
 
     public InscripciontransferenciaPK getInscripciontransferenciaPK() {
         return inscripciontransferenciaPK;
