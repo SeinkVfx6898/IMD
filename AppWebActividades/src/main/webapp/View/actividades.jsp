@@ -60,13 +60,25 @@
                 </tbody>
             </table>
             <h4>Inscripcion por transferencia</h4>
+                  <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th style="text-align:center;">Acción</th>
+
+                    </tr>
+                </thead>
+                <tbody>
             <%
                 List<Actividad> listaTransferencia = (List<Actividad>) request.getAttribute("listaTransferencia");
                 for (Actividad actividad : listaTransferencia) {
             %>
-            <li>
-                <a><%=actividad.getNombre()%></a>
-            </li>
+                   <tr>
+                        <td><%= actividad.getNombre()%></td>
+                         <td style="text-align:center;">
+                             <a href="PreDeleteActividadTransfeServlet?idActividad=<%= actividad.getIdActividad()%>" class="btn btn-danger" role="button">Eliminar</a>
+                       </td>
+                    </tr>   
             <%
                 }
             %>
