@@ -74,7 +74,7 @@ public class PostRegistroServlet extends HttpServlet {
             request.getRequestDispatcher("View/registro.jsp").forward(request, response);
         } else {
             Cliente cliente = new Cliente(nombre, apellido, telefono, email, nick, password);
-            if (clienteService.ComprobarRegistro(cliente) != null) {
+            if (clienteService.ComprobarRegistro(cliente) == null) {
                 clienteService.AñadirCliente(cliente);
                 request.getRequestDispatcher("View/login.jsp").forward(request, response);
             } else {
