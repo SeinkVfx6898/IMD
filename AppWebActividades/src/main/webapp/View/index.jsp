@@ -23,9 +23,6 @@
                         %>
                         <a class="nav-link" href="PreActividadInscritoServlet"><%=cliente.getNick()%></a>
                     </li>
-                       <li class="nav-item">
-                        <a class="nav-link" href="PreModificarClienteServlet">Modificar</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="CierreSesion">Cerrar sesion</a>
                     </li>

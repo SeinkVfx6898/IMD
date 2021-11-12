@@ -25,6 +25,9 @@
                         <a class="nav-link"><%=cliente.getNick()%></a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="PreModificarClienteServlet">Modificar</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="CierreSesion">Cerrar sesion</a>
                     </li>          
                 </ul>
@@ -50,9 +53,9 @@
 
                     <tr>
                         <td><%= actividad.getNombre()%></td>
-                         <td style="text-align:center;">
-                             <a href="PreDeleteActividadServlet?idActividad=<%= actividad.getIdActividad()%>" class="btn btn-danger" role="button">Eliminar</a>
-                       </td>
+                        <td style="text-align:center;">
+                            <a href="PreDeleteActividadServlet?idActividad=<%= actividad.getIdActividad()%>" class="btn btn-danger" role="button">Eliminar</a>
+                        </td>
                     </tr>                   
                     <%
                         }
@@ -60,7 +63,7 @@
                 </tbody>
             </table>
             <h4>Inscripcion por transferencia</h4>
-                  <table class="table table-striped">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -69,18 +72,18 @@
                     </tr>
                 </thead>
                 <tbody>
-            <%
-                List<Actividad> listaTransferencia = (List<Actividad>) request.getAttribute("listaTransferencia");
-                for (Actividad actividad : listaTransferencia) {
-            %>
-                   <tr>
+                    <%
+                        List<Actividad> listaTransferencia = (List<Actividad>) request.getAttribute("listaTransferencia");
+                        for (Actividad actividad : listaTransferencia) {
+                    %>
+                    <tr>
                         <td><%= actividad.getNombre()%></td>
-                         <td style="text-align:center;">
-                             <a href="PreDeleteActividadTransfeServlet?idActividad=<%= actividad.getIdActividad()%>" class="btn btn-danger" role="button">Eliminar</a>
-                       </td>
+                        <td style="text-align:center;">
+                            <a href="PreDeleteActividadTransfeServlet?idActividad=<%= actividad.getIdActividad()%>" class="btn btn-danger" role="button">Eliminar</a>
+                        </td>
                     </tr>   
-            <%
-                }
-            %>
-        </ul>
-</html>
+                    <%
+                        }
+                    %>
+                    </ul>
+                    </html>

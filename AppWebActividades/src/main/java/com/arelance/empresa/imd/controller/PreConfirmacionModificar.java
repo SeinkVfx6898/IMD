@@ -5,11 +5,8 @@
  */
 package com.arelance.empresa.imd.controller;
 
-import com.arelance.empresa.imd.domain.Cliente;
-import com.arelance.empresa.servicios.ClienteService;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,10 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author lenovo
+ * @author usuar
  */
-@WebServlet(name = "PreModificarClienteServlet", urlPatterns = {"/PreModificarClienteServlet"})
-public class PreModificarClienteServlet extends HttpServlet {
+@WebServlet(name = "PreConfirmacionModificar", urlPatterns = {"/PreConfirmacionModificar"})
+public class PreConfirmacionModificar extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,15 +29,17 @@ public class PreModificarClienteServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Inject
-    ClienteService clienteService;
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
-        request.setAttribute("cliente", cliente);
-        request.getRequestDispatcher("View/modificar.jsp").forward(request, response);
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String telefono = request.getParameter("telefono");
+        String correo = request.getParameter("correo");
+        String nick = request.getParameter("usuario");
+        String password = request.getParameter("password");
+        String password2 = request.getParameter("password2");
+        int idCliente = Integer.parseInt(request.getParameter("id"));
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
