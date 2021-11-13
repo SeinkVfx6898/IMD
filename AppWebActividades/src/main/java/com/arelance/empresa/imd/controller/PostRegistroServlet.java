@@ -34,9 +34,10 @@ public class PostRegistroServlet extends HttpServlet {
      */
     @Inject
     ClienteService clienteService;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                String nombre = request.getParameter("nombre");
+        String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String telefono = request.getParameter("telefono");
         String email = request.getParameter("correo");

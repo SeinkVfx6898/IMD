@@ -18,7 +18,7 @@
         <main>
             <h3>Cada día numerosos grupos de personas disfrutan de nuestras actividades.<br>
                 ¡Forma parte de nosotros para disfrutar también!</h3>
-            <form action="http://localhost:8080/AppWebActividades/PostRegistroServlet" class="formulario" id="formulario" method="GET">           
+            <form action="http://localhost:8080/AppWebActividades/PostRegistroServlet" class="formulario" id="formulario" method="POST">           
                 <div class="formulario__grupo" id="grupo__usuario">
                     <label for="usuario" class="formulario__label">Nick:</label>
                     <div class="formulario__grupo-input">
@@ -34,6 +34,7 @@
                         <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Agustín" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
+                    <p style="color: red">${NomMsg}</p>
                     <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
                 </div>
                 <div class="formulario__grupo" id="grupo__apellido">
@@ -42,6 +43,7 @@
                         <input type="text" class="formulario__input" name="apellido" id="apellido" placeholder="Morillo" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
+                    <p style="color: red">${ApeMsg}</p>
                     <p class="formulario__input-error">El apellido tiene que ser de 4 a 16 dígitos y solo puede contener letras.</p>
                 </div>
                 <div class="formulario__grupo" id="grupo__password">
@@ -50,6 +52,7 @@
                         <input type="password" class="formulario__input" name="password" id="password" placeholder="1234" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
+                    <P style="color: red">${passMsg}</P>
                     <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
                 </div>
                 <div class="formulario__grupo" id="grupo__password2">
@@ -58,6 +61,7 @@
                         <input type="password" class="formulario__input" name="password2" placeholder="1234" id="password2" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
+                    <P style="color: red">${passMsg2}</P>
                     <p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
                 </div>
                 <div class="formulario__grupo" id="grupo__correo">
@@ -66,7 +70,7 @@
                         <input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                    <p>${EmailMsg}</p>
+                    <p style="color: red">${EmailMsg}</p>
                     <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
                 </div>
                 <div class="formulario__grupo" id="grupo__telefono">
@@ -75,7 +79,7 @@
                         <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="744639104" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                    <p>${TlfMsg}</p>
+                       <p style="color: red">${TlfMsg}</p>
                     <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
                 </div>
                 <div class="formulario__grupo formulario__grupo-btn-enviar">
