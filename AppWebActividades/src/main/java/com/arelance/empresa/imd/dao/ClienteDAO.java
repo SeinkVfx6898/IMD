@@ -38,7 +38,7 @@ public interface ClienteDAO {
 
     public Cliente EncontrarClientePorEmail(Cliente cliente);//Encontrar por email.
 
-    public Cliente ValidarRegistro(Cliente cliente);
+    public Cliente ComprobarRegistro(Cliente cliente);
 
     public Cliente EncontradIdNick(String nick);
 

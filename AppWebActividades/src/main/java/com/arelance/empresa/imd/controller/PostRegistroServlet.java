@@ -8,7 +8,7 @@ package com.arelance.empresa.imd.controller;
 import com.arelance.empresa.imd.domain.Cliente;
 import com.arelance.empresa.servicios.ClienteService;
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,12 +33,10 @@ public class PostRegistroServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Inject
-    private ClienteService clienteService;
-
+    ClienteService clienteService;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-     String nombre = request.getParameter("nombre");
+                String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String telefono = request.getParameter("telefono");
         String email = request.getParameter("correo");
@@ -76,7 +74,7 @@ public class PostRegistroServlet extends HttpServlet {
             request.getRequestDispatcher("View/registro.jsp").forward(request, response);
         } else {
             Cliente cliente = new Cliente(nombre, apellido, telefono, email, nick, password);
-            if (clienteService.ValidarRegistro(cliente) == null) {
+            if (clienteService.ComprobarRegistro(cliente) == null) {
                 clienteService.AñadirCliente(cliente);
                 request.getRequestDispatcher("View/login.jsp").forward(request, response);
             } else {
@@ -93,11 +91,9 @@ public class PostRegistroServlet extends HttpServlet {
                 request.getRequestDispatcher("View/registro.jsp").forward(request, response);
             }
         }
-        }
+    }
 
-    
-
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

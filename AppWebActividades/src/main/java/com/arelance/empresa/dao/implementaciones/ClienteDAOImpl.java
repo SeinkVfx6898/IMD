@@ -107,7 +107,7 @@ public class ClienteDAOImpl implements ClienteDAO {
     }
 
     @Override
-    public Cliente ValidarRegistro(Cliente cliente) {
+    public Cliente ComprobarRegistro(Cliente cliente) {
         try {
             Query q = em.createNamedQuery("Cliente.ComprobarRegistro").setParameter("nick", cliente.getNick()).
                     setParameter("telefono", cliente.getTelefono()).setParameter("email", cliente.getEmail());
