@@ -27,6 +27,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="PreModificarClienteServlet">Modificar</a>
                     </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="PreDeleteClienteServlet">Eliminar cuenta</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="CierreSesion">Cerrar sesion</a>
                     </li>          
