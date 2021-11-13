@@ -38,26 +38,61 @@ public class PostRegistroServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String nombre = request.getParameter("nombre");
+     String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String telefono = request.getParameter("telefono");
-        String correo = request.getParameter("correo");
+        String email = request.getParameter("correo");
         String nick = request.getParameter("usuario");
         String password = request.getParameter("password");
-        Cliente cliente = new Cliente(nombre, apellido, telefono, correo, nick, password);
-        if (clienteService.ValidarRegistro(cliente) == null) {
-            clienteService.AñadirCliente(cliente);
-            request.getRequestDispatcher("View/login.jsp").forward(request, response);
-        } else if(clienteService.EncontrarClientePorNick(cliente) == null) {
-                request.setAttribute("NickMsg", "Este nick ya existe.");
+        String password2 = request.getParameter("password2");
+
+        if (nombre.trim().length() == 0 || apellido.trim().length() == 0 || telefono.trim().length() == 0
+                || email.trim().length() == 0 || nick.trim().length() == 0 || password.trim().length() == 0
+                || password2.trim().length() == 0) {
+            if (nombre.trim().length() == 0) {
+                request.setAttribute("NomMsg", "El nick no esta relleno.");
             }
-            if (clienteService.EncontrarClientePorTelefono(cliente) == null) {
-                request.setAttribute("TlfMsg", "Este teléfono ya existe.");
+            if (apellido.trim().length() == 0) {
+                request.setAttribute("ApeMsg", "El apellido no esta relleno.");
             }
-            if (clienteService.EncontrarClientePorEmail(cliente) == null) {
-                request.setAttribute("EmailMsg", "Este email ya existe.");
+            if (telefono.trim().length() == 0) {
+                request.setAttribute("TlfMsg", "El telefono no esta relleno.");
+            }
+            if (email.trim().length() == 0) {
+                request.setAttribute("EmailMsg", "El email no esta relleno.");
+            }
+            if (nick.trim().length() == 0) {
+                request.setAttribute("NickMsg", "El nick no esta relleno.");
+            }
+            if (password.trim().length() == 0) {
+                request.setAttribute("PassMsg", "La contraseña no esta relleno.");
+            }
+            if (password2.trim().length() == 0) {
+                request.setAttribute("Pass2Msg", "La comprobacion de contraseña no esta relleno.");
             }
             request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+        } else if (!password.equals(password2)) {
+            request.setAttribute("PassMsg", "Las contraseñas no coinciden.");
+            request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+        } else {
+            Cliente cliente = new Cliente(nombre, apellido, telefono, email, nick, password);
+            if (clienteService.ValidarRegistro(cliente) == null) {
+                clienteService.AñadirCliente(cliente);
+                request.getRequestDispatcher("View/login.jsp").forward(request, response);
+            } else {
+                if (clienteService.EncontrarClientePorNick(cliente) == null) {
+                    request.setAttribute("NickMsg", "Este nick ya existe.");
+                }
+                if (clienteService.EncontrarClientePorTelefono(cliente) == null) {
+                    request.setAttribute("TlfMsg", "Este teléfono ya existe.");
+                }
+                if (clienteService.EncontrarClientePorEmail(cliente) == null) {
+                    request.setAttribute("EmailMsg", "Este email ya existe.");
+                }
+
+                request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+            }
+        }
         }
 
     
