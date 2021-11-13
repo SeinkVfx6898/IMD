@@ -5,8 +5,10 @@
  */
 package com.arelance.empresa.imd.controller;
 
+import com.arelance.empresa.imd.domain.Cliente;
+import com.arelance.empresa.servicios.ClienteService;
 import java.io.IOException;
-import java.io.PrintWriter;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,6 +31,9 @@ public class PreConfirmacionModificar extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Inject
+    ClienteService clienteService;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String nombre = request.getParameter("nombre");
@@ -38,8 +43,20 @@ public class PreConfirmacionModificar extends HttpServlet {
         String nick = request.getParameter("usuario");
         String password = request.getParameter("password");
         String password2 = request.getParameter("password2");
-        int idCliente = Integer.parseInt(request.getParameter("id"));
-        
+        if (password.equals(password2)) {
+            Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
+            request.setAttribute("cliente", cliente);
+            request.setAttribute("nombre", nombre);
+            request.setAttribute("apellido", apellido);
+            request.setAttribute("telefono", telefono);
+            request.setAttribute("correo", correo);
+            request.setAttribute("nick", nick);
+            request.setAttribute("password", password);
+            request.getRequestDispatcher("View/confirmacionmodificar.jsp").forward(request, response);
+
+        }
+        request.getRequestDispatcher("View/modificar.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
