@@ -36,6 +36,7 @@ com\arelance\empresa\imd\dao\InscripcionTransferenciaDAO.class
 com\arelance\empresa\imd\dao\TarjetaCreditoDAO.class
 com\arelance\empresa\servicios\InscripcionTransferenciaService.class
 com\arelance\empresa\imd\controller\PreIndexServlet.class
+com\arelance\empresa\imd\controller\PostModificarClienteServlet.class
 com\arelance\empresa\servicios\implementaciones\InscripcionTarjetaServiceImpl.class
 com\arelance\empresa\imd\dao\TransferenciaDAO.class
 com\arelance\empresa\dao\implementaciones\TransferenciaDAOImpl.class
