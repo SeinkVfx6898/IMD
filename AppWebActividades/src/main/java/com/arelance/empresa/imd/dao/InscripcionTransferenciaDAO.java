@@ -26,5 +26,7 @@ public interface InscripcionTransferenciaDAO {
     public void eliminar(Inscripciontransferencia inscripciontransferencia);
 
     public Metodopagotransferencia ObtenerIdTransferencia();
+    
+    public Inscripciontransferencia ObtenerInscripcion(int cliente,int actividad);
 
 }

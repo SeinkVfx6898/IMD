@@ -27,7 +27,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- *
  * @author lenovo
  */
 @WebServlet(name = "PostPagoTransferencia", urlPatterns = {"/PostPagoTransferencia"})
@@ -55,38 +54,21 @@ public class PostPagoTransferencia extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String iban = request.getParameter("iban");
-            String concepto = request.getParameter("concepto");
-            int idActividad = Integer.parseInt(request.getParameter("id_actividad"));
-
-            if (iban.trim().length() == 0 || concepto.trim().length() == 0 || idActividad > 1) {
-                if (iban.trim().length() == 0) {
-                    request.setAttribute("IbanMsg", "El iban no esta relleno.");
-                }
-                if (concepto.trim().length() == 0) {
-                    request.setAttribute("ConMsg", "El concepto no esta relleno.");
-                }
-                if (idActividad > 1) {
-                    request.setAttribute("ActMsg", "Esta actividad no existe.");
-                }
-                request.getRequestDispatcher("View/inscripcion.jsp").forward(request, response);
-            } else {
-                Transferencia transferencia = new Transferencia(iban, concepto);
-                Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
-                int c = cliente.getIdCliente();
-                Actividad actividad = new Actividad(idActividad);
-                transferenciaService.AñadirTransferencia(transferencia);
-                Metodopagotransferencia metodopagotransferencia = new Metodopagotransferencia(metodoPagoTransferenciaService.obteneridTransferencia());
-                metodoPagoTransferenciaService.AñadirPagoTransferencia(metodopagotransferencia);
-                Metodopagotransferencia m = inscripcionTransferenciaService.ObtenerIdTransferencia();
-                InscripciontransferenciaPK pK = new InscripciontransferenciaPK(c, idActividad);
-                Inscripciontransferencia inscripciontransferencia = new Inscripciontransferencia(pK ,actividad, cliente, m);
-                inscripcionTransferenciaService.guardar(inscripciontransferencia);
-                request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
-            }
-        }
+        String iban = request.getParameter("iban");
+        String concepto = request.getParameter("concepto");
+        int idActividad = Integer.parseInt(request.getParameter("id_actividad"));
+        Transferencia transferencia = new Transferencia(iban, concepto);
+        Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
+        int idCliente = cliente.getIdCliente();
+        Actividad actividad = new Actividad(idActividad);
+        transferenciaService.AñadirTransferencia(transferencia);
+        Metodopagotransferencia metodopagotransferencia = new Metodopagotransferencia(metodoPagoTransferenciaService.obteneridTransferencia());
+        metodoPagoTransferenciaService.AñadirPagoTransferencia(metodopagotransferencia);
+        Metodopagotransferencia metodo = inscripcionTransferenciaService.ObtenerIdTransferencia();
+        InscripciontransferenciaPK Pk = new InscripciontransferenciaPK(idCliente, idActividad);
+        Inscripciontransferencia inscripciontransferencia = new Inscripciontransferencia(Pk, actividad,cliente, metodo);
+        inscripcionTransferenciaService.guardar(inscripciontransferencia);
+        request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

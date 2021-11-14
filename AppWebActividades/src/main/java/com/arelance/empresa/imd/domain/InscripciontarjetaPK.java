@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author usuar
+ * @author lenovo
  */
 @Embeddable
 public class InscripciontarjetaPK implements Serializable {

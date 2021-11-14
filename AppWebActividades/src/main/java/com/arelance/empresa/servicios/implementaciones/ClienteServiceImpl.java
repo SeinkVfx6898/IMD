@@ -16,35 +16,36 @@ import com.arelance.empresa.imd.dao.ClienteDAO;
  * @author Manuel
  */
 public class ClienteServiceImpl implements ClienteService {
-
+    
     @Inject
     private ClienteDAO clienteDAO;
-
+    
     @Override
     public List<Cliente> listarClientes() {
         return clienteDAO.listarClientes();
     }
+    
 
     @Override
-    public Cliente EncontrarClientePorID(Cliente cliente) {
-        return clienteDAO.EncontrarClientePorID(cliente);
+    public Cliente EncontrarClientePorID(int id) {
+        return clienteDAO.EncontrarClientePorID(id);
     }
-
+    
     @Override
     public Cliente EncontrarClientePorNick(Cliente cliente) {
         return clienteDAO.EncontrarClientePorNick(cliente);
     }
-
+    
     @Override
     public void AñadirCliente(Cliente cliente) {
         clienteDAO.AñadirCliente(cliente);
     }
-
+    
     @Override
     public void ModificarCliente(Cliente cliente) {
         clienteDAO.ModificarCliente(cliente);
     }
-
+    
     @Override
     public void RemoverCliente(Cliente cliente) {
         clienteDAO.RemoverCliente(cliente);
@@ -60,9 +61,9 @@ public class ClienteServiceImpl implements ClienteService {
         return clienteDAO.ValidarCliente(cliente);
     }
 
-    @Override
+     @Override
     public Cliente SacarID(Cliente cliente) {
-        return clienteDAO.SacarID(cliente);
+       return clienteDAO.SacarID(cliente);
     }
 
     @Override
@@ -75,9 +76,17 @@ public class ClienteServiceImpl implements ClienteService {
         return clienteDAO.EncontrarClientePorEmail(cliente);
     }
 
+
+
     @Override
-    public Cliente ComprobarRegistro(Cliente cliente) {
-        return clienteDAO.ComprobarRegistro(cliente);
+    public Cliente EncontradIdNick(String nick) {
+        return clienteDAO.EncontradIdNick(nick);
     }
 
+    @Override
+    public Cliente ComprobarRegistro(Cliente cliente) {
+       return clienteDAO.ComprobarRegistro(cliente);
+    }
+
+    
 }

@@ -29,7 +29,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Inscripciontransferencia implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @EmbeddedId
     protected InscripciontransferenciaPK inscripciontransferenciaPK;
     @JoinColumn(name = "id_actividad", referencedColumnName = "id_actividad", insertable = false, updatable = false)
@@ -49,13 +48,8 @@ public class Inscripciontransferencia implements Serializable {
         this.inscripciontransferenciaPK = inscripciontransferenciaPK;
     }
 
-   public Inscripciontransferencia(int idCliente, int idActividad) {
+    public Inscripciontransferencia(int idCliente, int idActividad) {
         this.inscripciontransferenciaPK = new InscripciontransferenciaPK(idCliente, idActividad);
-    }
-
-    public Inscripciontransferencia(int idCliente, int idActividad, Metodopagotransferencia idMetodopagotransferencia) {
-        this.inscripciontransferenciaPK = new InscripciontransferenciaPK(idCliente, idActividad);
-        this.idMetodopagotransferencia = idMetodopagotransferencia;
     }
 
     public Inscripciontransferencia(InscripciontransferenciaPK inscripciontransferenciaPK, Actividad actividad, Cliente cliente, Metodopagotransferencia idMetodopagotransferencia) {
@@ -65,8 +59,7 @@ public class Inscripciontransferencia implements Serializable {
         this.idMetodopagotransferencia = idMetodopagotransferencia;
     }
 
-   
-    
+
     public InscripciontransferenciaPK getInscripciontransferenciaPK() {
         return inscripciontransferenciaPK;
     }
@@ -83,7 +76,7 @@ public class Inscripciontransferencia implements Serializable {
         this.actividad = actividad;
     }
 
-   public Cliente getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
@@ -123,5 +116,5 @@ public class Inscripciontransferencia implements Serializable {
     public String toString() {
         return "com.arelance.empresa.imd.domain.Inscripciontransferencia[ inscripciontransferenciaPK=" + inscripciontransferenciaPK + " ]";
     }
-    
+
 }

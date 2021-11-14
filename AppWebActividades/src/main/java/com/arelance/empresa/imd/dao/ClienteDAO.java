@@ -18,7 +18,7 @@ public interface ClienteDAO {
 
     public List<Cliente> listarClientes();//Obtener clientes.
 
-    public Cliente EncontrarClientePorID(Cliente cliente);//Encontrar por id.
+    public Cliente EncontrarClientePorID(int id);//Encontrar por id.
 
     public Cliente EncontrarClientePorNick(Cliente cliente);//Encontrar por nick.
 
@@ -38,6 +38,8 @@ public interface ClienteDAO {
 
     public Cliente EncontrarClientePorEmail(Cliente cliente);//Encontrar por email.
 
-    public Cliente ComprobarRegistro(Cliente cliente);//Cumplieva si existe un cliente con el nick, email o telefono.
+    public Cliente ComprobarRegistro(Cliente cliente);
+
+    public Cliente EncontradIdNick(String nick);
 
 }

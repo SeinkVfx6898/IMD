@@ -11,6 +11,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import com.arelance.empresa.imd.dao.ActividadDAO;
+import javax.persistence.Query;
 
 /**
  *
@@ -25,6 +26,12 @@ public class ActividadDAOImpl implements ActividadDAO {
     @Override
     public List<Actividad> ListarActividades() {
         return em.createNamedQuery("Actividad.findAll").getResultList();
+    }
+       @Override
+    public List<Actividad> ListarActividades(String filtro) {
+        Query query=em.createQuery("SELECT a FROM Actividad a WHERE a.nombre LIKE :filtro");
+        query.setParameter("filtro", "%"+filtro+"%");
+        return query.getResultList();
     }
 
     @Override
@@ -45,6 +52,7 @@ public class ActividadDAOImpl implements ActividadDAO {
     @Override
     public void RemoverActividad(Actividad actividad) {
         em.remove(em.merge(actividad));
+        
     }
 
     @Override
@@ -69,4 +77,5 @@ public class ActividadDAOImpl implements ActividadDAO {
                 + "on inscripciontransferencia.id_cliente = cliente.id_cliente where cliente.id_cliente = " + id_cliente;
         return em.createNativeQuery(sql, Actividad.class).getResultList();
     }
+
 }

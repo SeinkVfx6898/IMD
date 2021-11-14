@@ -17,6 +17,7 @@ import javax.ejb.Local;
 public interface ActividadService {
 
     public List<Actividad> ListarActividades();//Obtener todas las actividades
+    public List<Actividad>ListarActividades(String filtro);
 
     public Actividad EncontrarActividadPorID(Actividad actividad);//Encontrar actividad por id.
     
@@ -31,5 +32,4 @@ public interface ActividadService {
     public List<Actividad> ListaActividadesClienteTarjeta(int id_cliente);//Obtener las actividades que esta apuntado un usuario
     
     public List<Actividad> ListaActividadesClienteTransferencia(int id_cliente);//Obtener las actividades que esta apuntado un usuario
-
 }

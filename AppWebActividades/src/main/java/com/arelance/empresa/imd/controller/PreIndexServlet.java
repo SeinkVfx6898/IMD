@@ -36,9 +36,15 @@ public class PreIndexServlet extends HttpServlet {
     private ActividadService actividadService;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    
-        List<Actividad>actividades=actividadService.ListarActividades();
+    String filtro=request.getParameter("filtro");
+    if(filtro==null)filtro="";
+        List<Actividad>actividades=actividadService.ListarActividades(filtro);
+        if(actividades.isEmpty()){
+        request.setAttribute("Msg","No existe ningún elemento asociado a su búsqueda, presione buscar de nuevo.");
+        filtro="";
+        }
         request.setAttribute("lista",actividades);
+        request.setAttribute("filtro",filtro);
         request.getRequestDispatcher("View/index.jsp").forward(request, response);
     }
 

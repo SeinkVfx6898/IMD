@@ -1,12 +1,15 @@
-/*/*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package com.arelance.empresa.imd.controller;
 
+import com.arelance.empresa.imd.domain.Inscripciontransferencia;
+import com.arelance.empresa.servicios.InscripcionTransferenciaService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,10 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Agustin
+ * @author usuar
  */
-@WebServlet(name = "CierreSesion", urlPatterns = {"/CierreSesion"})
-public class CierreSesion extends HttpServlet {
+@WebServlet(name = "PostDeleteActividadTransfeServlet", urlPatterns = {"/PostDeleteActividadTransfeServlet"})
+public class PostDeleteActividadTransfeServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,12 +32,20 @@ public class CierreSesion extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Inject
+    private InscripcionTransferenciaService inscripcionTransferenciaService;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            request.getSession().invalidate();
-            response.sendRedirect("PreIndexServlet");
+        String action = request.getParameter("action");
+        int idCliente = Integer.parseInt(request.getParameter("idCliente"));
+        int idActividad = Integer.parseInt(request.getParameter("idActividad"));
+        Inscripciontransferencia inscripciontransfer = inscripcionTransferenciaService.ObtenerInscripcion(idCliente, idActividad);
+        if (action.equals("Si")) {
+           inscripcionTransferenciaService.eliminar(inscripciontransfer);
+            request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
+        } else if (action.equals("No")) {
+            request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
         }
     }
 

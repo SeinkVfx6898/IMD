@@ -46,4 +46,11 @@ public class InscripcionTarjetaServiceImpl implements InscripcionTarjetaService 
         return inscripcionTarjetaDAO.ObtenerIdTarjeta();
     }
 
+    @Override
+    public Inscripciontarjeta ObtenerInscripcion(int cliente, int actividad) {
+        return inscripcionTarjetaDAO.ObtenerInscripcion(cliente, actividad);
+    }
+
+
+
 }

@@ -5,20 +5,10 @@
  */
 package com.arelance.empresa.imd.controller;
 
-import com.arelance.empresa.imd.domain.Actividad;
 import com.arelance.empresa.imd.domain.Cliente;
-import com.arelance.empresa.imd.domain.Inscripciontarjeta;
-import com.arelance.empresa.imd.domain.InscripciontarjetaPK;
-import com.arelance.empresa.imd.domain.Metodopagotarjeta;
-import com.arelance.empresa.imd.domain.Tarjetacredito;
-import com.arelance.empresa.servicios.ActividadService;
 import com.arelance.empresa.servicios.ClienteService;
-import com.arelance.empresa.servicios.InscripcionTarjetaService;
-import com.arelance.empresa.servicios.MetodoPagoTarjetaService;
-import com.arelance.empresa.servicios.TarjetaCreditoService;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,21 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Manuel
+ * @author lenovo
  */
-@WebServlet(name = "PostPagoTarjeta", urlPatterns = {"/PostPagoTarjeta"})
-public class PostPagoTarjeta extends HttpServlet {
-
-    @Inject
-    private TarjetaCreditoService tarjetaService;
-    @Inject
-    private MetodoPagoTarjetaService metodoPagoTarjetaService;
-    @Inject
-    private InscripcionTarjetaService inscripcionTarjetaService;
-    @Inject
-    private ActividadService actividadService;
-    @Inject
-    private ClienteService clienteService;
+@WebServlet(name = "PostDeleteClienteServlet", urlPatterns = {"/PostDeleteClienteServlet"})
+public class PostDeleteClienteServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -53,27 +32,21 @@ public class PostPagoTarjeta extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Inject
+    ClienteService clienteService;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String action = request.getParameter("action");
+        if (action.equals("No")) {
 
-        double numeroTarjeta = Double.parseDouble(request.getParameter("numeroTarjeta"));
-        String fecha = request.getParameter("Fecha_caducidad");
-        int cvv = Integer.parseInt(request.getParameter("CVV"));
-        int idActividad = Integer.parseInt(request.getParameter("id_actividad"));
-        Tarjetacredito tarjeta = new Tarjetacredito(numeroTarjeta, fecha, cvv);
-        Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
-        int cliente2 = cliente.getIdCliente();
-        Actividad actividad = new Actividad(idActividad);
-        tarjetaService.AñadirTarjeta(tarjeta);
-        Metodopagotarjeta metodoTarjeta = new Metodopagotarjeta(metodoPagoTarjetaService.ObtenerIdTarjeta());
-        metodoPagoTarjetaService.AñadirPagoTarjeta(metodoTarjeta);
-        Metodopagotarjeta pagotarjeta = inscripcionTarjetaService.ObtenerIdTarjeta();
-        InscripciontarjetaPK pK = new InscripciontarjetaPK(cliente2, idActividad);
-        Inscripciontarjeta inscripciontarjeta = new Inscripciontarjeta(pK, actividad, cliente, pagotarjeta);
-        inscripcionTarjetaService.guardar(inscripciontarjeta);
-        
-        request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
-
+            request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
+        } else if (action.equals("Si")) {
+            Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
+            request.getSession().invalidate();
+            clienteService.RemoverCliente(cliente);
+            request.getRequestDispatcher("PreIndexServlet").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

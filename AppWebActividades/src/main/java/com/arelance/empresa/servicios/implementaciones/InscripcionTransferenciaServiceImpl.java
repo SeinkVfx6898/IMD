@@ -48,4 +48,9 @@ public class InscripcionTransferenciaServiceImpl implements InscripcionTransfere
        return inscripcionTransferenciaDAO.ObtenerIdTransferencia();
     }
 
+    @Override
+    public Inscripciontransferencia ObtenerInscripcion(int cliente, int actividad) {
+      return inscripcionTransferenciaDAO.ObtenerInscripcion(cliente, actividad);
+    }
+
 }

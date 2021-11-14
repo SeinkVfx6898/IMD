@@ -30,8 +30,8 @@ public class ClienteDAOImpl implements ClienteDAO {
     }
 
     @Override
-    public Cliente EncontrarClientePorID(Cliente cliente) {
-        return em.find(Cliente.class, cliente.getIdCliente());
+    public Cliente EncontrarClientePorID(int id) {
+        return em.find(Cliente.class, id);
     }
 
     @Override
@@ -85,7 +85,7 @@ public class ClienteDAOImpl implements ClienteDAO {
         String sql = "SELECT c.id_cliente FROM cliente c WHERE nick = '" + cliente.getNick() + "'";
         return (Cliente) em.createNativeQuery(sql, Cliente.class).getSingleResult();
     }
-    
+
     @Override
     public Cliente EncontrarClientePorTelefono(Cliente cliente) {
         try {
@@ -116,4 +116,11 @@ public class ClienteDAOImpl implements ClienteDAO {
             return null;
         }
     }
+
+    @Override
+    public Cliente EncontradIdNick(String nick) {
+        String sql = "SELECT cliente.id_cliente FROM cliente WHERE cliente.nick=" + nick + "";
+        return (Cliente) em.createNamedQuery(sql, Cliente.class).getSingleResult();
+    }
+
 }

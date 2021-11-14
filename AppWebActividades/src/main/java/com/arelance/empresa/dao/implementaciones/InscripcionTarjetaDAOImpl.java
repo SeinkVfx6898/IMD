@@ -45,8 +45,13 @@ public class InscripcionTarjetaDAOImpl implements InscripcionTarjetaDAO {
 
     @Override
     public Metodopagotarjeta ObtenerIdTarjeta() {
-         String sql = "SELECT idmetodopagotarjeta FROM institutomd_bd.metodopagotarjeta order by idmetodopagotarjeta desc limit 1";
+        String sql = "SELECT idmetodopagotarjeta FROM institutomd_bd.metodopagotarjeta order by idmetodopagotarjeta desc limit 1";
         return (Metodopagotarjeta) em.createNativeQuery(sql, Metodopagotarjeta.class).getSingleResult();
     }
 
+    @Override
+    public Inscripciontarjeta ObtenerInscripcion(int cliente,int actividad){
+    String sql="SELECT inscripciontarjeta.id_cliente,inscripciontarjeta.id_actividad,inscripciontarjeta.id_metodopagotarjeta FROM inscripciontarjeta WHERE inscripciontarjeta.id_cliente="+cliente+" AND inscripciontarjeta.id_actividad="+actividad+"";
+    return(Inscripciontarjeta)em.createNativeQuery(sql,Inscripciontarjeta.class).getSingleResult();
+    }
 }

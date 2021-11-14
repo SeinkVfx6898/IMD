@@ -8,6 +8,7 @@ package com.arelance.empresa.imd.controller;
 import com.arelance.empresa.imd.domain.Cliente;
 import com.arelance.empresa.servicios.ClienteService;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,7 +33,7 @@ public class PostRegistroServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Inject
-    private ClienteService clienteService;
+    ClienteService clienteService;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -74,22 +75,23 @@ public class PostRegistroServlet extends HttpServlet {
             request.getRequestDispatcher("View/registro.jsp").forward(request, response);
         } else {
             Cliente cliente = new Cliente(nombre, apellido, telefono, email, nick, password);
-            if (clienteService.ComprobarRegistro(cliente) == null) {
+            
+            if (clienteService.EncontrarClientePorNick(cliente) != null) {
+                request.setAttribute("NickMsg", "Este nick ya existe.");
+                request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+            }else if (clienteService.EncontrarClientePorTelefono(cliente) != null) {
+                request.setAttribute("TlfMsg", "Este teléfono ya existe.");
+                request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+            }else if (clienteService.EncontrarClientePorEmail(cliente) != null) {
+                request.setAttribute("EmailMsg", "Este email ya existe.");
+                request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+            }else{
                 clienteService.AñadirCliente(cliente);
                 request.getRequestDispatcher("View/login.jsp").forward(request, response);
-            } else {
-                if (clienteService.EncontrarClientePorNick(cliente) == null) {
-                    request.setAttribute("NickMsg", "Este nick ya existe.");
-                }
-                if (clienteService.EncontrarClientePorTelefono(cliente) == null) {
-                    request.setAttribute("TlfMsg", "Este teléfono ya existe.");
-                }
-                if (clienteService.EncontrarClientePorEmail(cliente) == null) {
-                    request.setAttribute("EmailMsg", "Este email ya existe.");
-                }
-
-                request.getRequestDispatcher("View/registro.jsp").forward(request, response);
             }
+
+           
+
         }
     }
 

@@ -40,6 +40,7 @@ public class Transferencia implements Serializable {
 
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "iban")
     private String iban;
     @Basic(optional = false)
@@ -133,5 +134,7 @@ public class Transferencia implements Serializable {
     public void setIban(String iban) {
         this.iban = iban;
     }
+
+  
 
 }

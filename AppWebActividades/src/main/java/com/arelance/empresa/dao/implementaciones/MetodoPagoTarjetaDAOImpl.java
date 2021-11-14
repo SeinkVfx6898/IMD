@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package com.arelance.empresa.dao.implementaciones;
-
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
