@@ -52,7 +52,7 @@ public class PreConfirmacionModificar extends HttpServlet {
             request.setAttribute("correo", correo);
             request.setAttribute("nick", nick);
             request.setAttribute("password", password);
-            request.getRequestDispatcher("View/confirmacionmodificar.jsp").forward(request, response);
+            request.getRequestDispatcher("View/confirmacionModificar.jsp").forward(request, response);
 
         }
         request.getRequestDispatcher("View/modificar.jsp").forward(request, response);

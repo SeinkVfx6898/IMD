@@ -8,7 +8,6 @@ package com.arelance.empresa.imd.controller;
 import com.arelance.empresa.imd.domain.Cliente;
 import com.arelance.empresa.servicios.ClienteService;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,7 +37,8 @@ public class PreModificarClienteServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-   
+        Cliente cliente = clienteService.EncontrarClientePorNick((Cliente) request.getSession().getAttribute("cliente"));
+        request.setAttribute("cliente", cliente);
         request.getRequestDispatcher("View/modificar.jsp").forward(request, response);
     }
 
