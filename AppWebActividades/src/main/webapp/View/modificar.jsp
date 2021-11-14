@@ -46,7 +46,7 @@
                         <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="${cliente.getNick()}" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                    <p>${NickMsg}</p>
+                    <p style="color: red">${NickMsg}</p>
                     <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
                 </div>
                 <div class="formulario__grupo" id="grupo__correo">
@@ -55,7 +55,7 @@
                         <input type="email" class="formulario__input" name="correo" id="correo" placeholder="${cliente.getEmail()}" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                    <p>${EmailMsg}</p>
+                    <p style="color: red">${EmailMsg}</p>
                     <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
                 </div>
 
@@ -83,7 +83,7 @@
                         <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="${cliente.getTelefono()}" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                    <p>${TlfMsg}</p>
+                    <p style="color: red">${TlfMsg}</p>
                     <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
                 </div>
                 <div class="formulario__grupo formulario__grupo-btn-enviar">

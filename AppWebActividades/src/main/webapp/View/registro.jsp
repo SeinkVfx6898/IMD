@@ -25,7 +25,7 @@
                         <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="AguRM98" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                    <p>${NickMsg}</p>
+                    <p style="color: red">${NickMsg}</p>
                     <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
                 </div>
                 <div class="formulario__grupo" id="grupo__nombre">
