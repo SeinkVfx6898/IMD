@@ -8,7 +8,6 @@ package com.arelance.empresa.imd.controller;
 import com.arelance.empresa.imd.domain.Cliente;
 import com.arelance.empresa.servicios.ClienteService;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -55,9 +54,21 @@ public class PostModificarClienteServlet extends HttpServlet {
             cliente.setEmail(email);
             cliente.setPassword(password);
             cliente.setTelefono(telefono);
-            clienteService.ModificarCliente(cliente); 
-            request.getSession().invalidate();
-            request.getRequestDispatcher("PreIndexServlet").forward(request, response);
+
+            if (clienteService.EncontrarClientePorNick(cliente) != null) {
+                request.setAttribute("NickMsg", "Este nick ya existe.");
+                request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+            } else if (clienteService.EncontrarClientePorTelefono(cliente) != null) {
+                request.setAttribute("TlfMsg", "Este teléfono ya existe.");
+                request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+            } else if (clienteService.EncontrarClientePorEmail(cliente) != null) {
+                request.setAttribute("EmailMsg", "Este email ya existe.");
+                request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+            } else {
+                clienteService.ModificarCliente(cliente);
+                request.getSession().invalidate();
+                request.getRequestDispatcher("PreIndexServlet").forward(request, response);
+            }
         }
     }
 
