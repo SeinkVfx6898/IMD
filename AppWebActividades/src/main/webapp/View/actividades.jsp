@@ -13,6 +13,7 @@
     <head>
         <%@include file = "../JSPF/meta.jspf"%>
         <%@include file = "../JSPF/actividades.jspf"%>
+                <%@include file = "../JSPF/login.jspf"%>
         <title>Actividades_Inscrito</title>
     </head>
     <body> 
@@ -27,9 +28,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="PreModificarClienteServlet">Modificar</a>
                     </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="PreDeleteClienteServlet">Eliminar cuenta</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="CierreSesion">Cerrar sesion</a>
                     </li>          
@@ -37,7 +35,7 @@
             </nav>
             <h3>Bienvenido a tu perfil<br> con las actividades a las que se a apuntado:</h3>
         </header>
-        <ul id="myUL">
+        
             <h4>Inscripcion por tarjeta</h4>
             <table class="table table-striped">
                 <thead>
@@ -84,9 +82,14 @@
                         <td style="text-align:center;">
                             <a href="PreDeleteActividadTransfeServlet?idActividad=<%= actividad.getIdActividad()%>" class="btn btn-danger" role="button">Eliminar</a>
                         </td>
-                    </tr>   
+                    </tr>  
+                </tbody>
+            </table>
+                
                     <%
                         }
                     %>
-                    </ul>
+            
+                    <a style="margin-left: 10px;" href="PreDeleteClienteServlet" class="btn btn-danger" role="button">Eliminar cuenta</a>  
+
                     </html>
