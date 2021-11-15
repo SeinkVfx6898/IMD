@@ -27,7 +27,7 @@
                 <div class="formulario__grupo" id="grupo__nombre">
                     <label for="nombre" class="formulario__label">Nombre</label>
                     <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="${cliente.getNombre()}" required>
+                        <input type="text" class="formulario__input" name="nombre" id="nombre" value="${cliente.getNombre()}" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
@@ -35,7 +35,7 @@
                 <div class="formulario__grupo" id="grupo__apellido">
                     <label for="nombre" class="formulario__label">Apellido</label>
                     <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="apellido" id="apellido" placeholder="${cliente.getApellido()}" required>
+                        <input type="text" class="formulario__input" name="apellido" id="apellido" value="${cliente.getApellido()}" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">El apellido tiene que ser de 4 a 16 dígitos y solo puede contener letras.</p>
@@ -43,7 +43,7 @@
                 <div class="formulario__grupo" id="grupo__usuario">
                     <label for="usuario" class="formulario__label">Nick:</label>
                     <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="${cliente.getNick()}" required>
+                        <input type="text" class="formulario__input" name="usuario" id="usuario" value="${cliente.getNick()}" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p>${NickMsg}</p>
@@ -52,7 +52,7 @@
                 <div class="formulario__grupo" id="grupo__correo">
                     <label for="correo" class="formulario__label">Correo Electrónico</label>
                     <div class="formulario__grupo-input">
-                        <input type="email" class="formulario__input" name="correo" id="correo" placeholder="${cliente.getEmail()}" required>
+                        <input type="email" class="formulario__input" name="correo" id="correo" value="${cliente.getEmail()}" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p>${EmailMsg}</p>
@@ -62,7 +62,7 @@
                 <div class="formulario__grupo" id="grupo__password">
                     <label for="password" class="formulario__label">Contraseña</label>
                     <div class="formulario__grupo-input">
-                        <input type="password" class="formulario__input" name="password" id="password" required>
+                        <input type="password" class="formulario__input" name="password" id="password" value="${cliente.getPassword()}" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
@@ -70,7 +70,7 @@
                 <div class="formulario__grupo" id="grupo__password2">
                     <label for="password2" class="formulario__label">Repetir Contraseña</label>
                     <div class="formulario__grupo-input">
-                        <input type="password" class="formulario__input" name="password2" id="password2" required>
+                        <input type="password" class="formulario__input" name="password2" id="password2" required value="${cliente.getPassword()}">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
@@ -80,7 +80,7 @@
                 <div class="formulario__grupo" id="grupo__telefono">
                     <label for="telefono" class="formulario__label">Teléfono</label>
                     <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="${cliente.getTelefono()}" required>
+                        <input type="text" class="formulario__input" name="telefono" id="telefono" value="${cliente.getTelefono()}" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p>${TlfMsg}</p>

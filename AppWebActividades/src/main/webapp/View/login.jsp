@@ -22,7 +22,7 @@
             <div class="formulario__grupo" id="grupo__usuario">
                 <label for="usuario" class="formulario__label">Nick:</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="AguRM98" maxlength="16" required>
+                    <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="Introduzca su nick..." maxlength="16" required>
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p style="color: red">${NickMsg}</p>
@@ -31,7 +31,7 @@
             <div class="formulario__grupo" id="grupo__password">
                 <label for="password" class="formulario__label">Contraseña</label>
                 <div class="formulario__grupo-input">
-                    <input type="password" class="formulario__input" name="password" id="password" placeholder="1234" maxlength="12" required>
+                    <input type="password" class="formulario__input" name="password" id="password" placeholder="Introduzca su contraseña..." maxlength="12" required>
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p style="color: red">${PassMsg}</p>
