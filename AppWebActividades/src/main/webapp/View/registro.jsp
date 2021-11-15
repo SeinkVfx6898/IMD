@@ -20,7 +20,7 @@
                 <div class="formulario__grupo" id="grupo__usuario">
                     <label for="usuario" class="formulario__label">Nick:</label>
                     <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="AguRM98" required>
+                        <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="Introduce un nick..." required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p style="color: red">${NickMsg}</p>
@@ -29,7 +29,7 @@
                 <div class="formulario__grupo" id="grupo__nombre">
                     <label for="nombre" class="formulario__label">Nombre</label>
                     <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Agustín" required>
+                        <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Introduzca su nombre..." required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p style="color: red">${NomMsg}</p>
@@ -38,7 +38,7 @@
                 <div class="formulario__grupo" id="grupo__apellido">
                     <label for="nombre" class="formulario__label">Apellido</label>
                     <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="apellido" id="apellido" placeholder="Morillo" required>
+                        <input type="text" class="formulario__input" name="apellido" id="apellido" placeholder="Introduzca su apellido..." required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p style="color: red">${ApeMsg}</p>
@@ -47,7 +47,7 @@
                 <div class="formulario__grupo" id="grupo__password">
                     <label for="password" class="formulario__label">Contraseña</label>
                     <div class="formulario__grupo-input">
-                        <input type="password" class="formulario__input" name="password" id="password" placeholder="1234" required>
+                        <input type="password" class="formulario__input" name="password" id="password" placeholder="Introduzca su contraseña..." required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <P style="color: red">${passMsg}</P>
@@ -56,7 +56,7 @@
                 <div class="formulario__grupo" id="grupo__password2">
                     <label for="password2" class="formulario__label">Repetir Contraseña</label>
                     <div class="formulario__grupo-input">
-                        <input type="password" class="formulario__input" name="password2" placeholder="1234" id="password2" required>
+                        <input type="password" class="formulario__input" name="password2" placeholder="Repetir la contraseña..." id="password2" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <P style="color: red">${passMsg2}</P>
@@ -65,7 +65,7 @@
                 <div class="formulario__grupo" id="grupo__correo">
                     <label for="correo" class="formulario__label">Correo Electrónico</label>
                     <div class="formulario__grupo-input">
-                        <input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com" required>
+                        <input type="email" class="formulario__input" name="correo" id="correo" placeholder="Introduzca su correo..." required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p style="color: red">${EmailMsg}</p>
@@ -74,10 +74,10 @@
                 <div class="formulario__grupo" id="grupo__telefono">
                     <label for="telefono" class="formulario__label">Teléfono</label>
                     <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="744639104" required>
+                        <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="Introduzca su numero de telefono..." required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                       <p style="color: red">${TlfMsg}</p>
+                    <p style="color: red">${TlfMsg}</p>
                     <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
                 </div>
                 <div class="formulario__grupo formulario__grupo-btn-enviar">
