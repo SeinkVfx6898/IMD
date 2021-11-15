@@ -12,7 +12,7 @@
         <%@include file = "../JSPF/meta.jspf"%>
         <title>Modificar</title>
         <%@include file = "../JSPF/datospersonales.jspf"%>
-        <link rel="stylesheet" href="http://localhost:8080/AppWebActividades/CSS/estilos.css">
+        <link rel="stylesheet" href="../CSS/estilos.css">
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     </head>
     <body>
@@ -22,7 +22,7 @@
         <main>
             <h3>Cada día numerosos grupos de personas disfrutan de nuestras actividades.<br>
                 ¡Forma parte de nosotros para disfrutar también!</h3>
-            <form action="http://localhost:8080/AppWebActividades/PreConfirmacionModificar" class="formulario" id="formulario" method="GET">           
+            <form action="PreConfirmacionModificar" class="formulario" id="formulario" method="GET">           
                 <input type="hidden" name="id" value="${cliente.getIdCliente()}">
                 <div class="formulario__grupo" id="grupo__nombre">
                     <label for="nombre" class="formulario__label">Nombre</label>
@@ -89,12 +89,12 @@
                 <div class="formulario__grupo formulario__grupo-btn-enviar">
                     <input type="submit" class="btn btn-info" value="Modificar" name="action">
                     <input type="reset" value="Limpiar" class="btn btn-info">
-                    <a href="http://localhost:8080/AppWebActividades/PreActividadInscritoServlet" class="btn btn-info"role="button">Volver</a>
+                    <a href="PreActividadInscritoServlet" class="btn btn-info"role="button">Volver</a>
                 </div>
             </form>
         </main>
         <br>
-        <script src="http://localhost:8080/AppWebActividades/JS/formulario.js"></script>
+        <script src="../JS/formulario.js"></script>
         <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     </body>
 </html>

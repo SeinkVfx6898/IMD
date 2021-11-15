@@ -12,7 +12,8 @@
         <%@include file = "../JSPF/meta.jspf"%>
         <%@include file = "../JSPF/inscripcion.jspf"%>
         <%@include file = "../JSPF/login.jspf"%>
-
+        <link rel="stylesheet" href="../CSS/main.css">
+        <link rel="stylesheet" href="../CSS/formulario.css">
         <title>Inscripción</title>
     </head>
     <body> 
@@ -69,8 +70,8 @@
         <a href="PreIndexServlet" class="btn btn-info"role="button">Volver</a>
         <% if (request.getSession().getAttribute("cliente") != null) { %>
         <p>Selecciona un método de pago:</p>
-        <button id="btnTarjeta" class="btn btn-warning" onclick="habilitar(tarjeta,transferencia);">Tarjeta</button>
-        <button id="btnTransferencia" class="btn btn-warning" onclick="habilitar(transferencia,tarjeta);">Transferencia</button>
+        <button id="btnTarjeta" class="btn btn-warning" onclick="habilitar(tarjeta, transferencia);">Tarjeta</button>
+        <button id="btnTransferencia" class="btn btn-warning" onclick="habilitar(transferencia, tarjeta);">Transferencia</button>
         <form action="PostPagoTarjeta" method="GET" id="tarjeta" style="display: none">
             <fieldset>
                 <legend>Pago por tarjeta:</legend>
@@ -83,7 +84,7 @@
                 <input type="hidden" class="form-control" id="id_actividad" name="id_actividad" value="${actividad.getIdActividad()}">
                 <input type="submit" class="btn btn-info"name="action"value="Continuar">
                 <input type="reset"class="btn btn-info"name="action"value="Limpiar">
-            
+
             </fieldset>
         </form>
         <form action="PostPagoTransferencia" method="GET" id="transferencia" style="display: none">
@@ -95,9 +96,9 @@
             <input type="hidden" class="form-control" id="id_actividad" name="id_actividad" value="${actividad.getIdActividad()}">
             <input type="submit" class="btn btn-info"name="action"value="Continuar">
             <input type="reset"class="btn btn-info"name="action"value="Limpiar">
-        </fieldset>
-    </form>
-</div>
-<% }%>
+            </fieldset>
+        </form>
+    </div>
+    <% }%>
 </body>
 </html>

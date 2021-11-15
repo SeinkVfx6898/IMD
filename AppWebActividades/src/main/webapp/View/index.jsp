@@ -10,6 +10,7 @@
     <head>
         <%@include file = "../JSPF/meta.jspf"%>
         <title>Página principal</title>
+        <link rel="stylesheet" href="../CSS/main.css">
         <%@include file = "../JSPF/index.jspf"%>
     </head>
     <body>

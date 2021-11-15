@@ -12,13 +12,14 @@
         <%@include file = "../JSPF/meta.jspf"%>
         <title>Login</title>
         <%@include file = "../JSPF/login.jspf"%>
-        <link rel="stylesheet" href="http://localhost:8080/AppWebActividades/CSS/estilos.css">
+        <link rel="stylesheet" href="../CSS/estilos.css">
+        <link rel="stylesheet" href="../CSS/formulario.css">
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     </head>
     <main>
         <h3>Cada día numerosos grupos de personas disfrutan de nuestras actividades.<br>
             ¡Forma parte de nosotros para disfrutar también!</h3>
-        <form action="http://localhost:8080/AppWebActividades/PostLoginServlet" class="formulario" id="formulario" method="GET">           
+        <form action="PostLoginServlet" class="formulario" id="formulario" method="GET">           
             <div class="formulario__grupo" id="grupo__usuario">
                 <label for="usuario" class="formulario__label">Nick:</label>
                 <div class="formulario__grupo-input">
@@ -40,12 +41,12 @@
             <div class="formulario__grupo formulario__grupo-btn-enviar">
                 <input type="submit" class="btn btn-info" value="Acceder" name="action">
                 <input type="reset" value="Limpiar" class="btn btn-info">
-                <a href="http://localhost:8080/AppWebActividades/PreIndexServlet" class="btn btn-info"role="button">Volver</a>
+                <a href="PreIndexServlet" class="btn btn-info"role="button">Volver</a>
             </div>
         </form>
     </main>
     <br>
-    <script src="http://localhost:8080/AppWebActividades/JS/formulario.js"></script>
+    <script src="../JS/formulario.js"></script>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </body>
 </html>
