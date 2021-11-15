@@ -12,8 +12,6 @@
         <%@include file = "../JSPF/meta.jspf"%>
         <%@include file = "../JSPF/inscripcion.jspf"%>
         <%@include file = "../JSPF/login.jspf"%>
-        <link rel="stylesheet" href="../CSS/main.css">
-        <link rel="stylesheet" href="../CSS/formulario.css">
         <title>Inscripción</title>
     </head>
     <body> 

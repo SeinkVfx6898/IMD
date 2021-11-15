@@ -12,8 +12,6 @@
         <%@include file = "../JSPF/meta.jspf"%>
         <title>Modificar</title>
         <%@include file = "../JSPF/datospersonales.jspf"%>
-        <link rel="stylesheet" href="../CSS/estilos.css">
-        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     </head>
     <body>
         <%
@@ -94,7 +92,7 @@
             </form>
         </main>
         <br>
-        <script src="../JS/formulario.js"></script>
+        <script src="/AppWebActividades/JS/formulario.js"></script>
         <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     </body>
 </html>
