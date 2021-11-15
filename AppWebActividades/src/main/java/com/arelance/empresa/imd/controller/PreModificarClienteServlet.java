@@ -38,7 +38,8 @@ public class PreModificarClienteServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-   
+        Cliente cliente = clienteService.EncontrarClientePorNick((Cliente) request.getSession().getAttribute("cliente"));
+        request.setAttribute("cliente", cliente);
         request.getRequestDispatcher("View/modificar.jsp").forward(request, response);
     }
 

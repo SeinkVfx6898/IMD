@@ -27,9 +27,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="PreModificarClienteServlet">Modificar</a>
                     </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="PreDeleteClienteServlet">Eliminar cuenta</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="CierreSesion">Cerrar sesion</a>
                     </li>          
@@ -88,5 +85,9 @@
                     <%
                         }
                     %>
-                    </ul>
-                    </html>
+                </tbody>
+            </table>
+        </ul>
+        <a style="margin-left: 10px;" href="PreDeleteClienteServlet" class="btn btn-danger" role="button">Eliminar cuenta</a>
+
+</html>
