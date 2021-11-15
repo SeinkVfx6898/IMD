@@ -11,6 +11,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import com.arelance.empresa.imd.dao.ActividadDAO;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 /**
@@ -27,10 +28,11 @@ public class ActividadDAOImpl implements ActividadDAO {
     public List<Actividad> ListarActividades() {
         return em.createNamedQuery("Actividad.findAll").getResultList();
     }
-       @Override
+
+    @Override
     public List<Actividad> ListarActividades(String filtro) {
-        Query query=em.createQuery("SELECT a FROM Actividad a WHERE a.nombre LIKE :filtro");
-        query.setParameter("filtro", "%"+filtro+"%");
+        Query query = em.createQuery("SELECT a FROM Actividad a WHERE a.nombre LIKE :filtro");
+        query.setParameter("filtro", "%" + filtro + "%");
         return query.getResultList();
     }
 
@@ -52,7 +54,7 @@ public class ActividadDAOImpl implements ActividadDAO {
     @Override
     public void RemoverActividad(Actividad actividad) {
         em.remove(em.merge(actividad));
-        
+
     }
 
     @Override
@@ -76,6 +78,31 @@ public class ActividadDAOImpl implements ActividadDAO {
                 + "on a.id_actividad = inscripciontransferencia.id_actividad inner join cliente "
                 + "on inscripciontransferencia.id_cliente = cliente.id_cliente where cliente.id_cliente = " + id_cliente;
         return em.createNativeQuery(sql, Actividad.class).getResultList();
+    }
+
+    @Override
+    public Actividad InscritoActividadTarjeta(int id_cliente, int id_actividad) {
+        try {
+            String sql = "select a.id_actividad from actividad a inner join inscripciontarjeta "
+                    + "on a.id_actividad = inscripciontarjeta.id_actividad inner join cliente "
+                    + "on inscripciontarjeta.id_cliente = cliente.id_cliente where cliente.id_cliente = " + id_cliente + " and inscripciontarjeta.id_actividad = " + id_actividad;
+            return (Actividad) em.createNativeQuery(sql, Actividad.class).getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+
+    }
+
+    @Override
+    public Actividad InscritoActividadTransferencia(int id_cliente, int id_actividad) {
+        try {
+            String sql = "select a.id_actividad from actividad a inner join  inscripciontransferencia "
+                    + "on a.id_actividad = inscripciontransferencia.id_actividad inner join cliente "
+                    + "on inscripciontransferencia.id_cliente = cliente.id_cliente where cliente.id_cliente = " + id_cliente + " and inscripciontransferencia.id_actividad = " + id_actividad;
+            return (Actividad) em.createNativeQuery(sql, Actividad.class).getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
 }

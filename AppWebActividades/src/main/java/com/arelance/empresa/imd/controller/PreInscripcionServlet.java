@@ -6,7 +6,9 @@
 package com.arelance.empresa.imd.controller;
 
 import com.arelance.empresa.imd.domain.Actividad;
+import com.arelance.empresa.imd.domain.Cliente;
 import com.arelance.empresa.servicios.ActividadService;
+import com.arelance.empresa.servicios.ClienteService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.inject.Inject;
@@ -35,11 +37,19 @@ public class PreInscripcionServlet extends HttpServlet {
     @Inject
     private ActividadService actividadService;
 
+    @Inject
+    private ClienteService clienteService;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int idActividad = Integer.parseInt(request.getParameter("idActividad"));
         Actividad actividad = actividadService.EncontrarActividadPorID(idActividad);
         request.setAttribute("actividad", actividad);
+        Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
+        Actividad actividadesTarjeta = actividadService.InscritoActividadTarjeta(cliente.getIdCliente(), idActividad);
+        Actividad actividadesTransferencia = actividadService.InscritoActividadTransferencia(cliente.getIdCliente(), idActividad);
+        request.setAttribute("listaTarjeta", actividadesTarjeta);
+        request.setAttribute("listaTransferencia", actividadesTransferencia);
         request.getRequestDispatcher("View/inscripcion.jsp").forward(request, response);
 
     }

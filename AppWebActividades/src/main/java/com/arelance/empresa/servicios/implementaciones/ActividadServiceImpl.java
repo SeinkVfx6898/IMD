@@ -65,4 +65,14 @@ public class ActividadServiceImpl implements ActividadService {
         return actividadDAO.ListarActividades(filtro);
     }
 
+    @Override
+    public Actividad InscritoActividadTarjeta(int id_cliente, int id_actividad) {
+        return actividadDAO.InscritoActividadTarjeta(id_cliente, id_actividad);
+    }
+
+    @Override
+    public Actividad InscritoActividadTransferencia(int id_cliente, int id_actividad) {
+        return actividadDAO.InscritoActividadTransferencia(id_cliente, id_actividad);
+    }
+
 }

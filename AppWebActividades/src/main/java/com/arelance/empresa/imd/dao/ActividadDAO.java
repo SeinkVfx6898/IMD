@@ -33,5 +33,9 @@ public interface ActividadDAO {
     public List<Actividad> ListaActividadesClienteTarjeta(int id_cliente);//Obtener las actividades que esta apuntado un usuario
 
     public List<Actividad> ListaActividadesClienteTransferencia(int id_cliente);//Obtener las actividades que esta apuntado un usuario
+    
+    public Actividad InscritoActividadTarjeta(int id_cliente, int id_actividad);//Obtener si el usuario esta apuntado a una actividad por tarjeta
+    
+    public Actividad InscritoActividadTransferencia(int id_cliente, int id_actividad);//Obtener si el usuario esta apuntado a una actividad por transferencia
 
 }

@@ -4,6 +4,7 @@
     Author     : lenovo
 --%>
 
+<%@page import="com.arelance.empresa.imd.domain.Actividad"%>
 <%@page import="com.arelance.empresa.imd.domain.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -66,7 +67,9 @@
             </table>
         </div>
         <a href="PreIndexServlet" class="btn btn-info"role="button">Volver</a>
-        <% if (request.getSession().getAttribute("cliente") != null) { %>
+        <% if (request.getSession().getAttribute("cliente") != null
+                    && (Actividad) request.getAttribute("listaTarjeta") != null
+                    && (Actividad) request.getAttribute("listaTransferencia") != null) { %>
         <p>Selecciona un método de pago:</p>
         <button id="btnTarjeta" class="btn btn-warning" onclick="habilitar(tarjeta, transferencia);">Tarjeta</button>
         <button id="btnTransferencia" class="btn btn-warning" onclick="habilitar(transferencia, tarjeta);">Transferencia</button>
@@ -96,7 +99,9 @@
             <input type="reset"class="btn btn-info"name="action"value="Limpiar">
             </fieldset>
         </form>
-    </div>
-    <% }%>
-</body>
+        <%} else {%>
+        <p>Ya estas inscrito</p>   
+        <%    }
+        %>
+    </body>
 </html>
