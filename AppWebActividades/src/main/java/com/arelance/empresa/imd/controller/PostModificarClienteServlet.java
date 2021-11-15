@@ -57,13 +57,13 @@ public class PostModificarClienteServlet extends HttpServlet {
 
             if (clienteService.EncontrarClientePorNick(cliente) != null) {
                 request.setAttribute("NickMsg", "Este nick ya existe.");
-                request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+                request.getRequestDispatcher("View/modificar.jsp").forward(request, response);
             } else if (clienteService.EncontrarClientePorTelefono(cliente) != null) {
                 request.setAttribute("TlfMsg", "Este teléfono ya existe.");
-                request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+                request.getRequestDispatcher("View/modificar.jsp").forward(request, response);
             } else if (clienteService.EncontrarClientePorEmail(cliente) != null) {
                 request.setAttribute("EmailMsg", "Este email ya existe.");
-                request.getRequestDispatcher("View/registro.jsp").forward(request, response);
+                request.getRequestDispatcher("View/modificar.jsp").forward(request, response);
             } else {
                 clienteService.ModificarCliente(cliente);
                 request.getSession().invalidate();
