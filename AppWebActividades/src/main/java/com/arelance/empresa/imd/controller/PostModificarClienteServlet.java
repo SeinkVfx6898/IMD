@@ -37,6 +37,7 @@ public class PostModificarClienteServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        int id = Integer.parseInt(request.getParameter("id"));
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String nick = request.getParameter("nick");
@@ -47,7 +48,8 @@ public class PostModificarClienteServlet extends HttpServlet {
         if (action.equals("No")) {
             request.getRequestDispatcher("PreActividadInscritoServlet").forward(request, response);
         } else if (action.equals("Si")) {
-            Cliente cliente = clienteService.SacarID((Cliente) request.getSession().getAttribute("cliente"));
+            Cliente cliente = new Cliente();
+            cliente.setIdCliente(id);
             cliente.setNombre(nombre);
             cliente.setApellido(apellido);
             cliente.setNick(nick);
