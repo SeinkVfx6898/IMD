@@ -18,7 +18,7 @@
         <%
             Actividad actividad = (Actividad) request.getAttribute("actividad");
         %>
-        <form action="PostDeleteActividadServlet" method="GET">
+        <form action="ComprobadorSerlet" method="GET">
             <p>¿Estas seguro que quieres dejar de asistir a <%= actividad.getNombre()%>?</p>
             <input class="btn btn-warning" type="submit"name="action"value="Si">
             <input class="btn btn-danger" type="submit"name="action"value="No">

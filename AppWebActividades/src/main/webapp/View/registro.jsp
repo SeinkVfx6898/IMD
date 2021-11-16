@@ -43,6 +43,15 @@
                     </div>
                     <p style="color: red">${ApeMsg}</p>
                     <p class="formulario__input-error">El apellido tiene que ser de 4 a 16 dígitos y solo puede contener letras.</p>
+                </div> 
+                <div class="formulario__grupo" id="grupo__correo">
+                    <label for="correo" class="formulario__label">Correo Electrónico</label>
+                    <div class="formulario__grupo-input">
+                        <input type="email" class="formulario__input" name="correo" id="correo" placeholder="Introduzca su correo..." required>
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p style="color: red">${EmailMsg}</p>
+                    <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
                 </div>
                 <div class="formulario__grupo" id="grupo__password">
                     <label for="password" class="formulario__label">Contraseña</label>
@@ -61,15 +70,6 @@
                     </div>
                     <P style="color: red">${passMsg2}</P>
                     <p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
-                </div>
-                <div class="formulario__grupo" id="grupo__correo">
-                    <label for="correo" class="formulario__label">Correo Electrónico</label>
-                    <div class="formulario__grupo-input">
-                        <input type="email" class="formulario__input" name="correo" id="correo" placeholder="Introduzca su correo..." required>
-                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                    </div>
-                    <p style="color: red">${EmailMsg}</p>
-                    <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
                 </div>
                 <div class="formulario__grupo" id="grupo__telefono">
                     <label for="telefono" class="formulario__label">Teléfono</label>
